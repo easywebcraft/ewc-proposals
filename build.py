@@ -19,7 +19,9 @@ import sys
 
 # 業種ごとの色と言い回し。型はここだけ変えれば増やせる。
 INDUSTRY = {
-    "kensetsu": {"label": "建設・住宅", "navy": "#1f3a5f", "navy_d": "#16293f", "accent": "#a8632f",
+    "kensetsu": {"label": "建設・住宅", "layout": "modern",
+                 "navy": "#1f3a5f", "navy_d": "#16293f", "accent": "#1f7a4d",
+                 "ground": "#f3f1ea", "ink2": "#2f3a33",
                  "svc": "できること", "svc_lead": "住まいの小さな修繕から、大きな工事まで。",
                  "flow_h": "ご相談から完成まで",
                  "flow": [("ご相談・現地の確認", "お電話をいただいたあと、現地を拝見します。費用はかかりません。"),
@@ -182,6 +184,10 @@ def e(x):
 
 def render(sid, d):
     ind = INDUSTRY[d["industry"]]
+    # 建設系は別の型（modern）。参考サイトから抜き出した作りは modern.py 側に置く。
+    if ind.get("layout") == "modern":
+        import modern
+        return modern.render(sid, d, ind)
     tel = d.get("tel", "")
     tel_link = tel.replace("-", "")
     name = d["name"]

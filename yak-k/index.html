@@ -8,101 +8,156 @@
 <title>【提案見本】吉田建設株式会社さま トップページ案｜EasyWebCraft</title>
 <style>
 :root{
-  --ink:#232a33; --muted:#6b7480; --line:#e3e6ea; --line-s:#f2f4f6;
-  --navy:#1f3a5f; --navy-d:#16293f; --clay:#a8632f;
-  --bg:#fff; --panel:#f7f8fa;
+  --ground:#f3f1ea; --ink:#2f3a33; --muted:#7c8580; --line:#ddd9cf;
+  --accent:#1f7a4d; --accent-d:#155c39; --paper:#fff;
   --serif:"Noto Serif JP","游明朝体","Yu Mincho",YuMincho,"ヒラギノ明朝 ProN W3",serif;
   --sans:-apple-system,BlinkMacSystemFont,"Yu Gothic",Meiryo,
          "Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);
-     line-height:1.9;-webkit-text-size-adjust:100%}
-img{max-width:100%;display:block}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--ground);
+     line-height:1.9;-webkit-text-size-adjust:100%;overflow-x:hidden}
 a{color:inherit}
-.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-.notice{position:sticky;top:0;z-index:50;background:var(--clay);color:#fff;
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* 見本であることの明示。閉じられない。 */
+.notice{position:relative;z-index:60;background:var(--accent);color:#fff;
         font-size:13px;line-height:1.6;padding:9px 16px;text-align:center}
 .notice b{font-weight:700}
-.notice span{display:block;opacity:.9;font-size:12px}
-header{position:sticky;top:0;background:rgba(255,255,255,.94);
-       backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:40}
-.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;height:62px}
-.logo{font-family:var(--serif);font-size:19px;letter-spacing:.06em;font-weight:600}
-.logo small{display:block;font-family:var(--sans);font-size:10px;
-            letter-spacing:.18em;color:var(--muted);font-weight:400}
-nav{display:none;gap:26px;font-size:14px}
+.notice span{display:block;opacity:.92;font-size:12px}
+
+/* 浮いた角丸ヘッダー（SUZUKI の型） */
+.hdwrap{position:sticky;top:10px;z-index:50;padding:10px 12px 0}
+header{max-width:1160px;margin:0 auto;background:rgba(255,255,255,.92);
+       backdrop-filter:blur(8px);border-radius:999px;
+       box-shadow:0 2px 18px rgba(40,50,45,.10);padding:0 10px 0 20px}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;height:58px}
+.logo{font-family:var(--serif);font-size:17px;letter-spacing:.08em;font-weight:600;
+      line-height:1.25;white-space:nowrap}
+.logo small{display:block;font-family:var(--sans);font-size:9.5px;
+            letter-spacing:.16em;color:var(--muted);font-weight:400}
+nav{display:none;gap:22px;font-size:13.5px;letter-spacing:.06em}
 nav a{text-decoration:none;color:var(--muted)}
-nav a:hover{color:var(--navy)}
-.tel{display:inline-flex;flex-direction:column;align-items:flex-end;
-     text-decoration:none;line-height:1.3}
-.tel b{font-size:17px;color:var(--navy);letter-spacing:.02em}
-.tel small{font-size:10px;color:var(--muted)}
-.hero{position:relative;background:
-      linear-gradient(135deg,var(--navy) 0%,var(--navy-d) 62%,#0f1f30 100%);
-      color:#fff;overflow:hidden}
-.hero::after{content:"";position:absolute;inset:auto -10% -40% 40%;height:70%;
-             background:radial-gradient(closest-side,rgba(0,0,0,.25),transparent);
-             pointer-events:none}
-.hero .wrap{position:relative;padding:64px 20px 56px}
-.hero .eyebrow{font-size:12px;letter-spacing:.22em;opacity:.75;margin:0 0 18px}
-.hero h1{font-family:var(--serif);font-weight:500;font-size:31px;line-height:1.55;
-         margin:0 0 20px;letter-spacing:.03em}
-.hero h1 em{font-style:normal;border-bottom:2px solid var(--clay);padding-bottom:2px}
-.hero p{margin:0 0 30px;opacity:.9;font-size:15px;max-width:34em}
-.cta{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-block;padding:15px 26px;border-radius:3px;text-decoration:none;
-     font-size:15px;font-weight:600;letter-spacing:.04em;transition:.2s}
-.btn.p{background:var(--clay);color:#fff}
-.btn.p:hover{filter:brightness(.9)}
-.btn.g{border:1px solid rgba(255,255,255,.5);color:#fff}
-.btn.g:hover{background:rgba(255,255,255,.1)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-       background:var(--line);border-bottom:1px solid var(--line)}
-.stats div{background:#fff;padding:22px 10px;text-align:center}
-.stats b{display:block;font-family:var(--serif);font-size:27px;color:var(--navy);line-height:1.2}
-.stats b small{font-size:13px}
-.stats span{font-size:11px;color:var(--muted);letter-spacing:.06em}
-section{padding:58px 0}
-section.alt{background:var(--panel)}
-h2{font-family:var(--serif);font-weight:500;font-size:24px;letter-spacing:.05em;
-   margin:0 0 8px;text-align:center}
-.lead{text-align:center;color:var(--muted);font-size:14px;margin:0 0 34px}
-.cards{display:grid;gap:16px}
-.card{background:#fff;border:1px solid var(--line);border-radius:4px;padding:24px 22px}
-.card .no{font-family:var(--serif);font-size:12px;color:var(--clay);
-          letter-spacing:.2em;display:block;margin-bottom:8px}
-.card h3{font-size:17px;margin:0 0 10px;letter-spacing:.03em}
-.card p{margin:0;font-size:14px;color:var(--muted)}
-.flow{display:grid;gap:14px;counter-reset:s}
-.step{background:#fff;border:1px solid var(--line);border-radius:4px;
-      padding:20px 22px 20px 62px;position:relative}
-.step::before{counter-increment:s;content:counter(s);position:absolute;left:20px;top:18px;
-              width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;
-              font-size:13px;display:grid;place-items:center;font-family:var(--serif)}
-.step h3{font-size:16px;margin:0 0 6px}
-.step p{margin:0;font-size:13.5px;color:var(--muted)}
+nav a:hover{color:var(--accent)}
+.hd .call{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+          border-radius:999px;padding:11px 20px;font-size:13.5px;font-weight:700;
+          letter-spacing:.06em;white-space:nowrap}
+.hd .call:hover{background:var(--accent-d)}
+
+/* ヒーロー。巨大英字を面として敷き、縦書きの明朝を重ねる。 */
+.hero{position:relative;padding:26px 0 12px;overflow:hidden}
+.hero .big{position:absolute;left:-2%;top:6%;width:104%;
+           font-family:var(--serif);font-weight:400;
+           font-size:clamp(64px,17vw,210px);line-height:.92;letter-spacing:-.01em;
+           color:transparent;-webkit-text-stroke:1px rgba(31,122,77,.20);
+           white-space:nowrap;pointer-events:none;user-select:none}
+/* 線画の地（SUZUKI の型を、街の輪郭ではなく等高線で） */
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:repeating-linear-gradient(115deg,rgba(31,122,77,.055) 0 1px,transparent 1px 42px);}
+.hero .inner{position:relative;display:grid;gap:22px;padding:18px 0 0}
+.vt{writing-mode:horizontal-tb}
+.hero h1{font-family:var(--serif);font-weight:500;margin:0;
+         font-size:clamp(27px,7.4vw,40px);line-height:1.65;letter-spacing:.06em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .sub{margin:16px 0 0;color:var(--muted);font-size:14.5px;max-width:30em}
+.hero .en{margin:10px 0 0;font-size:11px;letter-spacing:.22em;color:var(--muted)}
+.hero .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-block;text-decoration:none;border-radius:999px;
+     padding:14px 26px;font-size:14.5px;font-weight:700;letter-spacing:.05em}
+.btn.p{background:var(--accent);color:#fff}
+.btn.p:hover{background:var(--accent-d)}
+.btn.g{border:1px solid var(--line);background:var(--paper);color:var(--ink)}
+.btn.g:hover{border-color:var(--accent);color:var(--accent)}
+
+/* 写真の枠。ごまかさず「ここに入る」と書く。 */
+.shot{position:relative;background:
+      linear-gradient(135deg,#e9e6dc 0%,#dfe6e0 55%,#e6ece7 100%);
+      border:1px solid var(--line);border-radius:10px;aspect-ratio:4/3;
+      display:grid;place-items:center;text-align:center;overflow:hidden}
+.shot::after{content:"";position:absolute;inset:0;
+  background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.5) 0 2px,transparent 2px 12px)}
+.shot .lb{position:relative;z-index:1;color:#7b857e;font-size:12.5px;letter-spacing:.08em}
+.shot .lb b{display:block;font-family:var(--serif);font-size:15px;color:#5f6b64;
+            margin-bottom:5px;font-weight:500}
+.scroll{display:none;position:absolute;left:50%;bottom:6px;font-size:10px;
+        letter-spacing:.2em;color:var(--muted)}
+
+/* 帯（数字） */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+       margin:26px 0 0}
+.stats div{background:var(--paper);border:1px solid var(--line);border-radius:8px;
+           padding:18px 8px;text-align:center}
+.stats b{display:block;font-family:var(--serif);font-size:25px;color:var(--accent);line-height:1.2}
+.stats b small{font-size:12px}
+.stats span{font-size:10.5px;color:var(--muted);letter-spacing:.06em}
+
+section{padding:60px 0}
+section.alt{background:var(--paper)}
+.sechead{text-align:center;margin-bottom:34px}
+.sechead .en{font-size:10.5px;letter-spacing:.28em;color:var(--accent);display:block;
+             margin-bottom:8px}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(21px,5.4vw,28px);
+   letter-spacing:.07em;margin:0}
+.sechead p{color:var(--muted);font-size:13.5px;margin:10px 0 0}
+
+.cards{display:grid;gap:14px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;
+      padding:24px 22px;position:relative;overflow:hidden}
+section.alt .card{background:var(--ground)}
+.card .no{position:absolute;right:14px;top:8px;font-family:var(--serif);
+          font-size:34px;color:rgba(31,122,77,.10);line-height:1}
+.card h3{font-size:16.5px;margin:0 0 9px;letter-spacing:.04em}
+.card p{margin:0;font-size:13.5px;color:var(--muted)}
+
+.flow{display:grid;gap:12px;counter-reset:s}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:10px;
+      padding:20px 20px 20px 60px;position:relative}
+section.alt .step{background:var(--ground)}
+.step::before{counter-increment:s;content:"0" counter(s);position:absolute;left:18px;top:19px;
+              font-family:var(--serif);font-size:14px;color:var(--accent);letter-spacing:.04em}
+.step h3{font-size:15.5px;margin:0 0 5px}
+.step p{margin:0;font-size:13px;color:var(--muted)}
+
 table.info{width:100%;border-collapse:collapse;font-size:14px}
 table.info th,table.info td{border-bottom:1px solid var(--line);padding:14px 4px;
                             text-align:left;vertical-align:top}
 table.info th{width:7.5em;color:var(--muted);font-weight:500}
-.contact{background:var(--navy);color:#fff;text-align:center;padding:52px 20px}
-.contact h2{color:#fff}
-.contact .lead{color:rgba(255,255,255,.8)}
-.contact .big{font-family:var(--serif);font-size:32px;letter-spacing:.04em;
-              display:inline-block;margin:6px 0 4px;text-decoration:none;color:#fff}
-.contact small{display:block;font-size:12px;opacity:.75;margin-bottom:22px}
-footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
-       padding:26px 20px;text-align:center}
-@media(min-width:768px){
-  .hero .wrap{padding:96px 20px 84px}
-  .hero h1{font-size:42px}
+
+/* 丸いCONTACTバッジ（TATSUSHO の型） */
+.contact{position:relative;background:var(--accent);color:#fff;text-align:center;
+         padding:56px 20px;overflow:hidden}
+.contact::before{content:"";position:absolute;inset:auto -18% -55% 55%;height:90%;
+  border-radius:50%;background:rgba(255,255,255,.06)}
+.contact h2{color:#fff;position:relative}
+.contact p{color:rgba(255,255,255,.85);font-size:13.5px;margin:10px 0 20px;position:relative}
+.contact .big{position:relative;font-family:var(--serif);font-size:clamp(27px,8vw,36px);
+              letter-spacing:.05em;text-decoration:none;color:#fff;display:inline-block}
+.contact small{display:block;font-size:11.5px;opacity:.8;margin:6px 0 20px;position:relative}
+.contact .btn.w{background:#fff;color:var(--accent);position:relative}
+
+footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
+       padding:26px 20px;text-align:center;line-height:1.9}
+
+@media(min-width:900px){
   nav{display:flex}
-  .cards{grid-template-columns:repeat(3,1fr)}
-  .stats b{font-size:32px}
-  h2{font-size:29px}
-  section{padding:78px 0}
+  .hero{padding:34px 0 20px}
+  .hero .inner{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+               align-items:center;gap:46px;padding:34px 0 46px}
+  /* 縦書きの明朝（TATSUSHO の型）。広い画面のときだけ。 */
+  .vt{writing-mode:vertical-rl;text-orientation:upright;
+      max-height:430px;margin-left:auto}
+  .hero h1{line-height:2.0;letter-spacing:.14em}
+  .hero .sub,.hero .en,.hero .acts{writing-mode:horizontal-tb}
+  .hero .side{display:flex;flex-direction:column;align-items:flex-end;gap:0}
+  .hero .textcol{display:flex;gap:26px;justify-content:flex-end}
+  .hero .meta{max-width:19em}
+  .scroll{display:block}
+  .cards{grid-template-columns:repeat(3,1fr);gap:16px}
+  .flow{grid-template-columns:repeat(2,1fr)}
+  section{padding:84px 0}
+  .stats{gap:14px}
+  .stats b{font-size:29px}
 }
 </style>
 </head>
@@ -110,56 +165,66 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 
 <div class="notice">
   <b>これは EasyWebCraft が作成した提案用の見本です。</b>
-  <span>吉田建設株式会社さまの公式サイトではありません。掲載内容は構成をご覧いただくための仮のもので、写真・文章は当社が用意したものです。</span>
+  <span>吉田建設株式会社さまの公式サイトではありません。構成をご覧いただくための仮のもので、写真・文章は当社が用意したものです。</span>
 </div>
 
-<header>
-  <div class="wrap hd">
-    <div class="logo">吉田建設株式会社<small>YOSHIDA KENSETSU ／ 岐阜県可児市</small></div>
-    <nav><a href="#works">できること</a><a href="#flow">ご相談から完成まで</a><a href="#company">概要</a></nav>
-    <a class="tel" href="tel:0574621521"><b>0574-62-1521</b><small>お電話でのご相談</small></a>
-  </div>
-</header>
+<div class="hdwrap">
+  <header><div class="hd">
+    <div class="logo">吉田建設株式会社<small>YOSHIDA KENSETSU</small></div>
+    <nav><a href="#works">できること</a><a href="#flow">ご相談から完成まで</a>
+         <a href="#company">会社概要</a><a href="#contact">お問い合わせ</a></nav>
+    <a class="call" href="tel:0574621521">お電話 0574-62-1521</a>
+  </div></header>
+</div>
 
 <div class="hero">
-  <div class="wrap">
-    <p class="eyebrow">建設・住宅 ／ 創業 1970年</p>
-    <h1>住まいから社寺仏閣まで。<br><em>この土地で、半世紀。</em></h1>
-    <p>新築・増改築、リフォーム、土木・造園、上下水道まで。暮らしと街のことを、ひとつの窓口でご相談いただけます。</p>
-    <div class="cta"><a class="btn p" href="tel:0574621521">電話で相談する</a><a class="btn g" href="#works">できることを見る</a></div>
+  <div class="big">YOSHIDA KENSETSU</div>
+  <div class="wrap inner">
+    <div class="side">
+      <div class="textcol">
+        <div class="meta">
+          <p class="sub">新築・増改築、リフォーム、土木・造園、上下水道まで。暮らしと街のことを、ひとつの窓口でご相談いただけます。</p>
+          <p class="en">YOSHIDA KENSETSU</p>
+          <div class="acts"><a class="btn p" href="tel:0574621521">電話で相談する</a><a class="btn g" href="#works">できることを見る</a></div>
+        </div>
+        <h1 class="vt">住まいから社寺仏閣まで。<br><em>この土地で、半世紀。</em></h1>
+      </div>
+    </div>
+    <div class="shot">
+      <div class="lb"><b>お写真が入ります</b>現場のようす・完成した建物など</div>
+      <span class="scroll">scroll</span>
+    </div>
   </div>
+  <div class="wrap"><div class="stats"><div><b>55<small>年</small></b><span>創業からの年数</span></div><div><b>6<small>分野</small></b><span>対応できる工事</span></div><div><b>可児<small>市</small></b><span>地元での施工</span></div></div></div>
 </div>
-
-<div class="stats"><div><b>55<small>年</small></b><span>創業からの年数</span></div><div><b>6<small>分野</small></b><span>対応できる工事</span></div><div><b>可児<small>市</small></b><span>地元での施工</span></div></div>
 
 <section id="works">
   <div class="wrap">
-    <h2>できること</h2>
-    <p class="lead">住まいの小さな修繕から、大きな工事まで。</p>
+    <div class="sechead"><span class="en">SERVICE</span>
+      <h2>できること</h2><p>住まいの小さな修繕から、大きな工事まで。</p></div>
     <div class="cards"><div class="card"><span class="no">01</span><h3>住宅の新築・増改築</h3><p>ご家族の暮らし方をうかがってから設計します。建てたあとのお付き合いも続きます。</p></div><div class="card"><span class="no">02</span><h3>リフォーム・営繕</h3><p>水まわりの入れ替えから、雨漏りの補修まで。小さな工事もお気軽にどうぞ。</p></div><div class="card"><span class="no">03</span><h3>社寺・仏閣</h3><p>伝統的な造りに携わってきた職人が対応します。改修のご相談も承ります。</p></div><div class="card"><span class="no">04</span><h3>土木・造園</h3><p>造成、外構、庭づくり。敷地全体を見たうえでご提案します。</p></div><div class="card"><span class="no">05</span><h3>店舗・工場</h3><p>事業のご計画に合わせて、工期と費用の見通しを先にお示しします。</p></div><div class="card"><span class="no">06</span><h3>上下水道工事</h3><p>給排水設備の新設・改修。生活に直結する部分だからこそ、丁寧に。</p></div></div>
   </div>
 </section>
 
 <section class="alt" id="flow">
   <div class="wrap">
-    <h2>ご相談から完成まで</h2>
-    <p class="lead">はじめての方にも、順番が分かるように。</p>
+    <div class="sechead"><span class="en">FLOW</span>
+      <h2>ご相談から完成まで</h2><p>はじめての方にも、順番が分かるように。</p></div>
     <div class="flow"><div class="step"><h3>ご相談・現地の確認</h3><p>お電話をいただいたあと、現地を拝見します。費用はかかりません。</p></div><div class="step"><h3>ご提案・お見積り</h3><p>やり方が複数あるときは、費用と工期を並べてお出しします。</p></div><div class="step"><h3>ご契約・着工</h3><p>工程をお渡ししてから始めます。近隣へのご挨拶も当社で行います。</p></div><div class="step"><h3>お引渡し・その後</h3><p>お引渡しのあとも、気になるところが出たらご連絡ください。</p></div></div>
   </div>
 </section>
 
 <section id="company">
   <div class="wrap" style="max-width:720px">
-    <h2>概要</h2>
-    <p class="lead">&nbsp;</p>
+    <div class="sechead"><span class="en">COMPANY</span><h2>会社概要</h2></div>
     <table class="info"><tr><th>商号</th><td>吉田建設株式会社</td></tr><tr><th>所在地</th><td>岐阜県可児市今渡1852</td></tr><tr><th>電話</th><td><a href="tel:0574621521">0574-62-1521</a></td></tr><tr><th>創業</th><td>1970年</td></tr><tr><th>事業内容</th><td>住宅の新築・増改築／リフォーム・営繕／社寺・仏閣／土木・造園／店舗・工場</td></tr></table>
   </div>
 </section>
 
-<div class="contact">
+<div class="contact" id="contact">
   <h2>まずはお電話ください</h2>
-  <p class="lead">「これは直せるのか」だけでも構いません。</p>
-  <a class="big" href="tel:0574621521">0574-62-1521</a><small>受付時間 平日 8:00–17:00</small><div><a class="btn p" href="tel:0574621521">電話をかける</a></div>
+  <p>「これは直せるのか」だけでも構いません。</p>
+  <a class="big" href="tel:0574621521">0574-62-1521</a><small>受付時間 平日 8:00–17:00</small><div><a class="btn w" href="tel:0574621521">電話をかける</a></div>
 </div>
 
 <footer>

@@ -1,15 +1,29 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- ★提案用の見本。検索に載せない。本物と誤認されないための最低条件 -->
-<meta name="robots" content="noindex, nofollow, noarchive">
-<title>【提案見本】株式会社タツケンホームさま トップページ案｜EasyWebCraft</title>
-<style>
+"""建設系の型（modern）。
+
+参考にしたのは、大洋画地・SUZUKI KENSETU・TATSUSHO の
+**書体・配色・余白の取り方・レイアウトの型**。HTML/CSS は自前で書いている。
+3つに共通していたのは次の4点で、それを写真なしで成立させる形に置き換えた。
+
+  1. 巨大な英字を「文字」ではなく「面」として置く（大洋画地・SUZUKI）
+  2. 縦書きの明朝で品位を出す（TATSUSHO）
+  3. 生成りの地に、線画や幾何形を薄く敷く（SUZUKI）
+  4. 浮いた角丸のヘッダー、丸いCONTACTバッジ、scroll の合図（SUZUKI・TATSUSHO）
+
+★写真は使えない（相手の写真を借りられない）。参考3社はいずれも写真が主役
+  なので、そこは「お写真が入ります」と分かる枠として設計する。ごまかすより、
+  提案として何が入るかを示すほうが伝わる。
+"""
+import html as H
+
+
+def e(x):
+    return H.escape(str(x or ""), quote=True)
+
+
+CSS = """
 :root{
-  --ground:#f3f1ea; --ink:#2f3a33; --muted:#7c8580; --line:#ddd9cf;
-  --accent:#1f7a4d; --accent-d:#155c39; --paper:#fff;
+  --ground:%(ground)s; --ink:%(ink2)s; --muted:#7c8580; --line:#ddd9cf;
+  --accent:%(accent)s; --accent-d:#155c39; --paper:#fff;
   --serif:"Noto Serif JP","游明朝体","Yu Mincho",YuMincho,"ヒラギノ明朝 ProN W3",serif;
   --sans:-apple-system,BlinkMacSystemFont,"Yu Gothic",Meiryo,
          "Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
@@ -17,7 +31,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--ground);
-     line-height:1.9;-webkit-text-size-adjust:100%;overflow-x:hidden}
+     line-height:1.9;-webkit-text-size-adjust:100%%;overflow-x:hidden}
 a{color:inherit}
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
@@ -47,7 +61,7 @@ nav a:hover{color:var(--accent)}
 
 /* ヒーロー。巨大英字を面として敷き、縦書きの明朝を重ねる。 */
 .hero{position:relative;padding:26px 0 12px;overflow:hidden}
-.hero .big{position:absolute;left:-2%;top:6%;width:104%;
+.hero .big{position:absolute;left:-2%%;top:6%%;width:104%%;
            font-family:var(--serif);font-weight:400;
            font-size:clamp(64px,17vw,210px);line-height:.92;letter-spacing:-.01em;
            color:transparent;-webkit-text-stroke:1px rgba(31,122,77,.20);
@@ -72,7 +86,7 @@ nav a:hover{color:var(--accent)}
 
 /* 写真の枠。ごまかさず「ここに入る」と書く。 */
 .shot{position:relative;background:
-      linear-gradient(135deg,#e9e6dc 0%,#dfe6e0 55%,#e6ece7 100%);
+      linear-gradient(135deg,#e9e6dc 0%%,#dfe6e0 55%%,#e6ece7 100%%);
       border:1px solid var(--line);border-radius:10px;aspect-ratio:4/3;
       display:grid;place-items:center;text-align:center;overflow:hidden}
 .shot::after{content:"";position:absolute;inset:0;
@@ -80,7 +94,7 @@ nav a:hover{color:var(--accent)}
 .shot .lb{position:relative;z-index:1;color:#7b857e;font-size:12.5px;letter-spacing:.08em}
 .shot .lb b{display:block;font-family:var(--serif);font-size:15px;color:#5f6b64;
             margin-bottom:5px;font-weight:500}
-.scroll{display:none;position:absolute;left:50%;bottom:6px;font-size:10px;
+.scroll{display:none;position:absolute;left:50%%;bottom:6px;font-size:10px;
         letter-spacing:.2em;color:var(--muted)}
 
 /* 帯（数字） */
@@ -119,7 +133,7 @@ section.alt .step{background:var(--ground)}
 .step h3{font-size:15.5px;margin:0 0 5px}
 .step p{margin:0;font-size:13px;color:var(--muted)}
 
-table.info{width:100%;border-collapse:collapse;font-size:14px}
+table.info{width:100%%;border-collapse:collapse;font-size:14px}
 table.info th,table.info td{border-bottom:1px solid var(--line);padding:14px 4px;
                             text-align:left;vertical-align:top}
 table.info th{width:7.5em;color:var(--muted);font-weight:500}
@@ -127,8 +141,8 @@ table.info th{width:7.5em;color:var(--muted);font-weight:500}
 /* 丸いCONTACTバッジ（TATSUSHO の型） */
 .contact{position:relative;background:var(--accent);color:#fff;text-align:center;
          padding:56px 20px;overflow:hidden}
-.contact::before{content:"";position:absolute;inset:auto -18% -55% 55%;height:90%;
-  border-radius:50%;background:rgba(255,255,255,.06)}
+.contact::before{content:"";position:absolute;inset:auto -18%% -55%% 55%%;height:90%%;
+  border-radius:50%%;background:rgba(255,255,255,.06)}
 .contact h2{color:#fff;position:relative}
 .contact p{color:rgba(255,255,255,.85);font-size:13.5px;margin:10px 0 20px;position:relative}
 .contact .big{position:relative;font-family:var(--serif);font-size:clamp(27px,8vw,36px);
@@ -159,35 +173,80 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
   .stats{gap:14px}
   .stats b{font-size:29px}
 }
-</style>
+"""
+
+
+def render(sid, d, ind):
+    tel = d.get("tel", "")
+    tl = tel.replace("-", "")
+    name = d["name"]
+    css = CSS % {"ground": ind["ground"], "ink2": ind["ink2"], "accent": ind["accent"]}
+    roman = d.get("roman", "")
+
+    stats = "".join(f'<div><b>{e(a)}<small>{e(b)}</small></b><span>{e(c)}</span></div>'
+                    for a, b, c in d["stats"])
+    cards = "".join(
+        f'<div class="card"><span class="no">{i:02d}</span><h3>{e(t)}</h3><p>{e(p)}</p></div>'
+        for i, (t, p) in enumerate(d["services"], 1))
+    steps = "".join(f'<div class="step"><h3>{e(t)}</h3><p>{e(p)}</p></div>'
+                    for t, p in ind["flow"])
+
+    info = [("商号", name)]
+    if d.get("addr"):
+        info.append(("所在地", (f'〒{d["zip"]} ' if d.get("zip") else "") + d["addr"]))
+    if tel:
+        info.append(("電話", f'<a href="tel:{e(tl)}">{e(tel)}</a>'))
+    if d.get("founded"):
+        info.append(("創業", f'{e(d["founded"])}年'))
+    info.append(("事業内容", "／".join(t for t, _ in d["services"][:5])))
+    rows = "".join(f'<tr><th>{e(k)}</th><td>{v if k=="電話" else e(v)}</td></tr>'
+                   for k, v in info)
+
+    call = (f'<a class="call" href="tel:{e(tl)}">お電話 {e(tel)}</a>' if tel
+            else '<a class="call" href="#contact">お問い合わせ</a>')
+    hero_btn = (f'<a class="btn p" href="tel:{e(tl)}">電話で相談する</a>' if tel else "")
+    ctel = (f'<a class="big" href="tel:{e(tl)}">{e(tel)}</a>'
+            f'<small>{e(ind["hours"])}</small>'
+            f'<div><a class="btn w" href="tel:{e(tl)}">電話をかける</a></div>'
+            if tel else f'<small>{e(ind["hours"])}</small>')
+
+    return f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- ★提案用の見本。検索に載せない。本物と誤認されないための最低条件 -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>【提案見本】{e(name)}さま トップページ案｜EasyWebCraft</title>
+<style>{css}</style>
 </head>
 <body>
 
 <div class="notice">
   <b>これは EasyWebCraft が作成した提案用の見本です。</b>
-  <span>株式会社タツケンホームさまの公式サイトではありません。構成をご覧いただくための仮のもので、写真・文章は当社が用意したものです。</span>
+  <span>{e(name)}さまの公式サイトではありません。構成をご覧いただくための仮のもので、写真・文章は当社が用意したものです。</span>
 </div>
 
 <div class="hdwrap">
   <header><div class="hd">
-    <div class="logo">株式会社タツケンホーム<small>TATSUKEN HOME</small></div>
-    <nav><a href="#works">できること</a><a href="#flow">ご相談から完成まで</a>
+    <div class="logo">{e(name)}<small>{e(roman)}</small></div>
+    <nav><a href="#works">{e(ind["svc"])}</a><a href="#flow">{e(ind["flow_h"])}</a>
          <a href="#company">会社概要</a><a href="#contact">お問い合わせ</a></nav>
-    <a class="call" href="tel:0574658303">お電話 0574-65-8303</a>
+    {call}
   </div></header>
 </div>
 
 <div class="hero">
-  <div class="big">TATSUKEN HOME</div>
+  <div class="big">{e(roman)}</div>
   <div class="wrap inner">
     <div class="side">
       <div class="textcol">
         <div class="meta">
-          <p class="sub">可児市を中心に、注文住宅・分譲住宅・不動産。出会いからお引渡し後まで、担当が変わらずお付き合いします。</p>
-          <p class="en">TATSUKEN HOME</p>
-          <div class="acts"><a class="btn p" href="tel:0574658303">電話で相談する</a><a class="btn g" href="#works">できることを見る</a></div>
+          <p class="sub">{e(d["sub"])}</p>
+          <p class="en">{e(roman)}</p>
+          <div class="acts">{hero_btn}<a class="btn g" href="#works">{e(ind["svc"])}を見る</a></div>
         </div>
-        <h1 class="vt">土地さがしから、建てたあとまで。<br><em>ぜんぶ自社で見ます。</em></h1>
+        <h1 class="vt">{e(d["catch"])}<br><em>{e(d["catch_em"])}</em></h1>
       </div>
     </div>
     <div class="shot">
@@ -195,42 +254,43 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
       <span class="scroll">scroll</span>
     </div>
   </div>
-  <div class="wrap"><div class="stats"><div><b>45<small>年</small></b><span>創業からの年数</span></div><div><b>3<small>市</small></b><span>可児・多治見・美濃加茂</span></div><div><b>自社<small>一括</small></b><span>土地から管理まで</span></div></div></div>
+  <div class="wrap"><div class="stats">{stats}</div></div>
 </div>
 
 <section id="works">
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
-      <h2>できること</h2><p>住まいの小さな修繕から、大きな工事まで。</p></div>
-    <div class="cards"><div class="card"><span class="no">01</span><h3>注文住宅</h3><p>暮らし方をうかがってから間取りを考えます。予算の見通しを先にお示しします。</p></div><div class="card"><span class="no">02</span><h3>分譲住宅</h3><p>実際にご覧いただける家をご用意しています。日当たりや周りの様子も一緒に確かめましょう。</p></div><div class="card"><span class="no">03</span><h3>土地さがし</h3><p>ご希望の場所と予算から探します。まだ市場に出ていない土地もあります。</p></div><div class="card"><span class="no">04</span><h3>中古住宅</h3><p>手を入れれば住める家も、選択肢のひとつです。改修の費用も含めてご相談ください。</p></div><div class="card"><span class="no">05</span><h3>リフォーム</h3><p>水まわりの入れ替えから、間取りの変更まで。</p></div><div class="card"><span class="no">06</span><h3>お引渡し後</h3><p>点検とご相談。建てて終わりにはしません。</p></div></div>
+      <h2>{e(ind["svc"])}</h2><p>{e(ind["svc_lead"])}</p></div>
+    <div class="cards">{cards}</div>
   </div>
 </section>
 
 <section class="alt" id="flow">
   <div class="wrap">
     <div class="sechead"><span class="en">FLOW</span>
-      <h2>ご相談から完成まで</h2><p>はじめての方にも、順番が分かるように。</p></div>
-    <div class="flow"><div class="step"><h3>ご相談・現地の確認</h3><p>お電話をいただいたあと、現地を拝見します。費用はかかりません。</p></div><div class="step"><h3>ご提案・お見積り</h3><p>やり方が複数あるときは、費用と工期を並べてお出しします。</p></div><div class="step"><h3>ご契約・着工</h3><p>工程をお渡ししてから始めます。近隣へのご挨拶も当社で行います。</p></div><div class="step"><h3>お引渡し・その後</h3><p>お引渡しのあとも、気になるところが出たらご連絡ください。</p></div></div>
+      <h2>{e(ind["flow_h"])}</h2><p>はじめての方にも、順番が分かるように。</p></div>
+    <div class="flow">{steps}</div>
   </div>
 </section>
 
 <section id="company">
   <div class="wrap" style="max-width:720px">
     <div class="sechead"><span class="en">COMPANY</span><h2>会社概要</h2></div>
-    <table class="info"><tr><th>商号</th><td>株式会社タツケンホーム</td></tr><tr><th>所在地</th><td>〒509-0252 岐阜県可児市矢戸197</td></tr><tr><th>電話</th><td><a href="tel:0574658303">0574-65-8303</a></td></tr><tr><th>事業内容</th><td>注文住宅／分譲住宅／土地さがし／中古住宅／リフォーム</td></tr></table>
+    <table class="info">{rows}</table>
   </div>
 </section>
 
 <div class="contact" id="contact">
-  <h2>まずはお電話ください</h2>
-  <p>「これは直せるのか」だけでも構いません。</p>
-  <a class="big" href="tel:0574658303">0574-65-8303</a><small>受付時間 平日 8:00–17:00</small><div><a class="btn w" href="tel:0574658303">電話をかける</a></div>
+  <h2>{e(ind["cta"])}</h2>
+  <p>{e(ind["cta_sub"])}</p>
+  {ctel}
 </div>
 
 <footer>
-  この見本は EasyWebCraft が作成した提案資料です。株式会社タツケンホームさまの公式サイトではありません。<br>
+  この見本は EasyWebCraft が作成した提案資料です。{e(name)}さまの公式サイトではありません。<br>
   実際の制作では、御社の写真・実績・文章に差し替えて仕上げます。
 </footer>
 
 </body>
 </html>
+"""
