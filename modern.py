@@ -85,6 +85,9 @@ nav a:hover{color:var(--accent)}
 .hero .sub{margin:16px 0 0;color:var(--muted);font-size:14.5px;max-width:30em}
 .ph{display:inline-block}
 .notice .ph,footer .ph{display:inline-block;margin-right:.15em}
+footer .by{margin:14px 0 0;font-size:11.5px}
+footer .by .ph{margin:0 .5em}
+footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .hero .en{margin:10px 0 0;font-size:11px;letter-spacing:.22em;color:var(--muted)}
 .hero .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .btn{display:inline-block;text-decoration:none;border-radius:999px;white-space:nowrap;
@@ -134,8 +137,9 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(21px,5.4vw,28px);
    letter-spacing:.07em;margin:0}
 .sechead p{color:var(--muted);font-size:13.5px;margin:10px 0 0}
 
-.cards{display:grid;gap:14px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;
+.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.card{flex:0 1 100%%;min-width:0;
+      background:var(--paper);border:1px solid var(--line);border-radius:10px;
       padding:24px 22px;position:relative;overflow:hidden}
 section.alt .card{background:var(--ground)}
 .card .no{position:absolute;right:14px;top:8px;font-family:var(--serif);
@@ -196,7 +200,8 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
   .hero .textcol h1{order:0}
   .hero .meta{max-width:21em}
   .scroll{display:block}
-  .cards{grid-template-columns:repeat(3,1fr);gap:16px}
+  .cards{gap:16px}
+  .card{flex:0 1 calc((100%% - 32px) / 3)}
   .flow{grid-template-columns:repeat(2,1fr)}
   section{padding:84px 0}
   .stats{gap:14px}
@@ -214,8 +219,14 @@ NAV_HINTS = (  # 項目名に含まれる語 → 飛ばす先。上から順に�
     # 総称のメニュー（一覧ページ）は「できること」全体で受ける
     ("業務内容", "#works"), ("業務案内", "#works"), ("事業案内", "#works"),
     ("事業内容", "#works"), ("サービス", "#works"), ("商品のご案内", "#works"),
+    # 工程・時間の案内
+    ("できるまで", "#flow"), ("診療時間", "#contact"), ("受付時間", "#contact"),
+    ("営業時間", "#contact"),
     # 実績・事例のページ。gallery を持つ先だけ（持たない先は下の照合に回す）
-    ("実績", "#gallery"), ("事例", "#gallery"), ("施工例", "#gallery"),
+    ("実績", "#gallery"), ("事例", "#gallery"), ("施工例", "#gallery"), ("作業例", "#gallery"),
+    # 会社・院・事務所の案内
+    ("当院", "#company"), ("医院", "#company"), ("院長", "#company"),
+    ("事務所", "#company"), ("スタッフ", "#company"), ("とは", "#company"),
     ("会社", "#company"), ("企業", "#company"), ("店", "#company"), ("アクセス", "#company"),
     ("問合", "#contact"), ("問い合", "#contact"),
     ("流れ", "#flow"), ("工程", "#flow"),
@@ -565,6 +576,7 @@ def render(sid, d, ind):
 <footer>
   <span class="ph">この見本は EasyWebCraft が作成した提案資料です。</span><span class="ph">{e(name)}さまの公式サイトではありません。</span><br>
   <span class="ph">実際の制作では、</span><span class="ph">御社の写真・実績・文章に差し替えて仕上げます。</span>
+  <p class="by"><span class="ph">EasyWebCraft（担当：田代）</span><span class="ph"><a href="mailto:info@easywebcraft.jp">info@easywebcraft.jp</a></span><span class="ph"><a href="https://easywebcraft.github.io/easyweb-lp/" target="_blank" rel="noopener">サービスのご案内</a></span></p>
 </footer>
 
 </body>

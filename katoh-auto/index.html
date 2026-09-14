@@ -9,7 +9,7 @@
 <style>
 :root{
   --ink:#232a33; --muted:#6b7480; --line:#e3e6ea; --line-s:#f2f4f6;
-  --navy:#1d3b4a; --navy-d:#132836; --clay:#c8552f;
+  --navy:#2f825b; --navy-d:#246345; --clay:#c8552f;
   --bg:#fff; --panel:#f7f8fa;
   --serif:"Noto Serif JP","游明朝体","Yu Mincho",YuMincho,"ヒラギノ明朝 ProN W3",serif;
   --sans:-apple-system,BlinkMacSystemFont,"Yu Gothic",Meiryo,
@@ -27,7 +27,16 @@ a{color:inherit}
 .notice b{font-weight:700}
 .notice span{display:block;opacity:.9;font-size:12px}
 .ph{display:inline-block}
+.gal{display:grid;gap:14px}
+.gframe{background:#eceef0;border:1px solid var(--line);border-radius:4px;aspect-ratio:4/3;
+        display:grid;place-items:center;align-content:center;text-align:center;
+        color:#6b7075;font-size:12px;padding:0 14px}
+.gframe b{display:block;font-family:var(--serif);font-size:14px;color:#4c5257;
+          margin-bottom:4px;font-weight:500}
 .notice .ph,footer .ph{display:inline-block;margin-right:.15em}
+footer .by{margin:14px 0 0;font-size:11.5px}
+footer .by .ph{margin:0 .5em}
+footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 header{position:sticky;top:0;background:rgba(255,255,255,.94);
        backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:40}
 .hd{display:flex;align-items:center;justify-content:space-between;gap:12px;
@@ -107,6 +116,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
   nav{order:0;flex:0 1 auto;flex-wrap:nowrap;column-gap:26px;font-size:14px;
       border-top:0;padding:0}
   .cards{grid-template-columns:repeat(3,1fr)}
+  .gal{grid-template-columns:repeat(3,1fr);gap:18px}
   .stats b{font-size:32px}
   h2{font-size:29px}
   section{padding:78px 0}
@@ -123,7 +133,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 <header>
   <div class="wrap hd">
     <div class="logo">カトー自動車工業株式会社<small>KATOH AUTO ／ 岐阜県可児市</small></div>
-    <nav><a href="#works">できること</a><a href="#flow">車検・修理の流れ</a><a href="#company">概要</a></nav>
+    <nav><a href="#company">カトー自動車工業とは</a><a href="#svc3">鈑金・塗装</a><a href="#svc1">整備・車検</a><a href="#gallery">施工事例</a><a href="#company">会社概要</a><a href="#contact">お問い合わせ</a></nav>
     <a class="tel" href="tel:0574623207"><b>0574-62-3207</b><small>お電話でのご相談</small></a>
   </div>
 </header>
@@ -143,7 +153,15 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
   <div class="wrap">
     <h2>できること</h2>
     <p class="lead">車検から、急なトラブルまで。</p>
-    <div class="cards"><div class="card"><span class="no">01</span><h3>車検</h3><p>何をどこまでやるかを、先にご説明してからお預かりします。</p></div><div class="card"><span class="no">02</span><h3>点検・整備</h3><p>定期点検から、気になる音のご相談まで。</p></div><div class="card"><span class="no">03</span><h3>鈑金・塗装</h3><p>小さなキズから事故の修理まで、自社で仕上げます。</p></div><div class="card"><span class="no">04</span><h3>事故のご対応</h3><p>保険の手続きもご一緒に進めます。まずはお電話ください。</p></div><div class="card"><span class="no">05</span><h3>ロードサービス</h3><p>動かなくなったときのご連絡先として覚えておいてください。</p></div><div class="card"><span class="no">06</span><h3>買替のご相談</h3><p>直して乗るか、替えるか。費用を並べてお話しします。</p></div></div>
+    <div class="cards"><div class="card" id="svc1"><span class="no">01</span><h3>車検</h3><p>何をどこまでやるかを、先にご説明してからお預かりします。</p></div><div class="card" id="svc2"><span class="no">02</span><h3>点検・整備</h3><p>定期点検から、気になる音のご相談まで。</p></div><div class="card" id="svc3"><span class="no">03</span><h3>鈑金・塗装</h3><p>小さなキズから事故の修理まで、自社で仕上げます。</p></div><div class="card" id="svc4"><span class="no">04</span><h3>事故のご対応</h3><p>保険の手続きもご一緒に進めます。まずはお電話ください。</p></div><div class="card" id="svc5"><span class="no">05</span><h3>ロードサービス</h3><p>動かなくなったときのご連絡先として覚えておいてください。</p></div><div class="card" id="svc6"><span class="no">06</span><h3>買替のご相談</h3><p>直して乗るか、替えるか。費用を並べてお話しします。</p></div></div>
+  </div>
+</section>
+
+<section class="alt" id="gallery">
+  <div class="wrap">
+    <h2>施工事例</h2>
+    <p class="lead">お預かりしたお写真を、ここに並べます。</p>
+    <div class="gal"><div class="gframe"><b>お写真が入ります</b>鈑金・塗装の作業例</div><div class="gframe"><b>お写真が入ります</b>整備・車検のようす</div><div class="gframe"><b>お写真が入ります</b>工場と設備</div></div>
   </div>
 </section>
 
@@ -163,7 +181,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
   </div>
 </section>
 
-<div class="contact">
+<div class="contact" id="contact">
   <h2>まずはお電話ください</h2>
   <p class="lead">動かないときも、そのままお電話ください。</p>
   <a class="big" href="tel:0574623207">0574-62-3207</a><small>受付時間 8:00–18:00／日曜定休</small><div><a class="btn p" href="tel:0574623207">電話をかける</a></div>
@@ -172,6 +190,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 <footer>
   <span class="ph">この見本は EasyWebCraft が作成した提案資料です。</span><span class="ph">カトー自動車工業株式会社さまの公式サイトではありません。</span><br>
   <span class="ph">実際の制作では、</span><span class="ph">御社の写真・実績・文章に差し替えて仕上げます。</span>
+  <p class="by"><span class="ph">EasyWebCraft（担当：田代）</span><span class="ph"><a href="mailto:info@easywebcraft.jp">info@easywebcraft.jp</a></span><span class="ph"><a href="https://easywebcraft.github.io/easyweb-lp/" target="_blank" rel="noopener">サービスのご案内</a></span></p>
 </footer>
 
 </body>

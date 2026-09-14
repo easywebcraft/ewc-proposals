@@ -98,7 +98,16 @@ a{color:inherit}
 .notice b{font-weight:700}
 .notice span{display:block;opacity:.9;font-size:12px}
 .ph{display:inline-block}
+.gal{display:grid;gap:14px}
+.gframe{background:#eceef0;border:1px solid var(--line);border-radius:4px;aspect-ratio:4/3;
+        display:grid;place-items:center;align-content:center;text-align:center;
+        color:#6b7075;font-size:12px;padding:0 14px}
+.gframe b{display:block;font-family:var(--serif);font-size:14px;color:#4c5257;
+          margin-bottom:4px;font-weight:500}
 .notice .ph,footer .ph{display:inline-block;margin-right:.15em}
+footer .by{margin:14px 0 0;font-size:11.5px}
+footer .by .ph{margin:0 .5em}
+footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 header{position:sticky;top:0;background:rgba(255,255,255,.94);
        backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:40}
 .hd{display:flex;align-items:center;justify-content:space-between;gap:12px;
@@ -178,6 +187,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
   nav{order:0;flex:0 1 auto;flex-wrap:nowrap;column-gap:26px;font-size:14px;
       border-top:0;padding:0}
   .cards{grid-template-columns:repeat(3,1fr)}
+  .gal{grid-template-columns:repeat(3,1fr);gap:18px}
   .stats b{font-size:32px}
   h2{font-size:29px}
   section{padding:78px 0}
@@ -222,14 +232,33 @@ def render(sid, d):
     tel = d.get("tel", "")
     tel_link = tel.replace("-", "")
     name = d["name"]
-    css = CSS % {"navy": ind["navy"], "navy_d": ind["navy_d"], "accent": ind["accent"]}
+    import modern
+    nav = modern.nav_html(d, ind, e)
+    if d.get("accent"):
+        navy, navy_d, _ = modern.accent_of(d, ind)
+    else:
+        navy, navy_d = ind["navy"], ind["navy_d"]
+    css = CSS % {"navy": navy, "navy_d": navy_d, "accent": ind["accent"]}
 
     stats = "".join(
         f'<div><b>{e(a)}<small>{e(b)}</small></b><span>{e(c)}</span></div>'
         for a, b, c in d["stats"])
     cards = "".join(
-        f'<div class="card"><span class="no">{i:02d}</span><h3>{e(t)}</h3><p>{e(p)}</p></div>'
+        f'<div class="card" id="svc{i}"><span class="no">{i:02d}</span>'
+        f'<h3>{e(t)}</h3><p>{e(p)}</p></div>'
         for i, (t, p) in enumerate(d["services"], 1))
+    gal = d.get("gallery")
+    gallery = ""
+    if gal:
+        frames = "".join(f'<div class="gframe"><b>お写真が入ります</b>{e(c)}</div>' for c in gal[:3])
+        gallery = f"""<section class="alt" id="gallery">
+  <div class="wrap">
+    <h2>{e(d.get("gallery_h", "これまでの仕事"))}</h2>
+    <p class="lead">お預かりしたお写真を、ここに並べます。</p>
+    <div class="gal">{frames}</div>
+  </div>
+</section>"""
+
     steps = "".join(
         f'<div class="step"><h3>{e(t)}</h3><p>{e(p)}</p></div>' for t, p in ind["flow"])
 
@@ -274,7 +303,7 @@ def render(sid, d):
 <header>
   <div class="wrap hd">
     <div class="logo">{e(name)}<small>{e(d.get("roman",""))} ／ {e(d.get("addr","").split("市")[0] + "市" if "市" in d.get("addr","") else "岐阜県")}</small></div>
-    <nav><a href="#works">{e(ind["svc"])}</a><a href="#flow">{e(ind["flow_h"])}</a><a href="#company">概要</a></nav>
+    <nav>{nav}</nav>
     {tel_block}
   </div>
 </header>
@@ -298,6 +327,8 @@ def render(sid, d):
   </div>
 </section>
 
+{gallery}
+
 <section class="alt" id="flow">
   <div class="wrap">
     <h2>{e(ind["flow_h"])}</h2>
@@ -314,7 +345,7 @@ def render(sid, d):
   </div>
 </section>
 
-<div class="contact">
+<div class="contact" id="contact">
   <h2>{e(ind["cta"])}</h2>
   <p class="lead">{e(ind["cta_sub"])}</p>
   {contact_tel}
@@ -323,6 +354,7 @@ def render(sid, d):
 <footer>
   <span class="ph">この見本は EasyWebCraft が作成した提案資料です。</span><span class="ph">{e(name)}さまの公式サイトではありません。</span><br>
   <span class="ph">実際の制作では、</span><span class="ph">御社の写真・実績・文章に差し替えて仕上げます。</span>
+  <p class="by"><span class="ph">EasyWebCraft（担当：田代）</span><span class="ph"><a href="mailto:info@easywebcraft.jp">info@easywebcraft.jp</a></span><span class="ph"><a href="https://easywebcraft.github.io/easyweb-lp/" target="_blank" rel="noopener">サービスのご案内</a></span></p>
 </footer>
 
 </body>

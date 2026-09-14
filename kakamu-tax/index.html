@@ -27,7 +27,16 @@ a{color:inherit}
 .notice b{font-weight:700}
 .notice span{display:block;opacity:.9;font-size:12px}
 .ph{display:inline-block}
+.gal{display:grid;gap:14px}
+.gframe{background:#eceef0;border:1px solid var(--line);border-radius:4px;aspect-ratio:4/3;
+        display:grid;place-items:center;align-content:center;text-align:center;
+        color:#6b7075;font-size:12px;padding:0 14px}
+.gframe b{display:block;font-family:var(--serif);font-size:14px;color:#4c5257;
+          margin-bottom:4px;font-weight:500}
 .notice .ph,footer .ph{display:inline-block;margin-right:.15em}
+footer .by{margin:14px 0 0;font-size:11.5px}
+footer .by .ph{margin:0 .5em}
+footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 header{position:sticky;top:0;background:rgba(255,255,255,.94);
        backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:40}
 .hd{display:flex;align-items:center;justify-content:space-between;gap:12px;
@@ -107,6 +116,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
   nav{order:0;flex:0 1 auto;flex-wrap:nowrap;column-gap:26px;font-size:14px;
       border-top:0;padding:0}
   .cards{grid-template-columns:repeat(3,1fr)}
+  .gal{grid-template-columns:repeat(3,1fr);gap:18px}
   .stats b{font-size:32px}
   h2{font-size:29px}
   section{padding:78px 0}
@@ -123,7 +133,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 <header>
   <div class="wrap hd">
     <div class="logo">各務守税理士事務所<small>KAKAMU TAX ／ 岐阜県可児市</small></div>
-    <nav><a href="#works">承っていること</a><a href="#flow">ご相談からのお付き合い</a><a href="#company">概要</a></nav>
+    <nav><a href="#company">事務所案内</a><a href="#works">業務案内</a><a href="#svc7">料金案内</a><a href="#contact">お問い合わせ</a></nav>
     
   </div>
 </header>
@@ -143,9 +153,11 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
   <div class="wrap">
     <h2>承っていること</h2>
     <p class="lead">小さな会社と、個人事業の方へ。</p>
-    <div class="cards"><div class="card"><span class="no">01</span><h3>記帳・月次のご報告</h3><p>数字を見ながら、いまの状態を毎月ご説明します。</p></div><div class="card"><span class="no">02</span><h3>決算・確定申告</h3><p>期限に追われないよう、早めに段取りします。</p></div><div class="card"><span class="no">03</span><h3>法人の設立</h3><p>個人から法人へ、のご相談も承ります。</p></div><div class="card"><span class="no">04</span><h3>相続・事業承継</h3><p>早いうちから準備しておくと、選べる手が増えます。</p></div><div class="card"><span class="no">05</span><h3>補助金・融資</h3><p>資料づくりからご一緒します。</p></div><div class="card"><span class="no">06</span><h3>初回のご相談</h3><p>顧問契約の前に、まずお話をうかがいます。費用はかかりません。</p></div></div>
+    <div class="cards"><div class="card" id="svc1"><span class="no">01</span><h3>記帳・月次のご報告</h3><p>数字を見ながら、いまの状態を毎月ご説明します。</p></div><div class="card" id="svc2"><span class="no">02</span><h3>決算・確定申告</h3><p>期限に追われないよう、早めに段取りします。</p></div><div class="card" id="svc3"><span class="no">03</span><h3>法人の設立</h3><p>個人から法人へ、のご相談も承ります。</p></div><div class="card" id="svc4"><span class="no">04</span><h3>相続・事業承継</h3><p>早いうちから準備しておくと、選べる手が増えます。</p></div><div class="card" id="svc5"><span class="no">05</span><h3>補助金・融資</h3><p>資料づくりからご一緒します。</p></div><div class="card" id="svc6"><span class="no">06</span><h3>初回のご相談</h3><p>顧問契約の前に、まずお話をうかがいます。費用はかかりません。</p></div><div class="card" id="svc7"><span class="no">07</span><h3>料金のご案内</h3><p>月々の顧問料と決算のお費用を、はじめにお示しします。</p></div></div>
   </div>
 </section>
+
+
 
 <section class="alt" id="flow">
   <div class="wrap">
@@ -163,7 +175,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
   </div>
 </section>
 
-<div class="contact">
+<div class="contact" id="contact">
   <h2>まずはお話をお聞かせください</h2>
   <p class="lead">digitsの前に、事業のことから。</p>
   <small>受付時間 平日 9:00–17:00</small>
@@ -172,6 +184,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 <footer>
   <span class="ph">この見本は EasyWebCraft が作成した提案資料です。</span><span class="ph">各務守税理士事務所さまの公式サイトではありません。</span><br>
   <span class="ph">実際の制作では、</span><span class="ph">御社の写真・実績・文章に差し替えて仕上げます。</span>
+  <p class="by"><span class="ph">EasyWebCraft（担当：田代）</span><span class="ph"><a href="mailto:info@easywebcraft.jp">info@easywebcraft.jp</a></span><span class="ph"><a href="https://easywebcraft.github.io/easyweb-lp/" target="_blank" rel="noopener">サービスのご案内</a></span></p>
 </footer>
 
 </body>

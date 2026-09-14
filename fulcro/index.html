@@ -9,7 +9,7 @@
 <style>
 :root{
   --ink:#232a33; --muted:#6b7480; --line:#e3e6ea; --line-s:#f2f4f6;
-  --navy:#2b4a3f; --navy-d:#1c3128; --clay:#c07a3e;
+  --navy:#2a7f2a; --navy-d:#206020; --clay:#c07a3e;
   --bg:#fff; --panel:#f7f8fa;
   --serif:"Noto Serif JP","游明朝体","Yu Mincho",YuMincho,"ヒラギノ明朝 ProN W3",serif;
   --sans:-apple-system,BlinkMacSystemFont,"Yu Gothic",Meiryo,
@@ -27,7 +27,16 @@ a{color:inherit}
 .notice b{font-weight:700}
 .notice span{display:block;opacity:.9;font-size:12px}
 .ph{display:inline-block}
+.gal{display:grid;gap:14px}
+.gframe{background:#eceef0;border:1px solid var(--line);border-radius:4px;aspect-ratio:4/3;
+        display:grid;place-items:center;align-content:center;text-align:center;
+        color:#6b7075;font-size:12px;padding:0 14px}
+.gframe b{display:block;font-family:var(--serif);font-size:14px;color:#4c5257;
+          margin-bottom:4px;font-weight:500}
 .notice .ph,footer .ph{display:inline-block;margin-right:.15em}
+footer .by{margin:14px 0 0;font-size:11.5px}
+footer .by .ph{margin:0 .5em}
+footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 header{position:sticky;top:0;background:rgba(255,255,255,.94);
        backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:40}
 .hd{display:flex;align-items:center;justify-content:space-between;gap:12px;
@@ -107,6 +116,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
   nav{order:0;flex:0 1 auto;flex-wrap:nowrap;column-gap:26px;font-size:14px;
       border-top:0;padding:0}
   .cards{grid-template-columns:repeat(3,1fr)}
+  .gal{grid-template-columns:repeat(3,1fr);gap:18px}
   .stats b{font-size:32px}
   h2{font-size:29px}
   section{padding:78px 0}
@@ -123,7 +133,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 <header>
   <div class="wrap hd">
     <div class="logo">フルクロ整体整骨院<small>FULCRO ／ 岐阜県可児市</small></div>
-    <nav><a href="#works">施術のご案内</a><a href="#flow">はじめての方へ</a><a href="#company">概要</a></nav>
+    <nav><a href="#company">当院について</a><a href="#svc6">はじめての方へ</a><a href="#flow">施術の流れ</a><a href="#svc3">交通事故治療</a><a href="#contact">診療時間・施術費用</a><a href="#contact">お問い合わせ</a></nav>
     <a class="tel" href="tel:0574654855"><b>0574-65-4855</b><small>お電話でのご相談</small></a>
   </div>
 </header>
@@ -143,9 +153,11 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
   <div class="wrap">
     <h2>施術のご案内</h2>
     <p class="lead">痛みの出ている場所だけを見ません。</p>
-    <div class="cards"><div class="card"><span class="no">01</span><h3>整体・整骨</h3><p>痛みの出ている場所ではなく、原因になっている動きを探します。</p></div><div class="card"><span class="no">02</span><h3>姿勢の分析</h3><p>服を着たまま4方向から撮影し、歪みを目で見て確かめます。</p></div><div class="card"><span class="no">03</span><h3>交通事故の施術</h3><p>保険のお手続きもご相談ください。</p></div><div class="card"><span class="no">04</span><h3>スポーツでの痛み</h3><p>競技に戻るまでを見通してお伝えします。</p></div><div class="card"><span class="no">05</span><h3>肩こり・腰痛</h3><p>繰り返している方こそ、一度みせてください。</p></div><div class="card"><span class="no">06</span><h3>初めての方</h3><p>何をするか説明してから始めます。無理に続けさせません。</p></div></div>
+    <div class="cards"><div class="card" id="svc1"><span class="no">01</span><h3>整体・整骨</h3><p>痛みの出ている場所ではなく、原因になっている動きを探します。</p></div><div class="card" id="svc2"><span class="no">02</span><h3>姿勢の分析</h3><p>服を着たまま4方向から撮影し、歪みを目で見て確かめます。</p></div><div class="card" id="svc3"><span class="no">03</span><h3>交通事故の施術</h3><p>保険のお手続きもご相談ください。</p></div><div class="card" id="svc4"><span class="no">04</span><h3>スポーツでの痛み</h3><p>競技に戻るまでを見通してお伝えします。</p></div><div class="card" id="svc5"><span class="no">05</span><h3>肩こり・腰痛</h3><p>繰り返している方こそ、一度みせてください。</p></div><div class="card" id="svc6"><span class="no">06</span><h3>初めての方</h3><p>何をするか説明してから始めます。無理に続けさせません。</p></div></div>
   </div>
 </section>
+
+
 
 <section class="alt" id="flow">
   <div class="wrap">
@@ -163,7 +175,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
   </div>
 </section>
 
-<div class="contact">
+<div class="contact" id="contact">
   <h2>お電話でご予約ください</h2>
   <p class="lead">「これは治るのか」だけでも構いません。</p>
   <a class="big" href="tel:0574654855">0574-65-4855</a><small>受付時間 平日 9:00–13:30／16:00–19:00　土 9:00–18:00</small><div><a class="btn p" href="tel:0574654855">電話をかける</a></div>
@@ -172,6 +184,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 <footer>
   <span class="ph">この見本は EasyWebCraft が作成した提案資料です。</span><span class="ph">フルクロ整体整骨院さまの公式サイトではありません。</span><br>
   <span class="ph">実際の制作では、</span><span class="ph">御社の写真・実績・文章に差し替えて仕上げます。</span>
+  <p class="by"><span class="ph">EasyWebCraft（担当：田代）</span><span class="ph"><a href="mailto:info@easywebcraft.jp">info@easywebcraft.jp</a></span><span class="ph"><a href="https://easywebcraft.github.io/easyweb-lp/" target="_blank" rel="noopener">サービスのご案内</a></span></p>
 </footer>
 
 </body>

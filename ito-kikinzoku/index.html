@@ -9,7 +9,7 @@
 <style>
 :root{
   --ink:#232a33; --muted:#6b7480; --line:#e3e6ea; --line-s:#f2f4f6;
-  --navy:#26323c; --navy-d:#171f27; --clay:#c2703a;
+  --navy:#8a7440; --navy-d:#695831; --clay:#c2703a;
   --bg:#fff; --panel:#f7f8fa;
   --serif:"Noto Serif JP","游明朝体","Yu Mincho",YuMincho,"ヒラギノ明朝 ProN W3",serif;
   --sans:-apple-system,BlinkMacSystemFont,"Yu Gothic",Meiryo,
@@ -27,7 +27,16 @@ a{color:inherit}
 .notice b{font-weight:700}
 .notice span{display:block;opacity:.9;font-size:12px}
 .ph{display:inline-block}
+.gal{display:grid;gap:14px}
+.gframe{background:#eceef0;border:1px solid var(--line);border-radius:4px;aspect-ratio:4/3;
+        display:grid;place-items:center;align-content:center;text-align:center;
+        color:#6b7075;font-size:12px;padding:0 14px}
+.gframe b{display:block;font-family:var(--serif);font-size:14px;color:#4c5257;
+          margin-bottom:4px;font-weight:500}
 .notice .ph,footer .ph{display:inline-block;margin-right:.15em}
+footer .by{margin:14px 0 0;font-size:11.5px}
+footer .by .ph{margin:0 .5em}
+footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 header{position:sticky;top:0;background:rgba(255,255,255,.94);
        backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:40}
 .hd{display:flex;align-items:center;justify-content:space-between;gap:12px;
@@ -107,6 +116,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
   nav{order:0;flex:0 1 auto;flex-wrap:nowrap;column-gap:26px;font-size:14px;
       border-top:0;padding:0}
   .cards{grid-template-columns:repeat(3,1fr)}
+  .gal{grid-template-columns:repeat(3,1fr);gap:18px}
   .stats b{font-size:32px}
   h2{font-size:29px}
   section{padding:78px 0}
@@ -123,7 +133,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 <header>
   <div class="wrap hd">
     <div class="logo">株式会社伊藤貴金属製作所<small>ITO KIKINZOKU ／ 愛知県名古屋市</small></div>
-    <nav><a href="#works">承っていること</a><a href="#flow">ご相談からお渡しまで</a><a href="#company">概要</a></nav>
+    <nav><a href="#svc1">オーダージュエリー</a><a href="#svc2">ジュエリーリフォーム</a><a href="#svc3">ブライダルジュエリー</a><a href="#svc4">ジュエリーの修理</a><a href="#flow">ジュエリーができるまで</a><a href="#company">会社案内</a><a href="#contact">お問い合わせ</a></nav>
     <a class="tel" href="tel:0525312422"><b>052-531-2422</b><small>お電話でのご相談</small></a>
   </div>
 </header>
@@ -143,9 +153,11 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
   <div class="wrap">
     <h2>承っていること</h2>
     <p class="lead">小さなピアスから、ティアラまで。</p>
-    <div class="cards"><div class="card"><span class="no">01</span><h3>オーダージュエリー</h3><p>ご予算とご希望をうかがってお作りします。図面でご相談できます。</p></div><div class="card"><span class="no">02</span><h3>ジュエリーリフォーム</h3><p>使わなくなった品を、いま着けられる形に作り替えます。</p></div><div class="card"><span class="no">03</span><h3>ブライダルジュエリー</h3><p>おふたりの希望に合わせてお作りします。</p></div><div class="card"><span class="no">04</span><h3>修理・サイズ直し</h3><p>指輪のサイズ直し、切れた鎖の修理など承ります。</p></div><div class="card"><span class="no">05</span><h3>オリジナル製品</h3><p>工房で作った小物もお求めいただけます。</p></div><div class="card"><span class="no">06</span><h3>お見積り</h3><p>現物を拝見してお出しします。お持ちください。</p></div></div>
+    <div class="cards"><div class="card" id="svc1"><span class="no">01</span><h3>オーダージュエリー</h3><p>ご予算とご希望をうかがってお作りします。図面でご相談できます。</p></div><div class="card" id="svc2"><span class="no">02</span><h3>ジュエリーリフォーム</h3><p>使わなくなった品を、いま着けられる形に作り替えます。</p></div><div class="card" id="svc3"><span class="no">03</span><h3>ブライダルジュエリー</h3><p>おふたりの希望に合わせてお作りします。</p></div><div class="card" id="svc4"><span class="no">04</span><h3>修理・サイズ直し</h3><p>指輪のサイズ直し、切れた鎖の修理など承ります。</p></div><div class="card" id="svc5"><span class="no">05</span><h3>オリジナル製品</h3><p>工房で作った小物もお求めいただけます。</p></div><div class="card" id="svc6"><span class="no">06</span><h3>お見積り</h3><p>現物を拝見してお出しします。お持ちください。</p></div></div>
   </div>
 </section>
+
+
 
 <section class="alt" id="flow">
   <div class="wrap">
@@ -163,7 +175,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
   </div>
 </section>
 
-<div class="contact">
+<div class="contact" id="contact">
   <h2>まずはお電話ください</h2>
   <p class="lead">「これは直せるのか」だけでも構いません。</p>
   <a class="big" href="tel:0525312422">052-531-2422</a><small>受付時間 9:00–18:00</small><div><a class="btn p" href="tel:0525312422">電話をかける</a></div>
@@ -172,6 +184,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 <footer>
   <span class="ph">この見本は EasyWebCraft が作成した提案資料です。</span><span class="ph">株式会社伊藤貴金属製作所さまの公式サイトではありません。</span><br>
   <span class="ph">実際の制作では、</span><span class="ph">御社の写真・実績・文章に差し替えて仕上げます。</span>
+  <p class="by"><span class="ph">EasyWebCraft（担当：田代）</span><span class="ph"><a href="mailto:info@easywebcraft.jp">info@easywebcraft.jp</a></span><span class="ph"><a href="https://easywebcraft.github.io/easyweb-lp/" target="_blank" rel="noopener">サービスのご案内</a></span></p>
 </footer>
 
 </body>
