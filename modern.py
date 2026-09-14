@@ -83,9 +83,11 @@ nav a:hover{color:var(--accent)}
          font-size:clamp(27px,7.4vw,40px);line-height:1.65;letter-spacing:.06em}
 .hero h1 em{font-style:normal;color:var(--accent)}
 .hero .sub{margin:16px 0 0;color:var(--muted);font-size:14.5px;max-width:30em}
+.ph{display:inline-block}
+.notice .ph,footer .ph{margin-right:.15em}
 .hero .en{margin:10px 0 0;font-size:11px;letter-spacing:.22em;color:var(--muted)}
 .hero .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.btn{display:inline-block;text-decoration:none;border-radius:999px;
+.btn{display:inline-block;text-decoration:none;border-radius:999px;white-space:nowrap;
      padding:14px 26px;font-size:14.5px;font-weight:700;letter-spacing:.05em}
 .btn.p{background:var(--accent);color:#fff}
 .btn.p:hover{background:var(--accent-d)}
@@ -186,13 +188,13 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
                align-items:center;gap:46px;padding:34px 0 46px}
   /* 縦書きの明朝（TATSUSHO の型）。広い画面のときだけ。 */
   .vt{writing-mode:vertical-rl;text-orientation:upright;
-      max-height:430px;margin-left:auto}
-  .hero h1{line-height:2.0;letter-spacing:.14em}
+      max-height:470px;margin-left:auto;white-space:nowrap}
+  .hero h1{line-height:2.0;letter-spacing:.14em;font-size:%(h1px)spx}
   .hero .sub,.hero .en,.hero .acts{writing-mode:horizontal-tb}
   .hero .side{display:flex;flex-direction:column;align-items:flex-end;gap:0}
   .hero .textcol{flex-direction:row;gap:26px;justify-content:flex-end}
   .hero .textcol h1{order:0}
-  .hero .meta{max-width:19em}
+  .hero .meta{max-width:21em}
   .scroll{display:block}
   .cards{grid-template-columns:repeat(3,1fr);gap:16px}
   .flow{grid-template-columns:repeat(2,1fr)}
@@ -318,6 +320,52 @@ def texture_svg(kind, acc_rgb):
             + '</defs><rect width="100%" height="100%" fill="url(#tx)"/></svg>')
 
 
+# ★縦書きの見出しは、入りきらないと途中で列が変わる。
+#   中駒産業では「守る。」と「100年。」が次の列に落ちていた。
+#   文字数から入る大きさを決め、それでも長い文は**読点・句点の位置で**列を分ける。
+#   機械任せの折り返しと違って、切れ目が意味の切れ目に一致する。
+VLIMIT = 12          # 1列に置く文字数の目安
+VBUDGET = 460        # 1列に使える高さ（px）
+
+
+def vsplit(text, limit=VLIMIT):
+    """読点・句点で列に分ける。区切りが無ければ分けない（無理に切らない）。"""
+    segs = [text]
+    while True:
+        i = max(range(len(segs)), key=lambda n: len(segs[n]))
+        if len(segs[i]) <= limit:
+            return segs
+        cuts = [n + 1 for n, c in enumerate(segs[i][:-1]) if c in "、。"]
+        if not cuts:
+            return segs                          # 切れ目が無いなら諦める
+        half = len(segs[i]) / 2
+        cut = min(cuts, key=lambda c: abs(c - half))
+        segs[i:i + 1] = [segs[i][:cut], segs[i][cut:]]
+
+
+def headline(d, e):
+    """見出しのHTMLと、縦書きのときの文字の大きさ。"""
+    a, b = vsplit(d["catch"]), vsplit(d["catch_em"])
+    px = max(26, min(40, int(VBUDGET / (max(len(x) for x in a + b) * 1.14))))
+    html = "<br>".join(e(x) for x in a)
+    html += "<br><em>" + "<br>".join(e(x) for x in b) + "</em>"
+    return html, px
+
+
+# リード文が「可児／東濃」「対／応します」のように語の途中で折り返していた。
+# 読点・句点で区切った句を inline-block にして、切れ目をそこだけに限る。
+def phrase(text, e):
+    out, buf = [], ""
+    for c in text:
+        buf += c
+        if c in "、。":
+            out.append(buf)
+            buf = ""
+    if buf:
+        out.append(buf)
+    return "".join(f'<span class="ph">{e(x)}</span>' for x in out)
+
+
 def _bigrams(text):
     t = "".join(c for c in text if c not in "・／/ 　のとをごおはが")
     return {t[i:i + 2] for i in range(len(t) - 1)} or {t}
@@ -383,9 +431,12 @@ def render(sid, d, ind):
     tl = tel.replace("-", "")
     name = d["name"]
     acc, acc_d, acc_rgb = accent_of(d, ind)
+    h1_html, h1px = headline(d, e)
+    sub_html = phrase(d["sub"], e)
     tex = texture_svg(d.get("texture"), acc_rgb)
     css = CSS % {"ground": ind["ground"], "ink2": ind["ink2"], "accent": acc,
-                 "accent_d": acc_d, "acc_rgb": acc_rgb, "navbp": nav_breakpoint(d, ind)}
+                 "accent_d": acc_d, "acc_rgb": acc_rgb, "navbp": nav_breakpoint(d, ind),
+                 "h1px": h1px}
     roman = d.get("roman", "")
 
     stats = "".join(f'<div><b>{e(a)}<small>{e(b)}</small></b><span>{e(c)}</span></div>'
@@ -448,7 +499,7 @@ def render(sid, d, ind):
 
 <div class="notice">
   <b>これは EasyWebCraft が作成した提案用の見本です。</b>
-  <span>{e(name)}さまの公式サイトではありません。<b>トップページだけを形にした見本</b>で、メニューの各ページは実際の制作でお作りします。写真・文章は当社が用意したものです。</span>
+  <span><span class="ph">{e(name)}さまの公式サイトではありません。</span><span class="ph"><b>トップページだけを形にした見本</b>で、</span><span class="ph">メニューの各ページは実際の制作でお作りします。</span><span class="ph">写真・文章は当社が用意したものです。</span></span>
 </div>
 
 <div class="hdwrap">
@@ -465,11 +516,11 @@ def render(sid, d, ind):
     <div class="side">
       <div class="textcol">
         <div class="meta">
-          <p class="sub">{e(d["sub"])}</p>
+          <p class="sub">{sub_html}</p>
           <p class="en">{e(roman)}</p>
           <div class="acts">{hero_btn}<a class="btn g" href="#works">{e(ind["svc"])}を見る</a></div>
         </div>
-        <h1 class="vt">{e(d["catch"])}<br><em>{e(d["catch_em"])}</em></h1>
+        <h1 class="vt">{h1_html}</h1>
       </div>
     </div>
     <div class="shot">
@@ -512,8 +563,8 @@ def render(sid, d, ind):
 </div>
 
 <footer>
-  この見本は EasyWebCraft が作成した提案資料です。{e(name)}さまの公式サイトではありません。<br>
-  実際の制作では、御社の写真・実績・文章に差し替えて仕上げます。
+  <span class="ph">この見本は EasyWebCraft が作成した提案資料です。</span><span class="ph">{e(name)}さまの公式サイトではありません。</span><br>
+  <span class="ph">実際の制作では、</span><span class="ph">御社の写真・実績・文章に差し替えて仕上げます。</span>
 </footer>
 
 </body>

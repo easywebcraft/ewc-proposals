@@ -69,9 +69,11 @@ nav a:hover{color:var(--accent)}
          font-size:clamp(27px,7.4vw,40px);line-height:1.65;letter-spacing:.06em}
 .hero h1 em{font-style:normal;color:var(--accent)}
 .hero .sub{margin:16px 0 0;color:var(--muted);font-size:14.5px;max-width:30em}
+.ph{display:inline-block}
+.notice .ph,footer .ph{margin-right:.15em}
 .hero .en{margin:10px 0 0;font-size:11px;letter-spacing:.22em;color:var(--muted)}
 .hero .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.btn{display:inline-block;text-decoration:none;border-radius:999px;
+.btn{display:inline-block;text-decoration:none;border-radius:999px;white-space:nowrap;
      padding:14px 26px;font-size:14.5px;font-weight:700;letter-spacing:.05em}
 .btn.p{background:var(--accent);color:#fff}
 .btn.p:hover{background:var(--accent-d)}
@@ -172,13 +174,13 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
                align-items:center;gap:46px;padding:34px 0 46px}
   /* 縦書きの明朝（TATSUSHO の型）。広い画面のときだけ。 */
   .vt{writing-mode:vertical-rl;text-orientation:upright;
-      max-height:430px;margin-left:auto}
-  .hero h1{line-height:2.0;letter-spacing:.14em}
+      max-height:470px;margin-left:auto;white-space:nowrap}
+  .hero h1{line-height:2.0;letter-spacing:.14em;font-size:33px}
   .hero .sub,.hero .en,.hero .acts{writing-mode:horizontal-tb}
   .hero .side{display:flex;flex-direction:column;align-items:flex-end;gap:0}
   .hero .textcol{flex-direction:row;gap:26px;justify-content:flex-end}
   .hero .textcol h1{order:0}
-  .hero .meta{max-width:19em}
+  .hero .meta{max-width:21em}
   .scroll{display:block}
   .cards{grid-template-columns:repeat(3,1fr);gap:16px}
   .flow{grid-template-columns:repeat(2,1fr)}
@@ -192,7 +194,7 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
 
 <div class="notice">
   <b>これは EasyWebCraft が作成した提案用の見本です。</b>
-  <span>進英産業株式会社さまの公式サイトではありません。<b>トップページだけを形にした見本</b>で、メニューの各ページは実際の制作でお作りします。写真・文章は当社が用意したものです。</span>
+  <span><span class="ph">進英産業株式会社さまの公式サイトではありません。</span><span class="ph"><b>トップページだけを形にした見本</b>で、</span><span class="ph">メニューの各ページは実際の制作でお作りします。</span><span class="ph">写真・文章は当社が用意したものです。</span></span>
 </div>
 
 <div class="hdwrap">
@@ -209,7 +211,7 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
     <div class="side">
       <div class="textcol">
         <div class="meta">
-          <p class="sub">エアーフィルター、断熱材、防音材。東海の建物を快適にする資材を、既製品から特注加工まで扱っています。</p>
+          <p class="sub"><span class="ph">エアーフィルター、</span><span class="ph">断熱材、</span><span class="ph">防音材。</span><span class="ph">東海の建物を快適にする資材を、</span><span class="ph">既製品から特注加工まで扱っています。</span></p>
           <p class="en">SHIN-EI SANGYO</p>
           <div class="acts"><a class="btn p" href="tel:0525022331">電話で相談する</a><a class="btn g" href="#works">できることを見る</a></div>
         </div>
@@ -256,8 +258,8 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
 </div>
 
 <footer>
-  この見本は EasyWebCraft が作成した提案資料です。進英産業株式会社さまの公式サイトではありません。<br>
-  実際の制作では、御社の写真・実績・文章に差し替えて仕上げます。
+  <span class="ph">この見本は EasyWebCraft が作成した提案資料です。</span><span class="ph">進英産業株式会社さまの公式サイトではありません。</span><br>
+  <span class="ph">実際の制作では、</span><span class="ph">御社の写真・実績・文章に差し替えて仕上げます。</span>
 </footer>
 
 </body>
