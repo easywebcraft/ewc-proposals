@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- ★提案用の見本。検索に載せない。本物と誤認されないための最低条件 -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>【提案見本】株式会社伊藤貴金属製作所さま トップページ案｜EasyWebCraft</title>
+<style>
+:root{
+  --ink:#232a33; --muted:#6b7480; --line:#e3e6ea; --line-s:#f2f4f6;
+  --navy:#26323c; --navy-d:#171f27; --clay:#c2703a;
+  --bg:#fff; --panel:#f7f8fa;
+  --serif:"Noto Serif JP","游明朝体","Yu Mincho",YuMincho,"ヒラギノ明朝 ProN W3",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Yu Gothic",Meiryo,
+         "Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);
+     line-height:1.9;-webkit-text-size-adjust:100%}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.notice{position:sticky;top:0;z-index:50;background:var(--clay);color:#fff;
+        font-size:13px;line-height:1.6;padding:9px 16px;text-align:center}
+.notice b{font-weight:700}
+.notice span{display:block;opacity:.9;font-size:12px}
+header{position:sticky;top:0;background:rgba(255,255,255,.94);
+       backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:40}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;height:62px}
+.logo{font-family:var(--serif);font-size:19px;letter-spacing:.06em;font-weight:600}
+.logo small{display:block;font-family:var(--sans);font-size:10px;
+            letter-spacing:.18em;color:var(--muted);font-weight:400}
+nav{display:none;gap:26px;font-size:14px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--navy)}
+.tel{display:inline-flex;flex-direction:column;align-items:flex-end;
+     text-decoration:none;line-height:1.3}
+.tel b{font-size:17px;color:var(--navy);letter-spacing:.02em}
+.tel small{font-size:10px;color:var(--muted)}
+.hero{position:relative;background:
+      linear-gradient(135deg,var(--navy) 0%,var(--navy-d) 62%,#0f1f30 100%);
+      color:#fff;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto -10% -40% 40%;height:70%;
+             background:radial-gradient(closest-side,rgba(0,0,0,.25),transparent);
+             pointer-events:none}
+.hero .wrap{position:relative;padding:64px 20px 56px}
+.hero .eyebrow{font-size:12px;letter-spacing:.22em;opacity:.75;margin:0 0 18px}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:31px;line-height:1.55;
+         margin:0 0 20px;letter-spacing:.03em}
+.hero h1 em{font-style:normal;border-bottom:2px solid var(--clay);padding-bottom:2px}
+.hero p{margin:0 0 30px;opacity:.9;font-size:15px;max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:15px 26px;border-radius:3px;text-decoration:none;
+     font-size:15px;font-weight:600;letter-spacing:.04em;transition:.2s}
+.btn.p{background:var(--clay);color:#fff}
+.btn.p:hover{filter:brightness(.9)}
+.btn.g{border:1px solid rgba(255,255,255,.5);color:#fff}
+.btn.g:hover{background:rgba(255,255,255,.1)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+       background:var(--line);border-bottom:1px solid var(--line)}
+.stats div{background:#fff;padding:22px 10px;text-align:center}
+.stats b{display:block;font-family:var(--serif);font-size:27px;color:var(--navy);line-height:1.2}
+.stats b small{font-size:13px}
+.stats span{font-size:11px;color:var(--muted);letter-spacing:.06em}
+section{padding:58px 0}
+section.alt{background:var(--panel)}
+h2{font-family:var(--serif);font-weight:500;font-size:24px;letter-spacing:.05em;
+   margin:0 0 8px;text-align:center}
+.lead{text-align:center;color:var(--muted);font-size:14px;margin:0 0 34px}
+.cards{display:grid;gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:4px;padding:24px 22px}
+.card .no{font-family:var(--serif);font-size:12px;color:var(--clay);
+          letter-spacing:.2em;display:block;margin-bottom:8px}
+.card h3{font-size:17px;margin:0 0 10px;letter-spacing:.03em}
+.card p{margin:0;font-size:14px;color:var(--muted)}
+.flow{display:grid;gap:14px;counter-reset:s}
+.step{background:#fff;border:1px solid var(--line);border-radius:4px;
+      padding:20px 22px 20px 62px;position:relative}
+.step::before{counter-increment:s;content:counter(s);position:absolute;left:20px;top:18px;
+              width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;
+              font-size:13px;display:grid;place-items:center;font-family:var(--serif)}
+.step h3{font-size:16px;margin:0 0 6px}
+.step p{margin:0;font-size:13.5px;color:var(--muted)}
+table.info{width:100%;border-collapse:collapse;font-size:14px}
+table.info th,table.info td{border-bottom:1px solid var(--line);padding:14px 4px;
+                            text-align:left;vertical-align:top}
+table.info th{width:7.5em;color:var(--muted);font-weight:500}
+.contact{background:var(--navy);color:#fff;text-align:center;padding:52px 20px}
+.contact h2{color:#fff}
+.contact .lead{color:rgba(255,255,255,.8)}
+.contact .big{font-family:var(--serif);font-size:32px;letter-spacing:.04em;
+              display:inline-block;margin:6px 0 4px;text-decoration:none;color:#fff}
+.contact small{display:block;font-size:12px;opacity:.75;margin-bottom:22px}
+footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
+       padding:26px 20px;text-align:center}
+@media(min-width:768px){
+  .hero .wrap{padding:96px 20px 84px}
+  .hero h1{font-size:42px}
+  nav{display:flex}
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .stats b{font-size:32px}
+  h2{font-size:29px}
+  section{padding:78px 0}
+}
+</style>
+</head>
+<body>
+
+<div class="notice">
+  <b>これは EasyWebCraft が作成した提案用の見本です。</b>
+  <span>株式会社伊藤貴金属製作所さまの公式サイトではありません。掲載内容は構成をご覧いただくための仮のもので、写真・文章は当社が用意したものです。</span>
+</div>
+
+<header>
+  <div class="wrap hd">
+    <div class="logo">株式会社伊藤貴金属製作所<small>ITO KIKINZOKU ／ 愛知県名古屋市</small></div>
+    <nav><a href="#works">承っていること</a><a href="#flow">ご相談からお渡しまで</a><a href="#company">概要</a></nav>
+    <a class="tel" href="tel:0525312422"><b>052-531-2422</b><small>お電話でのご相談</small></a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">製造 ／ 創業 1924年</p>
+    <h1>つくる。直す。よみがえらせる。<br><em>名古屋のジュエリー工房、101年。</em></h1>
+    <p>フルオーダーのジュエリーから、使わなくなった品のリフォーム、サイズ直しや修理まで。一級技能士のいる工房でお受けします。</p>
+    <div class="cta"><a class="btn p" href="tel:0525312422">電話で相談する</a><a class="btn g" href="#works">承っていることを見る</a></div>
+  </div>
+</div>
+
+<div class="stats"><div><b>101<small>年</small></b><span>創業からの歩み</span></div><div><b>一級<small>技能士</small></b><span>貴金属装身具</span></div><div><b>工房<small>直営</small></b><span>つくる人が応対します</span></div></div>
+
+<section id="works">
+  <div class="wrap">
+    <h2>承っていること</h2>
+    <p class="lead">小さなピアスから、ティアラまで。</p>
+    <div class="cards"><div class="card"><span class="no">01</span><h3>オーダージュエリー</h3><p>ご予算とご希望をうかがってお作りします。図面でご相談できます。</p></div><div class="card"><span class="no">02</span><h3>ジュエリーリフォーム</h3><p>使わなくなった品を、いま着けられる形に作り替えます。</p></div><div class="card"><span class="no">03</span><h3>ブライダルジュエリー</h3><p>おふたりの希望に合わせてお作りします。</p></div><div class="card"><span class="no">04</span><h3>修理・サイズ直し</h3><p>指輪のサイズ直し、切れた鎖の修理など承ります。</p></div><div class="card"><span class="no">05</span><h3>オリジナル製品</h3><p>工房で作った小物もお求めいただけます。</p></div><div class="card"><span class="no">06</span><h3>お見積り</h3><p>現物を拝見してお出しします。お持ちください。</p></div></div>
+  </div>
+</section>
+
+<section class="alt" id="flow">
+  <div class="wrap">
+    <h2>ご相談からお渡しまで</h2>
+    <p class="lead">はじめての方にも、順番が分かるように。</p>
+    <div class="flow"><div class="step"><h3>ご相談</h3><p>図面が無い段階でも構いません。用途をお聞かせください。</p></div><div class="step"><h3>お見積り</h3><p>数量と納期の見通しを添えてお出しします。</p></div><div class="step"><h3>試作・ご確認</h3><p>かたちにしてから直すほうが早いこともあります。</p></div><div class="step"><h3>量産・納品</h3><p>継続してご発注いただく場合の体制もご相談ください。</p></div></div>
+  </div>
+</section>
+
+<section id="company">
+  <div class="wrap" style="max-width:720px">
+    <h2>概要</h2>
+    <p class="lead">&nbsp;</p>
+    <table class="info"><tr><th>商号</th><td>株式会社伊藤貴金属製作所</td></tr><tr><th>所在地</th><td>愛知県名古屋市西区浅間町2-4-12</td></tr><tr><th>電話</th><td><a href="tel:0525312422">052-531-2422</a></td></tr><tr><th>創業</th><td>1924年</td></tr><tr><th>事業内容</th><td>オーダージュエリー／ジュエリーリフォーム／ブライダルジュエリー／修理・サイズ直し／オリジナル製品</td></tr></table>
+  </div>
+</section>
+
+<div class="contact">
+  <h2>まずはお電話ください</h2>
+  <p class="lead">「これは直せるのか」だけでも構いません。</p>
+  <a class="big" href="tel:0525312422">052-531-2422</a><small>受付時間 9:00–18:00</small><div><a class="btn p" href="tel:0525312422">電話をかける</a></div>
+</div>
+
+<footer>
+  この見本は EasyWebCraft が作成した提案資料です。株式会社伊藤貴金属製作所さまの公式サイトではありません。<br>
+  実際の制作では、御社の写真・実績・文章に差し替えて仕上げます。
+</footer>
+
+</body>
+</html>
