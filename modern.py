@@ -22,8 +22,8 @@ def e(x):
 
 CSS = """
 :root{
-  --ground:%(ground)s; --ink:%(ink2)s; --muted:#7c8580; --line:#ddd9cf;
-  --accent:%(accent)s; --accent-d:#155c39; --paper:#fff;
+  --ground:%(ground)s; --ink:%(ink2)s; --muted:#667069; --line:#ddd9cf;
+  --accent:%(accent)s; --accent-d:%(accent_d)s; --paper:#fff;
   --serif:"Noto Serif JP","游明朝体","Yu Mincho",YuMincho,"ヒラギノ明朝 ProN W3",serif;
   --sans:-apple-system,BlinkMacSystemFont,"Yu Gothic",Meiryo,
          "Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
@@ -70,12 +70,14 @@ nav a:hover{color:var(--accent)}
 .hero .big{position:absolute;left:-2%%;top:6%%;width:104%%;
            font-family:var(--serif);font-weight:400;
            font-size:clamp(64px,17vw,210px);line-height:.92;letter-spacing:-.01em;
-           color:transparent;-webkit-text-stroke:1px rgba(31,122,77,.20);
+           color:transparent;-webkit-text-stroke:1px rgba(%(acc_rgb)s,.11);
            white-space:nowrap;pointer-events:none;user-select:none}
 /* 線画の地（SUZUKI の型を、街の輪郭ではなく等高線で） */
 .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background-image:repeating-linear-gradient(115deg,rgba(31,122,77,.055) 0 1px,transparent 1px 42px);}
+  background-image:repeating-linear-gradient(115deg,rgba(%(acc_rgb)s,.055) 0 1px,transparent 1px 42px);}
 .hero .inner{position:relative;display:grid;gap:22px;padding:18px 0 0}
+.hero .textcol{display:flex;flex-direction:column}
+.hero .textcol h1{order:-1}   /* 狭い画面では見出しを先頭に */
 .vt{writing-mode:horizontal-tb}
 .hero h1{font-family:var(--serif);font-weight:500;margin:0;
          font-size:clamp(27px,7.4vw,40px);line-height:1.65;letter-spacing:.06em}
@@ -92,14 +94,23 @@ nav a:hover{color:var(--accent)}
 
 /* 写真の枠。ごまかさず「ここに入る」と書く。 */
 .shot{position:relative;background:
-      linear-gradient(135deg,#e9e6dc 0%%,#dfe6e0 55%%,#e6ece7 100%%);
+      linear-gradient(135deg,#eae7de 0%%,#e3e1d8 55%%,#edebe3 100%%);
       border:1px solid var(--line);border-radius:10px;aspect-ratio:4/3;
       display:grid;place-items:center;text-align:center;overflow:hidden}
 .shot::after{content:"";position:absolute;inset:0;
   background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.5) 0 2px,transparent 2px 12px)}
-.shot .lb{position:relative;z-index:1;color:#7b857e;font-size:12.5px;letter-spacing:.08em}
-.shot .lb b{display:block;font-family:var(--serif);font-size:15px;color:#5f6b64;
+.shot .lb{position:relative;z-index:1;color:#6f7268;font-size:12.5px;letter-spacing:.08em}
+.shot .lb b{display:block;font-family:var(--serif);font-size:15px;color:#575a51;
             margin-bottom:5px;font-weight:500}
+/* 実績・事例の写真枠。ヒーローの枠と同じ見た目でそろえる */
+.gal{display:grid;gap:14px}
+.gframe{position:relative;background:
+        linear-gradient(135deg,#eae7de 0%%,#e3e1d8 55%%,#edebe3 100%%);
+        border:1px solid var(--line);border-radius:10px;aspect-ratio:4/3;
+        display:grid;place-items:center;align-content:center;text-align:center;
+        color:#6f7268;font-size:12px;letter-spacing:.06em;padding:0 14px}
+.gframe b{display:block;font-family:var(--serif);font-size:14px;color:#575a51;
+          margin-bottom:4px;font-weight:500}
 .scroll{display:none;position:absolute;left:50%%;bottom:6px;font-size:10px;
         letter-spacing:.2em;color:var(--muted)}
 
@@ -126,7 +137,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(21px,5.4vw,28px);
       padding:24px 22px;position:relative;overflow:hidden}
 section.alt .card{background:var(--ground)}
 .card .no{position:absolute;right:14px;top:8px;font-family:var(--serif);
-          font-size:34px;color:rgba(31,122,77,.10);line-height:1}
+          font-size:34px;color:rgba(%(acc_rgb)s,.10);line-height:1}
 .card h3{font-size:16.5px;margin:0 0 9px;letter-spacing:.04em}
 .card p{margin:0;font-size:13.5px;color:var(--muted)}
 
@@ -169,6 +180,7 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
 }
 
 @media(min-width:900px){
+  .gal{grid-template-columns:repeat(3,1fr);gap:18px}
   .hero{padding:34px 0 20px}
   .hero .inner{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
                align-items:center;gap:46px;padding:34px 0 46px}
@@ -178,7 +190,9 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
   .hero h1{line-height:2.0;letter-spacing:.14em}
   .hero .sub,.hero .en,.hero .acts{writing-mode:horizontal-tb}
   .hero .side{display:flex;flex-direction:column;align-items:flex-end;gap:0}
-  .hero .textcol{display:flex;gap:26px;justify-content:flex-end}
+  .hero .big{-webkit-text-stroke:1px rgba(%(acc_rgb)s,.20)}
+  .hero .textcol{flex-direction:row;gap:26px;justify-content:flex-end}
+  .hero .textcol h1{order:0}
   .hero .meta{max-width:19em}
   .scroll{display:block}
   .cards{grid-template-columns:repeat(3,1fr);gap:16px}
@@ -195,7 +209,12 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
 #   なぜ要るか: 既定の4項目のままだと、下層ページを持つ相手には**構成が劣化して見える**。
 #   メニューだけ合わせれば「この構成のまま作り直す」という提案になり、手間も増えない。
 #   nav を書かなければ既定のまま。既存のページは変わらない。
-NAV_HINTS = (  # 項目名に含まれる語 → 飛ばす先
+NAV_HINTS = (  # 項目名に含まれる語 → 飛ばす先。上から順に見る
+    # 総称のメニュー（一覧ページ）は「できること」全体で受ける
+    ("業務内容", "#works"), ("業務案内", "#works"), ("事業案内", "#works"),
+    ("事業内容", "#works"), ("サービス", "#works"), ("商品のご案内", "#works"),
+    # 実績・事例のページ。gallery を持つ先だけ（持たない先は下の照合に回す）
+    ("実績", "#gallery"), ("事例", "#gallery"), ("施工例", "#gallery"),
     ("会社", "#company"), ("企業", "#company"), ("店", "#company"), ("アクセス", "#company"),
     ("問合", "#contact"), ("問い合", "#contact"),
     ("流れ", "#flow"), ("工程", "#flow"),
@@ -222,6 +241,90 @@ def nav_breakpoint(d, ind):
     return max(900, int(need // 20 * 20 + 20))
 
 
+# ★色は業種の既定ではなく、相手のサイトから拾った1色に寄せられるようにする。
+#   sites.json に "accent" があればそれを使う（拾い方は colorfind.py）。
+#   拾った色をそのまま使うと白抜き文字が読めないことがあるので、
+#   白に対して 4.5:1 を満たすまで暗くしてから使う。
+def _rgb(h):
+    h = h.lstrip("#")
+    if len(h) == 3:
+        h = "".join(c * 2 for c in h)
+    return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+
+
+def _lum(rgb):
+    def f(v):
+        v /= 255
+        return v / 12.92 if v <= 0.03928 else ((v + 0.055) / 1.055) ** 2.4
+    r, g, b = (f(x) for x in rgb)
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def _hex(rgb):
+    return "#%02x%02x%02x" % tuple(max(0, min(255, round(x))) for x in rgb)
+
+
+def _scale(rgb, f):
+    return tuple(x * f for x in rgb)
+
+
+def accent_of(d, ind):
+    """本文・ボタンに使う色。白抜き文字が読める濃さまで落として返す。"""
+    rgb = _rgb(d.get("accent") or ind["accent"])
+    for _ in range(40):
+        if (1.05) / (_lum(rgb) + 0.05) >= 4.5:
+            break
+        rgb = _scale(rgb, 0.93)
+    return _hex(rgb), _hex(_scale(rgb, 0.76)), "%d,%d,%d" % tuple(round(x) for x in rgb)
+
+
+def _bigrams(text):
+    t = "".join(c for c in text if c not in "・／/ 　のとをごおはが")
+    return {t[i:i + 2] for i in range(len(t) - 1)} or {t}
+
+
+# ★メニューの項目は、対応するサービスカードまで飛ばす。
+#   最初は全部 #works に飛ばしていたが、中駒だと7項目のうち5つが同じ場所に着地した。
+#   2つ押せば「同じところに戻る＝中身が無い」と分かってしまう。
+def nav_targets(d, ind):
+    """メニューの項目名 → 飛び先。当てはまるカードが無い項目は None で返す。"""
+    labels = list(d.get("nav") or [])
+    pairs = {}
+    rest = []
+    has_gallery = bool(d.get("gallery"))
+    for label in labels:
+        for key, target in NAV_HINTS:
+            if key in label:
+                if target == "#gallery" and not has_gallery:
+                    continue                     # 実績ブロックが無いならカード照合に回す
+                pairs[label] = target
+                break
+        else:
+            rest.append(label)
+
+    # 見出しの重なり具合（2文字のかたまり）で一番近いカードに割り当てる。
+    # 1項目1カードにしたいので、点の高い組から順に取っていく。
+    svc = [t for t, _ in d.get("services", [])]
+    score = []
+    for label in rest:
+        lb = _bigrams(label)
+        for i, title in enumerate(svc):
+            n = len(lb & _bigrams(title))
+            if n:
+                score.append((-n, i, label))
+    score.sort()
+    used_l, used_i = set(), set()
+    for _, i, label in score:
+        if label in used_l or i in used_i:
+            continue
+        pairs[label] = f"#svc{i + 1}"
+        used_l.add(label)
+        used_i.add(i)
+    for label in rest:
+        pairs.setdefault(label, None)            # 対応するカードが無い
+    return [(x, pairs[x]) for x in labels]
+
+
 def nav_html(d, ind, e):
     """メニューのHTML。nav が無ければ既定の4項目。"""
     items = d.get("nav")
@@ -229,13 +332,8 @@ def nav_html(d, ind, e):
         return (f'<a href="#works">{e(ind["svc"])}</a><a href="#flow">{e(ind["flow_h"])}</a>'
                 f'<a href="#company">会社概要</a><a href="#contact">お問い合わせ</a>')
     out = []
-    for label in items[:6]:                      # 7つ以上は横に入らない
-        href = "#works"                          # 当てはまらないものは「できること」へ
-        for key, target in NAV_HINTS:
-            if key in label:
-                href = target
-                break
-        out.append(f'<a href="{href}">{e(label)}</a>')
+    for label, href in nav_targets(d, ind)[:6]:  # 7つ以上は横に入らない
+        out.append(f'<a href="{href or "#works"}">{e(label)}</a>')
     out.append('<a href="#contact">お問い合わせ</a>')   # 窓口は必ず出す
     return "".join(out)
 
@@ -244,17 +342,36 @@ def render(sid, d, ind):
     tel = d.get("tel", "")
     tl = tel.replace("-", "")
     name = d["name"]
-    css = CSS % {"ground": ind["ground"], "ink2": ind["ink2"], "accent": ind["accent"],
-                 "navbp": nav_breakpoint(d, ind)}
+    acc, acc_d, acc_rgb = accent_of(d, ind)
+    css = CSS % {"ground": ind["ground"], "ink2": ind["ink2"], "accent": acc,
+                 "accent_d": acc_d, "acc_rgb": acc_rgb, "navbp": nav_breakpoint(d, ind)}
     roman = d.get("roman", "")
 
     stats = "".join(f'<div><b>{e(a)}<small>{e(b)}</small></b><span>{e(c)}</span></div>'
                     for a, b, c in d["stats"])
     cards = "".join(
-        f'<div class="card"><span class="no">{i:02d}</span><h3>{e(t)}</h3><p>{e(p)}</p></div>'
+        f'<div class="card" id="svc{i}"><span class="no">{i:02d}</span>'
+        f'<h3>{e(t)}</h3><p>{e(p)}</p></div>'
         for i, (t, p) in enumerate(d["services"], 1))
     steps = "".join(f'<div class="step"><h3>{e(t)}</h3><p>{e(p)}</p></div>'
                     for t, p in ind["flow"])
+
+    # メニューに「実績」「事例」がある先には、その受け皿を作る。
+    # 無いと項目を押しても「できること」に着地して、中身が無いのが分かる。
+    gal = d.get("gallery")
+    gallery = ""
+    flow_cls, comp_cls = ' class="alt"', ""
+    if gal:
+        flow_cls, comp_cls = "", ' class="alt"'
+        frames = "".join(f'<div class="gframe"><b>お写真が入ります</b>{e(c)}</div>' for c in gal[:3])
+        gallery = f"""<section class="alt" id="gallery">
+  <div class="wrap">
+    <div class="sechead"><span class="en">WORKS</span>
+      <h2>{e(d.get("gallery_h", "これまでの仕事"))}</h2>
+      <p>お預かりしたお写真を、ここに並べます。</p></div>
+    <div class="gal">{frames}</div>
+  </div>
+</section>"""
 
     info = [("商号", name)]
     if d.get("addr"):
@@ -330,7 +447,9 @@ def render(sid, d, ind):
   </div>
 </section>
 
-<section class="alt" id="flow">
+{gallery}
+
+<section{flow_cls} id="flow">
   <div class="wrap">
     <div class="sechead"><span class="en">FLOW</span>
       <h2>{e(ind["flow_h"])}</h2><p>はじめての方にも、順番が分かるように。</p></div>
@@ -338,7 +457,7 @@ def render(sid, d, ind):
   </div>
 </section>
 
-<section id="company">
+<section{comp_cls} id="company">
   <div class="wrap" style="max-width:720px">
     <div class="sechead"><span class="en">COMPANY</span><h2>会社概要</h2></div>
     <table class="info">{rows}</table>
