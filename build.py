@@ -97,6 +97,8 @@ a{color:inherit}
         font-size:13px;line-height:1.6;padding:9px 16px;text-align:center}
 .notice b{font-weight:700}
 .notice span{display:block;opacity:.9;font-size:12px}
+.ph{display:inline-block}
+.notice .ph,footer .ph{display:inline-block;margin-right:.15em}
 header{position:sticky;top:0;background:rgba(255,255,255,.94);
        backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:40}
 .hd{display:flex;align-items:center;justify-content:space-between;gap:12px;
@@ -126,7 +128,7 @@ nav a:hover{color:var(--navy)}
 .hero h1 em{font-style:normal;border-bottom:2px solid var(--clay);padding-bottom:2px}
 .hero p{margin:0 0 30px;opacity:.9;font-size:15px;max-width:34em}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-block;padding:15px 26px;border-radius:3px;text-decoration:none;
+.btn{display:inline-block;white-space:nowrap;padding:15px 26px;border-radius:3px;text-decoration:none;
      font-size:15px;font-weight:600;letter-spacing:.04em;transition:.2s}
 .btn.p{background:var(--clay);color:#fff}
 .btn.p:hover{filter:brightness(.9)}
@@ -181,6 +183,20 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
   section{padding:78px 0}
 }
 """
+
+
+# 日本語は語の途中でも折り返るので、読点・句点で区切った句を
+# inline-block にして切れ目をそこだけに限る（modern.py の phrase と同じ）。
+def phrase(text, e):
+    out, buf = [], ""
+    for c in text:
+        buf += c
+        if c in "、。":
+            out.append(buf)
+            buf = ""
+    if buf:
+        out.append(buf)
+    return "".join(f'<span class="ph">{e(x)}</span>' for x in out)
 
 
 def e(x):
@@ -252,7 +268,7 @@ def render(sid, d):
 
 <div class="notice">
   <b>これは EasyWebCraft が作成した提案用の見本です。</b>
-  <span>{e(name)}さまの公式サイトではありません。<b>トップページだけを形にした見本</b>で、メニューの各ページは実際の制作でお作りします。写真・文章は当社が用意したものです。</span>
+  <span><span class="ph">{e(name)}さまの公式サイトではありません。</span><span class="ph"><b>トップページだけを形にした見本</b>で、</span><span class="ph">メニューの各ページは実際の制作でお作りします。</span><span class="ph">写真・文章は当社が用意したものです。</span></span>
 </div>
 
 <header>
@@ -266,8 +282,8 @@ def render(sid, d):
 <div class="hero">
   <div class="wrap">
     <p class="eyebrow">{e(ind["label"])}{" ／ 創業 " + e(d["founded"]) + "年" if d.get("founded") else ""}</p>
-    <h1>{e(d["catch"])}<br><em>{e(d["catch_em"])}</em></h1>
-    <p>{e(d["sub"])}</p>
+    <h1>{phrase(d["catch"], e)}<br><em>{phrase(d["catch_em"], e)}</em></h1>
+    <p>{phrase(d["sub"], e)}</p>
     <div class="cta">{hero_btn}<a class="btn g" href="#works">{e(ind["svc"])}を見る</a></div>
   </div>
 </div>
@@ -305,8 +321,8 @@ def render(sid, d):
 </div>
 
 <footer>
-  この見本は EasyWebCraft が作成した提案資料です。{e(name)}さまの公式サイトではありません。<br>
-  実際の制作では、御社の写真・実績・文章に差し替えて仕上げます。
+  <span class="ph">この見本は EasyWebCraft が作成した提案資料です。</span><span class="ph">{e(name)}さまの公式サイトではありません。</span><br>
+  <span class="ph">実際の制作では、</span><span class="ph">御社の写真・実績・文章に差し替えて仕上げます。</span>
 </footer>
 
 </body>

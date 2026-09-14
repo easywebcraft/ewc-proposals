@@ -26,6 +26,8 @@ a{color:inherit}
         font-size:13px;line-height:1.6;padding:9px 16px;text-align:center}
 .notice b{font-weight:700}
 .notice span{display:block;opacity:.9;font-size:12px}
+.ph{display:inline-block}
+.notice .ph,footer .ph{display:inline-block;margin-right:.15em}
 header{position:sticky;top:0;background:rgba(255,255,255,.94);
        backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:40}
 .hd{display:flex;align-items:center;justify-content:space-between;gap:12px;
@@ -55,7 +57,7 @@ nav a:hover{color:var(--navy)}
 .hero h1 em{font-style:normal;border-bottom:2px solid var(--clay);padding-bottom:2px}
 .hero p{margin:0 0 30px;opacity:.9;font-size:15px;max-width:34em}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-block;padding:15px 26px;border-radius:3px;text-decoration:none;
+.btn{display:inline-block;white-space:nowrap;padding:15px 26px;border-radius:3px;text-decoration:none;
      font-size:15px;font-weight:600;letter-spacing:.04em;transition:.2s}
 .btn.p{background:var(--clay);color:#fff}
 .btn.p:hover{filter:brightness(.9)}
@@ -115,7 +117,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 
 <div class="notice">
   <b>これは EasyWebCraft が作成した提案用の見本です。</b>
-  <span>株式会社伊藤貴金属製作所さまの公式サイトではありません。<b>トップページだけを形にした見本</b>で、メニューの各ページは実際の制作でお作りします。写真・文章は当社が用意したものです。</span>
+  <span><span class="ph">株式会社伊藤貴金属製作所さまの公式サイトではありません。</span><span class="ph"><b>トップページだけを形にした見本</b>で、</span><span class="ph">メニューの各ページは実際の制作でお作りします。</span><span class="ph">写真・文章は当社が用意したものです。</span></span>
 </div>
 
 <header>
@@ -129,8 +131,8 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 <div class="hero">
   <div class="wrap">
     <p class="eyebrow">製造 ／ 創業 1924年</p>
-    <h1>つくる。直す。よみがえらせる。<br><em>名古屋のジュエリー工房、101年。</em></h1>
-    <p>フルオーダーのジュエリーから、使わなくなった品のリフォーム、サイズ直しや修理まで。一級技能士のいる工房でお受けします。</p>
+    <h1><span class="ph">つくる。</span><span class="ph">直す。</span><span class="ph">よみがえらせる。</span><br><em><span class="ph">名古屋のジュエリー工房、</span><span class="ph">101年。</span></em></h1>
+    <p><span class="ph">フルオーダーのジュエリーから、</span><span class="ph">使わなくなった品のリフォーム、</span><span class="ph">サイズ直しや修理まで。</span><span class="ph">一級技能士のいる工房でお受けします。</span></p>
     <div class="cta"><a class="btn p" href="tel:0525312422">電話で相談する</a><a class="btn g" href="#works">承っていることを見る</a></div>
   </div>
 </div>
@@ -168,8 +170,8 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 </div>
 
 <footer>
-  この見本は EasyWebCraft が作成した提案資料です。株式会社伊藤貴金属製作所さまの公式サイトではありません。<br>
-  実際の制作では、御社の写真・実績・文章に差し替えて仕上げます。
+  <span class="ph">この見本は EasyWebCraft が作成した提案資料です。</span><span class="ph">株式会社伊藤貴金属製作所さまの公式サイトではありません。</span><br>
+  <span class="ph">実際の制作では、</span><span class="ph">御社の写真・実績・文章に差し替えて仕上げます。</span>
 </footer>
 
 </body>

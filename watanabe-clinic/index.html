@@ -26,6 +26,8 @@ a{color:inherit}
         font-size:13px;line-height:1.6;padding:9px 16px;text-align:center}
 .notice b{font-weight:700}
 .notice span{display:block;opacity:.9;font-size:12px}
+.ph{display:inline-block}
+.notice .ph,footer .ph{display:inline-block;margin-right:.15em}
 header{position:sticky;top:0;background:rgba(255,255,255,.94);
        backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:40}
 .hd{display:flex;align-items:center;justify-content:space-between;gap:12px;
@@ -55,7 +57,7 @@ nav a:hover{color:var(--navy)}
 .hero h1 em{font-style:normal;border-bottom:2px solid var(--clay);padding-bottom:2px}
 .hero p{margin:0 0 30px;opacity:.9;font-size:15px;max-width:34em}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-block;padding:15px 26px;border-radius:3px;text-decoration:none;
+.btn{display:inline-block;white-space:nowrap;padding:15px 26px;border-radius:3px;text-decoration:none;
      font-size:15px;font-weight:600;letter-spacing:.04em;transition:.2s}
 .btn.p{background:var(--clay);color:#fff}
 .btn.p:hover{filter:brightness(.9)}
@@ -115,7 +117,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 
 <div class="notice">
   <b>これは EasyWebCraft が作成した提案用の見本です。</b>
-  <span>わたなべ内科クリニックさまの公式サイトではありません。<b>トップページだけを形にした見本</b>で、メニューの各ページは実際の制作でお作りします。写真・文章は当社が用意したものです。</span>
+  <span><span class="ph">わたなべ内科クリニックさまの公式サイトではありません。</span><span class="ph"><b>トップページだけを形にした見本</b>で、</span><span class="ph">メニューの各ページは実際の制作でお作りします。</span><span class="ph">写真・文章は当社が用意したものです。</span></span>
 </div>
 
 <header>
@@ -129,8 +131,8 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 <div class="hero">
   <div class="wrap">
     <p class="eyebrow">クリニック</p>
-    <h1>呼吸のこと、内科のこと。<br><em>近くで、相談できる。</em></h1>
-    <p>かぜや生活習慣病から、せき・息切れなど呼吸器のご相談まで。美濃加茂市で、かかりつけとしてお付き合いします。</p>
+    <h1><span class="ph">呼吸のこと、</span><span class="ph">内科のこと。</span><br><em><span class="ph">近くで、</span><span class="ph">相談できる。</span></em></h1>
+    <p><span class="ph">かぜや生活習慣病から、</span><span class="ph">せき・息切れなど呼吸器のご相談まで。</span><span class="ph">美濃加茂市で、</span><span class="ph">かかりつけとしてお付き合いします。</span></p>
     <div class="cta"><a class="btn p" href="tel:0574231070">電話で相談する</a><a class="btn g" href="#works">診療のご案内を見る</a></div>
   </div>
 </div>
@@ -168,8 +170,8 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 </div>
 
 <footer>
-  この見本は EasyWebCraft が作成した提案資料です。わたなべ内科クリニックさまの公式サイトではありません。<br>
-  実際の制作では、御社の写真・実績・文章に差し替えて仕上げます。
+  <span class="ph">この見本は EasyWebCraft が作成した提案資料です。</span><span class="ph">わたなべ内科クリニックさまの公式サイトではありません。</span><br>
+  <span class="ph">実際の制作では、</span><span class="ph">御社の写真・実績・文章に差し替えて仕上げます。</span>
 </footer>
 
 </body>

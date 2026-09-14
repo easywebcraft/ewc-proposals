@@ -26,6 +26,8 @@ a{color:inherit}
         font-size:13px;line-height:1.6;padding:9px 16px;text-align:center}
 .notice b{font-weight:700}
 .notice span{display:block;opacity:.9;font-size:12px}
+.ph{display:inline-block}
+.notice .ph,footer .ph{display:inline-block;margin-right:.15em}
 header{position:sticky;top:0;background:rgba(255,255,255,.94);
        backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:40}
 .hd{display:flex;align-items:center;justify-content:space-between;gap:12px;
@@ -55,7 +57,7 @@ nav a:hover{color:var(--navy)}
 .hero h1 em{font-style:normal;border-bottom:2px solid var(--clay);padding-bottom:2px}
 .hero p{margin:0 0 30px;opacity:.9;font-size:15px;max-width:34em}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-block;padding:15px 26px;border-radius:3px;text-decoration:none;
+.btn{display:inline-block;white-space:nowrap;padding:15px 26px;border-radius:3px;text-decoration:none;
      font-size:15px;font-weight:600;letter-spacing:.04em;transition:.2s}
 .btn.p{background:var(--clay);color:#fff}
 .btn.p:hover{filter:brightness(.9)}
@@ -115,7 +117,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 
 <div class="notice">
   <b>これは EasyWebCraft が作成した提案用の見本です。</b>
-  <span>カトー自動車工業株式会社さまの公式サイトではありません。<b>トップページだけを形にした見本</b>で、メニューの各ページは実際の制作でお作りします。写真・文章は当社が用意したものです。</span>
+  <span><span class="ph">カトー自動車工業株式会社さまの公式サイトではありません。</span><span class="ph"><b>トップページだけを形にした見本</b>で、</span><span class="ph">メニューの各ページは実際の制作でお作りします。</span><span class="ph">写真・文章は当社が用意したものです。</span></span>
 </div>
 
 <header>
@@ -129,8 +131,8 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 <div class="hero">
   <div class="wrap">
     <p class="eyebrow">自動車</p>
-    <h1>車検も、板金も、急なトラブルも。<br><em>まず、ここへ。</em></h1>
-    <p>車検・整備から鈑金塗装、事故のご対応まで。長く乗るための相談相手でありたいと思っています。</p>
+    <h1><span class="ph">車検も、</span><span class="ph">板金も、</span><span class="ph">急なトラブルも。</span><br><em><span class="ph">まず、</span><span class="ph">ここへ。</span></em></h1>
+    <p><span class="ph">車検・整備から鈑金塗装、</span><span class="ph">事故のご対応まで。</span><span class="ph">長く乗るための相談相手でありたいと思っています。</span></p>
     <div class="cta"><a class="btn p" href="tel:0574623207">電話で相談する</a><a class="btn g" href="#works">できることを見る</a></div>
   </div>
 </div>
@@ -168,8 +170,8 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 </div>
 
 <footer>
-  この見本は EasyWebCraft が作成した提案資料です。カトー自動車工業株式会社さまの公式サイトではありません。<br>
-  実際の制作では、御社の写真・実績・文章に差し替えて仕上げます。
+  <span class="ph">この見本は EasyWebCraft が作成した提案資料です。</span><span class="ph">カトー自動車工業株式会社さまの公式サイトではありません。</span><br>
+  <span class="ph">実際の制作では、</span><span class="ph">御社の写真・実績・文章に差し替えて仕上げます。</span>
 </footer>
 
 </body>
