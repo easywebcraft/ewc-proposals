@@ -53,11 +53,6 @@ nav a:hover{color:var(--accent)}
 
 /* ヒーロー。巨大英字を面として敷き、縦書きの明朝を重ねる。 */
 .hero{position:relative;padding:26px 0 12px;overflow:hidden}
-.hero .big{position:absolute;left:-2%;top:6%;width:104%;
-           font-family:var(--serif);font-weight:400;
-           font-size:clamp(64px,17vw,210px);line-height:.92;letter-spacing:-.01em;
-           color:transparent;-webkit-text-stroke:1px rgba(0,123,164,.11);
-           white-space:nowrap;pointer-events:none;user-select:none}
 /* 線画の地（SUZUKI の型を、街の輪郭ではなく等高線で） */
 .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
   background-image:repeating-linear-gradient(115deg,rgba(0,123,164,.055) 0 1px,transparent 1px 42px);}
@@ -181,7 +176,6 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
   .hero h1{line-height:2.0;letter-spacing:.14em}
   .hero .sub,.hero .en,.hero .acts{writing-mode:horizontal-tb}
   .hero .side{display:flex;flex-direction:column;align-items:flex-end;gap:0}
-  .hero .big{-webkit-text-stroke:1px rgba(0,123,164,.20)}
   .hero .textcol{flex-direction:row;gap:26px;justify-content:flex-end}
   .hero .textcol h1{order:0}
   .hero .meta{max-width:19em}
@@ -211,7 +205,6 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
 
 <div class="hero">
   
-  <div class="big">YAMADA MOKKO</div>
   <div class="wrap inner">
     <div class="side">
       <div class="textcol">
