@@ -176,6 +176,36 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
 """
 
 
+# ★相手のサイトの構成をメニューに写す。`sites.json` の "nav" に項目名を並べる。
+#   **下層ページは作らない。**リンク先はトップ内の節に寄せる（押せば何か起きる）。
+#   なぜ要るか: 既定の4項目のままだと、下層ページを持つ相手には**構成が劣化して見える**。
+#   メニューだけ合わせれば「この構成のまま作り直す」という提案になり、手間も増えない。
+#   nav を書かなければ既定のまま。既存のページは変わらない。
+NAV_HINTS = (  # 項目名に含まれる語 → 飛ばす先
+    ("会社", "#company"), ("企業", "#company"), ("店", "#company"), ("アクセス", "#company"),
+    ("問合", "#contact"), ("問い合", "#contact"),
+    ("流れ", "#flow"), ("工程", "#flow"),
+)
+
+
+def nav_html(d, ind, e):
+    """メニューのHTML。nav が無ければ既定の4項目。"""
+    items = d.get("nav")
+    if not items:
+        return (f'<a href="#works">{e(ind["svc"])}</a><a href="#flow">{e(ind["flow_h"])}</a>'
+                f'<a href="#company">会社概要</a><a href="#contact">お問い合わせ</a>')
+    out = []
+    for label in items[:6]:                      # 7つ以上は横に入らない
+        href = "#works"                          # 当てはまらないものは「できること」へ
+        for key, target in NAV_HINTS:
+            if key in label:
+                href = target
+                break
+        out.append(f'<a href="{href}">{e(label)}</a>')
+    out.append('<a href="#contact">お問い合わせ</a>')   # 窓口は必ず出す
+    return "".join(out)
+
+
 def render(sid, d, ind):
     tel = d.get("tel", "")
     tl = tel.replace("-", "")
@@ -202,6 +232,7 @@ def render(sid, d, ind):
     rows = "".join(f'<tr><th>{e(k)}</th><td>{v if k=="電話" else e(v)}</td></tr>'
                    for k, v in info)
 
+    nav = nav_html(d, ind, e)
     call = (f'<a class="call" href="tel:{e(tl)}">お電話 {e(tel)}</a>' if tel
             else '<a class="call" href="#contact">お問い合わせ</a>')
     hero_btn = (f'<a class="btn p" href="tel:{e(tl)}">電話で相談する</a>' if tel else "")
@@ -224,14 +255,13 @@ def render(sid, d, ind):
 
 <div class="notice">
   <b>これは EasyWebCraft が作成した提案用の見本です。</b>
-  <span>{e(name)}さまの公式サイトではありません。構成をご覧いただくための仮のもので、写真・文章は当社が用意したものです。</span>
+  <span>{e(name)}さまの公式サイトではありません。<b>トップページだけを形にした見本</b>で、メニューの各ページは実際の制作でお作りします。写真・文章は当社が用意したものです。</span>
 </div>
 
 <div class="hdwrap">
   <header><div class="hd">
     <div class="logo">{e(name)}<small>{e(roman)}</small></div>
-    <nav><a href="#works">{e(ind["svc"])}</a><a href="#flow">{e(ind["flow_h"])}</a>
-         <a href="#company">会社概要</a><a href="#contact">お問い合わせ</a></nav>
+    <nav>{nav}</nav>
     {call}
   </div></header>
 </div>
