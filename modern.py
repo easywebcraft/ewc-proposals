@@ -75,6 +75,11 @@ nav a:hover{color:var(--accent)}
      -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.35) 0%%,#000 30%%,rgba(0,0,0,0) 86%%);
      mask-image:linear-gradient(180deg,rgba(0,0,0,.35) 0%%,#000 30%%,rgba(0,0,0,0) 86%%)}
 .hero.tx::before{display:none}   /* 等高線の地とは重ねない */
+.contact.tx{position:relative;overflow:hidden}
+.contact.tx>*{position:relative;z-index:1}
+.tex.ctex{opacity:.85;
+  -webkit-mask-image:linear-gradient(180deg,#000 0%%,rgba(0,0,0,.22) 58%%,rgba(0,0,0,0) 100%%);
+  mask-image:linear-gradient(180deg,#000 0%%,rgba(0,0,0,.22) 58%%,rgba(0,0,0,0) 100%%)}
 .hero .inner{position:relative;display:grid;gap:22px;padding:18px 0 0}
 .hero .textcol{display:flex;flex-direction:column}
 .hero .textcol h1{order:-1}   /* 狭い画面では見出しを先頭に */
@@ -108,6 +113,14 @@ footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .shot .lb b{display:block;font-family:var(--serif);font-size:15px;color:#575a51;
             margin-bottom:5px;font-weight:500}
 /* 実績・事例の写真枠。ヒーローの枠と同じ見た目でそろえる */
+/* 地図の入る場所。写真枠と同じ見せ方でそろえる */
+.mapbox{margin-top:22px;background:
+        linear-gradient(135deg,#eae7de 0%%,#e3e1d8 55%%,#edebe3 100%%);
+        border:1px solid var(--line);border-radius:10px;aspect-ratio:16/7;
+        display:grid;place-items:center;align-content:center;text-align:center;
+        color:#6f7268;font-size:11.5px;letter-spacing:.06em}
+.mapbox b{display:block;font-family:var(--serif);font-size:14px;color:#575a51;
+          margin-bottom:4px;font-weight:500}
 .gal{display:grid;gap:14px}
 .gframe{position:relative;background:
         linear-gradient(135deg,#eae7de 0%%,#e3e1d8 55%%,#edebe3 100%%);
@@ -124,9 +137,11 @@ footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
        margin:26px 0 0}
 .stats div{background:var(--paper);border:1px solid var(--line);border-radius:8px;
            padding:18px 8px;text-align:center}
-.stats b{display:block;font-family:var(--serif);font-size:25px;color:var(--accent);line-height:1.2}
-.stats b small{font-size:12px}
-.stats span{font-size:10.5px;color:var(--muted);letter-spacing:.06em}
+.stats b{display:block;font-family:var(--serif);font-size:34px;color:var(--accent);
+         line-height:1.15;letter-spacing:.01em}
+.stats b small{font-size:13px;margin-left:2px}
+.stats span{display:block;margin-top:6px;font-size:11.5px;color:var(--muted);
+            letter-spacing:.08em}
 
 section{padding:60px 0}
 section.alt{background:var(--paper)}
@@ -205,7 +220,7 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
   .flow{grid-template-columns:repeat(2,1fr)}
   section{padding:84px 0}
   .stats{gap:14px}
-  .stats b{font-size:29px}
+  .stats b{font-size:42px}
 }
 """
 
@@ -310,6 +325,36 @@ TEXTURES = {
   <line x1="29" y1="33" x2="43" y2="41"/><line x1="32" y1="28" x2="46" y2="36"/>
  </g>
 </pattern>""",
+    # 図面。方眼と寸法線（住宅・不動産）
+    "zumen": """<pattern id="tx" width="72" height="72" patternUnits="userSpaceOnUse">
+ <g stroke="rgba(%(c)s,.10)" stroke-width="1">
+  <line x1="0" y1="0" x2="72" y2="0"/><line x1="0" y1="36" x2="72" y2="36"/>
+  <line x1="0" y1="0" x2="0" y2="72"/><line x1="36" y1="0" x2="36" y2="72"/>
+ </g>
+ <g stroke="rgba(%(c)s,.22)" stroke-width="1.2">
+  <line x1="8" y1="18" x2="28" y2="18"/>
+  <line x1="8" y1="14" x2="8" y2="22"/><line x1="28" y1="14" x2="28" y2="22"/>
+  <line x1="44" y1="54" x2="64" y2="54"/>
+  <line x1="44" y1="50" x2="44" y2="58"/><line x1="64" y1="50" x2="64" y2="58"/>
+ </g>
+</pattern>""",
+    # 刷毛の跡（塗装）
+    "nuri": """<pattern id="tx" width="96" height="30" patternUnits="userSpaceOnUse">
+ <g fill="none" stroke="rgba(%(c)s,.17)" stroke-width="2.2" stroke-linecap="round">
+  <path d="M4 9 H60"/><path d="M8 15 H52"/><path d="M4 21 H64"/>
+  <path d="M70 12 H92"/><path d="M74 24 H92"/>
+ </g>
+</pattern>""",
+    # 足場の建地と布板（建築）
+    "ashiba": """<pattern id="tx" width="64" height="64" patternUnits="userSpaceOnUse">
+ <g stroke="rgba(%(c)s,.18)" stroke-width="1.6">
+  <line x1="10" y1="0" x2="10" y2="64"/><line x1="42" y1="0" x2="42" y2="64"/>
+  <line x1="0" y1="20" x2="64" y2="20"/><line x1="0" y1="52" x2="64" y2="52"/>
+ </g>
+ <g stroke="rgba(%(c)s,.09)" stroke-width="1.2">
+  <line x1="10" y1="20" x2="42" y2="52"/><line x1="42" y1="20" x2="10" y2="52"/>
+ </g>
+</pattern>""",
     # 木。板目の年輪
     "mokume": """<pattern id="tx" width="120" height="54" patternUnits="userSpaceOnUse">
  <g fill="none" stroke="rgba(%(c)s,.16)" stroke-width="1.3">
@@ -321,14 +366,16 @@ TEXTURES = {
 }
 
 
-def texture_svg(kind, acc_rgb):
-    """ヒーローの地に敷く質感。kind が無ければ空文字。"""
+def texture_svg(kind, rgb, cls="tex", pid="tx"):
+    """質感のSVG。kind が無ければ空文字。rgb は "r,g,b" の文字列。"""
     pat = TEXTURES.get(kind or "")
     if not pat:
         return ""
-    return ('<svg class="tex" aria-hidden="true"><defs>'
-            + pat % {"c": acc_rgb}
-            + '</defs><rect width="100%" height="100%" fill="url(#tx)"/></svg>')
+    # ★同じページに2つ置くので id を分ける。同じ id だと後の方が
+    #   先に定義されたパターン（ヒーローの色）で塗られ、地の色に埋もれて見えない。
+    body = (pat % {"c": rgb}).replace('id="tx"', f'id="{pid}"')
+    return (f'<svg class="{cls}" aria-hidden="true"><defs>' + body
+            + f'</defs><rect width="100%" height="100%" fill="url(#{pid})"/></svg>')
 
 
 # ★縦書きの見出しは、入りきらないと途中で列が変わる。
@@ -445,6 +492,8 @@ def render(sid, d, ind):
     h1_html, h1px = headline(d, e)
     sub_html = phrase(d["sub"], e)
     tex = texture_svg(d.get("texture"), acc_rgb)
+    # 下のほうも文字だけが続いて単調になるので、同じ質感を白抜きで敷く
+    ctex = texture_svg(d.get("texture"), "255,255,255", cls="tex ctex", pid="tx2")
     css = CSS % {"ground": ind["ground"], "ink2": ind["ink2"], "accent": acc,
                  "accent_d": acc_d, "acc_rgb": acc_rgb, "navbp": nav_breakpoint(d, ind),
                  "h1px": h1px}
@@ -564,10 +613,12 @@ def render(sid, d, ind):
   <div class="wrap" style="max-width:720px">
     <div class="sechead"><span class="en">COMPANY</span><h2>会社概要</h2></div>
     <table class="info">{rows}</table>
+    <div class="mapbox"><b>地図が入ります</b>最寄り駅・駐車場のご案内もここに</div>
   </div>
 </section>
 
-<div class="contact" id="contact">
+<div class="contact{" tx" if ctex else ""}" id="contact">
+  {ctex}
   <h2>{e(ind["cta"])}</h2>
   <p>{e(ind["cta_sub"])}</p>
   {ctel}

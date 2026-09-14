@@ -51,7 +51,8 @@
         "上下水道工事",
         "給排水設備の新設・改修。生活に直結する部分だからこそ、丁寧に。"
       ]
-    ]
+    ],
+    "texture": "zumen"
   },
   "kuniedatoso": {
     "name": "有限会社国枝塗装",
@@ -104,7 +105,8 @@
         "お見積り・ご相談",
         "現地を拝見してお出しします。費用はかかりません。"
       ]
-    ]
+    ],
+    "texture": "nuri"
   },
   "tatsukenhome": {
     "name": "株式会社タツケンホーム",
@@ -158,7 +160,8 @@
         "お引渡し後",
         "点検とご相談。建てて終わりにはしません。"
       ]
-    ]
+    ],
+    "texture": "zumen"
   },
   "kg-koketsu": {
     "name": "株式会社コーケツ",
@@ -539,7 +542,8 @@
       "工業用製品",
       "会社概要"
     ],
-    "accent": "#1f3a66"
+    "accent": "#1f3a66",
+    "texture": "kinzoku"
   },
   "nakakoma": {
     "name": "中駒産業株式会社",
@@ -607,7 +611,8 @@
       "モデルハウス",
       "会社案内"
     ],
-    "accent": "#1a4f96"
+    "accent": "#1a4f96",
+    "texture": "zumen"
   },
   "yamanaka-denki": {
     "name": "有限会社山中電器",
@@ -735,7 +740,8 @@
       "調査診断書",
       "会社概要"
     ],
-    "accent": "#a8860b"
+    "accent": "#a8860b",
+    "texture": "ashiba"
   },
   "ymcomp": {
     "industry": "kensetsu",
@@ -805,7 +811,8 @@
       "取扱い製品",
       "会社概要"
     ],
-    "accent": "#0099cc"
+    "accent": "#0099cc",
+    "texture": "kinzoku"
   },
   "reliable": {
     "industry": "kensetsu",
@@ -874,7 +881,8 @@
       "内外装の工事",
       "外断熱の工事"
     ],
-    "accent": "#59a52c"
+    "accent": "#59a52c",
+    "texture": "ashiba"
   },
   "ek-kinzoku": {
     "industry": "kensetsu",
@@ -1076,7 +1084,8 @@
       "店舗のご紹介",
       "会社のご紹介"
     ],
-    "accent": "#8a5a2b"
+    "accent": "#8a5a2b",
+    "texture": "mokume"
   },
   "fdo-san": {
     "industry": "kensetsu",
@@ -1138,7 +1147,8 @@
       "リフォーム",
       "会社概要"
     ],
-    "accent": "#4a4d85"
+    "accent": "#4a4d85",
+    "texture": "zumen"
   },
   "igawa-kk": {
     "industry": "kensetsu",
@@ -1193,7 +1203,8 @@
         "メンテナンス",
         "入れたあとを預かります。不具合は早めにご連絡ください。"
       ]
-    ]
+    ],
+    "texture": "ashiba"
   },
   "bestroof": {
     "industry": "kensetsu",
@@ -1247,7 +1258,8 @@
         "玄関工事",
         "ドアの入れ替えから、まわりの改修まで。"
       ]
-    ]
+    ],
+    "texture": "zumen"
   },
   "itochu-tosou": {
     "industry": "kensetsu",
@@ -1301,7 +1313,8 @@
         "お見積り",
         "現地を拝見してお出しします。費用はかかりません。"
       ]
-    ]
+    ],
+    "texture": "nuri"
   },
   "hoowaa": {
     "industry": "kensetsu",
@@ -1355,7 +1368,8 @@
         "メンテナンス",
         "入れたあとを預かります。長く使うための手入れを。"
       ]
-    ]
+    ],
+    "texture": "ashiba"
   },
   "kurachi": {
     "industry": "kensetsu",
@@ -1413,7 +1427,8 @@
         "医療家具",
         "診察室や待合の家具もお作りしています。"
       ]
-    ]
+    ],
+    "texture": "mokume"
   },
   "suzupro": {
     "industry": "kensetsu",
@@ -1525,7 +1540,8 @@
         "お見積り",
         "現地を拝見してお出しします。"
       ]
-    ]
+    ],
+    "texture": "kinzoku"
   },
   "ito-kikinzoku": {
     "industry": "seizo",

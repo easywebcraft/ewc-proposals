@@ -98,6 +98,11 @@ a{color:inherit}
 .notice b{font-weight:700}
 .notice span{display:block;opacity:.9;font-size:12px}
 .ph{display:inline-block}
+.mapbox{margin-top:22px;background:#eceef0;border:1px solid var(--line);border-radius:4px;
+        aspect-ratio:16/7;display:grid;place-items:center;align-content:center;
+        text-align:center;color:#6b7075;font-size:11.5px}
+.mapbox b{display:block;font-family:var(--serif);font-size:14px;color:#4c5257;
+          margin-bottom:4px;font-weight:500}
 .gal{display:grid;gap:14px}
 .gframe{background:#eceef0;border:1px solid var(--line);border-radius:4px;aspect-ratio:4/3;
         display:grid;place-items:center;align-content:center;text-align:center;
@@ -146,7 +151,7 @@ nav a:hover{color:var(--navy)}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
        background:var(--line);border-bottom:1px solid var(--line)}
 .stats div{background:#fff;padding:22px 10px;text-align:center}
-.stats b{display:block;font-family:var(--serif);font-size:27px;color:var(--navy);line-height:1.2}
+.stats b{display:block;font-family:var(--serif);font-size:34px;color:var(--navy);line-height:1.15}
 .stats b small{font-size:13px}
 .stats span{font-size:11px;color:var(--muted);letter-spacing:.06em}
 section{padding:58px 0}
@@ -188,7 +193,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
       border-top:0;padding:0}
   .cards{grid-template-columns:repeat(3,1fr)}
   .gal{grid-template-columns:repeat(3,1fr);gap:18px}
-  .stats b{font-size:32px}
+  .stats b{font-size:42px}
   h2{font-size:29px}
   section{padding:78px 0}
 }
@@ -342,6 +347,7 @@ def render(sid, d):
     <h2>概要</h2>
     <p class="lead">&nbsp;</p>
     <table class="info">{info_rows}</table>
+    <div class="mapbox"><b>地図が入ります</b>最寄り駅・駐車場のご案内もここに</div>
   </div>
 </section>
 
