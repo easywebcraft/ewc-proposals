@@ -887,7 +887,8 @@
       "会社案内",
       "アクセス"
     ],
-    "accent": "#2e8a2e"
+    "accent": "#2e8a2e",
+    "texture": "kinzoku"
   },
   "setta": {
     "industry": "kensetsu",
@@ -956,7 +957,8 @@
       "葺き替えの前後",
       "社寺の屋根"
     ],
-    "accent": "#e95313"
+    "accent": "#e95313",
+    "texture": "kawara"
   },
   "ogawakagu": {
     "industry": "kensetsu",

@@ -75,6 +75,11 @@ nav a:hover{color:var(--accent)}
 /* 線画の地（SUZUKI の型を、街の輪郭ではなく等高線で） */
 .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
   background-image:repeating-linear-gradient(115deg,rgba(%(acc_rgb)s,.055) 0 1px,transparent 1px 42px);}
+/* 業種の質感。上に行くほど薄くして、見出しの邪魔をしないようにする */
+.tex{position:absolute;inset:0;width:100%%;height:100%%;pointer-events:none;
+     -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.35) 0%%,#000 30%%,rgba(0,0,0,0) 86%%);
+     mask-image:linear-gradient(180deg,rgba(0,0,0,.35) 0%%,#000 30%%,rgba(0,0,0,0) 86%%)}
+.hero.tx::before{display:none}   /* 等高線の地とは重ねない */
 .hero .inner{position:relative;display:grid;gap:22px;padding:18px 0 0}
 .hero .textcol{display:flex;flex-direction:column}
 .hero .textcol h1{order:-1}   /* 狭い画面では見出しを先頭に */
@@ -278,6 +283,47 @@ def accent_of(d, ind):
     return _hex(rgb), _hex(_scale(rgb, 0.76)), "%d,%d,%d" % tuple(round(x) for x in rgb)
 
 
+TEXTURES = {
+    # 瓦。葺き足のうろこを1段ずつずらして重ねる
+    "kawara": """<pattern id="tx" width="60" height="40" patternUnits="userSpaceOnUse">
+ <g fill="none" stroke="rgba(%(c)s,.22)" stroke-width="1.4">
+  <path d="M0 18 q10 -11 20 0 q10 -11 20 0 q10 -11 20 0"/>
+  <path d="M-10 38 q10 -11 20 0 q10 -11 20 0 q10 -11 20 0 q10 -11 20 0"/>
+ </g>
+ <g stroke="rgba(%(c)s,.10)" stroke-width="1.2">
+  <line x1="0" y1="19.3" x2="60" y2="19.3"/><line x1="0" y1="39.3" x2="60" y2="39.3"/>
+ </g>
+</pattern>""",
+    # 金属。縞鋼板の滑り止め（2本1組を互い違いに）
+    "kinzoku": """<pattern id="tx" width="48" height="48" patternUnits="userSpaceOnUse">
+ <g stroke="rgba(%(c)s,.24)" stroke-width="2.6" stroke-linecap="round">
+  <line x1="5" y1="15" x2="19" y2="7"/><line x1="8" y1="20" x2="22" y2="12"/>
+  <line x1="29" y1="15" x2="43" y2="7"/><line x1="32" y1="20" x2="46" y2="12"/>
+  <line x1="5" y1="33" x2="19" y2="41"/><line x1="8" y1="28" x2="22" y2="36"/>
+  <line x1="29" y1="33" x2="43" y2="41"/><line x1="32" y1="28" x2="46" y2="36"/>
+ </g>
+</pattern>""",
+    # 木。板目の年輪
+    "mokume": """<pattern id="tx" width="120" height="54" patternUnits="userSpaceOnUse">
+ <g fill="none" stroke="rgba(%(c)s,.16)" stroke-width="1.3">
+  <path d="M0 12 C30 2 90 22 120 12"/><path d="M0 27 C34 18 86 36 120 27"/>
+  <path d="M0 42 C28 33 92 51 120 42"/>
+ </g>
+ <path d="M0 53.4H120" stroke="rgba(%(c)s,.07)" stroke-width="1.2"/>
+</pattern>""",
+}
+
+
+def texture_svg(kind, acc_rgb):
+    """ヒーローの地に敷く質感。kind が無ければ空文字。"""
+    pat = TEXTURES.get(kind or "")
+    if not pat:
+        return ""
+    return ('<svg class="tex" aria-hidden="true"><defs>'
+            + pat % {"c": acc_rgb}
+            + '</defs><rect width="100%" height="100%" fill="url(#tx)"/></svg>')
+
+
 def _bigrams(text):
     t = "".join(c for c in text if c not in "・／/ 　のとをごおはが")
     return {t[i:i + 2] for i in range(len(t) - 1)} or {t}
@@ -343,6 +389,7 @@ def render(sid, d, ind):
     tl = tel.replace("-", "")
     name = d["name"]
     acc, acc_d, acc_rgb = accent_of(d, ind)
+    tex = texture_svg(d.get("texture"), acc_rgb)
     css = CSS % {"ground": ind["ground"], "ink2": ind["ink2"], "accent": acc,
                  "accent_d": acc_d, "acc_rgb": acc_rgb, "navbp": nav_breakpoint(d, ind)}
     roman = d.get("roman", "")
@@ -418,7 +465,8 @@ def render(sid, d, ind):
   </div></header>
 </div>
 
-<div class="hero">
+<div class="hero{" tx" if tex else ""}">
+  {tex}
   <div class="big">{e(roman)}</div>
   <div class="wrap inner">
     <div class="side">

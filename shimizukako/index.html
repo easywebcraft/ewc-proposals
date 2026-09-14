@@ -61,6 +61,11 @@ nav a:hover{color:var(--accent)}
 /* 線画の地（SUZUKI の型を、街の輪郭ではなく等高線で） */
 .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
   background-image:repeating-linear-gradient(115deg,rgba(135,108,9,.055) 0 1px,transparent 1px 42px);}
+/* 業種の質感。上に行くほど薄くして、見出しの邪魔をしないようにする */
+.tex{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;
+     -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.35) 0%,#000 30%,rgba(0,0,0,0) 86%);
+     mask-image:linear-gradient(180deg,rgba(0,0,0,.35) 0%,#000 30%,rgba(0,0,0,0) 86%)}
+.hero.tx::before{display:none}   /* 等高線の地とは重ねない */
 .hero .inner{position:relative;display:grid;gap:22px;padding:18px 0 0}
 .hero .textcol{display:flex;flex-direction:column}
 .hero .textcol h1{order:-1}   /* 狭い画面では見出しを先頭に */
@@ -205,6 +210,7 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
 </div>
 
 <div class="hero">
+  
   <div class="big">SHIMIZU KAKO</div>
   <div class="wrap inner">
     <div class="side">
