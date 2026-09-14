@@ -127,9 +127,14 @@ footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
         border:1px solid var(--line);border-radius:10px;aspect-ratio:4/3;
         display:grid;place-items:center;align-content:center;text-align:center;
         color:#6f7268;font-size:12px;letter-spacing:.06em;padding:0 14px}
+.gframe{position:relative;overflow:hidden}
+.gframe::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.45) 0 2px,transparent 2px 12px)}
+.gframe>*,.gframe b{position:relative;z-index:1}
 .gframe b{display:block;font-family:var(--serif);font-size:14px;color:#575a51;
           margin-bottom:4px;font-weight:500}
-.scroll{display:none;position:absolute;left:50%%;bottom:6px;font-size:10px;
+.scroll{display:none;position:absolute;left:50%%;transform:translateX(-50%%);
+        bottom:-2px;font-size:10px;
         letter-spacing:.2em;color:var(--muted)}
 
 /* 帯（数字） */
@@ -157,8 +162,6 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(21px,5.4vw,28px);
       background:var(--paper);border:1px solid var(--line);border-radius:10px;
       padding:24px 22px;position:relative;overflow:hidden}
 section.alt .card{background:var(--ground)}
-.card .no{position:absolute;right:14px;top:8px;font-family:var(--serif);
-          font-size:34px;color:rgba(%(acc_rgb)s,.10);line-height:1}
 .card h3{font-size:16.5px;margin:0 0 9px;letter-spacing:.04em}
 .card p{margin:0;font-size:13.5px;color:var(--muted)}
 
@@ -201,7 +204,8 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
 }
 
 @media(min-width:900px){
-  .gal{grid-template-columns:repeat(3,1fr);gap:18px}
+  .gal{grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:18px}
+  .gframe:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
   .hero{padding:34px 0 20px}
   .hero .inner{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
                align-items:center;gap:46px;padding:34px 0 46px}
@@ -217,10 +221,36 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
   .scroll{display:block}
   .cards{gap:16px}
   .card{flex:0 1 calc((100%% - 32px) / 3)}
-  .flow{grid-template-columns:repeat(2,1fr)}
+  .flow{grid-template-columns:repeat(4,1fr)}
   section{padding:84px 0}
   .stats{gap:14px}
   .stats b{font-size:42px}
+}
+
+/* ★紙に出したときのため。提案資料は社内で回覧されることがある。
+   印刷では背景色が落ちるので、**濃い地に白抜きの箇所がそのままだと消える**。
+   とくに断り書きの帯（見本であることの表示）が消えるのは致命的なので、
+   白地＋黒文字＋太い枠に置き換える。 */
+@media print{
+  html,body{background:#fff}
+  .hdwrap{position:static;padding:0 0 8px}
+  header{box-shadow:none;border:1px solid var(--line);backdrop-filter:none}
+  .notice{position:static;background:#fff;color:#000;border:2px solid #000;
+          padding:8px 12px;margin-bottom:10px}
+  .notice b{color:#000}
+  .tex,.scroll{display:none}
+  .contact{background:#fff;color:var(--ink);
+           border-top:2px solid var(--line);border-bottom:2px solid var(--line)}
+  .contact .big{color:var(--ink)}
+  .contact .btn.w{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+  footer{background:#fff;color:#333;border-top:1px solid var(--line)}
+  footer .by a{color:#333}
+  /* 紙では押せないので、当社のリンク先を文字で出す */
+  footer .by a[href^="http"]::after{content:" (" attr(href) ")"}
+  .card,.step,.gframe,.mapbox,.shot,.stats div{break-inside:avoid;page-break-inside:avoid}
+  section{padding:26px 0}
+  .hero{padding:6px 0 0}
+  @page{margin:14mm}
 }
 """
 
@@ -502,8 +532,7 @@ def render(sid, d, ind):
     stats = "".join(f'<div><b>{e(a)}<small>{e(b)}</small></b><span>{e(c)}</span></div>'
                     for a, b, c in d["stats"])
     cards = "".join(
-        f'<div class="card" id="svc{i}"><span class="no">{i:02d}</span>'
-        f'<h3>{e(t)}</h3><p>{e(p)}</p></div>'
+        f'<div class="card" id="svc{i}"><h3>{e(t)}</h3><p>{e(p)}</p></div>'
         for i, (t, p) in enumerate(d["services"], 1))
     steps = "".join(f'<div class="step"><h3>{e(t)}</h3><p>{e(p)}</p></div>'
                     for t, p in ind["flow"])
@@ -585,8 +614,8 @@ def render(sid, d, ind):
     </div>
     <div class="shot">
       <div class="lb"><b>お写真が入ります</b>現場のようす・完成した建物など</div>
-      <span class="scroll">scroll</span>
     </div>
+    <span class="scroll">scroll</span>
   </div>
   <div class="wrap"><div class="stats">{stats}</div></div>
 </div>

@@ -161,8 +161,6 @@ h2{font-family:var(--serif);font-weight:500;font-size:24px;letter-spacing:.05em;
 .lead{text-align:center;color:var(--muted);font-size:14px;margin:0 0 34px}
 .cards{display:grid;gap:16px}
 .card{background:#fff;border:1px solid var(--line);border-radius:4px;padding:24px 22px}
-.card .no{font-family:var(--serif);font-size:12px;color:var(--clay);
-          letter-spacing:.2em;display:block;margin-bottom:8px}
 .card h3{font-size:17px;margin:0 0 10px;letter-spacing:.03em}
 .card p{margin:0;font-size:14px;color:var(--muted)}
 .flow{display:grid;gap:14px;counter-reset:s}
@@ -192,10 +190,34 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
   nav{order:0;flex:0 1 auto;flex-wrap:nowrap;column-gap:26px;font-size:14px;
       border-top:0;padding:0}
   .cards{grid-template-columns:repeat(3,1fr)}
-  .gal{grid-template-columns:repeat(3,1fr);gap:18px}
+  .gal{grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:18px}
+  .gframe:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
   .stats b{font-size:42px}
   h2{font-size:29px}
   section{padding:78px 0}
+}
+
+/* ★紙に出したときのため（modern.py と同じ考え方）。
+   背景色が落ちると、濃い地に白抜きの箇所が消える。
+   断り書きの帯・ヒーロー・お問い合わせ・フッターを白地に置き換える。 */
+@media print{
+  html,body{background:#fff}
+  header{position:static;border-bottom:1px solid var(--line)}
+  .notice{position:static;background:#fff;color:#000;border:2px solid #000;
+          padding:8px 12px;margin-bottom:10px}
+  .notice b{color:#000}
+  .hero{background:#fff;color:var(--ink);border-bottom:1px solid var(--line)}
+  .hero h1,.hero .eyebrow,.hero p{color:var(--ink)}
+  .hero .btn{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+  .contact{background:#fff;color:var(--ink);
+           border-top:2px solid var(--line);border-bottom:2px solid var(--line)}
+  .contact .big{color:var(--ink)}
+  footer{background:#fff;color:#333;border-top:1px solid var(--line)}
+  footer .by a{color:#333}
+  footer .by a[href^="http"]::after{content:" (" attr(href) ")"}
+  .card,.step,.gframe,.mapbox,.stats div{break-inside:avoid;page-break-inside:avoid}
+  section{padding:26px 0}
+  @page{margin:14mm}
 }
 """
 
@@ -249,8 +271,7 @@ def render(sid, d):
         f'<div><b>{e(a)}<small>{e(b)}</small></b><span>{e(c)}</span></div>'
         for a, b, c in d["stats"])
     cards = "".join(
-        f'<div class="card" id="svc{i}"><span class="no">{i:02d}</span>'
-        f'<h3>{e(t)}</h3><p>{e(p)}</p></div>'
+        f'<div class="card" id="svc{i}"><h3>{e(t)}</h3><p>{e(p)}</p></div>'
         for i, (t, p) in enumerate(d["services"], 1))
     gal = d.get("gallery")
     gallery = ""
