@@ -182,8 +182,18 @@ def e(x):
     return H.escape(str(x or ""), quote=True)
 
 
+# 会社ごとに上書きしてよい言い回し。業種の既定が合わないときに sites.json へ書く。
+# ★業種の既定は「その業種で最も多い形」にしてあるが、同じ建設系でも
+#   資材の販売と工務店では言うことが違う（2026-09-14、進英産業＝空調資材の販売で
+#   「住まいの小さな修繕から、大きな工事まで」が合わなかった）。
+OVERRIDABLE = ("svc", "svc_lead", "flow_h", "cta", "cta_sub", "hours")
+
+
 def render(sid, d):
-    ind = INDUSTRY[d["industry"]]
+    ind = dict(INDUSTRY[d["industry"]])
+    for k in OVERRIDABLE:
+        if d.get(k):
+            ind[k] = d[k]
     # 建設系は別の型（modern）。参考サイトから抜き出した作りは modern.py 側に置く。
     if ind.get("layout") == "modern":
         import modern
