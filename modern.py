@@ -44,18 +44,24 @@ a{color:inherit}
 /* 浮いた角丸ヘッダー（SUZUKI の型） */
 .hdwrap{position:sticky;top:10px;z-index:50;padding:10px 12px 0}
 header{max-width:1160px;margin:0 auto;background:rgba(255,255,255,.92);
-       backdrop-filter:blur(8px);border-radius:999px;
-       box-shadow:0 2px 18px rgba(40,50,45,.10);padding:0 10px 0 20px}
-.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;height:58px}
-.logo{font-family:var(--serif);font-size:17px;letter-spacing:.08em;font-weight:600;
+       backdrop-filter:blur(8px);border-radius:26px;
+       box-shadow:0 2px 18px rgba(40,50,45,.10);padding:0 10px 0 16px}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    min-height:54px;flex-wrap:wrap}
+.logo{font-family:var(--serif);font-size:15.5px;letter-spacing:.04em;font-weight:600;
       line-height:1.25;white-space:nowrap}
 .logo small{display:block;font-family:var(--sans);font-size:9.5px;
             letter-spacing:.16em;color:var(--muted);font-weight:400}
-nav{display:none;gap:22px;font-size:13.5px;letter-spacing:.06em}
-nav a{text-decoration:none;color:var(--muted)}
+/* 狭い画面ではヘッダーの2段目に折り返して全項目を出す。
+   以前は display:none で、スマホではメニューが一切見えなかった。
+   横スクロールにすると端で切れて「途中で終わっている」ように見えるので折り返す。 */
+nav{display:flex;order:3;flex:1 0 100%%;flex-wrap:wrap;
+    column-gap:14px;row-gap:5px;font-size:11.5px;letter-spacing:.02em;
+    border-top:1px solid var(--line);margin:0 -4px;padding:7px 4px 9px}
+nav a{text-decoration:none;color:var(--muted);white-space:nowrap}
 nav a:hover{color:var(--accent)}
 .hd .call{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
-          border-radius:999px;padding:11px 20px;font-size:13.5px;font-weight:700;
+          border-radius:999px;padding:10px 15px;font-size:12.5px;font-weight:700;
           letter-spacing:.06em;white-space:nowrap}
 .hd .call:hover{background:var(--accent-d)}
 
@@ -153,8 +159,16 @@ table.info th{width:7.5em;color:var(--muted);font-weight:500}
 footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
        padding:26px 20px;text-align:center;line-height:1.9}
 
+@media(min-width:%(navbp)spx){
+  header{border-radius:999px;padding:0 10px 0 20px}
+  .hd{flex-wrap:nowrap;min-height:58px}
+  .logo{font-size:17px;letter-spacing:.08em}
+  .hd .call{padding:11px 20px;font-size:13.5px}
+  nav{order:0;flex:0 1 auto;flex-wrap:nowrap;column-gap:22px;
+      font-size:13.5px;letter-spacing:.06em;border-top:0;margin:0;padding:0}
+}
+
 @media(min-width:900px){
-  nav{display:flex}
   .hero{padding:34px 0 20px}
   .hero .inner{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
                align-items:center;gap:46px;padding:34px 0 46px}
@@ -188,6 +202,26 @@ NAV_HINTS = (  # 項目名に含まれる語 → 飛ばす先
 )
 
 
+def _tw(text, px):
+    """おおよその描画幅。全角は1文字、半角は0.55文字として数える。"""
+    w = 0.0
+    for c in text:
+        w += 0.55 if (c.isascii() or c in "・") else 1.0
+    return w * px
+
+
+# ★ヘッダーを1行に戻す幅は、社名とメニューの長さから1件ずつ計算する。
+#   固定の境目（1100px）にしたら、社名14字＋7項目の小川木工家具センターで
+#   電話番号がはみ出した。項目数も社名の長さも先によって倍近く違う。
+def nav_breakpoint(d, ind):
+    labels = d.get("nav") or [ind["svc"], ind["flow_h"], "会社概要", "お問い合わせ"]
+    nav = sum(_tw(x, 14.3) for x in labels) + (len(labels) - 1) * 22
+    logo = _tw(d["name"], 18.4)
+    call = _tw("お電話 " + d.get("tel", ""), 14.5) + 40
+    need = logo + nav + call + 24 * 2 + 30 + 24 + 100  # すきま・内側の余白・安全分
+    return max(900, int(need // 20 * 20 + 20))
+
+
 def nav_html(d, ind, e):
     """メニューのHTML。nav が無ければ既定の4項目。"""
     items = d.get("nav")
@@ -210,7 +244,8 @@ def render(sid, d, ind):
     tel = d.get("tel", "")
     tl = tel.replace("-", "")
     name = d["name"]
-    css = CSS % {"ground": ind["ground"], "ink2": ind["ink2"], "accent": ind["accent"]}
+    css = CSS % {"ground": ind["ground"], "ink2": ind["ink2"], "accent": ind["accent"],
+                 "navbp": nav_breakpoint(d, ind)}
     roman = d.get("roman", "")
 
     stats = "".join(f'<div><b>{e(a)}<small>{e(b)}</small></b><span>{e(c)}</span></div>'

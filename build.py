@@ -99,11 +99,14 @@ a{color:inherit}
 .notice span{display:block;opacity:.9;font-size:12px}
 header{position:sticky;top:0;background:rgba(255,255,255,.94);
        backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:40}
-.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;height:62px}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;
+    min-height:62px;flex-wrap:wrap}
 .logo{font-family:var(--serif);font-size:19px;letter-spacing:.06em;font-weight:600}
 .logo small{display:block;font-family:var(--sans);font-size:10px;
             letter-spacing:.18em;color:var(--muted);font-weight:400}
-nav{display:none;gap:26px;font-size:14px}
+nav{display:flex;order:3;flex:1 0 100%%;flex-wrap:wrap;
+    column-gap:16px;row-gap:5px;font-size:12px;
+    border-top:1px solid var(--line);margin:0;padding:8px 0 9px}
 nav a{text-decoration:none;color:var(--muted)}
 nav a:hover{color:var(--navy)}
 .tel{display:inline-flex;flex-direction:column;align-items:flex-end;
@@ -169,7 +172,9 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
 @media(min-width:768px){
   .hero .wrap{padding:96px 20px 84px}
   .hero h1{font-size:42px}
-  nav{display:flex}
+  .hd{flex-wrap:nowrap;min-height:62px}
+  nav{order:0;flex:0 1 auto;flex-wrap:nowrap;column-gap:26px;font-size:14px;
+      border-top:0;padding:0}
   .cards{grid-template-columns:repeat(3,1fr)}
   .stats b{font-size:32px}
   h2{font-size:29px}
@@ -247,7 +252,7 @@ def render(sid, d):
 
 <div class="notice">
   <b>これは EasyWebCraft が作成した提案用の見本です。</b>
-  <span>{e(name)}さまの公式サイトではありません。掲載内容は構成をご覧いただくための仮のもので、写真・文章は当社が用意したものです。</span>
+  <span>{e(name)}さまの公式サイトではありません。<b>トップページだけを形にした見本</b>で、メニューの各ページは実際の制作でお作りします。写真・文章は当社が用意したものです。</span>
 </div>
 
 <header>

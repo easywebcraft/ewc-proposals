@@ -30,18 +30,24 @@ a{color:inherit}
 /* 浮いた角丸ヘッダー（SUZUKI の型） */
 .hdwrap{position:sticky;top:10px;z-index:50;padding:10px 12px 0}
 header{max-width:1160px;margin:0 auto;background:rgba(255,255,255,.92);
-       backdrop-filter:blur(8px);border-radius:999px;
-       box-shadow:0 2px 18px rgba(40,50,45,.10);padding:0 10px 0 20px}
-.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;height:58px}
-.logo{font-family:var(--serif);font-size:17px;letter-spacing:.08em;font-weight:600;
+       backdrop-filter:blur(8px);border-radius:26px;
+       box-shadow:0 2px 18px rgba(40,50,45,.10);padding:0 10px 0 16px}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    min-height:54px;flex-wrap:wrap}
+.logo{font-family:var(--serif);font-size:15.5px;letter-spacing:.04em;font-weight:600;
       line-height:1.25;white-space:nowrap}
 .logo small{display:block;font-family:var(--sans);font-size:9.5px;
             letter-spacing:.16em;color:var(--muted);font-weight:400}
-nav{display:none;gap:22px;font-size:13.5px;letter-spacing:.06em}
-nav a{text-decoration:none;color:var(--muted)}
+/* 狭い画面ではヘッダーの2段目に折り返して全項目を出す。
+   以前は display:none で、スマホではメニューが一切見えなかった。
+   横スクロールにすると端で切れて「途中で終わっている」ように見えるので折り返す。 */
+nav{display:flex;order:3;flex:1 0 100%;flex-wrap:wrap;
+    column-gap:14px;row-gap:5px;font-size:11.5px;letter-spacing:.02em;
+    border-top:1px solid var(--line);margin:0 -4px;padding:7px 4px 9px}
+nav a{text-decoration:none;color:var(--muted);white-space:nowrap}
 nav a:hover{color:var(--accent)}
 .hd .call{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
-          border-radius:999px;padding:11px 20px;font-size:13.5px;font-weight:700;
+          border-radius:999px;padding:10px 15px;font-size:12.5px;font-weight:700;
           letter-spacing:.06em;white-space:nowrap}
 .hd .call:hover{background:var(--accent-d)}
 
@@ -139,8 +145,16 @@ table.info th{width:7.5em;color:var(--muted);font-weight:500}
 footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
        padding:26px 20px;text-align:center;line-height:1.9}
 
+@media(min-width:1000px){
+  header{border-radius:999px;padding:0 10px 0 20px}
+  .hd{flex-wrap:nowrap;min-height:58px}
+  .logo{font-size:17px;letter-spacing:.08em}
+  .hd .call{padding:11px 20px;font-size:13.5px}
+  nav{order:0;flex:0 1 auto;flex-wrap:nowrap;column-gap:22px;
+      font-size:13.5px;letter-spacing:.06em;border-top:0;margin:0;padding:0}
+}
+
 @media(min-width:900px){
-  nav{display:flex}
   .hero{padding:34px 0 20px}
   .hero .inner{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
                align-items:center;gap:46px;padding:34px 0 46px}
