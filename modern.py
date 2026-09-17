@@ -273,7 +273,7 @@ NAV_HINTS = (  # 項目名に含まれる語 → 飛ばす先。上から順に�
     ("営業時間", "#contact"),
     # 実績・事例のページ。gallery を持つ先だけ（持たない先は下の照合に回す）
     ("実績", "#gallery"), ("事例", "#gallery"), ("施工例", "#gallery"), ("作業例", "#gallery"),
-    ("経歴", "#gallery"), ("作品", "#gallery"),
+    ("経歴", "#gallery"), ("作品", "#gallery"), ("製作例", "#gallery"), ("納品例", "#gallery"),
     # 会社・院・事務所の案内
     ("当院", "#company"), ("医院", "#company"), ("院長", "#company"),
     ("事務所", "#company"), ("スタッフ", "#company"), ("とは", "#company"),
