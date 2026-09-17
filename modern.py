@@ -269,6 +269,7 @@ NAV_HINTS = (  # 項目名に含まれる語 → 飛ばす先。上から順に�
     ("営業時間", "#contact"),
     # 実績・事例のページ。gallery を持つ先だけ（持たない先は下の照合に回す）
     ("実績", "#gallery"), ("事例", "#gallery"), ("施工例", "#gallery"), ("作業例", "#gallery"),
+    ("経歴", "#gallery"), ("作品", "#gallery"),
     # 会社・院・事務所の案内
     ("当院", "#company"), ("医院", "#company"), ("院長", "#company"),
     ("事務所", "#company"), ("スタッフ", "#company"), ("とは", "#company"),
@@ -466,23 +467,17 @@ def nav_targets(d, ind):
     """メニューの項目名 → 飛び先。当てはまるカードが無い項目は None で返す。"""
     labels = list(d.get("nav") or [])
     pairs = {}
-    rest = []
     has_gallery = bool(d.get("gallery"))
-    for label in labels:
-        for key, target in NAV_HINTS:
-            if key in label:
-                if target == "#gallery" and not has_gallery:
-                    continue                     # 実績ブロックが無いならカード照合に回す
-                pairs[label] = target
-                break
-        else:
-            rest.append(label)
+    svc = [t for t, _ in d.get("services", [])]
 
     # 見出しの重なり具合（2文字のかたまり）で一番近いカードに割り当てる。
     # 1項目1カードにしたいので、点の高い組から順に取っていく。
-    svc = [t for t, _ in d.get("services", [])]
+    # ★カードと強く重なる（2かたまり以上）項目は、語のヒントより先にカードへ。
+    #   「設計事務所へのQ&A」が「事務所」のヒントで会社概要へ、
+    #   「エディオン前並店」「店舗デザイン・設計」が「店」のヒントで会社概要へ飛んでいた。
+    #   同名のカードを用意してあるのに着地しないのでは、カードを足した意味が無い。
     score = []
-    for label in rest:
+    for label in labels:
         lb = _bigrams(label)
         for i, title in enumerate(svc):
             n = len(lb & _bigrams(title))
@@ -490,13 +485,28 @@ def nav_targets(d, ind):
                 score.append((-n, i, label))
     score.sort()
     used_l, used_i = set(), set()
-    for _, i, label in score:
-        if label in used_l or i in used_i:
+
+    def take(min_n):
+        for negn, i, label in score:
+            if -negn < min_n or label in used_l or i in used_i:
+                continue
+            pairs[label] = f"#svc{i + 1}"
+            used_l.add(label)
+            used_i.add(i)
+
+    take(2)                                      # 強い一致はカードへ
+    for label in labels:
+        if label in pairs:
             continue
-        pairs[label] = f"#svc{i + 1}"
-        used_l.add(label)
-        used_i.add(i)
-    for label in rest:
+        for key, target in NAV_HINTS:
+            if key in label:
+                if target == "#gallery" and not has_gallery:
+                    continue                     # 実績ブロックが無いならカード照合に回す
+                pairs[label] = target
+                used_l.add(label)
+                break
+    take(1)                                      # 残りは弱い一致でもカードへ
+    for label in labels:
         pairs.setdefault(label, None)            # 対応するカードが無い
     return [(x, pairs[x]) for x in labels]
 
