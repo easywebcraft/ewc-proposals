@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- ★提案用の見本。検索に載せない。本物と誤認されないための最低条件 -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>【提案見本】株式会社岡本製作所さま トップページ案｜EasyWebCraft</title>
+<style>
+:root{
+  --ink:#232a33; --muted:#6b7480; --line:#e3e6ea; --line-s:#f2f4f6;
+  --navy:#19721d; --navy-d:#135716; --clay:#c2703a;
+  --bg:#fff; --panel:#f7f8fa;
+  --serif:"Noto Serif JP","游明朝体","Yu Mincho",YuMincho,"ヒラギノ明朝 ProN W3",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Yu Gothic",Meiryo,
+         "Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);
+     line-height:1.9;-webkit-text-size-adjust:100%}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.notice{position:sticky;top:0;z-index:50;background:var(--clay);color:#fff;
+        font-size:13px;line-height:1.6;padding:9px 16px;text-align:center}
+.notice b{font-weight:700}
+.notice span{display:block;opacity:.9;font-size:12px}
+.ph{display:inline-block}
+.mapbox{margin-top:22px;background:#eceef0;border:1px solid var(--line);border-radius:4px;
+        aspect-ratio:16/7;display:grid;place-items:center;align-content:center;
+        text-align:center;color:#6b7075;font-size:11.5px}
+.mapbox b{display:block;font-family:var(--serif);font-size:14px;color:#4c5257;
+          margin-bottom:4px;font-weight:500}
+.gal{display:grid;gap:14px}
+.gframe{background:#eceef0;border:1px solid var(--line);border-radius:4px;aspect-ratio:4/3;
+        display:grid;place-items:center;align-content:center;text-align:center;
+        color:#6b7075;font-size:12px;padding:0 14px}
+.gframe b{display:block;font-family:var(--serif);font-size:14px;color:#4c5257;
+          margin-bottom:4px;font-weight:500}
+.notice .ph,footer .ph{display:inline-block;margin-right:.15em}
+footer .by{margin:14px 0 0;font-size:11.5px}
+footer .by .ph{margin:0 .5em}
+footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+header{position:sticky;top:0;background:rgba(255,255,255,.94);
+       backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:40}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;
+    min-height:62px;flex-wrap:wrap}
+.logo{font-family:var(--serif);font-size:19px;letter-spacing:.06em;font-weight:600}
+.logo small{display:block;font-family:var(--sans);font-size:10px;
+            letter-spacing:.18em;color:var(--muted);font-weight:400}
+nav{display:flex;order:3;flex:1 0 100%;flex-wrap:wrap;
+    column-gap:16px;row-gap:5px;font-size:12px;
+    border-top:1px solid var(--line);margin:0;padding:8px 0 9px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--navy)}
+.tel{display:inline-flex;flex-direction:column;align-items:flex-end;
+     text-decoration:none;line-height:1.3}
+.tel b{font-size:17px;color:var(--navy);letter-spacing:.02em}
+.tel small{font-size:10px;color:var(--muted)}
+.hero{position:relative;background:
+      linear-gradient(135deg,var(--navy) 0%,var(--navy-d) 62%,#0f1f30 100%);
+      color:#fff;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto -10% -40% 40%;height:70%;
+             background:radial-gradient(closest-side,rgba(0,0,0,.25),transparent);
+             pointer-events:none}
+.hero .wrap{position:relative;padding:64px 20px 56px}
+.hero .eyebrow{font-size:12px;letter-spacing:.22em;opacity:.75;margin:0 0 18px}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:31px;line-height:1.55;
+         margin:0 0 20px;letter-spacing:.03em}
+.hero h1 em{font-style:normal;border-bottom:2px solid var(--clay);padding-bottom:2px}
+.hero p{margin:0 0 30px;opacity:.9;font-size:15px;max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;white-space:nowrap;padding:15px 26px;border-radius:3px;text-decoration:none;
+     font-size:15px;font-weight:600;letter-spacing:.04em;transition:.2s}
+.btn.p{background:var(--clay);color:#fff}
+.btn.p:hover{filter:brightness(.9)}
+.btn.g{border:1px solid rgba(255,255,255,.5);color:#fff}
+.btn.g:hover{background:rgba(255,255,255,.1)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+       background:var(--line);border-bottom:1px solid var(--line)}
+.stats div{background:#fff;padding:22px 10px;text-align:center}
+.stats b{display:block;font-family:var(--serif);font-size:34px;color:var(--navy);line-height:1.15}
+.stats b small{font-size:13px}
+.stats span{font-size:11px;color:var(--muted);letter-spacing:.06em}
+section{padding:58px 0}
+section.alt{background:var(--panel)}
+h2{font-family:var(--serif);font-weight:500;font-size:24px;letter-spacing:.05em;
+   margin:0 0 8px;text-align:center}
+.lead{text-align:center;color:var(--muted);font-size:14px;margin:0 0 34px}
+.cards{display:grid;gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:4px;padding:24px 22px}
+.card h3{font-size:17px;margin:0 0 10px;letter-spacing:.03em}
+.card p{margin:0;font-size:14px;color:var(--muted)}
+.flow{display:grid;gap:14px;counter-reset:s}
+.step{background:#fff;border:1px solid var(--line);border-radius:4px;
+      padding:20px 22px 20px 62px;position:relative}
+.step::before{counter-increment:s;content:counter(s);position:absolute;left:20px;top:18px;
+              width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;
+              font-size:13px;display:grid;place-items:center;font-family:var(--serif)}
+.step h3{font-size:16px;margin:0 0 6px}
+.step p{margin:0;font-size:13.5px;color:var(--muted)}
+table.info{width:100%;border-collapse:collapse;font-size:14px}
+table.info th,table.info td{border-bottom:1px solid var(--line);padding:14px 4px;
+                            text-align:left;vertical-align:top}
+table.info th{width:7.5em;color:var(--muted);font-weight:500}
+.contact{background:var(--navy);color:#fff;text-align:center;padding:52px 20px}
+.contact h2{color:#fff}
+.contact .lead{color:rgba(255,255,255,.8)}
+.contact .big{font-family:var(--serif);font-size:32px;letter-spacing:.04em;
+              display:inline-block;margin:6px 0 4px;text-decoration:none;color:#fff}
+.contact small{display:block;font-size:12px;opacity:.75;margin-bottom:22px}
+footer{background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px;
+       padding:26px 20px;text-align:center}
+@media(min-width:768px){
+  .hero .wrap{padding:96px 20px 84px}
+  .hero h1{font-size:42px}
+  .hd{flex-wrap:nowrap;min-height:62px}
+  nav{order:0;flex:0 1 auto;flex-wrap:nowrap;column-gap:26px;font-size:14px;
+      border-top:0;padding:0}
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .gal{grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:18px}
+  .gframe:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  .stats b{font-size:42px}
+  h2{font-size:29px}
+  section{padding:78px 0}
+}
+
+/* ★紙に出したときのため（modern.py と同じ考え方）。
+   背景色が落ちると、濃い地に白抜きの箇所が消える。
+   断り書きの帯・ヒーロー・お問い合わせ・フッターを白地に置き換える。 */
+@media print{
+  html,body{background:#fff}
+  header{position:static;border-bottom:1px solid var(--line)}
+  .notice{position:static;background:#fff;color:#000;border:2px solid #000;
+          padding:8px 12px;margin-bottom:10px}
+  .notice b{color:#000}
+  .hero{background:#fff;color:var(--ink);border-bottom:1px solid var(--line)}
+  .hero h1,.hero .eyebrow,.hero p{color:var(--ink)}
+  .hero .btn{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+  .contact{background:#fff;color:var(--ink);
+           border-top:2px solid var(--line);border-bottom:2px solid var(--line)}
+  .contact .big{color:var(--ink)}
+  footer{background:#fff;color:#333;border-top:1px solid var(--line)}
+  footer .by a{color:#333}
+  footer .by a[href^="http"]::after{content:" (" attr(href) ")"}
+  .card,.step,.gframe,.mapbox,.stats div{break-inside:avoid;page-break-inside:avoid}
+  section{padding:26px 0}
+  @page{margin:14mm}
+}
+</style>
+</head>
+<body>
+
+<div class="notice">
+  <b>これは EasyWebCraft が作成した提案用の見本です。</b>
+  <span><span class="ph">株式会社岡本製作所さまの公式サイトではありません。</span><span class="ph"><b>トップページだけを形にした見本</b>で、</span><span class="ph">メニューの各ページは実際の制作でお作りします。</span><span class="ph">写真・文章は当社が用意したものです。</span></span>
+</div>
+
+<header>
+  <div class="wrap hd">
+    <div class="logo">株式会社岡本製作所<small>OKAMOTO SEISAKUSHO ／ 愛知県豊明市</small></div>
+    <nav><a href="#works">事業内容</a><a href="#svc4">設備紹介</a><a href="#svc5">製品紹介</a><a href="#company">会社案内</a><a href="#company">アクセス</a><a href="#contact">お問い合わせ</a></nav>
+    <a class="tel" href="tel:0562971151"><b>0562-97-1151</b><small>お電話でのご相談</small></a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">製造 ／ 創業 1970年</p>
+    <h1><span class="ph">射出成形から組立まで、</span><span class="ph">一貫で。</span><br><em><span class="ph">自動車の外装部品を、</span><span class="ph">豊明から。</span></em></h1>
+    <p><span class="ph">射出成形、</span><span class="ph">インサート成形、</span><span class="ph">プラスチック成形。</span><span class="ph">自動車のエクステリア部品を中心に、</span><span class="ph">成形から組立まで。</span><span class="ph">1970年設立、</span><span class="ph">社員32名、</span><span class="ph">豊明本社と大府の北崎工場。</span></p>
+    <div class="cta"><a class="btn p" href="tel:0562971151">電話で相談する</a><a class="btn g" href="#works">できることを見る</a></div>
+  </div>
+</div>
+
+<div class="stats"><div><b>1970<small>年</small></b><span>設立</span></div><div><b>32<small>名</small></b><span>社員</span></div><div><b>2<small>工場</small></b><span>豊明・大府</span></div></div>
+
+<section id="works">
+  <div class="wrap">
+    <h2>できること</h2>
+    <p class="lead">成形して、組み立てて、納める。</p>
+    <div class="cards"><div class="card" id="svc1"><h3>射出成形</h3><p>自動車部品を中心に、量産成形。</p></div><div class="card" id="svc2"><h3>インサート成形</h3><p>金属部品を樹脂と一体に。</p></div><div class="card" id="svc3"><h3>組立</h3><p>成形品の組み付けまで一貫。</p></div><div class="card" id="svc4"><h3>設備紹介</h3><p>成形機の台数とサイズ。</p></div><div class="card" id="svc5"><h3>製品紹介</h3><p>手がけている部品。</p></div><div class="card" id="svc6"><h3>品質管理</h3><p>検査体制と取り組み。</p></div></div>
+  </div>
+</section>
+
+
+
+<section class="alt" id="flow">
+  <div class="wrap">
+    <h2>ご相談から完成まで</h2>
+    <p class="lead">はじめての方にも、順番が分かるように。</p>
+    <div class="flow"><div class="step"><h3>ご相談</h3><p>図面が無い段階でも構いません。用途をお聞かせください。</p></div><div class="step"><h3>お見積り</h3><p>数量と納期の見通しを添えてお出しします。</p></div><div class="step"><h3>試作・ご確認</h3><p>かたちにしてから直すほうが早いこともあります。</p></div><div class="step"><h3>量産・納品</h3><p>継続してご発注いただく場合の体制もご相談ください。</p></div></div>
+  </div>
+</section>
+
+<section id="company">
+  <div class="wrap" style="max-width:720px">
+    <h2>概要</h2>
+    <p class="lead">&nbsp;</p>
+    <table class="info"><tr><th>商号</th><td>株式会社岡本製作所</td></tr><tr><th>所在地</th><td>〒470-1168 愛知県豊明市栄町南舘3番地483</td></tr><tr><th>電話</th><td><a href="tel:0562971151">0562-97-1151</a></td></tr><tr><th>創業</th><td>1970年</td></tr><tr><th>事業内容</th><td>射出成形／インサート成形／組立／設備紹介／製品紹介</td></tr></table>
+    <div class="mapbox"><b>地図が入ります</b>最寄り駅・駐車場のご案内もここに</div>
+  </div>
+</section>
+
+<div class="contact" id="contact">
+  <h2>図面をお持ちでなくても</h2>
+  <p class="lead">小さなご相談でも構いません。</p>
+  <a class="big" href="tel:0562971151">0562-97-1151</a><small>受付時間 平日 8:30–17:30</small><div><a class="btn p" href="tel:0562971151">電話をかける</a></div>
+</div>
+
+<footer>
+  <span class="ph">この見本は EasyWebCraft が作成した提案資料です。</span><span class="ph">株式会社岡本製作所さまの公式サイトではありません。</span><br>
+  <span class="ph">実際の制作では、</span><span class="ph">御社の写真・実績・文章に差し替えて仕上げます。</span>
+  <p class="by"><span class="ph">EasyWebCraft（担当：田代）</span><span class="ph"><a href="mailto:info@easywebcraft.jp">info@easywebcraft.jp</a></span></p>
+</footer>
+
+</body>
+</html>
