@@ -270,7 +270,7 @@ NAV_HINTS = (  # 項目名に含まれる語 → 飛ばす先。上から順に�
     # 実績・事例のページ。gallery を持つ先だけ（持たない先は下の照合に回す）
     ("実績", "#gallery"), ("事例", "#gallery"), ("施工例", "#gallery"), ("作業例", "#gallery"),
     ("経歴", "#gallery"), ("作品", "#gallery"), ("製作例", "#gallery"), ("納品例", "#gallery"),
-    ("工事一覧", "#gallery"),
+    ("工事一覧", "#gallery"), ("実例", "#gallery"), ("ギャラリー", "#gallery"),
     # 会社・院・事務所の案内
     ("当院", "#company"), ("医院", "#company"), ("院長", "#company"),
     ("事務所", "#company"), ("スタッフ", "#company"), ("とは", "#company"),
@@ -495,6 +495,12 @@ def nav_targets(d, ind):
             used_l.add(label)
             used_i.add(i)
 
+    # ★「〜の流れ」「〜ができるまで」は工程へ。カードと語が重なっても（「リフォームの流れ」と
+    #   「リフォーム」のカード）工程が正しい着地（2026-09-19）
+    for label in labels:
+        if any(k in label for k in ("流れ", "できるまで", "工程", "ご相談から")):
+            pairs[label] = "#flow"
+            used_l.add(label)
     take(2)                                      # 強い一致はカードへ
     for label in labels:
         if label in pairs:
