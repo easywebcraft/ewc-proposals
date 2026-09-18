@@ -275,7 +275,7 @@ NAV_HINTS = (  # 項目名に含まれる語 → 飛ばす先。上から順に�
     ("事務所", "#company"), ("スタッフ", "#company"), ("とは", "#company"),
     ("会社", "#company"), ("企業", "#company"), ("店", "#company"), ("アクセス", "#company"),
     ("問合", "#contact"), ("問い合", "#contact"),
-    ("流れ", "#flow"), ("工程", "#flow"),
+    ("流れ", "#flow"), ("工程", "#flow"), ("ご相談から", "#flow"),
 )
 
 
