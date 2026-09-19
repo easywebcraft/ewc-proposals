@@ -822,6 +822,15 @@ def nav_targets(d, ind):
         elif any(k in label for k in ("お知らせ", "ニュース", "新着", "NEWS", "News", "トピックス")):
             pairs[label] = "#news"
             used_l.add(label)
+        # ★総称（業務内容・事業案内・◯◯サービス）は「できること」全体で受ける。
+        #   「リフォームサービス」が「水廻りリフォーム」のカードに強く一致して、
+        #   1枚に着地していた（2026-09-19）
+        elif (any(k in label for k in ("業務内容", "事業内容", "事業案内", "業務案内", "サービス一覧",
+                                        "取扱商品", "商品のご案内")) or label.endswith("サービス")) \
+                and not any(t == label or (len(t) >= 4 and (t in label or label in t)) for t in svc):
+            # 同名のカードがある（松岡設計の「プラン提案サービス」）ときはカードを優先
+            pairs[label] = "#works"
+            used_l.add(label)
     take(2)                                      # 強い一致はカードへ
     for label in labels:
         if label in pairs:
