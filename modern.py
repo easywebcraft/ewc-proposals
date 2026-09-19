@@ -830,6 +830,7 @@ def nav_html(d, ind, e):
     return "".join(out)
 
 
+import hashlib
 import os
 
 PHOTO_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "photos")
@@ -847,7 +848,11 @@ def photo_style(pid):
     # ★内蔵（data URI）にしない。1ページ 500KB になり、再生成のたびに git に積まれる。
     #   同じリポジトリ内の相対参照なので「外部リソースを読み込まない」方針は崩れない
     extra = f";background-position:{pos}" if pos else ""
-    return f' style="background-image:url(../photos/{pid}.jpg){extra}"'
+    # ★写真を取り直しても名前が同じだと、ブラウザと GitHub Pages のキャッシュに古い版が残る
+    #   （低解像度のまま見えていた原因）。中身のハッシュを ?v= に付けて、変わったら別URLにする
+    with open(path, "rb") as f:
+        ver = hashlib.md5(f.read()).hexdigest()[:8]
+    return f' style="background-image:url(../photos/{pid}.jpg?v={ver}){extra}"'
 
 
 def render(sid, d, ind):
