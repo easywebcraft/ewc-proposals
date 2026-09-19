@@ -99,6 +99,17 @@ footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .shot .lb{position:relative;z-index:1;color:#6f7268;font-size:12.5px;letter-spacing:.08em}
 .shot .lb b{display:block;font-family:var(--serif);font-size:15px;color:#575a51;
             margin-bottom:5px;font-weight:500}
+/* ★当社が用意したイメージ写真を入れた枠（2026-09-19）。相手の写真は使わない原則はそのまま。
+   写真は data URI で内蔵するので1ファイル・外部読み込みなしは崩れない。
+   「イメージ写真」の札を必ず出す（本物の実績と誤認させないため） */
+.ph{background-size:cover;background-position:center}
+.ph::after{display:none}
+.shot.ph,.gframe.ph{display:block;padding:0}
+.shot.ph .lb,.gframe.ph .cap{position:absolute;left:12px;bottom:12px;z-index:1;text-align:left;
+  background:rgba(255,255,255,.9);border-radius:999px;padding:5px 12px;
+  font-size:11px;color:#575a51;letter-spacing:.06em;line-height:1.5}
+.shot.ph .lb b,.gframe.ph .cap b{display:inline;font-family:var(--sans);font-size:11px;
+  margin:0 6px 0 0;font-weight:700;color:var(--accent)}
 /* 実績・事例の写真枠。ヒーローの枠と同じ見た目でそろえる */
 /* 地図の入る場所。写真枠と同じ見せ方でそろえる */
 .mapbox{margin-top:22px;background:

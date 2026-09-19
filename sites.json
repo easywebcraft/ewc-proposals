@@ -227,7 +227,8 @@
    "設備内容",
    "関連企業",
    "会社概要"
-  ]
+  ],
+  "photos": {"hero": "1735494033576-9c882e80504c"}
  },
  "katoh-auto": {
   "name": "カトー自動車工業株式会社",
@@ -1160,7 +1161,8 @@
    "会社概要"
   ],
   "accent": "#4a4d85",
-  "texture": "zumen"
+  "texture": "zumen",
+  "photos": {"hero": "1700581316314-9e6a809bd656"}
  },
  "igawa-kk": {
   "industry": "kensetsu",
@@ -1287,7 +1289,8 @@
     "ドアの入れ替えから、まわりの改修まで。"
    ]
   ],
-  "texture": "zumen"
+  "texture": "zumen",
+  "photos": {"hero": "1678694180534-974017792a3e"}
  },
  "itochu-tosou": {
   "industry": "kensetsu",
@@ -1397,7 +1400,8 @@
     "入れたあとを預かります。長く使うための手入れを。"
    ]
   ],
-  "texture": "ashiba"
+  "texture": "ashiba",
+  "photos": {"hero": "1639600993675-2281b2c939f0"}
  },
  "kurachi": {
   "industry": "kensetsu",
@@ -1456,7 +1460,8 @@
     "診察室や待合の家具もお作りしています。"
    ]
   ],
-  "texture": "mokume"
+  "texture": "mokume",
+  "photos": {"hero": "1597113366853-fea190b6cd82"}
  },
  "suzupro": {
   "industry": "seizo",
@@ -1590,7 +1595,8 @@
    "できること",
    "施工事例",
    "会社概要"
-  ]
+  ],
+  "photos": {"hero": "1639600993675-2281b2c939f0", "gallery": ["1677075599533-66eef621c537", null, null]}
  },
  "ito-kikinzoku": {
   "industry": "seizo",
@@ -1952,7 +1958,8 @@
    "会社案内"
   ],
   "accent": "#283c91",
-  "texture": "kinzoku"
+  "texture": "kinzoku",
+  "photos": {"hero": "1658298775754-5839ffd434cc", "gallery": ["1724041875334-0a6397111c7e", null, null]}
  },
  "sousekkei": {
   "name": "株式会社想設計",
@@ -2026,7 +2033,8 @@
    "会社案内"
   ],
   "accent": "#a55d0f",
-  "texture": "zumen"
+  "texture": "zumen",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "hasegawa-koumuten": {
   "name": "株式会社長谷川工務店",
@@ -2234,7 +2242,8 @@
    "会社案内"
   ],
   "accent": "#2e669c",
-  "texture": "kinzoku"
+  "texture": "kinzoku",
+  "photos": {"hero": "1658298775754-5839ffd434cc"}
  },
  "fujimoto-kogei": {
   "name": "株式会社藤本工芸",
@@ -2306,7 +2315,8 @@
    "会社概要"
   ],
   "accent": "#425863",
-  "texture": "mokume"
+  "texture": "mokume",
+  "photos": {"hero": "1597113366853-fea190b6cd82", "gallery": ["1621295693450-080546d2ec8e", null, null]}
  },
  "nikoniko-zoen": {
   "name": "有限会社にこにこ造園",
@@ -2379,7 +2389,8 @@
    "会社案内"
   ],
   "accent": "#2f7a2f",
-  "texture": "mokume"
+  "texture": "mokume",
+  "photos": {"hero": "1715734925148-692a4f2c4ab8", "gallery": ["1775854169418-ae7bbab70d5d", null, null]}
  },
  "takeuchi-yokuso": {
   "name": "竹内浴槽株式会社",
@@ -2529,7 +2540,8 @@
    "会社案内"
   ],
   "accent": "#1f6f3f",
-  "texture": "ashiba"
+  "texture": "ashiba",
+  "photos": {"hero": "1549896869-ca27eeffe4fb", "gallery": ["1474546652694-a33dd8161d66", null, null]}
  },
  "naito-koumuten": {
   "name": "有限会社内藤工務店",
@@ -2676,7 +2688,8 @@
    "会社概要"
   ],
   "accent": "#7a4b23",
-  "texture": "mokume"
+  "texture": "mokume",
+  "photos": {"hero": "1597113366853-fea190b6cd82", "gallery": ["1621295693450-080546d2ec8e", null, null]}
  },
  "amemiya-kensetsu": {
   "name": "有限会社アメミヤ建設",
@@ -2823,7 +2836,8 @@
    "会社概要・アクセス"
   ],
   "accent": "#0e824d",
-  "texture": "mokume"
+  "texture": "mokume",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "asada-denki": {
   "name": "株式会社浅田電機商会",
@@ -2894,7 +2908,8 @@
    "アクセス"
   ],
   "accent": "#b3261e",
-  "texture": "kinzoku"
+  "texture": "kinzoku",
+  "photos": {"hero": "1783305001511-882a9256fa0d"}
  },
  "dai6": {
   "name": "株式会社ダイロク",
@@ -2968,7 +2983,8 @@
    "会社概要"
   ],
   "accent": "#2a3a8c",
-  "texture": "kinzoku"
+  "texture": "kinzoku",
+  "photos": {"hero": "1781255575629-9044eb9b73f9@50% 45%"}
  },
  "artic-homes": {
   "name": "株式会社アーティックホームズ",

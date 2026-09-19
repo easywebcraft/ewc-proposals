@@ -419,7 +419,7 @@ def body_js():
 HERO_FULL_CSS = """
 @keyframes zoomOut{from{transform:scale(1.06)}to{transform:none}}
 .hero.full{padding:0 0 12px}
-.hero.full::before,.hero.full .tex,.hero.full .tagline{display:none}
+.hero.full::before,.hero.full::after,.hero.full .inner::before,.hero.full .tex,.hero.full .tagline{display:none}
 .hero.full .inner{display:flex;flex-direction:column;max-width:none;padding:0;gap:0}
 .hero.full .shot{order:-1;width:100vw;margin-left:calc(50% - 50vw);aspect-ratio:auto;height:58vh;
   min-height:300px;max-height:520px;border:0;border-radius:0;outline:0;

@@ -99,6 +99,17 @@ footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .shot .lb{position:relative;z-index:1;color:#6f7268;font-size:12.5px;letter-spacing:.08em}
 .shot .lb b{display:block;font-family:var(--serif);font-size:15px;color:#575a51;
             margin-bottom:5px;font-weight:500}
+/* ★当社が用意したイメージ写真を入れた枠（2026-09-19）。相手の写真は使わない原則はそのまま。
+   写真は data URI で内蔵するので1ファイル・外部読み込みなしは崩れない。
+   「イメージ写真」の札を必ず出す（本物の実績と誤認させないため） */
+.ph{background-size:cover;background-position:center}
+.ph::after{display:none}
+.shot.ph,.gframe.ph{display:block;padding:0}
+.shot.ph .lb,.gframe.ph .cap{position:absolute;left:12px;bottom:12px;z-index:1;text-align:left;
+  background:rgba(255,255,255,.9);border-radius:999px;padding:5px 12px;
+  font-size:11px;color:#575a51;letter-spacing:.06em;line-height:1.5}
+.shot.ph .lb b,.gframe.ph .cap b{display:inline;font-family:var(--sans);font-size:11px;
+  margin:0 6px 0 0;font-weight:700;color:var(--accent)}
 /* 実績・事例の写真枠。ヒーローの枠と同じ見た目でそろえる */
 /* 地図の入る場所。写真枠と同じ見せ方でそろえる */
 .mapbox{margin-top:22px;background:
@@ -312,6 +323,51 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
   .anim .on,.hero .meta > *,.hero h1,.hero .shot{animation:none!important}
   .mbtn{display:none}nav{display:flex!important}
 }
+
+@keyframes zoomOut{from{transform:scale(1.06)}to{transform:none}}
+.hero.full{padding:0 0 12px}
+.hero.full::before,.hero.full::after,.hero.full .inner::before,.hero.full .tex,.hero.full .tagline{display:none}
+.hero.full .inner{display:flex;flex-direction:column;max-width:none;padding:0;gap:0}
+.hero.full .shot{order:-1;width:100vw;margin-left:calc(50% - 50vw);aspect-ratio:auto;height:58vh;
+  min-height:300px;max-height:520px;border:0;border-radius:0;outline:0;
+  animation:zoomOut 1.8s cubic-bezier(.2,.7,.3,1) both}
+.hero.full .shot .lb{left:auto;right:14px;bottom:14px}
+.hero.full .side{max-width:1120px;margin:0 auto;padding:22px 20px 0;width:100%}
+.hero.full .scroll{display:none}
+@media(min-width:900px){
+  .hero.full{padding:0 0 20px}
+  .hero.full .inner{display:block;position:relative;min-height:min(74vh,700px)}
+  .hero.full .shot{position:absolute;inset:0;width:auto;margin:0;height:auto;max-height:none;order:0}
+  /* 文字が読めるように、左を濃く右を薄く */
+  .hero.full .shot::before{content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(20,18,14,.62) 0%,rgba(20,18,14,.32) 55%,rgba(20,18,14,.12) 100%)}
+  .hero.full .side{position:relative;z-index:1;align-items:flex-start;padding:64px 20px 96px}
+  .hero.full .textcol{justify-content:flex-start;gap:34px}
+  .hero.full .textcol h1{order:-1}
+  .hero.full h1,.hero.full .sub,.hero.full .en{color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.35)}
+  .hero.full h1 em{color:#fff;text-shadow:0 0 0 #fff,0 1px 14px rgba(0,0,0,.35)}
+  .hero.full .meta{padding-top:8px}
+  .hero.full .btn.g{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.7)}
+  .hero.full .btn.g:hover{background:#fff;color:var(--ink)}
+  /* 下端は数字の帯が重なるので、札は右上・scroll はその上に置く */
+  .hero.full .shot .lb{bottom:auto;top:16px;right:16px}
+  .hero.full .scroll{display:block;color:#fff;bottom:66px}
+  .hero.full .scroll::after{background:#fff}
+  /* 数字の帯を写真の下端に少し重ねる */
+  .hero.full .stats{margin-top:-44px;position:relative;z-index:2}
+  .hero.full .stats div{box-shadow:0 10px 30px rgba(20,18,14,.10)}
+}
+@media(prefers-reduced-motion:reduce){.hero.full .shot{animation:none}}
+@media print{
+  .hero.full .inner{min-height:0;display:block}
+  .hero.full .shot{position:relative;inset:auto;width:auto;margin:0;height:auto;aspect-ratio:16/7;
+    border:1px solid var(--line);animation:none!important}
+  .hero.full .shot::before{display:none}
+  .hero.full .side{padding:12px 0 0}
+  .hero.full h1,.hero.full .sub,.hero.full .en,.hero.full h1 em{color:var(--ink);text-shadow:none}
+  .hero.full .btn.g{background:#fff;color:var(--ink);border-color:var(--ink)}
+  .hero.full .stats{margin-top:12px}
+}
 </style>
 <script>
 document.documentElement.classList.add('anim','js');
@@ -334,7 +390,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   </div></header>
 </div>
 
-<div class="hero tx">
+<div class="hero tx full">
   <svg class="tex" aria-hidden="true"><defs><pattern id="tx" width="48" height="48" patternUnits="userSpaceOnUse">
  <g stroke="rgba(179,38,30,.24)" stroke-width="2.6" stroke-linecap="round">
   <line x1="5" y1="15" x2="19" y2="7"/><line x1="8" y1="20" x2="22" y2="12"/>
@@ -355,8 +411,8 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
         <h1 class="vt">架線金物なら、ぜんぶ。<br><em>電設資材を、<br>瀬戸から全国へ。</em></h1>
       </div>
     </div>
-    <div class="shot">
-      <div class="lb"><b>お写真が入ります</b>現場のようす・完成した建物など</div>
+    <div class="shot ph" style="background-image:url(../photos/1783305001511-882a9256fa0d.jpg)">
+      <div class="lb"><b>イメージ写真</b>実際の制作では御社のお写真に差し替えます</div>
     </div>
     <span class="scroll">scroll</span>
   </div>
