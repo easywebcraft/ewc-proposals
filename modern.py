@@ -825,14 +825,13 @@ def nav_html(d, ind, e):
     return "".join(out)
 
 
-import base64
 import os
 
 PHOTO_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "photos")
 
 
 def photo_style(pid):
-    """photos/<id>.jpg を data URI にして style 属性にする。無ければ空（枠のまま）。"""
+    """photos/<id>.jpg を参照する style 属性にする。無ければ空（枠のまま）。"""
     if not pid:
         return ""
     # "id@50% 85%" のように @ の後ろで切り出す位置を指定できる（既定は中央）
@@ -840,9 +839,10 @@ def photo_style(pid):
     path = os.path.join(PHOTO_DIR, pid + ".jpg")
     if not os.path.exists(path):
         raise SystemExit(f"写真が無い: {path}（PHOTOS.md の手順で取得する）")
-    b64 = base64.b64encode(open(path, "rb").read()).decode()
+    # ★内蔵（data URI）にしない。1ページ 500KB になり、再生成のたびに git に積まれる。
+    #   同じリポジトリ内の相対参照なので「外部リソースを読み込まない」方針は崩れない
     extra = f";background-position:{pos}" if pos else ""
-    return f' style="background-image:url(data:image/jpeg;base64,{b64}){extra}"'
+    return f' style="background-image:url(../photos/{pid}.jpg){extra}"'
 
 
 def render(sid, d, ind):
