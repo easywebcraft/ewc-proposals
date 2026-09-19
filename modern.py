@@ -412,6 +412,58 @@ def body_js():
     return BODY_JS.replace("SEL", REVEAL_SEL)
 
 
+# ★写真があるときのヒーロー（2026-09-19）。参考サイト（達匠・大洋画地）と同じ、
+#   画面いっぱいの写真に文字を重ねる型。枠時代の設計（右半分の小さな枠）は写真が無い前提
+#   だったので、写真がある先だけ .hero.full に切り替える。
+#   スマホは写真の上に文字を重ねず、写真の直下に置く（重ねると読めなくなる。かみのてで経験済み）。
+HERO_FULL_CSS = """
+@keyframes zoomOut{from{transform:scale(1.06)}to{transform:none}}
+.hero.full{padding:0 0 12px}
+.hero.full::before,.hero.full .tex,.hero.full .tagline{display:none}
+.hero.full .inner{display:flex;flex-direction:column;max-width:none;padding:0;gap:0}
+.hero.full .shot{order:-1;width:100vw;margin-left:calc(50% - 50vw);aspect-ratio:auto;height:58vh;
+  min-height:300px;max-height:520px;border:0;border-radius:0;outline:0;
+  animation:zoomOut 1.8s cubic-bezier(.2,.7,.3,1) both}
+.hero.full .shot .lb{left:auto;right:14px;bottom:14px}
+.hero.full .side{max-width:1120px;margin:0 auto;padding:22px 20px 0;width:100%}
+.hero.full .scroll{display:none}
+@media(min-width:900px){
+  .hero.full{padding:0 0 20px}
+  .hero.full .inner{display:block;position:relative;min-height:min(74vh,700px)}
+  .hero.full .shot{position:absolute;inset:0;width:auto;margin:0;height:auto;max-height:none;order:0}
+  /* 文字が読めるように、左を濃く右を薄く */
+  .hero.full .shot::before{content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(20,18,14,.62) 0%,rgba(20,18,14,.32) 55%,rgba(20,18,14,.12) 100%)}
+  .hero.full .side{position:relative;z-index:1;align-items:flex-start;padding:64px 20px 96px}
+  .hero.full .textcol{justify-content:flex-start;gap:34px}
+  .hero.full .textcol h1{order:-1}
+  .hero.full h1,.hero.full .sub,.hero.full .en{color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.35)}
+  .hero.full h1 em{color:#fff;text-shadow:0 0 0 #fff,0 1px 14px rgba(0,0,0,.35)}
+  .hero.full .meta{padding-top:8px}
+  .hero.full .btn.g{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.7)}
+  .hero.full .btn.g:hover{background:#fff;color:var(--ink)}
+  /* 下端は数字の帯が重なるので、札は右上・scroll はその上に置く */
+  .hero.full .shot .lb{bottom:auto;top:16px;right:16px}
+  .hero.full .scroll{display:block;color:#fff;bottom:66px}
+  .hero.full .scroll::after{background:#fff}
+  /* 数字の帯を写真の下端に少し重ねる */
+  .hero.full .stats{margin-top:-44px;position:relative;z-index:2}
+  .hero.full .stats div{box-shadow:0 10px 30px rgba(20,18,14,.10)}
+}
+@media(prefers-reduced-motion:reduce){.hero.full .shot{animation:none}}
+@media print{
+  .hero.full .inner{min-height:0;display:block}
+  .hero.full .shot{position:relative;inset:auto;width:auto;margin:0;height:auto;aspect-ratio:16/7;
+    border:1px solid var(--line);animation:none!important}
+  .hero.full .shot::before{display:none}
+  .hero.full .side{padding:12px 0 0}
+  .hero.full h1,.hero.full .sub,.hero.full .en,.hero.full h1 em{color:var(--ink);text-shadow:none}
+  .hero.full .btn.g{background:#fff;color:var(--ink);border-color:var(--ink)}
+  .hero.full .stats{margin-top:12px}
+}
+"""
+
+
 # ★製造の型（references/seizo.md・2026-09-19）。骨格は建設と同じで、皮だけ替える。
 #   地は白〜淡い灰青（生成りにしない）／主色は濃紺、差し色の橙は下線と数字だけ／
 #   見出しは明朝でなくゴシック太め／縦書きにしない／ボタンとカードは角ばらせる／
@@ -812,6 +864,8 @@ def render(sid, d, ind):
         css += SKIN_SEIZO % {"sub": ind.get("sub", "#d4420a"), "acc_rgb": acc_rgb}
         tex = ""            # 製造は幾何形の地で持たせる。質感は問い合わせ帯だけ
     css += motion_css(navbp)      # 動きは皮の後ろ。皮の指定を上書きしないため
+    if (d.get("photos") or {}).get("hero"):
+        css += HERO_FULL_CSS
     roman = d.get("roman", "")
     since = bigen = tagline = badge = ""
     news_t = ind.get("news_hint", "お知らせが入ります（工事のご報告・休業日など）")
@@ -917,7 +971,7 @@ def render(sid, d, ind):
   </div></header>
 </div>
 
-<div class="hero{" tx" if tex else ""}">
+<div class="hero{" tx" if tex else ""}{" full" if hero_ph else ""}">
   {tex}{tagline}
   <div class="wrap inner">
     <div class="side">
