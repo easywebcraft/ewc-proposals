@@ -255,6 +255,61 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
 """
 
 
+# ★製造の型（references/seizo.md・2026-09-19）。骨格は建設と同じで、皮だけ替える。
+#   地は白〜淡い灰青（生成りにしない）／主色は濃紺、差し色の橙は下線と数字だけ／
+#   見出しは明朝でなくゴシック太め／縦書きにしない／ボタンとカードは角ばらせる／
+#   英字ラベル→和文の大見出し→短い橙の下線（長峰の型）／数字を大きく（日亜の型）。
+SKIN_SEIZO = """
+:root{--ground:#f4f5f7;--line:#d8dbe0;--muted:#5f6773;--panel:#e6eaf0;--sub:%(sub)s;
+      --serif:var(--sans)}
+body{line-height:1.85}
+.logo{font-weight:800;letter-spacing:.02em}
+.hd .call,.btn,.contact .btn.w{border-radius:4px}
+.hd .call{background:var(--accent)}
+.hd .call2{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
+           border-radius:4px;padding:10px 15px;font-size:12.5px;font-weight:700;
+           letter-spacing:.06em;white-space:nowrap;margin-left:6px}
+.hd .calls{display:flex;align-items:center}
+.hero{background:linear-gradient(160deg,#eef1f5 0%%,#dfe4ec 55%%,#f4f5f7 100%%)}
+.hero::before{background-image:none}
+.hero::after{content:"";position:absolute;right:-6%%;top:-10%%;width:44vw;max-width:520px;
+  aspect-ratio:1;border:1px solid rgba(%(acc_rgb)s,.16);transform:rotate(45deg);
+  pointer-events:none}
+.hero .inner::before{content:"";position:absolute;left:-8%%;bottom:4%%;width:26vw;max-width:300px;
+  aspect-ratio:1;border-radius:50%%;border:1px solid rgba(%(acc_rgb)s,.14);pointer-events:none}
+.vt{writing-mode:horizontal-tb!important;max-height:none!important;margin-left:0!important;
+    white-space:normal!important}
+.hero h1{font-family:var(--sans);font-weight:800;line-height:1.5!important;
+         letter-spacing:.02em!important;font-size:clamp(26px,6.4vw,44px)!important}
+.hero h1 .col{display:block}
+.hero h1 em{color:var(--accent)}
+.hero .textcol{flex-direction:column!important;gap:0!important}
+.hero .textcol h1{order:-1!important}
+.hero .side{align-items:flex-start!important}
+.hero .meta{max-width:30em!important}
+.hero .en{font-weight:700;letter-spacing:.24em;color:var(--accent)}
+.shot,.gframe,.mapbox{border-radius:4px;background:linear-gradient(135deg,#e4e8ee 0%%,#d9dfe7 55%%,#e9ecf1 100%%)}
+.shot .lb b,.gframe b,.mapbox b{font-family:var(--sans);font-weight:700}
+.stats div{border-radius:4px;border-top:3px solid var(--sub)}
+.stats b{font-family:var(--sans);font-weight:800;letter-spacing:-.01em}
+section.alt{background:var(--panel)}
+.sechead .en{font-weight:700;letter-spacing:.22em;font-size:11px}
+h2{font-family:var(--sans);font-weight:800;letter-spacing:.03em}
+.sechead h2::after{content:"";display:block;width:34px;height:3px;background:var(--sub);
+                   margin:12px auto 0}
+.card,.step{border-radius:4px;box-shadow:0 1px 2px rgba(20,30,50,.04)}
+section.alt .card,section.alt .step{background:#fff}
+.card h3{font-weight:800}
+.step::before{font-family:var(--sans);font-weight:800;color:var(--sub)}
+.contact{background:var(--accent)}
+.contact::before{border-radius:0;transform:rotate(45deg);inset:auto -10%% -70%% 62%%;height:120%%}
+.contact h2::after{display:none}
+.contact .big{font-family:var(--sans);font-weight:800}
+footer{background:#1f2733}
+@media print{.hero{background:#fff}.hero::after,.hero .inner::before{display:none}}
+"""
+
+
 # ★相手のサイトの構成をメニューに写す。`sites.json` の "nav" に項目名を並べる。
 #   **下層ページは作らない。**リンク先はトップ内の節に寄せる（押せば何か起きる）。
 #   なぜ要るか: 既定の4項目のままだと、下層ページを持つ相手には**構成が劣化して見える**。
@@ -296,6 +351,8 @@ def nav_breakpoint(d, ind):
     nav = sum(_tw(x, 14.3) for x in labels) + (len(labels) - 1) * 22
     logo = _tw(d["name"], 18.4)
     call = _tw("お電話 " + d.get("tel", ""), 14.5) + 40
+    if ind.get("skin") == "seizo":
+        call += _tw("資料請求", 12.5) + 36          # 2つ目のボタンのぶん
     need = logo + nav + call + 24 * 2 + 30 + 24 + 100  # すきま・内側の余白・安全分
     return max(900, int(need // 20 * 20 + 20))
 
@@ -544,6 +601,10 @@ def render(sid, d, ind):
     css = CSS % {"ground": ind["ground"], "ink2": ind["ink2"], "accent": acc,
                  "accent_d": acc_d, "acc_rgb": acc_rgb, "navbp": nav_breakpoint(d, ind),
                  "h1px": h1px}
+    skin = ind.get("skin")
+    if skin == "seizo":
+        css += SKIN_SEIZO % {"sub": ind.get("sub", "#d4420a"), "acc_rgb": acc_rgb}
+        tex = ""            # 製造は幾何形の地で持たせる。質感は問い合わせ帯だけ
     roman = d.get("roman", "")
 
     stats = "".join(f'<div><b>{e(a)}<small>{e(b)}</small></b><span>{e(c)}</span></div>'
@@ -585,6 +646,9 @@ def render(sid, d, ind):
     nav = nav_html(d, ind, e)
     call = (f'<a class="call" href="tel:{e(tl)}">お電話 {e(tel)}</a>' if tel
             else '<a class="call" href="#contact">お問い合わせ</a>')
+    if skin == "seizo":
+        # 長峰の型: 右端に角ばったボタンを2つ（お問い合わせ／資料請求）
+        call = f'<div class="calls">{call}<a class="call2" href="#contact">資料請求</a></div>'
     hero_btn = (f'<a class="btn p" href="tel:{e(tl)}">電話で相談する</a>' if tel else "")
     ctel = (f'<a class="big" href="tel:{e(tl)}">{e(tel)}</a>'
             f'<small>{e(ind["hours"])}</small>'
@@ -630,7 +694,7 @@ def render(sid, d, ind):
       </div>
     </div>
     <div class="shot">
-      <div class="lb"><b>お写真が入ります</b>現場のようす・完成した建物など</div>
+      <div class="lb"><b>お写真が入ります</b>{e(ind.get("shot", "現場のようす・完成した建物など"))}</div>
     </div>
     <span class="scroll">scroll</span>
   </div>
