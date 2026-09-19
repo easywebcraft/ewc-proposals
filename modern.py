@@ -280,7 +280,8 @@ body{line-height:1.85}
 .vt{writing-mode:horizontal-tb!important;max-height:none!important;margin-left:0!important;
     white-space:normal!important}
 .hero h1{font-family:var(--sans);font-weight:800;line-height:1.5!important;
-         letter-spacing:.02em!important;font-size:clamp(26px,6.4vw,44px)!important}
+         letter-spacing:.02em!important;font-size:clamp(24px,4.8vw,38px)!important}
+.hero h1 em{white-space:nowrap}
 .hero h1 .col{display:block}
 .hero h1 em{color:var(--accent)}
 .hero .textcol{flex-direction:column!important;gap:0!important}
@@ -301,6 +302,26 @@ h2{font-family:var(--sans);font-weight:800;letter-spacing:.03em}
 section.alt .card,section.alt .step{background:#fff}
 .card h3{font-weight:800}
 .step::before{font-family:var(--sans);font-weight:800;color:var(--sub)}
+/* ナトコの型: ヒーローの下端に巨大な英字の宣言文を「面」として置く（白・薄く） */
+.hero .bigen{position:relative;z-index:0;margin:-30px 0 -34px;padding:0 20px;
+  font-weight:800;letter-spacing:-.01em;line-height:.9;color:rgba(255,255,255,.8);
+  font-size:clamp(40px,9vw,120px);white-space:nowrap;overflow:hidden;pointer-events:none;
+  text-shadow:0 1px 0 rgba(20,30,50,.06)}
+.hero .inner,.hero .stats{position:relative;z-index:1}
+.hero .scroll{display:none}
+.hero .since{margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:.24em;color:var(--sub)}
+/* ナトコの型: お知らせを丸い帯（ピル）で1行。長峰の型: NEWS の英字ラベル */
+.news{padding:0 0 8px}
+.news .pill{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);
+  border-radius:999px;padding:10px 18px 10px 16px;font-size:13px;box-shadow:0 2px 10px rgba(20,30,50,.05)}
+.news .pill .dot{width:8px;height:8px;border-radius:50%%;background:var(--sub);flex:none}
+.news .pill .date{color:var(--muted);letter-spacing:.06em;font-variant-numeric:tabular-nums;flex:none}
+.news .pill .t{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.news .pill .more{margin-left:auto;flex:none;color:var(--accent);font-weight:700;text-decoration:none;
+  font-size:12px;letter-spacing:.1em}
+/* 長峰の型: 青灰の面の上に白いカードをずらして重ねる（会社概要） */
+section.alt#company .wrap{background:#fff;padding:28px 24px;border:1px solid var(--line);
+  box-shadow:0 2px 12px rgba(20,30,50,.05)}
 .contact{background:var(--accent)}
 .contact::before{border-radius:0;transform:rotate(45deg);inset:auto -10%% -70%% 62%%;height:120%%}
 .contact h2::after{display:none}
@@ -558,6 +579,9 @@ def nav_targets(d, ind):
         if any(k in label for k in ("流れ", "できるまで", "工程", "ご相談から")):
             pairs[label] = "#flow"
             used_l.add(label)
+        elif ind.get("skin") == "seizo" and any(k in label for k in ("お知らせ", "ニュース", "新着", "NEWS", "News")):
+            pairs[label] = "#news"
+            used_l.add(label)
     take(2)                                      # 強い一致はカードへ
     for label in labels:
         if label in pairs:
@@ -606,6 +630,16 @@ def render(sid, d, ind):
         css += SKIN_SEIZO % {"sub": ind.get("sub", "#d4420a"), "acc_rgb": acc_rgb}
         tex = ""            # 製造は幾何形の地で持たせる。質感は問い合わせ帯だけ
     roman = d.get("roman", "")
+    since = bigen = news = ""
+    if skin == "seizo":
+        if d.get("founded"):
+            since = f'<p class="since">SINCE {e(d["founded"])}</p>'
+        if roman:
+            bigen = f'  <p class="bigen" aria-hidden="true">{e(roman)}</p>\n'
+        news = ('\n<div class="news" id="news"><div class="wrap"><div class="pill">'
+                '<span class="dot"></span><span class="date">2026.09.01</span>'
+                '<span class="t">お知らせが入ります（新製品・展示会・休業日など）</span>'
+                '<a class="more" href="#contact">NEWS →</a></div></div></div>')
 
     stats = "".join(f'<div><b>{e(a)}<small>{e(b)}</small></b><span>{e(c)}</span></div>'
                     for a, b, c in d["stats"])
@@ -690,7 +724,7 @@ def render(sid, d, ind):
           <p class="en">{e(roman)}</p>
           <div class="acts">{hero_btn}<a class="btn g" href="#works">{e(ind["svc"])}を見る</a></div>
         </div>
-        <h1 class="vt">{h1_html}</h1>
+        {since}<h1 class="vt">{h1_html}</h1>
       </div>
     </div>
     <div class="shot">
@@ -698,9 +732,9 @@ def render(sid, d, ind):
     </div>
     <span class="scroll">scroll</span>
   </div>
-  <div class="wrap"><div class="stats">{stats}</div></div>
+{bigen}  <div class="wrap"><div class="stats">{stats}</div></div>
 </div>
-
+{news}
 <section id="works">
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
