@@ -228,8 +228,28 @@ table.info th{width:7.5em;color:var(--muted);font-weight:500}
 .contact small{display:block;font-size:11.5px;opacity:.8;margin:6px 0 20px;position:relative}
 .contact .btn.w{background:#fff;color:var(--accent);position:relative}
 
+/* 問い合わせ帯の注記: 電話が苦手な客層に「窓口は増える」と伝える */
+.contact .note{font-size:11.5px;opacity:.8;margin:14px auto 0;max-width:40em;position:relative}
+/* ★サイトの構成（2026-09-19）。スマホでメニューを畳んだので、
+   「この構成で作ります」を一覧で見せる場所を別に持つ。営業メールの主旨と一致させる */
+.sitemap{background:var(--paper);border-top:1px solid var(--line);padding:34px 20px 36px;text-align:center}
+.sitemap h2{font-size:15px;margin:0 0 4px;letter-spacing:.08em}
+.sitemap p{margin:0 0 16px;font-size:12.5px;color:var(--muted)}
+.sitemap ul{list-style:none;margin:0 auto;padding:0;display:flex;flex-wrap:wrap;justify-content:center;
+  gap:8px;max-width:820px}
+.sitemap li a{display:inline-block;padding:8px 14px;border:1px solid var(--line);border-radius:999px;
+  background:var(--ground);text-decoration:none;font-size:12.5px;color:var(--ink);white-space:nowrap}
+.sitemap li a:hover{border-color:var(--accent);color:var(--accent)}
+.sitemap li a::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%%;
+  background:var(--accent);margin:0 8px 2px 0;vertical-align:middle}
 footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
        padding:26px 20px;text-align:center;line-height:1.9}
+/* ★この見本を本物にするには（2026-09-19）。見本を見たあとの行き先。金額は書かない */
+footer .next{max-width:560px;margin:18px auto 0;padding:16px 18px;border:1px solid rgba(255,255,255,.18);
+  border-radius:10px;text-align:left;color:rgba(255,255,255,.78)}
+footer .next b{display:block;color:#fff;font-size:12.5px;margin-bottom:6px;letter-spacing:.06em;text-align:center}
+footer .next ol{margin:0;padding-left:1.4em}
+footer .next li{margin:2px 0}
 
 @media(min-width:%(navbp)spx){
   .hd{flex-wrap:nowrap;min-height:58px;padding:0 20px}
@@ -294,6 +314,8 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
   .contact .btn.w{background:#fff;color:var(--ink);border:1px solid var(--ink)}
   footer{background:#fff;color:#333;border-top:1px solid var(--line)}
   footer .by a{color:#333}
+  footer .next{border-color:#999;color:#333}footer .next b{color:#000}
+  .sitemap li a{border-color:#999}
   /* 紙では押せないので、当社のリンク先を文字で出す */
   footer .by a[href^="http"]::after{content:" (" attr(href) ")"}
   .card,.step,.gframe,.mapbox,.shot,.stats div{break-inside:avoid;page-break-inside:avoid}
@@ -944,6 +966,12 @@ def render(sid, d, ind):
                    for k, v in info)
 
     nav = nav_html(d, ind, e)
+    # サイトの構成: メニューは6件までしか横に入らないが、ここは全項目を出す
+    if d.get("nav"):
+        pairs = nav_targets(d, ind) + [("お問い合わせ", "#contact")]
+    else:
+        pairs = [(ind["svc"], "#works"), (ind["flow_h"], "#flow"), ("会社概要", "#company"), ("お問い合わせ", "#contact")]
+    sitemap = "".join(f'<li><a href="{href or "#works"}">{e(label)}</a></li>' for label, href in pairs)
     call = (f'<a class="call" href="tel:{e(tl)}">お電話 {e(tel)}</a>' if tel
             else '<a class="call" href="#contact">お問い合わせ</a>')
     if skin == "seizo":
@@ -1033,12 +1061,26 @@ def render(sid, d, ind):
   <h2>{e(ind["cta"])}</h2>
   <p>{e(ind["cta_sub"])}</p>
   {ctel}
+  <p class="note">{phrase("メールフォーム・LINEでのお問い合わせ窓口は、実際の制作でお付けします。", e)}</p>
 </div>
+
+<section class="sitemap" id="sitemap">
+  <h2>サイトの構成</h2>
+  <p>この見本はトップページだけです。実際の制作では、次のページをお作りします。</p>
+  <ul>{sitemap}</ul>
+</section>
 
 {badge}
 <footer>
   <span class="ph">この見本は EasyWebCraft が作成した提案資料です。</span><span class="ph">{e(name)}さまの公式サイトではありません。</span><br>
   <span class="ph">実際の制作では、</span><span class="ph">御社の写真・実績・文章に差し替えて仕上げます。</span>
+  <div class="next"><b>この見本を本物のサイトにするには</b>
+    <ol>
+      <li>{phrase("御社の写真と文章をお預かりします（見本の写真・文章は当社が用意したものです）", e)}</li>
+      <li>{phrase("お預かりしたものを入れて、公開まで当社で仕上げます", e)}</li>
+      <li>{phrase("初期制作費はいただきません。制作と公開、スマートフォン対応、公開後の修正、安全性の対応、検索対策、運用サポートは月額に含まれます", e)}</li>
+    </ol>
+  </div>
   <p class="by"><span class="ph">EasyWebCraft（担当：田代）</span><span class="ph"><a href="mailto:info@easywebcraft.jp">info@easywebcraft.jp</a></span></p>
 </footer>
 
