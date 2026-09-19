@@ -113,6 +113,17 @@ footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .shot .lb{position:relative;z-index:1;color:#6f7268;font-size:12.5px;letter-spacing:.08em}
 .shot .lb b{display:block;font-family:var(--serif);font-size:15px;color:#575a51;
             margin-bottom:5px;font-weight:500}
+/* ★当社が用意したイメージ写真を入れた枠（2026-09-19）。相手の写真は使わない原則はそのまま。
+   写真は data URI で内蔵するので1ファイル・外部読み込みなしは崩れない。
+   「イメージ写真」の札を必ず出す（本物の実績と誤認させないため） */
+.ph{background-size:cover;background-position:center}
+.ph::after{display:none}
+.shot.ph,.gframe.ph{display:block;padding:0}
+.shot.ph .lb,.gframe.ph .cap{position:absolute;left:12px;bottom:12px;z-index:1;text-align:left;
+  background:rgba(255,255,255,.9);border-radius:999px;padding:5px 12px;
+  font-size:11px;color:#575a51;letter-spacing:.06em;line-height:1.5}
+.shot.ph .lb b,.gframe.ph .cap b{display:inline;font-family:var(--sans);font-size:11px;
+  margin:0 6px 0 0;font-weight:700;color:var(--accent)}
 /* 実績・事例の写真枠。ヒーローの枠と同じ見た目でそろえる */
 /* 地図の入る場所。写真枠と同じ見せ方でそろえる */
 .mapbox{margin-top:22px;background:
@@ -762,6 +773,26 @@ def nav_html(d, ind, e):
     return "".join(out)
 
 
+import base64
+import os
+
+PHOTO_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "photos")
+
+
+def photo_style(pid):
+    """photos/<id>.jpg を data URI にして style 属性にする。無ければ空（枠のまま）。"""
+    if not pid:
+        return ""
+    # "id@50% 85%" のように @ の後ろで切り出す位置を指定できる（既定は中央）
+    pid, _, pos = pid.partition("@")
+    path = os.path.join(PHOTO_DIR, pid + ".jpg")
+    if not os.path.exists(path):
+        raise SystemExit(f"写真が無い: {path}（PHOTOS.md の手順で取得する）")
+    b64 = base64.b64encode(open(path, "rb").read()).decode()
+    extra = f";background-position:{pos}" if pos else ""
+    return f' style="background-image:url(data:image/jpeg;base64,{b64}){extra}"'
+
+
 def render(sid, d, ind):
     tel = d.get("tel", "")
     tl = tel.replace("-", "")
@@ -811,12 +842,23 @@ def render(sid, d, ind):
 
     # メニューに「実績」「事例」がある先には、その受け皿を作る。
     # 無いと項目を押しても「できること」に着地して、中身が無いのが分かる。
+    photos = d.get("photos") or {}
+    hero_ph = photo_style(photos.get("hero"))
+    hero_lb = ("<b>イメージ写真</b>実際の制作では御社のお写真に差し替えます" if hero_ph else
+               f'<b>お写真が入ります</b>{e(ind.get("shot", "現場のようす・完成した建物など"))}')
     gal = d.get("gallery")
     gallery = ""
     flow_cls, comp_cls = ' class="alt"', ""
     if gal:
         flow_cls, comp_cls = "", ' class="alt"'
-        frames = "".join(f'<div class="gframe"><b>お写真が入ります</b>{e(c)}</div>' for c in gal[:3])
+        gph = photos.get("gallery") or []
+        frames = ""
+        for i, c in enumerate(gal[:3]):
+            st = photo_style(gph[i] if i < len(gph) else None)
+            if st:
+                frames += f'<div class="gframe ph"{st}><span class="cap"><b>イメージ写真</b>{e(c)}</span></div>'
+            else:
+                frames += f'<div class="gframe"><b>お写真が入ります</b>{e(c)}</div>'
         gallery = f"""<section class="alt" id="gallery">
   <div class="wrap">
     <div class="sechead"><span class="en">WORKS</span>
@@ -888,8 +930,8 @@ def render(sid, d, ind):
         {since}<h1 class="vt">{h1_html}</h1>
       </div>
     </div>
-    <div class="shot">
-      <div class="lb"><b>お写真が入ります</b>{e(ind.get("shot", "現場のようす・完成した建物など"))}</div>
+    <div class="shot{" ph" if hero_ph else ""}"{hero_ph}>
+      <div class="lb">{hero_lb}</div>
     </div>
     <span class="scroll">scroll</span>
   </div>

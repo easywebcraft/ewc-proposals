@@ -1025,7 +1025,11 @@
    "社寺の屋根"
   ],
   "accent": "#e95313",
-  "texture": "kawara"
+  "texture": "kawara",
+  "photos": {
+    "hero": "1678694180534-974017792a3e",
+    "gallery": ["1757560756397-578c583e1ea5", "1786551281393-e5245e188094@50% 88%", "1786476000801-2fa4a272ecdb@50% 70%"]
+  }
  },
  "ogawakagu": {
   "industry": "kensetsu",
