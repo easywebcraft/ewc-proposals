@@ -547,8 +547,7 @@
    "会社概要"
   ],
   "accent": "#1f3a66",
-  "texture": "kinzoku",
-  "photos": {"hero": "1639600993675-2281b2c939f0"}
+  "texture": "kinzoku"
  },
  "nakakoma": {
   "name": "中駒産業株式会社",
@@ -684,7 +683,7 @@
    "アクセス"
   ],
   "accent": "#2f6bb5",
-  "photos": {"hero": "1639600993675-2281b2c939f0"}
+  "photos": {"hero": "1759772238012-9d5ad59ae637"}
  },
  "shimizukako": {
   "industry": "kensetsu",
@@ -748,8 +747,7 @@
    "会社概要"
   ],
   "accent": "#a8860b",
-  "texture": "ashiba",
-  "photos": {"hero": "1562259949-e8e7689d7828"}
+  "texture": "ashiba"
  },
  "ymcomp": {
   "industry": "seizo",
@@ -1173,7 +1171,7 @@
   ],
   "accent": "#4a4d85",
   "texture": "zumen",
-  "photos": {"hero": "1700581316314-9e6a809bd656"}
+  "photos": {"hero": "1713718828081-81568be9f5ed"}
  },
  "igawa-kk": {
   "industry": "kensetsu",
@@ -1302,7 +1300,7 @@
    ]
   ],
   "texture": "zumen",
-  "photos": {"hero": "1678694180534-974017792a3e"}
+  "photos": {"hero": "1602193458517-db6caca8f1fe"}
  },
  "itochu-tosou": {
   "industry": "kensetsu",
@@ -1757,7 +1755,7 @@
   ],
   "accent": "#2f5d3a",
   "texture": "zumen",
-  "photos": {"hero": "1786742593319-a97fbeda2ef5"}
+  "photos": {"hero": "1781255575629-9044eb9b73f9@50% 45%"}
  },
  "brightsign": {
   "name": "株式会社ブライトサイン",
@@ -2194,7 +2192,7 @@
   ],
   "accent": "#1f2874",
   "texture": "kawara",
-  "photos": {"hero": "1678694180534-974017792a3e"}
+  "photos": {"hero": "1602193458517-db6caca8f1fe"}
  },
  "aotec": {
   "name": "アオテック株式会社",
@@ -3149,7 +3147,7 @@
   ],
   "accent": "#1d5fa6",
   "texture": "kinzoku",
-  "photos": {"hero": "1783305001511-882a9256fa0d"}
+  "photos": {"hero": "1759772238012-9d5ad59ae637"}
  },
  "youi-factory": {
   "name": "株式会社ユーアイファクトリー",
@@ -3496,8 +3494,7 @@
    "会社案内"
   ],
   "accent": "#43801b",
-  "texture": "kinzoku",
-  "photos": {"hero": "1666634157070-6fd830fb5672"}
+  "texture": "kinzoku"
  },
  "c-sanei": {
   "name": "株式会社ＳＡＮＥＩ",
@@ -3564,8 +3561,7 @@
    "会社案内"
   ],
   "accent": "#18366c",
-  "texture": "ashiba",
-  "photos": {"hero": "1562259949-e8e7689d7828"}
+  "texture": "ashiba"
  },
  "tsuboi-bankin": {
   "name": "坪井自動車鈑金有限会社",
@@ -3777,7 +3773,7 @@
   ],
   "accent": "#897031",
   "texture": "zumen",
-  "photos": {"hero": "1700581316314-9e6a809bd656"}
+  "photos": {"hero": "1713718828081-81568be9f5ed"}
  },
  "itozen": {
   "name": "イトゼン株式会社",
@@ -4399,7 +4395,7 @@
   "texture": "kinzoku",
   "zip": "488-0033",
   "founded": "1979",
-  "photos": {"hero": "1639600993675-2281b2c939f0"}
+  "photos": {"hero": "1662624914003-9bb2095ca7a0"}
  },
  "nankai": {
   "name": "ナンカイ株式会社",
@@ -4742,7 +4738,7 @@
   "accent": "#cf4b01",
   "texture": "zumen",
   "zip": "464-0074",
-  "photos": {"hero": "1700581316314-9e6a809bd656"}
+  "photos": {"hero": "1713718828081-81568be9f5ed"}
  },
  "kamimura-mekki": {
   "name": "神村真空メッキ工業株式会社",
@@ -4807,7 +4803,7 @@
   "accent": "#bf4f00",
   "texture": "kinzoku",
   "zip": "489-0052",
-  "photos": {"hero": "1735494033576-9c882e80504c"}
+  "photos": {"hero": "1723632670536-e3104577a19c"}
  },
  "kaboku": {
   "name": "協同組合日本ライン花木センター",
@@ -4878,7 +4874,7 @@
   "accent": "#027480",
   "texture": "mokume",
   "zip": "509-0206",
-  "photos": {"hero": "1715734925148-692a4f2c4ab8"}
+  "photos": {"hero": "1785964165946-ba4a58eebcb6"}
  },
  "matsuoka-arch": {
   "name": "株式会社松岡設計事務所",
@@ -5237,7 +5233,7 @@
   ],
   "gallery_h": "施工例一覧",
   "hours": "電話受付 8:00–18:00",
-  "photos": {"hero": "1639600993675-2281b2c939f0", "gallery": ["1677075599533-66eef621c537", null, null]}
+  "photos": {"hero": "1662624914003-9bb2095ca7a0"}
  },
  "nesystem": {
   "name": "株式会社名古屋電機システム",
@@ -5302,7 +5298,7 @@
   "accent": "#1f4e8c",
   "texture": "kinzoku",
   "zip": "481-0004",
-  "photos": {"hero": "1666634157070-6fd830fb5672"}
+  "photos": {"hero": "1780034766312-73825064806c"}
  },
  "oriental-air": {
   "name": "オリエンタル空調株式会社",
@@ -5438,7 +5434,7 @@
   "texture": "kinzoku",
   "zip": "470-1168",
   "founded": "1970",
-  "photos": {"hero": "1666634157070-6fd830fb5672"}
+  "photos": {"hero": "1581093803931-46e730e7622e"}
  },
  "designoar": {
   "name": "株式会社デジーノアール",
@@ -5993,7 +5989,7 @@
    "ブロック塀の建て替え"
   ],
   "gallery_h": "施工実例",
-  "photos": {"hero": "1715734925148-692a4f2c4ab8", "gallery": ["1775854169418-ae7bbab70d5d", null, null]}
+  "photos": {"hero": "1786742593319-a97fbeda2ef5"}
  },
  "kuwahara-mokuzai": {
   "name": "桑原木材工業株式会社",
