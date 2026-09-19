@@ -53,7 +53,7 @@
    ]
   ],
   "texture": "zumen",
-  "photos": {"hero": "1700581316314-9e6a809bd656"}
+  "photos": {"hero": "1762813384339-c526d5533976"}
  },
  "kuniedatoso": {
   "name": "有限会社国枝塗装",
@@ -164,7 +164,7 @@
    ]
   ],
   "texture": "zumen",
-  "photos": {"hero": "1700581316314-9e6a809bd656"}
+  "photos": {"hero": "1762813384339-c526d5533976"}
  },
  "kg-koketsu": {
   "name": "株式会社コーケツ",
@@ -231,7 +231,7 @@
    "関連企業",
    "会社概要"
   ],
-  "photos": {"hero": "1735494033576-9c882e80504c"}
+  "photos": {"hero": "1735494033576-9c882e80504c@50% 62%"}
  },
  "katoh-auto": {
   "name": "カトー自動車工業株式会社",
@@ -617,7 +617,7 @@
   ],
   "accent": "#1a4f96",
   "texture": "zumen",
-  "photos": {"hero": "1700581316314-9e6a809bd656"}
+  "photos": {"hero": "1762813384339-c526d5533976"}
  },
  "yamanaka-denki": {
   "name": "有限会社山中電器",
@@ -898,7 +898,7 @@
   ],
   "accent": "#59a52c",
   "texture": "ashiba",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "ek-kinzoku": {
   "industry": "seizo",
@@ -964,7 +964,7 @@
   ],
   "accent": "#2e8a2e",
   "texture": "kinzoku",
-  "photos": {"hero": "1735494033576-9c882e80504c"}
+  "photos": {"hero": "1735494033576-9c882e80504c@50% 62%"}
  },
  "setta": {
   "industry": "kensetsu",
@@ -1540,7 +1540,7 @@
    "採用情報",
    "会社概要"
   ],
-  "photos": {"hero": "1513757378314-e46255f6ed16"}
+  "photos": {"hero": "1773525912489-9e04df48f639"}
  },
  "yamashita-reiki": {
   "industry": "kensetsu",
@@ -1826,8 +1826,7 @@
    "会社概要"
   ],
   "accent": "#c4581a",
-  "texture": "nuri",
-  "photos": {"hero": "1513757378314-e46255f6ed16"}
+  "texture": "nuri"
  },
  "jpms": {
   "name": "ジェイピーエムズ株式会社",
@@ -1902,8 +1901,7 @@
    "会社案内"
   ],
   "accent": "#1a5fa8",
-  "texture": "kinzoku",
-  "photos": {"hero": "1513757378314-e46255f6ed16"}
+  "texture": "kinzoku"
  },
  "kankyo-enesystem": {
   "name": "日本環境エネシステム株式会社",
@@ -2050,7 +2048,7 @@
   ],
   "accent": "#a55d0f",
   "texture": "zumen",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "hasegawa-koumuten": {
   "name": "株式会社長谷川工務店",
@@ -2635,7 +2633,7 @@
   ],
   "accent": "#47840b",
   "texture": "mokume",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "ichikawa-mokko": {
   "name": "株式会社市川木工",
@@ -2782,7 +2780,7 @@
   ],
   "accent": "#1e6b2e",
   "texture": "zumen",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "asahi-homes": {
   "name": "旭ホームズ株式会社",
@@ -2858,7 +2856,7 @@
   ],
   "accent": "#0e824d",
   "texture": "mokume",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "asada-denki": {
   "name": "株式会社浅田電機商会",
@@ -3079,7 +3077,7 @@
   ],
   "accent": "#c05a1e",
   "texture": "nuri",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1685533272451-eee3d96d9f29", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "funakata": {
   "name": "株式会社フナカタ一ツ山店",
@@ -3222,7 +3220,7 @@
   ],
   "accent": "#122550",
   "texture": "mokume",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "jpaintm": {
   "name": "株式会社日本塗装名人社",
@@ -3704,7 +3702,7 @@
   ],
   "accent": "#3f7782",
   "texture": "mokume",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "hinode-j": {
   "name": "株式会社ヒノデ住建",
@@ -3846,7 +3844,7 @@
    "ショールーム"
   ],
   "gallery_h": "施工事例",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1685533272451-eee3d96d9f29", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "ask-kk": {
   "name": "アスク環境開発株式会社",
@@ -3915,7 +3913,7 @@
    "改修の事例"
   ],
   "gallery_h": "実績・事例",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "shinei-fp": {
   "name": "シンエイ工営株式会社",
@@ -3988,7 +3986,7 @@
    "構造見学会"
   ],
   "gallery_h": "施工事例",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "tam-cp": {
   "name": "有限会社タムカンパニー",
@@ -4603,7 +4601,7 @@
    "看板・店舗装飾の事例"
   ],
   "gallery_h": "施工事例",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "reform-aiti": {
   "name": "リフォーム愛知株式会社",
@@ -4671,7 +4669,7 @@
   "accent": "#996600",
   "texture": "mokume",
   "founded": "1989",
-  "photos": {"hero": "1700581316314-9e6a809bd656"}
+  "photos": {"hero": "1685533272451-eee3d96d9f29"}
  },
  "sanyuhousing": {
   "name": "株式会社サンユーハウジング",
@@ -4948,7 +4946,7 @@
    "店舗の設計例"
   ],
   "gallery_h": "設計事例",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "toei-iak": {
   "name": "株式会社トーエイ",
@@ -5158,7 +5156,7 @@
   ],
   "gallery_h": "施工例",
   "hours": "営業時間 8:00–18:00（日曜・祝日 定休）",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "tsugeburo": {
   "name": "株式会社Ｒｉｖｅｔ（つげ風呂設備）",
@@ -5500,7 +5498,7 @@
   "texture": "zumen",
   "zip": "481-0006",
   "founded": "2003",
-  "photos": {"hero": "1700581316314-9e6a809bd656"}
+  "photos": {"hero": "1762813384339-c526d5533976"}
  },
  "idhomestudio": {
   "name": "アイディーホームスタジオ有限会社",
@@ -5579,7 +5577,7 @@
    "収納・造作"
   ],
   "gallery_h": "施工事例",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "remake-tokai": {
   "name": "有限会社リメーク東海",
@@ -5851,7 +5849,7 @@
   "texture": "mokume",
   "zip": "497-0041",
   "founded": "2005",
-  "photos": {"hero": "1700581316314-9e6a809bd656"}
+  "photos": {"hero": "1685533272451-eee3d96d9f29"}
  },
  "b-factory": {
   "name": "株式会社ビィファクトリー",
@@ -6278,7 +6276,7 @@
    "リフォーム"
   ],
   "gallery_h": "施工事例",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "hasegawa-garasu": {
   "name": "長谷川硝子株式会社",
@@ -6695,7 +6693,7 @@
   "accent": "#297ba4",
   "texture": "kinzoku",
   "zip": "509-0147",
-  "photos": {"hero": "1735494033576-9c882e80504c"}
+  "photos": {"hero": "1735494033576-9c882e80504c@50% 62%"}
  },
  "senshou": {
   "name": "千勝建設株式会社",
@@ -6767,7 +6765,7 @@
    "住宅の施工例"
   ],
   "gallery_h": "施工実績",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "hashiba-denki": {
   "name": "羽柴電気工事株式会社",
@@ -6910,7 +6908,7 @@
    "内装"
   ],
   "gallery_h": "当社の施工事例",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1685533272451-eee3d96d9f29", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  },
  "nagai-sekkei": {
   "name": "株式会社永井設計工務",
@@ -6984,6 +6982,6 @@
   ],
   "gallery_h": "施工事例",
   "hours": "営業時間 8:00–18:00",
-  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
  }
 }

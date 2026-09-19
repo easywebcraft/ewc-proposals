@@ -18,12 +18,12 @@ bestroof	mroof
 itochu-tosou	paint
 hoowaa	setsubi
 kurachi	wood
-suzupro	sign
+suzupro	print
 yamashita-reiki	setsubi
 ito-kikinzoku	jewelry
 kizai-tecto	concrete
-brightsign	sign
-jpms	sign
+brightsign	(枠)
+jpms	(枠)
 kankyo-enesystem	solar
 sousekkei	house
 hasegawa-koumuten	civil
@@ -39,7 +39,7 @@ amemiya-kensetsu	house
 asahi-homes	house
 asada-denki	electric
 dai6	concrete
-artic-homes	house
+artic-homes	estate
 funakata	kaden
 youi-factory	house
 jpaintm	paint
@@ -49,7 +49,7 @@ marukou	(枠)
 c-sanei	(枠)
 sanki-kohmuten	house
 hinode-j	estate
-itozen	house
+itozen	estate
 ask-kk	house
 shinei-fp	house
 tam-cp	setsubi
@@ -61,7 +61,7 @@ kyokuryo	bath
 nankai	electric
 fmkk	wood
 sansyodo	house
-reform-aiti	house
+reform-aiti	estate
 sanyuhousing	estate
 kamimura-mekki	mekki
 kaboku	nursery
@@ -78,7 +78,7 @@ idhomestudio	house
 remake-tokai	paint
 airgiken	setsubi
 narita-dengyo	electric
-space-hirano	house
+space-hirano	estate
 furukawa-kensetsu	civil
 kuwahara-mokuzai	wood
 tsuchiya-denki	electric
@@ -91,5 +91,5 @@ hirai-kogyo	setsubi
 iwado	metal
 senshou	house
 hashiba-denki	electric
-sacras	house
+sacras	estate
 nagai-sekkei	house
