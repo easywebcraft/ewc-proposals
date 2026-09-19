@@ -288,6 +288,119 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
 """
 
 
+# ★動き（2026-09-19）。かみのて（~/kaminote-design）と同じ作り。候補を8つ比べて 7＋8 を採用。
+#   ・ヒーローはJSを使わず CSS だけで立ち上がる（クラスを待つと、待つ間に文字が見えてしまう）
+#   ・下の節は <head> の script で最初の描画より前に隠し（.anim）、スクロールで順に出す
+#   ・JSが途中で止まっても消えたままにしない保険が2重（head側 4秒、body側 5秒）
+#   ・「動きを減らす」設定と印刷では全部止まる。外部リソースは読み込まない
+#   ★隠す対象（REVEAL_SEL）は CSS と JS で同じ並びを使う。食い違うと隠れたまま出ない要素ができる
+REVEAL_SEL = ".stats > *,.sechead,.cards > *,.gal > *,.flow > *,.info,.mapbox,.news .pill"
+
+MOTION_CSS = """
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes riseSp{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+@keyframes popIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+.hero .meta > *,.hero h1{animation:rise .7s cubic-bezier(.2,.7,.3,1) both}
+.hero h1{animation-delay:.1s}
+.hero .meta > :nth-child(1){animation-delay:.25s}
+.hero .meta > :nth-child(2){animation-delay:.4s}
+.hero .meta > :nth-child(3){animation-delay:.55s}
+.hero .shot{animation:popIn 1s cubic-bezier(.2,.7,.3,1) .45s both}
+.anim :is(SEL){opacity:0}
+.anim .on{animation:rise .7s cubic-bezier(.2,.7,.3,1) both}
+@media(max-width:700px){.anim .on{animation-name:riseSp}}
+/* スマホのメニュー開閉。社名＋電話＋ボタンが 390px 幅で1段に収まるよう、アイコンの下に小さく「メニュー」 */
+.mbtn{display:none;order:2;flex-direction:column;align-items:center;gap:4px;background:none;
+      border:0;padding:4px 6px;font:inherit;font-size:9px;font-weight:700;
+      letter-spacing:.04em;color:var(--ink);cursor:pointer;line-height:1}
+.mbtn i{display:block;width:20px;height:14px;position:relative}
+.mbtn i::before,.mbtn i::after,.mbtn i span{content:"";position:absolute;left:0;right:0;height:2px;
+      background:currentColor;border-radius:2px;transition:transform .25s,opacity .2s}
+.mbtn i::before{top:0}.mbtn i span{top:6px}.mbtn i::after{bottom:0}
+.hd.open .mbtn i::before{transform:translateY(6px) rotate(45deg)}
+.hd.open .mbtn i span{opacity:0}
+.hd.open .mbtn i::after{transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:NAVMAXpx){
+  .js .mbtn{display:inline-flex}
+  .js nav{display:none;flex-direction:column;row-gap:0;font-size:14px;padding:4px 0 6px}
+  .js nav a{padding:10px 4px;border-bottom:1px dashed var(--line);color:var(--ink)}
+  .js nav a:last-child{border-bottom:0}
+  .js .hd.open nav{display:flex}
+}
+@media(prefers-reduced-motion:reduce){
+  .anim :is(SEL){opacity:1}
+  .anim .on,.hero .meta > *,.hero h1,.hero .shot{animation:none}
+  .mbtn i::before,.mbtn i::after,.mbtn i span{transition:none}
+}
+@media print{
+  .anim :is(SEL){opacity:1!important}
+  .anim .on,.hero .meta > *,.hero h1,.hero .shot{animation:none!important}
+  .mbtn{display:none}nav{display:flex!important}
+}
+"""
+
+# <head> に入れる分。最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）
+HEAD_JS = """<script>
+document.documentElement.classList.add('anim','js');
+// 保険: 下のJSが動かなかったときは、隠したまま・メニューを消したままにしない
+setTimeout(function(){if(!window.__animReady){document.documentElement.classList.remove('anim','js');}},4000);
+</script>"""
+
+BODY_JS = """<script>
+// スクロールで出てくる動き。隠す指定は <head> の CSS 側（.anim）。ここでは出す順番だけを決める
+(function(){
+  var units=[].slice.call(document.querySelectorAll('SEL'));
+  function sweep(){
+    var vh=innerHeight||document.documentElement.clientHeight,shown=[];
+    for(var i=units.length-1;i>=0;i--){
+      var r=units[i].getBoundingClientRect();
+      if(r.top<vh*0.92&&r.bottom>0){shown.push(units[i]);units.splice(i,1);}  // 一度出したら見張らない
+    }
+    if(!shown.length)return;
+    shown.sort(function(a,b){return a.getBoundingClientRect().top-b.getBoundingClientRect().top;})
+      .forEach(function(el,i){el.style.animationDelay=(i*0.06)+'s';el.classList.add('on');});
+    if(!units.length){removeEventListener('scroll',onScroll);removeEventListener('resize',onScroll);}
+  }
+  var waiting=false;
+  function onScroll(){if(waiting)return;waiting=true;requestAnimationFrame(function(){waiting=false;sweep();});}
+  addEventListener('scroll',onScroll,{passive:true});
+  addEventListener('resize',onScroll);
+  sweep();                                  // 最初から見えている分
+  addEventListener('load',sweep);
+  // 保険: スクロールを拾えない環境でも、文字が消えたままにはしない
+  setTimeout(function(){units.forEach(function(el){el.classList.add('on');});units.length=0;},5000);
+})();
+// スマホのメニュー開閉。外を押す／項目を押す／Esc で閉じ、幅を広げてボタンが消えたら閉じる
+(function(){
+  var hd=document.querySelector('.hd'),nav=hd&&hd.querySelector('nav'),call=hd&&hd.querySelector('.call,.calls');
+  if(!hd||!nav)return;
+  var b=document.createElement('button');b.type='button';b.className='mbtn';
+  b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls','gnav');
+  b.innerHTML='<i><span></span></i>メニュー';nav.id='gnav';
+  hd.insertBefore(b,call||null);
+  function close(){hd.classList.remove('open');b.setAttribute('aria-expanded','false');}
+  b.addEventListener('click',function(e){
+    e.stopPropagation();
+    var o=!hd.classList.contains('open');hd.classList.toggle('open',o);
+    b.setAttribute('aria-expanded',o?'true':'false');
+  });
+  document.addEventListener('click',function(e){if(hd.classList.contains('open')&&!hd.contains(e.target))close();});
+  nav.addEventListener('click',function(e){if(e.target.closest('a'))close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  addEventListener('resize',function(){if(getComputedStyle(b).display==='none')close();});
+})();
+window.__animReady=true;                    // <head> の保険に「動いた」と伝える
+</script>"""
+
+
+def motion_css(navbp):
+    return MOTION_CSS.replace("SEL", REVEAL_SEL).replace("NAVMAX", str(navbp - 1))
+
+
+def body_js():
+    return BODY_JS.replace("SEL", REVEAL_SEL)
+
+
 # ★製造の型（references/seizo.md・2026-09-19）。骨格は建設と同じで、皮だけ替える。
 #   地は白〜淡い灰青（生成りにしない）／主色は濃紺、差し色の橙は下線と数字だけ／
 #   見出しは明朝でなくゴシック太め／縦書きにしない／ボタンとカードは角ばらせる／
@@ -659,13 +772,15 @@ def render(sid, d, ind):
     tex = texture_svg(d.get("texture"), acc_rgb)
     # 下のほうも文字だけが続いて単調になるので、同じ質感を白抜きで敷く
     ctex = texture_svg(d.get("texture"), "255,255,255", cls="tex ctex", pid="tx2")
+    navbp = nav_breakpoint(d, ind)
     css = CSS % {"ground": ind["ground"], "ink2": ind["ink2"], "accent": acc,
-                 "accent_d": acc_d, "acc_rgb": acc_rgb, "navbp": nav_breakpoint(d, ind),
+                 "accent_d": acc_d, "acc_rgb": acc_rgb, "navbp": navbp,
                  "h1px": h1px}
     skin = ind.get("skin")
     if skin == "seizo":
         css += SKIN_SEIZO % {"sub": ind.get("sub", "#d4420a"), "acc_rgb": acc_rgb}
         tex = ""            # 製造は幾何形の地で持たせる。質感は問い合わせ帯だけ
+    css += motion_css(navbp)      # 動きは皮の後ろ。皮の指定を上書きしないため
     roman = d.get("roman", "")
     since = bigen = tagline = badge = ""
     news_t = ind.get("news_hint", "お知らせが入ります（工事のご報告・休業日など）")
@@ -743,6 +858,7 @@ def render(sid, d, ind):
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>【提案見本】{e(name)}さま トップページ案｜EasyWebCraft</title>
 <style>{css}</style>
+{HEAD_JS}
 </head>
 <body>
 
@@ -820,6 +936,7 @@ def render(sid, d, ind):
   <p class="by"><span class="ph">EasyWebCraft（担当：田代）</span><span class="ph"><a href="mailto:info@easywebcraft.jp">info@easywebcraft.jp</a></span></p>
 </footer>
 
+{body_js()}
 </body>
 </html>
 """
