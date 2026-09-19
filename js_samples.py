@@ -189,8 +189,91 @@ CAND[6] = ("スマホのメニューをハンバーガーに", """
 })();
 """)
 
+
+# ---------------------------------------------------------------------------
+# かみのて（~/kaminote-design）と同じ作り。
+#  7: 開いたときの動き（ヒーローはCSSだけで動かす）＋スクロールで出てくる動き。
+#     隠す指定は <head> の CSS、.anim は最初の描画より前に <head> の script で付ける。
+#     JSが動かなかったときの保険が2重（head側 4秒、body側 5秒）。
+#  8: スマホのメニュー開閉。外を押す／項目を押す／Esc で閉じ、幅を広げたら閉じる。
+# ---------------------------------------------------------------------------
+REVEAL_SEL = ".stats > *,.sechead,.cards > *,.gal > *,.flow > *,.info,.mapbox,.news .pill"
+
+CAND[7] = ("かみのてと同じ動き（開いたとき＋スクロール）", """
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes riseSp{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+@keyframes popIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+/* ヒーローはJSを使わずCSSだけで動かす（クラスを待つと、待つ間に文字が見えてしまう） */
+.hero .meta > *,.hero h1{animation:rise .7s cubic-bezier(.2,.7,.3,1) both}
+.hero h1{animation-delay:.1s}
+.hero .meta > :nth-child(1){animation-delay:.25s}
+.hero .meta > :nth-child(2){animation-delay:.4s}
+.hero .meta > :nth-child(3){animation-delay:.55s}
+.hero .shot{animation:popIn 1s cubic-bezier(.2,.7,.3,1) .45s both}
+/* スクロールで出てくる分だけ、JSがあるとき（.anim）に隠す。★並びは JS の REVEAL_SEL と同じにする */
+.anim :is(%(sel)s){opacity:0}
+.anim .on{animation:rise .7s cubic-bezier(.2,.7,.3,1) both}
+@media(max-width:700px){.anim .on{animation-name:riseSp}}
+@media(prefers-reduced-motion:reduce){
+  .anim :is(%(sel)s){opacity:1}
+  .anim .on,.hero .meta > *,.hero h1,.hero .shot{animation:none}
+}
+@media print{.anim :is(%(sel)s){opacity:1!important}.anim .on,.hero .meta > *,.hero h1,.hero .shot{animation:none!important}}
+""" % {"sel": REVEAL_SEL}, """
+(function(){
+  var units=[].slice.call(document.querySelectorAll('%(sel)s'));
+  function sweep(){
+    var vh=innerHeight||document.documentElement.clientHeight,shown=[];
+    for(var i=units.length-1;i>=0;i--){
+      var r=units[i].getBoundingClientRect();
+      if(r.top<vh*0.92&&r.bottom>0){shown.push(units[i]);units.splice(i,1);}  // 一度出したら見張らない
+    }
+    if(!shown.length)return;
+    shown.sort(function(a,b){return a.getBoundingClientRect().top-b.getBoundingClientRect().top;})
+      .forEach(function(el,i){el.style.animationDelay=(i*0.06)+'s';el.classList.add('on');});
+    if(!units.length){removeEventListener('scroll',onScroll);removeEventListener('resize',onScroll);}
+  }
+  var waiting=false;
+  function onScroll(){if(waiting)return;waiting=true;requestAnimationFrame(function(){waiting=false;sweep();});}
+  addEventListener('scroll',onScroll,{passive:true});
+  addEventListener('resize',onScroll);
+  sweep();                                  // 最初から見えている分
+  addEventListener('load',sweep);
+  window.__animReady=true;                  // <head> の保険に「動いた」と伝える
+  // 保険: スクロールを拾えない環境でも、文字が消えたままにはしない
+  setTimeout(function(){units.forEach(function(el){el.classList.add('on');});units.length=0;},5000);
+})();
+""" % {"sel": REVEAL_SEL},
+# <head> に入れる分。最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）
+"""document.documentElement.classList.add('anim');
+setTimeout(function(){if(!window.__animReady){document.documentElement.classList.remove('anim');}},4000);""")
+
+CAND[8] = ("かみのてと同じメニュー開閉（スマホ）", CAND[6][1], """
+(function(){
+  var hd=document.querySelector('.hd'),nav=hd&&hd.querySelector('nav'),call=hd&&hd.querySelector('.call,.calls');
+  if(!hd||!nav)return;
+  var b=document.createElement('button');b.type='button';b.className='mbtn';
+  b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls','gnav');
+  b.innerHTML='<i><span></span></i>メニュー';nav.id='gnav';
+  hd.insertBefore(b,call||null);
+  function close(){hd.classList.remove('open');b.setAttribute('aria-expanded','false');}
+  b.addEventListener('click',function(e){
+    e.stopPropagation();
+    var o=!hd.classList.contains('open');hd.classList.toggle('open',o);
+    b.setAttribute('aria-expanded',o?'true':'false');
+  });
+  // メニューの外を押したら閉じる／項目を押したら閉じる／Esc で閉じる
+  document.addEventListener('click',function(e){if(hd.classList.contains('open')&&!hd.contains(e.target))close();});
+  nav.addEventListener('click',function(e){if(e.target.closest('a'))close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  // 幅を広げてボタンが消えたら、開いた状態を持ち越さない
+  addEventListener('resize',function(){if(getComputedStyle(b).display==='none')close();});
+})();
+""")
+
 SETS = {str(n): [n] for n in CAND}
 SETS["all"] = [1, 2, 3, 4]      # おすすめの組み合わせ
+SETS["kami"] = [7, 8]           # かみのてと同じ
 
 
 def navbp_of(html):
@@ -199,14 +282,18 @@ def navbp_of(html):
 
 
 def inject(html, nums, label):
-    css, js = [], [BOOT, NOMOTION]
+    css, js, head_js = [], [BOOT, NOMOTION], []
     for n in nums:
-        name, c, j = CAND[n]
-        if n == 6:
+        name, c, j = CAND[n][:3]
+        if n in (6, 8):
             c = c % {"navbp_max": navbp_of(html) - 1}
         css.append(f"/* JS見本 {n}: {name} */" + c)
         js.append(f"// {n}: {name}" + j)
+        if len(CAND[n]) > 3:
+            head_js.append(CAND[n][3])
     style = "<style>" + "".join(css) + "</style>\n"
+    if head_js:
+        style += "<script>" + "\n".join(head_js) + "</script>\n"
     script = "<script>\n" + "\n".join(js) + "\n</script>\n"
     html = html.replace("</head>", style + "</head>", 1)
     html = html.replace("</body>", script + "</body>", 1)
@@ -224,8 +311,8 @@ def main():
         src = open(os.path.join(HERE, sid, "index.html"), encoding="utf-8").read()
         assert "<script" not in src, f"{sid} にはもう script がある"
         for tag, nums in SETS.items():
-            label = ("1〜4（おすすめの組み合わせ）" if tag == "all"
-                     else f"{tag}：{CAND[int(tag)][0]}")
+            label = {"all": "1〜4（おすすめの組み合わせ）",
+                     "kami": "かみのてと同じ（7＋8）"}.get(tag) or f"{tag}：{CAND[int(tag)][0]}"
             d = os.path.join(OUT, key + tag)
             os.makedirs(d, exist_ok=True)
             with open(os.path.join(d, "index.html"), "w", encoding="utf-8") as f:
