@@ -483,7 +483,7 @@
  "shin-ei": {
   "name": "進英産業株式会社",
   "roman": "SHIN-EI SANGYO",
-  "industry": "kensetsu",
+  "industry": "seizo",
   "tel": "052-502-2331",
   "addr": "愛知県名古屋市西区南川町213番地",
   "founded": "1967",
@@ -744,7 +744,7 @@
   "texture": "ashiba"
  },
  "ymcomp": {
-  "industry": "kensetsu",
+  "industry": "seizo",
   "name": "有限会社山田木工",
   "roman": "YAMADA MOKKO",
   "tel": "0568-35-5710",
@@ -893,7 +893,7 @@
   "texture": "ashiba"
  },
  "ek-kinzoku": {
-  "industry": "kensetsu",
+  "industry": "seizo",
   "name": "栄幸金属株式会社",
   "roman": "EIKO KINZOKU",
   "tel": "052-361-1881",
@@ -1455,7 +1455,7 @@
   "texture": "mokume"
  },
  "suzupro": {
-  "industry": "kensetsu",
+  "industry": "seizo",
   "name": "株式会社スズプロ",
   "roman": "SUZUPRO",
   "tel": "052-309-7350",
@@ -2895,7 +2895,7 @@
  "dai6": {
   "name": "株式会社ダイロク",
   "roman": "DAIROKU",
-  "industry": "kensetsu",
+  "industry": "seizo",
   "tel": "0561-87-1000",
   "zip": "489-0954",
   "addr": "愛知県瀬戸市台六町154",
@@ -3385,7 +3385,7 @@
  "marukou": {
   "name": "有限会社マル公",
   "roman": "MARUKOU",
-  "industry": "kensetsu",
+  "industry": "seizo",
   "tel": "0561-55-3250",
   "zip": "488-0044",
   "addr": "愛知県尾張旭市南本地ヶ原町2丁目117番地",
@@ -5577,7 +5577,7 @@
  "airgiken": {
   "name": "株式会社エアー技研社",
   "roman": "AIR GIKEN",
-  "industry": "kensetsu",
+  "industry": "seizo",
   "tel": "0568-22-2061",
   "addr": "愛知県北名古屋市沖村舟附18番",
   "catch": "空気で動かす、空気をきれいにする。",

@@ -8,7 +8,7 @@
 <title>【提案見本】有限会社マル公さま トップページ案｜EasyWebCraft</title>
 <style>
 :root{
-  --ground:#f3f1ea; --ink:#2f3a33; --muted:#667069; --line:#ddd9cf;
+  --ground:#f4f5f7; --ink:#1f2733; --muted:#667069; --line:#ddd9cf;
   --accent:#43801b; --accent-d:#336115; --paper:#fff;
   --serif:"Noto Serif JP","游明朝体","Yu Mincho",YuMincho,"ヒラギノ明朝 ProN W3",serif;
   --sans:-apple-system,BlinkMacSystemFont,"Yu Gothic",Meiryo,
@@ -181,7 +181,7 @@ table.info th{width:7.5em;color:var(--muted);font-weight:500}
 footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
        padding:26px 20px;text-align:center;line-height:1.9}
 
-@media(min-width:940px){
+@media(min-width:1020px){
   .hd{flex-wrap:nowrap;min-height:58px;padding:0 20px}
   .logo{font-size:17px;letter-spacing:.08em}
   .hd .call{padding:11px 20px;font-size:13.5px}
@@ -238,6 +238,75 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
   .hero{padding:6px 0 0}
   @page{margin:14mm}
 }
+
+:root{--ground:#f4f5f7;--line:#d8dbe0;--muted:#5f6773;--panel:#e6eaf0;--sub:#d4420a;
+      --serif:var(--sans)}
+body{line-height:1.85}
+.logo{font-weight:800;letter-spacing:.02em}
+.hd .call,.btn,.contact .btn.w{border-radius:4px}
+.hd .call{background:var(--accent)}
+.hd .call2{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
+           border-radius:4px;padding:10px 15px;font-size:12.5px;font-weight:700;
+           letter-spacing:.06em;white-space:nowrap;margin-left:6px}
+.hd .calls{display:flex;align-items:center}
+.hero{background:linear-gradient(160deg,#eef1f5 0%,#dfe4ec 55%,#f4f5f7 100%)}
+.hero::before{background-image:none}
+.hero::after{content:"";position:absolute;right:-6%;top:-10%;width:44vw;max-width:520px;
+  aspect-ratio:1;border:1px solid rgba(67,128,27,.16);transform:rotate(45deg);
+  pointer-events:none}
+.hero .inner::before{content:"";position:absolute;left:-8%;bottom:4%;width:26vw;max-width:300px;
+  aspect-ratio:1;border-radius:50%;border:1px solid rgba(67,128,27,.14);pointer-events:none}
+.vt{writing-mode:horizontal-tb!important;max-height:none!important;margin-left:0!important;
+    white-space:normal!important}
+.hero h1{font-family:var(--sans);font-weight:800;line-height:1.5!important;
+         letter-spacing:.02em!important;font-size:clamp(24px,4.8vw,38px)!important}
+.hero h1 em{white-space:nowrap}
+.hero h1 .col{display:block}
+.hero h1 em{color:var(--accent)}
+.hero .textcol{flex-direction:column!important;gap:0!important}
+.hero .textcol h1{order:-1!important}
+.hero .side{align-items:flex-start!important}
+.hero .meta{max-width:30em!important}
+.hero .en{font-weight:700;letter-spacing:.24em;color:var(--accent)}
+.shot,.gframe,.mapbox{border-radius:4px;background:linear-gradient(135deg,#e4e8ee 0%,#d9dfe7 55%,#e9ecf1 100%)}
+.shot .lb b,.gframe b,.mapbox b{font-family:var(--sans);font-weight:700}
+.stats div{border-radius:4px;border-top:3px solid var(--sub)}
+.stats b{font-family:var(--sans);font-weight:800;letter-spacing:-.01em}
+section.alt{background:var(--panel)}
+.sechead .en{font-weight:700;letter-spacing:.22em;font-size:11px}
+h2{font-family:var(--sans);font-weight:800;letter-spacing:.03em}
+.sechead h2::after{content:"";display:block;width:34px;height:3px;background:var(--sub);
+                   margin:12px auto 0}
+.card,.step{border-radius:4px;box-shadow:0 1px 2px rgba(20,30,50,.04)}
+section.alt .card,section.alt .step{background:#fff}
+.card h3{font-weight:800}
+.step::before{font-family:var(--sans);font-weight:800;color:var(--sub)}
+/* ナトコの型: ヒーローの下端に巨大な英字の宣言文を「面」として置く（白・薄く） */
+.hero .bigen{position:relative;z-index:0;margin:-30px 0 -34px;padding:0 20px;
+  font-weight:800;letter-spacing:-.01em;line-height:.9;color:rgba(255,255,255,.8);
+  font-size:clamp(40px,9vw,120px);white-space:nowrap;overflow:hidden;pointer-events:none;
+  text-shadow:0 1px 0 rgba(20,30,50,.06)}
+.hero .inner,.hero .stats{position:relative;z-index:1}
+.hero .scroll{display:none}
+.hero .since{margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:.24em;color:var(--sub)}
+/* ナトコの型: お知らせを丸い帯（ピル）で1行。長峰の型: NEWS の英字ラベル */
+.news{padding:0 0 8px}
+.news .pill{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);
+  border-radius:999px;padding:10px 18px 10px 16px;font-size:13px;box-shadow:0 2px 10px rgba(20,30,50,.05)}
+.news .pill .dot{width:8px;height:8px;border-radius:50%;background:var(--sub);flex:none}
+.news .pill .date{color:var(--muted);letter-spacing:.06em;font-variant-numeric:tabular-nums;flex:none}
+.news .pill .t{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.news .pill .more{margin-left:auto;flex:none;color:var(--accent);font-weight:700;text-decoration:none;
+  font-size:12px;letter-spacing:.1em}
+/* 長峰の型: 青灰の面の上に白いカードをずらして重ねる（会社概要） */
+section.alt#company .wrap{background:#fff;padding:28px 24px;border:1px solid var(--line);
+  box-shadow:0 2px 12px rgba(20,30,50,.05)}
+.contact{background:var(--accent)}
+.contact::before{border-radius:0;transform:rotate(45deg);inset:auto -10% -70% 62%;height:120%}
+.contact h2::after{display:none}
+.contact .big{font-family:var(--sans);font-weight:800}
+footer{background:#1f2733}
+@media print{.hero{background:#fff}.hero::after,.hero .inner::before{display:none}}
 </style>
 </head>
 <body>
@@ -251,19 +320,12 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
   <header><div class="hd">
     <div class="logo">有限会社マル公<small>MARUKOU</small></div>
     <nav><a href="#works">製品紹介</a><a href="#svc5">業務内容</a><a href="#svc4">検査・校正</a><a href="#svc6">よくある質問</a><a href="#company">会社案内</a><a href="#contact">お問い合わせ</a></nav>
-    <a class="call" href="tel:0561553250">お電話 0561-55-3250</a>
+    <div class="calls"><a class="call" href="tel:0561553250">お電話 0561-55-3250</a><a class="call2" href="#contact">資料請求</a></div>
   </div></header>
 </div>
 
-<div class="hero tx">
-  <svg class="tex" aria-hidden="true"><defs><pattern id="tx" width="48" height="48" patternUnits="userSpaceOnUse">
- <g stroke="rgba(67,128,27,.24)" stroke-width="2.6" stroke-linecap="round">
-  <line x1="5" y1="15" x2="19" y2="7"/><line x1="8" y1="20" x2="22" y2="12"/>
-  <line x1="29" y1="15" x2="43" y2="7"/><line x1="32" y1="20" x2="46" y2="12"/>
-  <line x1="5" y1="33" x2="19" y2="41"/><line x1="8" y1="28" x2="22" y2="36"/>
-  <line x1="29" y1="33" x2="43" y2="41"/><line x1="32" y1="28" x2="46" y2="36"/>
- </g>
-</pattern></defs><rect width="100%" height="100%" fill="url(#tx)"/></svg>
+<div class="hero">
+  
   <div class="wrap inner">
     <div class="side">
       <div class="textcol">
@@ -272,17 +334,19 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
           <p class="en">MARUKOU</p>
           <div class="acts"><a class="btn p" href="tel:0561553250">電話で相談する</a><a class="btn g" href="#works">できることを見る</a></div>
         </div>
-        <h1 class="vt">量る機械を、設計して、<br>据えて、守る。<br><em>計量器のことなら、<br>尾張旭のマル公。</em></h1>
+        <p class="since">SINCE 1970</p><h1 class="vt">量る機械を、設計して、<br>据えて、守る。<br><em>計量器のことなら、<br>尾張旭のマル公。</em></h1>
       </div>
     </div>
     <div class="shot">
-      <div class="lb"><b>お写真が入ります</b>現場のようす・完成した建物など</div>
+      <div class="lb"><b>お写真が入ります</b>工場のようす・設備・製品など</div>
     </div>
     <span class="scroll">scroll</span>
   </div>
+  <p class="bigen" aria-hidden="true">MARUKOU</p>
   <div class="wrap"><div class="stats"><div><b>1970<small>年</small></b><span>創業</span></div><div><b>設計<small>保守</small></b><span>施工まで自社で</span></div><div><b>検査<small>校正</small></b><span>精度を守る</span></div></div></div>
 </div>
 
+<div class="news" id="news"><div class="wrap"><div class="pill"><span class="dot"></span><span class="date">2026.09.01</span><span class="t">お知らせが入ります（新製品・展示会・休業日など）</span><a class="more" href="#contact">NEWS →</a></div></div></div>
 <section id="works">
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
@@ -297,7 +361,7 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
   <div class="wrap">
     <div class="sechead"><span class="en">FLOW</span>
       <h2>ご相談から据付まで</h2><p>はじめての方にも、順番が分かるように。</p></div>
-    <div class="flow"><div class="step"><h3>ご相談・現地の確認</h3><p>お電話をいただいたあと、現地を拝見します。費用はかかりません。</p></div><div class="step"><h3>ご提案・お見積り</h3><p>やり方が複数あるときは、費用と工期を並べてお出しします。</p></div><div class="step"><h3>ご契約・着工</h3><p>工程をお渡ししてから始めます。近隣へのご挨拶も当社で行います。</p></div><div class="step"><h3>お引渡し・その後</h3><p>お引渡しのあとも、気になるところが出たらご連絡ください。</p></div></div>
+    <div class="flow"><div class="step"><h3>ご相談</h3><p>図面が無い段階でも構いません。用途をお聞かせください。</p></div><div class="step"><h3>お見積り</h3><p>数量と納期の見通しを添えてお出しします。</p></div><div class="step"><h3>試作・ご確認</h3><p>かたちにしてから直すほうが早いこともあります。</p></div><div class="step"><h3>量産・納品</h3><p>継続してご発注いただく場合の体制もご相談ください。</p></div></div>
   </div>
 </section>
 
@@ -318,9 +382,9 @@ footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
   <line x1="29" y1="33" x2="43" y2="41"/><line x1="32" y1="28" x2="46" y2="36"/>
  </g>
 </pattern></defs><rect width="100%" height="100%" fill="url(#tx2)"/></svg>
-  <h2>まずはお電話ください</h2>
+  <h2>図面をお持ちでなくても</h2>
   <p>「古い計量器を直せるか」だけでも構いません。</p>
-  <a class="big" href="tel:0561553250">0561-55-3250</a><small>受付時間 平日 8:00–17:00</small><div><a class="btn w" href="tel:0561553250">電話をかける</a></div>
+  <a class="big" href="tel:0561553250">0561-55-3250</a><small>受付時間 平日 8:30–17:30</small><div><a class="btn w" href="tel:0561553250">電話をかける</a></div>
 </div>
 
 <footer>
