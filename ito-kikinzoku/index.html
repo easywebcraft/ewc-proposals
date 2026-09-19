@@ -105,11 +105,16 @@ footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .ph{background-size:cover;background-position:center}
 .ph::after{display:none}
 .shot.ph,.gframe.ph{display:block;padding:0}
+/* 札は大きく・はっきり（2026-09-19 指示: イメージ写真であることを強調）。
+   1行目に「イメージ写真」を太く、2行目に差し替えの断り */
 .shot.ph .lb,.gframe.ph .cap{position:absolute;left:12px;bottom:12px;z-index:1;text-align:left;
-  background:rgba(255,255,255,.9);border-radius:999px;padding:5px 12px;
-  font-size:11px;color:#575a51;letter-spacing:.06em;line-height:1.5}
-.shot.ph .lb b,.gframe.ph .cap b{display:inline;font-family:var(--sans);font-size:11px;
-  margin:0 6px 0 0;font-weight:700;color:var(--accent)}
+  background:rgba(20,18,14,.78);color:#fff;border-radius:8px;padding:9px 14px 10px;
+  font-size:12px;letter-spacing:.04em;line-height:1.5;backdrop-filter:blur(4px);
+  box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.shot.ph .lb b,.gframe.ph .cap b{display:block;font-family:var(--sans);font-size:15px;
+  margin:0 0 1px;font-weight:700;color:#fff;letter-spacing:.12em}
+.shot.ph .lb b::before,.gframe.ph .cap b::before{content:"";display:inline-block;width:8px;height:8px;
+  border-radius:50%;background:var(--sub,#f0b429);margin:0 8px 2px 0;vertical-align:middle}
 /* 実績・事例の写真枠。ヒーローの枠と同じ見た目でそろえる */
 /* 地図の入る場所。写真枠と同じ見せ方でそろえる */
 .mapbox{margin-top:22px;background:
@@ -396,6 +401,51 @@ footer{background:#1f2733}
   .anim .on,.hero .meta > *,.hero h1,.hero .shot{animation:none!important}
   .mbtn{display:none}nav{display:flex!important}
 }
+
+@keyframes zoomOut{from{transform:scale(1.06)}to{transform:none}}
+.hero.full{padding:0 0 12px}
+.hero.full::before,.hero.full::after,.hero.full .inner::before,.hero.full .tex,.hero.full .tagline{display:none}
+.hero.full .inner{display:flex;flex-direction:column;max-width:none;padding:0;gap:0}
+.hero.full .shot{order:-1;width:100vw;margin-left:calc(50% - 50vw);aspect-ratio:auto;height:58vh;
+  min-height:300px;max-height:520px;border:0;border-radius:0;outline:0;
+  animation:zoomOut 1.8s cubic-bezier(.2,.7,.3,1) both}
+.hero.full .shot .lb{left:auto;right:14px;bottom:14px}
+.hero.full .side{max-width:1120px;margin:0 auto;padding:22px 20px 0;width:100%}
+.hero.full .scroll{display:none}
+@media(min-width:900px){
+  .hero.full{padding:0 0 20px}
+  .hero.full .inner{display:block;position:relative;min-height:min(74vh,700px)}
+  .hero.full .shot{position:absolute;inset:0;width:auto;margin:0;height:auto;max-height:none;order:0}
+  /* 文字が読めるように、左を濃く右を薄く */
+  .hero.full .shot::before{content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(20,18,14,.62) 0%,rgba(20,18,14,.32) 55%,rgba(20,18,14,.12) 100%)}
+  .hero.full .side{position:relative;z-index:1;align-items:flex-start;padding:64px 20px 96px}
+  .hero.full .textcol{justify-content:flex-start;gap:34px}
+  .hero.full .textcol h1{order:-1}
+  .hero.full h1,.hero.full .sub,.hero.full .en{color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.35)}
+  .hero.full h1 em{color:#fff;text-shadow:0 0 0 #fff,0 1px 14px rgba(0,0,0,.35)}
+  .hero.full .meta{padding-top:8px}
+  .hero.full .btn.g{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.7)}
+  .hero.full .btn.g:hover{background:#fff;color:var(--ink)}
+  /* 下端は数字の帯が重なるので、札は右上・scroll はその上に置く */
+  .hero.full .shot .lb{bottom:auto;top:18px;right:18px;left:auto}
+  .hero.full .scroll{display:block;color:#fff;bottom:66px}
+  .hero.full .scroll::after{background:#fff}
+  /* 数字の帯を写真の下端に少し重ねる */
+  .hero.full .stats{margin-top:-44px;position:relative;z-index:2}
+  .hero.full .stats div{box-shadow:0 10px 30px rgba(20,18,14,.10)}
+}
+@media(prefers-reduced-motion:reduce){.hero.full .shot{animation:none}}
+@media print{
+  .hero.full .inner{min-height:0;display:block}
+  .hero.full .shot{position:relative;inset:auto;width:auto;margin:0;height:auto;aspect-ratio:16/7;
+    border:1px solid var(--line);animation:none!important}
+  .hero.full .shot::before{display:none}
+  .hero.full .side{padding:12px 0 0}
+  .hero.full h1,.hero.full .sub,.hero.full .en,.hero.full h1 em{color:var(--ink);text-shadow:none}
+  .hero.full .btn.g{background:#fff;color:var(--ink);border-color:var(--ink)}
+  .hero.full .stats{margin-top:12px}
+}
 </style>
 <script>
 document.documentElement.classList.add('anim','js');
@@ -418,7 +468,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   </div></header>
 </div>
 
-<div class="hero">
+<div class="hero full">
   
   <div class="wrap inner">
     <div class="side">
@@ -431,8 +481,8 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
         <p class="since">SINCE 1924</p><h1 class="vt">つくる。直す。<br>よみがえらせる。<br><em>名古屋のジュエリー工房、<br>101年。</em></h1>
       </div>
     </div>
-    <div class="shot">
-      <div class="lb"><b>お写真が入ります</b>工場のようす・設備・製品など</div>
+    <div class="shot ph" style="background-image:url(../photos/1674065719169-5ba77e617e60.jpg)">
+      <div class="lb"><b>イメージ写真です</b>実際の制作では御社のお写真に差し替えます</div>
     </div>
     <span class="scroll">scroll</span>
   </div>

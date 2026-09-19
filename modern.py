@@ -119,11 +119,16 @@ footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .ph{background-size:cover;background-position:center}
 .ph::after{display:none}
 .shot.ph,.gframe.ph{display:block;padding:0}
+/* 札は大きく・はっきり（2026-09-19 指示: イメージ写真であることを強調）。
+   1行目に「イメージ写真」を太く、2行目に差し替えの断り */
 .shot.ph .lb,.gframe.ph .cap{position:absolute;left:12px;bottom:12px;z-index:1;text-align:left;
-  background:rgba(255,255,255,.9);border-radius:999px;padding:5px 12px;
-  font-size:11px;color:#575a51;letter-spacing:.06em;line-height:1.5}
-.shot.ph .lb b,.gframe.ph .cap b{display:inline;font-family:var(--sans);font-size:11px;
-  margin:0 6px 0 0;font-weight:700;color:var(--accent)}
+  background:rgba(20,18,14,.78);color:#fff;border-radius:8px;padding:9px 14px 10px;
+  font-size:12px;letter-spacing:.04em;line-height:1.5;backdrop-filter:blur(4px);
+  box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.shot.ph .lb b,.gframe.ph .cap b{display:block;font-family:var(--sans);font-size:15px;
+  margin:0 0 1px;font-weight:700;color:#fff;letter-spacing:.12em}
+.shot.ph .lb b::before,.gframe.ph .cap b::before{content:"";display:inline-block;width:8px;height:8px;
+  border-radius:50%%;background:var(--sub,#f0b429);margin:0 8px 2px 0;vertical-align:middle}
 /* 実績・事例の写真枠。ヒーローの枠と同じ見た目でそろえる */
 /* 地図の入る場所。写真枠と同じ見せ方でそろえる */
 .mapbox{margin-top:22px;background:
@@ -443,7 +448,7 @@ HERO_FULL_CSS = """
   .hero.full .btn.g{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.7)}
   .hero.full .btn.g:hover{background:#fff;color:var(--ink)}
   /* 下端は数字の帯が重なるので、札は右上・scroll はその上に置く */
-  .hero.full .shot .lb{bottom:auto;top:16px;right:16px}
+  .hero.full .shot .lb{bottom:auto;top:18px;right:18px;left:auto}
   .hero.full .scroll{display:block;color:#fff;bottom:66px}
   .hero.full .scroll::after{background:#fff}
   /* 数字の帯を写真の下端に少し重ねる */
@@ -898,7 +903,7 @@ def render(sid, d, ind):
     # 無いと項目を押しても「できること」に着地して、中身が無いのが分かる。
     photos = d.get("photos") or {}
     hero_ph = photo_style(photos.get("hero"))
-    hero_lb = ("<b>イメージ写真</b>実際の制作では御社のお写真に差し替えます" if hero_ph else
+    hero_lb = ("<b>イメージ写真です</b>実際の制作では御社のお写真に差し替えます" if hero_ph else
                f'<b>お写真が入ります</b>{e(ind.get("shot", "現場のようす・完成した建物など"))}')
     gal = d.get("gallery")
     gallery = ""
@@ -910,7 +915,7 @@ def render(sid, d, ind):
         for i, c in enumerate(gal[:3]):
             st = photo_style(gph[i] if i < len(gph) else None)
             if st:
-                frames += f'<div class="gframe ph"{st}><span class="cap"><b>イメージ写真</b>{e(c)}</span></div>'
+                frames += f'<div class="gframe ph"{st}><span class="cap"><b>イメージ写真です</b>{e(c)}（御社のお写真に差し替え）</span></div>'
             else:
                 frames += f'<div class="gframe"><b>お写真が入ります</b>{e(c)}</div>'
         gallery = f"""<section class="alt" id="gallery">

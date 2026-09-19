@@ -52,7 +52,8 @@
     "給排水設備の新設・改修。生活に直結する部分だからこそ、丁寧に。"
    ]
   ],
-  "texture": "zumen"
+  "texture": "zumen",
+  "photos": {"hero": "1700581316314-9e6a809bd656"}
  },
  "kuniedatoso": {
   "name": "有限会社国枝塗装",
@@ -106,7 +107,8 @@
     "現地を拝見してお出しします。費用はかかりません。"
    ]
   ],
-  "texture": "nuri"
+  "texture": "nuri",
+  "photos": {"hero": "1562259949-e8e7689d7828"}
  },
  "tatsukenhome": {
   "name": "株式会社タツケンホーム",
@@ -161,7 +163,8 @@
     "点検とご相談。建てて終わりにはしません。"
    ]
   ],
-  "texture": "zumen"
+  "texture": "zumen",
+  "photos": {"hero": "1700581316314-9e6a809bd656"}
  },
  "kg-koketsu": {
   "name": "株式会社コーケツ",
@@ -544,7 +547,8 @@
    "会社概要"
   ],
   "accent": "#1f3a66",
-  "texture": "kinzoku"
+  "texture": "kinzoku",
+  "photos": {"hero": "1639600993675-2281b2c939f0"}
  },
  "nakakoma": {
   "name": "中駒産業株式会社",
@@ -613,7 +617,8 @@
    "会社案内"
   ],
   "accent": "#1a4f96",
-  "texture": "zumen"
+  "texture": "zumen",
+  "photos": {"hero": "1700581316314-9e6a809bd656"}
  },
  "yamanaka-denki": {
   "name": "有限会社山中電器",
@@ -678,7 +683,8 @@
    "お店案内",
    "アクセス"
   ],
-  "accent": "#2f6bb5"
+  "accent": "#2f6bb5",
+  "photos": {"hero": "1639600993675-2281b2c939f0"}
  },
  "shimizukako": {
   "industry": "kensetsu",
@@ -742,7 +748,8 @@
    "会社概要"
   ],
   "accent": "#a8860b",
-  "texture": "ashiba"
+  "texture": "ashiba",
+  "photos": {"hero": "1562259949-e8e7689d7828"}
  },
  "ymcomp": {
   "industry": "seizo",
@@ -817,7 +824,8 @@
    "会社概要"
   ],
   "accent": "#0099cc",
-  "texture": "kinzoku"
+  "texture": "kinzoku",
+  "photos": {"hero": "1597113366853-fea190b6cd82"}
  },
  "reliable": {
   "industry": "kensetsu",
@@ -891,7 +899,8 @@
    "外断熱の工事"
   ],
   "accent": "#59a52c",
-  "texture": "ashiba"
+  "texture": "ashiba",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "ek-kinzoku": {
   "industry": "seizo",
@@ -956,7 +965,8 @@
    "アクセス"
   ],
   "accent": "#2e8a2e",
-  "texture": "kinzoku"
+  "texture": "kinzoku",
+  "photos": {"hero": "1735494033576-9c882e80504c"}
  },
  "setta": {
   "industry": "kensetsu",
@@ -1098,7 +1108,8 @@
    "会社のご紹介"
   ],
   "accent": "#8a5a2b",
-  "texture": "mokume"
+  "texture": "mokume",
+  "photos": {"hero": "1597113366853-fea190b6cd82"}
  },
  "fdo-san": {
   "industry": "kensetsu",
@@ -1234,7 +1245,8 @@
    "施工実績",
    "採用情報",
    "会社概要"
-  ]
+  ],
+  "photos": {"hero": "1639600993675-2281b2c939f0", "gallery": ["1677075599533-66eef621c537", null, null]}
  },
  "bestroof": {
   "industry": "kensetsu",
@@ -1345,7 +1357,8 @@
     "現地を拝見してお出しします。費用はかかりません。"
    ]
   ],
-  "texture": "nuri"
+  "texture": "nuri",
+  "photos": {"hero": "1562259949-e8e7689d7828"}
  },
  "hoowaa": {
   "industry": "kensetsu",
@@ -1528,7 +1541,8 @@
    "ご相談から取り付けまで",
    "採用情報",
    "会社概要"
-  ]
+  ],
+  "photos": {"hero": "1513757378314-e46255f6ed16"}
  },
  "yamashita-reiki": {
   "industry": "kensetsu",
@@ -1665,7 +1679,8 @@
    "ジュエリーの修理",
    "ジュエリーができるまで",
    "会社案内"
-  ]
+  ],
+  "photos": {"hero": "1674065719169-5ba77e617e60"}
  },
  "kizai-tecto": {
   "name": "キザイテクト株式会社",
@@ -1741,7 +1756,8 @@
    "会社概要"
   ],
   "accent": "#2f5d3a",
-  "texture": "zumen"
+  "texture": "zumen",
+  "photos": {"hero": "1786742593319-a97fbeda2ef5"}
  },
  "brightsign": {
   "name": "株式会社ブライトサイン",
@@ -1812,7 +1828,8 @@
    "会社概要"
   ],
   "accent": "#c4581a",
-  "texture": "nuri"
+  "texture": "nuri",
+  "photos": {"hero": "1513757378314-e46255f6ed16"}
  },
  "jpms": {
   "name": "ジェイピーエムズ株式会社",
@@ -1887,7 +1904,8 @@
    "会社案内"
   ],
   "accent": "#1a5fa8",
-  "texture": "kinzoku"
+  "texture": "kinzoku",
+  "photos": {"hero": "1513757378314-e46255f6ed16"}
  },
  "kankyo-enesystem": {
   "name": "日本環境エネシステム株式会社",
@@ -2108,7 +2126,8 @@
    "会社概要"
   ],
   "accent": "#116600",
-  "texture": "ashiba"
+  "texture": "ashiba",
+  "photos": {"hero": "1786742593319-a97fbeda2ef5"}
  },
  "suzuki-bankin": {
   "name": "有限会社鈴木鈑金",
@@ -2174,7 +2193,8 @@
    "会社概要"
   ],
   "accent": "#1f2874",
-  "texture": "kawara"
+  "texture": "kawara",
+  "photos": {"hero": "1678694180534-974017792a3e"}
  },
  "aotec": {
   "name": "アオテック株式会社",
@@ -2459,7 +2479,8 @@
    "会社案内"
   ],
   "accent": "#1c6e8c",
-  "texture": "kinzoku"
+  "texture": "kinzoku",
+  "photos": {"hero": "1639600993675-2281b2c939f0"}
  },
  "chukyo-sports": {
   "name": "株式会社中京スポーツ施設",
@@ -2615,7 +2636,8 @@
    "会社概要"
   ],
   "accent": "#47840b",
-  "texture": "mokume"
+  "texture": "mokume",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "ichikawa-mokko": {
   "name": "株式会社市川木工",
@@ -2761,7 +2783,8 @@
    "アクセスマップ"
   ],
   "accent": "#1e6b2e",
-  "texture": "zumen"
+  "texture": "zumen",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "asahi-homes": {
   "name": "旭ホームズ株式会社",
@@ -3057,7 +3080,8 @@
    "会社概要"
   ],
   "accent": "#c05a1e",
-  "texture": "nuri"
+  "texture": "nuri",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "funakata": {
   "name": "株式会社フナカタ一ツ山店",
@@ -3124,7 +3148,8 @@
    "会社案内"
   ],
   "accent": "#1d5fa6",
-  "texture": "kinzoku"
+  "texture": "kinzoku",
+  "photos": {"hero": "1783305001511-882a9256fa0d"}
  },
  "youi-factory": {
   "name": "株式会社ユーアイファクトリー",
@@ -3198,7 +3223,8 @@
    "会社案内"
   ],
   "accent": "#122550",
-  "texture": "mokume"
+  "texture": "mokume",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "jpaintm": {
   "name": "株式会社日本塗装名人社",
@@ -3263,7 +3289,8 @@
    "会社案内"
   ],
   "accent": "#b3261e",
-  "texture": "nuri"
+  "texture": "nuri",
+  "photos": {"hero": "1562259949-e8e7689d7828"}
  },
  "rm-company": {
   "name": "株式会社Ｒｍカンパニー",
@@ -3331,7 +3358,8 @@
    "会社概要"
   ],
   "accent": "#2b5f8a",
-  "texture": "kinzoku"
+  "texture": "kinzoku",
+  "photos": {"hero": "1639600993675-2281b2c939f0"}
  },
  "chukyo-giken": {
   "name": "株式会社中京技研",
@@ -3400,7 +3428,8 @@
    "会社案内"
   ],
   "accent": "#1f4e8c",
-  "texture": "kinzoku"
+  "texture": "kinzoku",
+  "photos": {"hero": "1639600993675-2281b2c939f0", "gallery": ["1677075599533-66eef621c537", null, null]}
  },
  "marukou": {
   "name": "有限会社マル公",
@@ -3467,7 +3496,8 @@
    "会社案内"
   ],
   "accent": "#43801b",
-  "texture": "kinzoku"
+  "texture": "kinzoku",
+  "photos": {"hero": "1666634157070-6fd830fb5672"}
  },
  "c-sanei": {
   "name": "株式会社ＳＡＮＥＩ",
@@ -3534,7 +3564,8 @@
    "会社案内"
   ],
   "accent": "#18366c",
-  "texture": "ashiba"
+  "texture": "ashiba",
+  "photos": {"hero": "1562259949-e8e7689d7828"}
  },
  "tsuboi-bankin": {
   "name": "坪井自動車鈑金有限会社",
@@ -3676,7 +3707,8 @@
    "会社案内"
   ],
   "accent": "#3f7782",
-  "texture": "mokume"
+  "texture": "mokume",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "hinode-j": {
   "name": "株式会社ヒノデ住建",
@@ -3744,7 +3776,8 @@
    "企業情報"
   ],
   "accent": "#897031",
-  "texture": "zumen"
+  "texture": "zumen",
+  "photos": {"hero": "1700581316314-9e6a809bd656"}
  },
  "itozen": {
   "name": "イトゼン株式会社",
@@ -3816,7 +3849,8 @@
    "水まわりの事例",
    "ショールーム"
   ],
-  "gallery_h": "施工事例"
+  "gallery_h": "施工事例",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "ask-kk": {
   "name": "アスク環境開発株式会社",
@@ -3884,7 +3918,8 @@
    "店舗・施設の事例",
    "改修の事例"
   ],
-  "gallery_h": "実績・事例"
+  "gallery_h": "実績・事例",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "shinei-fp": {
   "name": "シンエイ工営株式会社",
@@ -3956,7 +3991,8 @@
    "断熱改修の事例",
    "構造見学会"
   ],
-  "gallery_h": "施工事例"
+  "gallery_h": "施工事例",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "tam-cp": {
   "name": "有限会社タムカンパニー",
@@ -4020,7 +4056,8 @@
   "accent": "#af5d1d",
   "texture": "kinzoku",
   "zip": "462-0007",
-  "founded": "1995"
+  "founded": "1995",
+  "photos": {"hero": "1639600993675-2281b2c939f0"}
  },
  "toueidenki": {
   "name": "東瑩電機株式会社",
@@ -4089,7 +4126,8 @@
    "LED化の事例",
    "点検のようす"
   ],
-  "gallery_h": "工事一覧"
+  "gallery_h": "工事一覧",
+  "photos": {"hero": "1783305001511-882a9256fa0d"}
  },
  "e-kaken": {
   "name": "株式会社カケン",
@@ -4157,7 +4195,8 @@
    "空調設備の更新",
    "配管工事"
   ],
-  "gallery_h": "施工実績"
+  "gallery_h": "施工実績",
+  "photos": {"hero": "1639600993675-2281b2c939f0", "gallery": ["1677075599533-66eef621c537", null, null]}
  },
  "kaneshiki": {
   "name": "カネ敷商事株式会社",
@@ -4224,7 +4263,8 @@
   "accent": "#256d87",
   "texture": "kinzoku",
   "zip": "462-0810",
-  "founded": "1970"
+  "founded": "1970",
+  "photos": {"hero": "1783305001511-882a9256fa0d"}
  },
  "yamaguchi-gyoumuten": {
   "name": "有限会社山口業務店",
@@ -4293,7 +4333,8 @@
    "外壁改修"
   ],
   "gallery_h": "施工事例",
-  "hours": "営業時間 8:00–17:00（日曜定休）"
+  "hours": "営業時間 8:00–17:00（日曜定休）",
+  "photos": {"hero": "1562259949-e8e7689d7828"}
  },
  "kyokuryo": {
   "name": "有限会社キョクリョウ",
@@ -4357,7 +4398,8 @@
   "accent": "#c1272d",
   "texture": "kinzoku",
   "zip": "488-0033",
-  "founded": "1979"
+  "founded": "1979",
+  "photos": {"hero": "1639600993675-2281b2c939f0"}
  },
  "nankai": {
   "name": "ナンカイ株式会社",
@@ -4426,7 +4468,8 @@
    "防火設備の実績",
    "空調工事の実績"
   ],
-  "gallery_h": "施工実績"
+  "gallery_h": "施工実績",
+  "photos": {"hero": "1783305001511-882a9256fa0d"}
  },
  "fmkk": {
   "name": "有限会社エフエム家具企画",
@@ -4494,7 +4537,8 @@
    "住宅の造作家具",
    "店舗の什器"
   ],
-  "gallery_h": "取付施工事例"
+  "gallery_h": "取付施工事例",
+  "photos": {"hero": "1597113366853-fea190b6cd82", "gallery": ["1621295693450-080546d2ec8e", null, null]}
  },
  "sansyodo": {
   "name": "株式会社三昭堂",
@@ -4562,7 +4606,8 @@
    "分譲住宅",
    "看板・店舗装飾の事例"
   ],
-  "gallery_h": "施工事例"
+  "gallery_h": "施工事例",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "reform-aiti": {
   "name": "リフォーム愛知株式会社",
@@ -4629,7 +4674,8 @@
   ],
   "accent": "#996600",
   "texture": "mokume",
-  "founded": "1989"
+  "founded": "1989",
+  "photos": {"hero": "1700581316314-9e6a809bd656"}
  },
  "sanyuhousing": {
   "name": "株式会社サンユーハウジング",
@@ -4695,7 +4741,8 @@
   ],
   "accent": "#cf4b01",
   "texture": "zumen",
-  "zip": "464-0074"
+  "zip": "464-0074",
+  "photos": {"hero": "1700581316314-9e6a809bd656"}
  },
  "kamimura-mekki": {
   "name": "神村真空メッキ工業株式会社",
@@ -4759,7 +4806,8 @@
   ],
   "accent": "#bf4f00",
   "texture": "kinzoku",
-  "zip": "489-0052"
+  "zip": "489-0052",
+  "photos": {"hero": "1735494033576-9c882e80504c"}
  },
  "kaboku": {
   "name": "協同組合日本ライン花木センター",
@@ -4829,7 +4877,8 @@
   ],
   "accent": "#027480",
   "texture": "mokume",
-  "zip": "509-0206"
+  "zip": "509-0206",
+  "photos": {"hero": "1715734925148-692a4f2c4ab8"}
  },
  "matsuoka-arch": {
   "name": "株式会社松岡設計事務所",
@@ -4902,7 +4951,8 @@
    "マンションの設計例",
    "店舗の設計例"
   ],
-  "gallery_h": "設計事例"
+  "gallery_h": "設計事例",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "toei-iak": {
   "name": "株式会社トーエイ",
@@ -4969,7 +5019,8 @@
    "衛生設備の施工",
    "ダクトの製作"
   ],
-  "gallery_h": "施工実績"
+  "gallery_h": "施工実績",
+  "photos": {"hero": "1639600993675-2281b2c939f0", "gallery": ["1677075599533-66eef621c537", null, null]}
  },
  "miuratoso": {
   "name": "三浦塗装株式会社",
@@ -5036,7 +5087,8 @@
    "屋根塗装の前後",
    "施工中のようす"
   ],
-  "gallery_h": "施工事例"
+  "gallery_h": "施工事例",
+  "photos": {"hero": "1562259949-e8e7689d7828"}
  },
  "to-yo-kensho": {
   "name": "名古屋西株式会社トーヨー建商",
@@ -5109,7 +5161,8 @@
    "あま市Y様邸"
   ],
   "gallery_h": "施工例",
-  "hours": "営業時間 8:00–18:00（日曜・祝日 定休）"
+  "hours": "営業時間 8:00–18:00（日曜・祝日 定休）",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "tsugeburo": {
   "name": "株式会社Ｒｉｖｅｔ（つげ風呂設備）",
@@ -5183,7 +5236,8 @@
    "トイレ・洗面の施工例"
   ],
   "gallery_h": "施工例一覧",
-  "hours": "電話受付 8:00–18:00"
+  "hours": "電話受付 8:00–18:00",
+  "photos": {"hero": "1639600993675-2281b2c939f0", "gallery": ["1677075599533-66eef621c537", null, null]}
  },
  "nesystem": {
   "name": "株式会社名古屋電機システム",
@@ -5247,7 +5301,8 @@
   ],
   "accent": "#1f4e8c",
   "texture": "kinzoku",
-  "zip": "481-0004"
+  "zip": "481-0004",
+  "photos": {"hero": "1666634157070-6fd830fb5672"}
  },
  "oriental-air": {
   "name": "オリエンタル空調株式会社",
@@ -5314,7 +5369,8 @@
    "事務所の空調更新",
    "メンテナンスのようす"
   ],
-  "gallery_h": "施工実績"
+  "gallery_h": "施工実績",
+  "photos": {"hero": "1639600993675-2281b2c939f0", "gallery": ["1677075599533-66eef621c537", null, null]}
  },
  "okamoto8": {
   "name": "株式会社岡本製作所",
@@ -5381,7 +5437,8 @@
   "accent": "#19721d",
   "texture": "kinzoku",
   "zip": "470-1168",
-  "founded": "1970"
+  "founded": "1970",
+  "photos": {"hero": "1666634157070-6fd830fb5672"}
  },
  "designoar": {
   "name": "株式会社デジーノアール",
@@ -5446,7 +5503,8 @@
   "accent": "#2b5f8a",
   "texture": "zumen",
   "zip": "481-0006",
-  "founded": "2003"
+  "founded": "2003",
+  "photos": {"hero": "1700581316314-9e6a809bd656"}
  },
  "idhomestudio": {
   "name": "アイディーホームスタジオ有限会社",
@@ -5524,7 +5582,8 @@
    "リフォームの事例",
    "収納・造作"
   ],
-  "gallery_h": "施工事例"
+  "gallery_h": "施工事例",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "remake-tokai": {
   "name": "有限会社リメーク東海",
@@ -5592,7 +5651,8 @@
    "赤外線調査の画像",
    "屋根の施工例"
   ],
-  "gallery_h": "実績紹介"
+  "gallery_h": "実績紹介",
+  "photos": {"hero": "1562259949-e8e7689d7828"}
  },
  "airgiken": {
   "name": "株式会社エアー技研社",
@@ -5663,7 +5723,8 @@
    "空圧配管工事",
    "換気設備"
   ],
-  "gallery_h": "施工事例"
+  "gallery_h": "施工事例",
+  "photos": {"hero": "1639600993675-2281b2c939f0", "gallery": ["1677075599533-66eef621c537", null, null]}
  },
  "narita-dengyo": {
   "name": "株式会社ナリタ電業",
@@ -5730,7 +5791,8 @@
    "電気設備工事",
    "太陽光の設置"
   ],
-  "gallery_h": "施工実績"
+  "gallery_h": "施工実績",
+  "photos": {"hero": "1783305001511-882a9256fa0d"}
  },
  "space-hirano": {
   "name": "有限会社スペースヒラノ",
@@ -5792,7 +5854,8 @@
   "accent": "#c1272d",
   "texture": "mokume",
   "zip": "497-0041",
-  "founded": "2005"
+  "founded": "2005",
+  "photos": {"hero": "1700581316314-9e6a809bd656"}
  },
  "b-factory": {
   "name": "株式会社ビィファクトリー",
@@ -5929,7 +5992,8 @@
    "外構の施工例",
    "ブロック塀の建て替え"
   ],
-  "gallery_h": "施工実例"
+  "gallery_h": "施工実例",
+  "photos": {"hero": "1715734925148-692a4f2c4ab8", "gallery": ["1775854169418-ae7bbab70d5d", null, null]}
  },
  "kuwahara-mokuzai": {
   "name": "桑原木材工業株式会社",
@@ -6002,7 +6066,8 @@
    "杉の家",
    "製材のようす"
   ],
-  "gallery_h": "施工事例"
+  "gallery_h": "施工事例",
+  "photos": {"hero": "1597113366853-fea190b6cd82", "gallery": ["1621295693450-080546d2ec8e", null, null]}
  },
  "tsuchiya-denki": {
   "name": "株式会社土屋電気商会",
@@ -6074,7 +6139,8 @@
    "照明工事",
    "受変電設備"
   ],
-  "gallery_h": "施工実績"
+  "gallery_h": "施工実績",
+  "photos": {"hero": "1783305001511-882a9256fa0d"}
  },
  "living-kondo": {
   "name": "有限会社リビング近藤",
@@ -6140,7 +6206,8 @@
   "accent": "#3a789d",
   "texture": "kinzoku",
   "zip": "501-6326",
-  "founded": "1987"
+  "founded": "1987",
+  "photos": {"hero": "1639600993675-2281b2c939f0"}
  },
  "aduma": {
   "name": "株式会社アヅマ",
@@ -6214,7 +6281,8 @@
    "ソーラーサーキットの家",
    "リフォーム"
   ],
-  "gallery_h": "施工事例"
+  "gallery_h": "施工事例",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "hasegawa-garasu": {
   "name": "長谷川硝子株式会社",
@@ -6284,7 +6352,8 @@
    "サッシ・ドアの施工",
    "エクステリア"
   ],
-  "gallery_h": "ギャラリー"
+  "gallery_h": "ギャラリー",
+  "photos": {"hero": "1509635022432-0220ac12960b"}
  },
  "maruta-sekitozai": {
   "name": "丸太石陶材株式会社",
@@ -6357,7 +6426,8 @@
    "店舗什器",
    "石の家具"
   ],
-  "gallery_h": "施工例"
+  "gallery_h": "施工例",
+  "photos": {"hero": "1633299264475-e8796606b870"}
  },
  "nagao-zoen": {
   "name": "有限会社長尾造園",
@@ -6426,7 +6496,8 @@
    "エクステリアの施工例",
    "坪庭"
   ],
-  "gallery_h": "施工実績"
+  "gallery_h": "施工実績",
+  "photos": {"hero": "1715734925148-692a4f2c4ab8", "gallery": ["1775854169418-ae7bbab70d5d", null, null]}
  },
  "hirai-kogyo": {
   "name": "平井工業株式会社",
@@ -6489,7 +6560,8 @@
   ],
   "accent": "#1c6e8c",
   "texture": "kinzoku",
-  "zip": "501-6209"
+  "zip": "501-6209",
+  "photos": {"hero": "1639600993675-2281b2c939f0"}
  },
  "okumura-bp": {
   "name": "有限会社奥村鈑金塗装",
@@ -6626,7 +6698,8 @@
   ],
   "accent": "#297ba4",
   "texture": "kinzoku",
-  "zip": "509-0147"
+  "zip": "509-0147",
+  "photos": {"hero": "1735494033576-9c882e80504c"}
  },
  "senshou": {
   "name": "千勝建設株式会社",
@@ -6697,7 +6770,8 @@
    "民間工事の実績",
    "住宅の施工例"
   ],
-  "gallery_h": "施工実績"
+  "gallery_h": "施工実績",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "hashiba-denki": {
   "name": "羽柴電気工事株式会社",
@@ -6769,7 +6843,8 @@
    "住宅の電気工事",
    "照明工事"
   ],
-  "gallery_h": "施工事例"
+  "gallery_h": "施工事例",
+  "photos": {"hero": "1783305001511-882a9256fa0d"}
  },
  "sacras": {
   "name": "株式会社サクラス",
@@ -6838,7 +6913,8 @@
    "水まわり",
    "内装"
   ],
-  "gallery_h": "当社の施工事例"
+  "gallery_h": "当社の施工事例",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  },
  "nagai-sekkei": {
   "name": "株式会社永井設計工務",
@@ -6911,6 +6987,7 @@
    "現場のようす"
   ],
   "gallery_h": "施工事例",
-  "hours": "営業時間 8:00–18:00"
+  "hours": "営業時間 8:00–18:00",
+  "photos": {"hero": "1700581316314-9e6a809bd656", "gallery": ["1762813384339-c526d5533976", null, null]}
  }
 }
