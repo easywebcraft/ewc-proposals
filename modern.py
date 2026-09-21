@@ -980,6 +980,10 @@ def render(sid, d, ind):
     if d.get("founded"):
         info.append(("創業", f'{e(d["founded"])}年'))
     info.append(("事業内容", "／".join(t for t, _ in d["services"][:5])))
+    # ★信用の材料（2026-09-21）。建設業許可番号・ISO は相手のサイトに公開されている事実。
+    #   ~/kmtools/permitfind.py で拾う。1行あるだけで「ちゃんとした会社」に見える
+    if d.get("permits"):
+        info.append(("許可・登録", "／".join(d["permits"])))
     rows = "".join(f'<tr><th>{e(k)}</th><td>{v if k=="電話" else e(v)}</td></tr>'
                    for k, v in info)
 

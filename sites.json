@@ -231,7 +231,8 @@
    "関連企業",
    "会社概要"
   ],
-  "photos": {"hero": "1735494033576-9c882e80504c@50% 62%"}
+  "photos": {"hero": "1735494033576-9c882e80504c@50% 62%"},
+  "permits": ["ISO9001"]
  },
  "katoh-auto": {
   "name": "カトー自動車工業株式会社",
@@ -1038,7 +1039,8 @@
   "photos": {
     "hero": "1678694180534-974017792a3e",
     "gallery": ["1760544137552-b225c3379c76", null, "1621419370788-980a005356a4"]
-  }
+  },
+  "permits": ["岐阜県知事許可（般-2）第201321号"]
  },
  "ogawakagu": {
   "industry": "kensetsu",
@@ -1607,7 +1609,8 @@
    "施工事例",
    "会社概要"
   ],
-  "photos": {"hero": "1639600993675-2281b2c939f0", "gallery": ["1677075599533-66eef621c537", null, null]}
+  "photos": {"hero": "1639600993675-2281b2c939f0", "gallery": ["1677075599533-66eef621c537", null, null]},
+  "permits": ["愛知県知事許可（般-17）第103734号"]
  },
  "ito-kikinzoku": {
   "industry": "seizo",
@@ -1754,7 +1757,8 @@
   ],
   "accent": "#2f5d3a",
   "texture": "zumen",
-  "photos": {"hero": "1781255575629-9044eb9b73f9@50% 45%"}
+  "photos": {"hero": "1781255575629-9044eb9b73f9@50% 45%"},
+  "permits": ["国土交通大臣許可（般-20）第18057号"]
  },
  "brightsign": {
   "name": "株式会社ブライトサイン",
@@ -2122,7 +2126,8 @@
   ],
   "accent": "#116600",
   "texture": "ashiba",
-  "photos": {"hero": "1786742593319-a97fbeda2ef5"}
+  "photos": {"hero": "1786742593319-a97fbeda2ef5"},
+  "permits": ["ISO9001", "ISO14001"]
  },
  "suzuki-bankin": {
   "name": "有限会社鈴木鈑金",
@@ -2258,7 +2263,8 @@
   ],
   "accent": "#2e669c",
   "texture": "kinzoku",
-  "photos": {"hero": "1658298775754-5839ffd434cc"}
+  "photos": {"hero": "1658298775754-5839ffd434cc"},
+  "permits": ["愛知県知事許可（般-2）第74237号"]
  },
  "fujimoto-kogei": {
   "name": "株式会社藤本工芸",
@@ -2405,7 +2411,8 @@
   ],
   "accent": "#2f7a2f",
   "texture": "mokume",
-  "photos": {"hero": "1715734925148-692a4f2c4ab8", "gallery": ["1775854169418-ae7bbab70d5d", null, null]}
+  "photos": {"hero": "1715734925148-692a4f2c4ab8", "gallery": ["1775854169418-ae7bbab70d5d", null, null]},
+  "permits": ["愛知県知事許可（般-18）第62884号"]
  },
  "takeuchi-yokuso": {
   "name": "竹内浴槽株式会社",
@@ -2706,7 +2713,8 @@
   ],
   "accent": "#7a4b23",
   "texture": "mokume",
-  "photos": {"hero": "1597113366853-fea190b6cd82", "gallery": ["1621295693450-080546d2ec8e", null, null]}
+  "photos": {"hero": "1597113366853-fea190b6cd82", "gallery": ["1621295693450-080546d2ec8e", null, null]},
+  "permits": ["愛知県知事許可（般-32）第60366号"]
  },
  "amemiya-kensetsu": {
   "name": "有限会社アメミヤ建設",
@@ -2779,7 +2787,8 @@
   ],
   "accent": "#1e6b2e",
   "texture": "zumen",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]},
+  "permits": ["愛知県知事許可（般-7）第36832号"]
  },
  "asahi-homes": {
   "name": "旭ホームズ株式会社",
@@ -2855,7 +2864,8 @@
   ],
   "accent": "#0e824d",
   "texture": "mokume",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]},
+  "permits": ["愛知県知事許可（般-27）第40648号"]
  },
  "asada-denki": {
   "name": "株式会社浅田電機商会",
@@ -3002,7 +3012,8 @@
   ],
   "accent": "#2a3a8c",
   "texture": "kinzoku",
-  "photos": {"hero": "1781255575629-9044eb9b73f9@50% 45%"}
+  "photos": {"hero": "1781255575629-9044eb9b73f9@50% 45%"},
+  "permits": ["愛知県知事許可（般-17）第62649号"]
  },
  "artic-homes": {
   "name": "株式会社アーティックホームズ",
@@ -3219,7 +3230,8 @@
   ],
   "accent": "#122550",
   "texture": "mokume",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]},
+  "permits": ["愛知県知事許可（般-19）第62366号"]
  },
  "jpaintm": {
   "name": "株式会社日本塗装名人社",
@@ -3424,7 +3436,8 @@
   ],
   "accent": "#1f4e8c",
   "texture": "kinzoku",
-  "photos": {"hero": "1639600993675-2281b2c939f0", "gallery": ["1677075599533-66eef621c537", null, null]}
+  "photos": {"hero": "1639600993675-2281b2c939f0", "gallery": ["1677075599533-66eef621c537", null, null]},
+  "permits": ["愛知県知事許可（特-5）第8466号", "ISO9001", "ISO14001"]
  },
  "marukou": {
   "name": "有限会社マル公",
@@ -3626,7 +3639,8 @@
    "修理事例",
    "会社概要"
   ],
-  "accent": "#c0392b"
+  "accent": "#c0392b",
+  "permits": ["ISO14001"]
  },
  "sanki-kohmuten": {
   "name": "株式会社三喜工務店",
@@ -3701,7 +3715,8 @@
   ],
   "accent": "#3f7782",
   "texture": "mokume",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]},
+  "permits": ["愛知県知事許可（特-4）第27351号"]
  },
  "hinode-j": {
   "name": "株式会社ヒノデ住建",
@@ -3770,7 +3785,8 @@
   ],
   "accent": "#897031",
   "texture": "zumen",
-  "photos": {"hero": "1685533272451-eee3d96d9f29"}
+  "photos": {"hero": "1685533272451-eee3d96d9f29"},
+  "permits": ["愛知県知事許可（般-20）第104861号"]
  },
  "itozen": {
   "name": "イトゼン株式会社",
@@ -3912,7 +3928,8 @@
    "改修の事例"
   ],
   "gallery_h": "実績・事例",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]},
+  "permits": ["愛知県知事許可（特-5）第36632号"]
  },
  "shinei-fp": {
   "name": "シンエイ工営株式会社",
@@ -4050,7 +4067,8 @@
   "texture": "kinzoku",
   "zip": "462-0007",
   "founded": "1995",
-  "photos": {"hero": "1639600993675-2281b2c939f0"}
+  "photos": {"hero": "1639600993675-2281b2c939f0"},
+  "permits": ["愛知県知事許可（般-30）第106780号"]
  },
  "toueidenki": {
   "name": "東瑩電機株式会社",
@@ -4327,7 +4345,8 @@
   ],
   "gallery_h": "施工事例",
   "hours": "営業時間 8:00–17:00（日曜定休）",
-  "photos": {"hero": "1562259949-e8e7689d7828"}
+  "photos": {"hero": "1562259949-e8e7689d7828"},
+  "permits": ["愛知県知事許可（般-3）第49513号"]
  },
  "kyokuryo": {
   "name": "有限会社キョクリョウ",
@@ -4668,7 +4687,8 @@
   "accent": "#996600",
   "texture": "mokume",
   "founded": "1989",
-  "photos": {"hero": "1685533272451-eee3d96d9f29"}
+  "photos": {"hero": "1685533272451-eee3d96d9f29"},
+  "permits": ["愛知県知事許可（般-18）第62839号"]
  },
  "sanyuhousing": {
   "name": "株式会社サンユーハウジング",
@@ -4735,7 +4755,8 @@
   "accent": "#cf4b01",
   "texture": "zumen",
   "zip": "464-0074",
-  "photos": {"hero": "1685533272451-eee3d96d9f29"}
+  "photos": {"hero": "1685533272451-eee3d96d9f29"},
+  "permits": ["愛知県知事許可（般-29）第108500号"]
  },
  "kamimura-mekki": {
   "name": "神村真空メッキ工業株式会社",
@@ -5431,7 +5452,8 @@
   "texture": "kinzoku",
   "zip": "470-1168",
   "founded": "1970",
-  "photos": {"hero": "1581093803931-46e730e7622e"}
+  "photos": {"hero": "1581093803931-46e730e7622e"},
+  "permits": ["ISO9001"]
  },
  "designoar": {
   "name": "株式会社デジーノアール",
@@ -5645,7 +5667,8 @@
    "屋根の施工例"
   ],
   "gallery_h": "実績紹介",
-  "photos": {"hero": "1562259949-e8e7689d7828"}
+  "photos": {"hero": "1562259949-e8e7689d7828"},
+  "permits": ["愛知県知事許可（般-25）第65986号"]
  },
  "airgiken": {
   "name": "株式会社エアー技研社",
@@ -5717,7 +5740,8 @@
    "換気設備"
   ],
   "gallery_h": "施工事例",
-  "photos": {"hero": "1639600993675-2281b2c939f0", "gallery": ["1677075599533-66eef621c537", null, null]}
+  "photos": {"hero": "1639600993675-2281b2c939f0", "gallery": ["1677075599533-66eef621c537", null, null]},
+  "permits": ["愛知県知事許可（般-13）第55911号"]
  },
  "narita-dengyo": {
   "name": "株式会社ナリタ電業",
@@ -5785,7 +5809,8 @@
    "太陽光の設置"
   ],
   "gallery_h": "施工実績",
-  "photos": {"hero": "1783305001511-882a9256fa0d"}
+  "photos": {"hero": "1783305001511-882a9256fa0d"},
+  "permits": ["愛知県知事許可（般-28）第67434号"]
  },
  "space-hirano": {
   "name": "有限会社スペースヒラノ",
@@ -6200,7 +6225,8 @@
   "texture": "kinzoku",
   "zip": "501-6326",
   "founded": "1987",
-  "photos": {"hero": "1639600993675-2281b2c939f0"}
+  "photos": {"hero": "1639600993675-2281b2c939f0"},
+  "permits": ["岐阜県知事許可（般-20）第100992号"]
  },
  "aduma": {
   "name": "株式会社アヅマ",
@@ -6275,7 +6301,8 @@
    "リフォーム"
   ],
   "gallery_h": "施工事例",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]},
+  "permits": ["岐阜県知事許可（般-4）第3311号"]
  },
  "hasegawa-garasu": {
   "name": "長谷川硝子株式会社",
@@ -6764,7 +6791,8 @@
    "住宅の施工例"
   ],
   "gallery_h": "施工実績",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]},
+  "permits": ["岐阜県知事許可（般-4）第12923号"]
  },
  "hashiba-denki": {
   "name": "羽柴電気工事株式会社",
@@ -6907,7 +6935,8 @@
    "内装"
   ],
   "gallery_h": "当社の施工事例",
-  "photos": {"hero": "1685533272451-eee3d96d9f29", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "1685533272451-eee3d96d9f29", "gallery": ["1700581316314-9e6a809bd656", null, null]},
+  "permits": ["岐阜県知事許可（般-30）第103436号"]
  },
  "nagai-sekkei": {
   "name": "株式会社永井設計工務",
@@ -7055,7 +7084,8 @@
    "texture": "ashiba",
    "photos": {
      "hero": "1786742593319-a97fbeda2ef5"
-   }
+   },
+  "permits": ["愛知県知事許可（般-3）第50434号"]
  },
  "barriersystem": {
    "name": "今盛工業株式会社",
@@ -7495,7 +7525,8 @@
    "texture": "ashiba",
    "photos": {
      "hero": "1786742593319-a97fbeda2ef5"
-   }
+   },
+  "permits": ["ISO9001"]
  },
  "display-nikko": {
    "name": "株式会社ディスプレイ日工",
@@ -7777,7 +7808,8 @@
    "texture": "ashiba",
    "photos": {
      "hero": "1786742593319-a97fbeda2ef5"
-   }
+   },
+  "permits": ["愛知県知事許可（特-3）第41399号"]
  },
  "ishiharasekizai": {
    "name": "石原石材株式会社",
@@ -7932,7 +7964,8 @@
        null,
        null
      ]
-   }
+   },
+  "permits": ["愛知県知事許可（特-6）第65148号"]
  },
  "inter-group": {
    "name": "株式会社インターナショナルコミュニケーションズ",
@@ -8005,7 +8038,8 @@
    "texture": "kinzoku",
    "photos": {
      "hero": "1783305001511-882a9256fa0d"
-   }
+   },
+  "permits": ["愛知県知事許可（般-29）第67187号"]
  },
  "itonen": {
    "name": "有限会社伊藤燃設",
@@ -8155,7 +8189,8 @@
    "texture": "ashiba",
    "photos": {
      "hero": "1786742593319-a97fbeda2ef5"
-   }
+   },
+  "permits": ["三重県知事許可（般-24）第4952号"]
  },
  "m-d-s": {
    "name": "株式会社松田電機設備",
@@ -8671,7 +8706,8 @@
    "texture": "ashiba",
    "photos": {
      "hero": "1762813384339-c526d5533976"
-   }
+   },
+  "permits": ["岐阜県知事許可（特-8）第125号"]
  },
  "koderakensetsu": {
    "name": "小寺建設株式会社",
@@ -8966,7 +9002,8 @@
        null,
        null
      ]
-   }
+   },
+  "permits": ["岐阜県知事許可（般-27）第200579号"]
  },
  "amdj": {
    "name": "株式会社エイエムディ自動機",
@@ -9179,7 +9216,8 @@
    "texture": "ashiba",
    "photos": {
      "hero": "1786742593319-a97fbeda2ef5"
-   }
+   },
+  "permits": ["岐阜県知事許可（般-29）第600705号"]
  },
  "dkltd": {
    "name": "大同工業株式会社",
@@ -9333,7 +9371,8 @@
        null,
        null
      ]
-   }
+   },
+  "permits": ["岐阜県知事許可（般-28）第350297号"]
  },
  "sougou-urakami": {
    "name": "総合建築浦上株式会社",
@@ -9687,7 +9726,8 @@
      "会社案内"
    ],
    "accent": "#1f5f9a",
-   "texture": "nuri"
+   "texture": "nuri",
+  "permits": ["国土交通大臣許可（般-2）第27798号"]
  },
  "sakamotomachine": {
    "name": "坂本機械株式会社",
