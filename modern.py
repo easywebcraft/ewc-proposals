@@ -159,8 +159,11 @@ footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 /* TATSUSHO の型: 写真の右下に、お知らせを1行のピルで。日付・題名・矢印 */
 .news{padding:14px 0 0}
 .news .pill{display:flex;align-items:center;gap:12px;background:var(--paper);
-  border:1px solid var(--line);border-radius:999px;padding:9px 16px 9px 14px;font-size:12.5px;
+  border:1px solid var(--line);border-radius:22px;padding:6px 16px 6px 14px;font-size:12.5px;
   max-width:560px;margin-left:auto}
+.news .pill .rows{min-width:0;flex:1 1 auto}
+.news .pill .row{display:flex;align-items:center;gap:12px;padding:5px 0}
+.news .pill .row+.row{border-top:1px dashed var(--line)}
 .news .pill .dot{width:7px;height:7px;border-radius:50%%;background:var(--accent);flex:none}
 .news .pill .date{color:var(--muted);letter-spacing:.06em;font-variant-numeric:tabular-nums;flex:none}
 .news .pill .t{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -549,7 +552,7 @@ section.alt .card,section.alt .step{background:#fff}
 /* ナトコの型: お知らせを丸い帯（ピル）で1行。長峰の型: NEWS の英字ラベル */
 .news{padding:0 0 8px}
 .news .pill{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);
-  border-radius:999px;padding:10px 18px 10px 16px;font-size:13px;box-shadow:0 2px 10px rgba(20,30,50,.05);
+  border-radius:16px;padding:6px 18px 6px 16px;font-size:13px;box-shadow:0 2px 10px rgba(20,30,50,.05);
   max-width:none;margin-left:0}
 .shot{outline:0}
 .badge,.tagline{display:none!important}
@@ -922,9 +925,15 @@ def render(sid, d, ind):
                  '<svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="bc" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>'
                  '<text><textPath href="#bc">CONTACT · CONTACT · CONTACT · </textPath></text></svg>'
                  '<span>ご相談<br>ください</span></a>')
-    news = ('\n<div class="news" id="news"><div class="wrap"><div class="pill">'
-            '<span class="dot"></span><span class="date">2026.09.01</span>'
-            f'<span class="t">{e(news_t)}</span>'
+    # ★お知らせは3件（2026-09-21）。1件だと「置いてあるだけ」に見える。種類の違う3件で
+    #   「更新できるサイト」だと伝える。文言は業種ごと（build.py の news_items）
+    items = ind.get("news_items") or [news_t, "夏季休業のお知らせ", "スタッフ募集のお知らせ"]
+    dates = ("2026.09.01", "2026.08.20", "2026.08.05")
+    rows_html = "".join(
+        f'<div class="row"><span class="dot"></span><span class="date">{dt}</span>'
+        f'<span class="t">{e(t)}</span></div>' for dt, t in zip(dates, items))
+    news = (f'\n<div class="news" id="news"><div class="wrap"><div class="pill">'
+            f'<div class="rows">{rows_html}</div>'
             '<a class="more" href="#contact">NEWS →</a></div></div></div>')
 
     stats = "".join(f'<div><b>{e(a)}<small>{e(b)}</small></b><span>{e(c)}</span></div>'
