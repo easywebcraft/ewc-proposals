@@ -162,6 +162,7 @@ footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
   border:1px solid var(--line);border-radius:22px;padding:6px 16px 6px 14px;font-size:12.5px;
   max-width:560px;margin-left:auto}
 .news .pill .rows{min-width:0;flex:1 1 auto}
+.news .pill .lbl{flex:none;font-size:10px;line-height:1.35;font-weight:700;color:var(--muted);border-right:1px solid var(--line);padding-right:10px;text-align:center}
 .news .pill .row{display:flex;align-items:center;gap:12px;padding:5px 0}
 .news .pill .row+.row{border-top:1px dashed var(--line)}
 .news .pill .dot{width:7px;height:7px;border-radius:50%%;background:var(--accent);flex:none}
@@ -927,12 +928,13 @@ def render(sid, d, ind):
                  '<span>ご相談<br>ください</span></a>')
     # ★お知らせは3件（2026-09-21）。1件だと「置いてあるだけ」に見える。種類の違う3件で
     #   「更新できるサイト」だと伝える。文言は業種ごと（build.py の news_items）
-    items = ind.get("news_items") or [news_t, "夏季休業のお知らせ", "スタッフ募集のお知らせ"]
+    items = ind.get("news_items") or ["お知らせのタイトルが入ります"] * 3
     dates = ("2026.09.01", "2026.08.20", "2026.08.05")
     rows_html = "".join(
         f'<div class="row"><span class="dot"></span><span class="date">{dt}</span>'
         f'<span class="t">{e(t)}</span></div>' for dt, t in zip(dates, items))
     news = (f'\n<div class="news" id="news"><div class="wrap"><div class="pill">'
+            '<span class="lbl">お知らせの<br>表示例</span>'
             f'<div class="rows">{rows_html}</div>'
             '<a class="more" href="#contact">NEWS →</a></div></div></div>')
 
@@ -1065,7 +1067,7 @@ def render(sid, d, ind):
 <section{flow_cls} id="flow">
   <div class="wrap">
     <div class="sechead"><span class="en">FLOW</span>
-      <h2>{e(ind["flow_h"])}</h2><p>はじめての方にも、順番が分かるように。</p></div>
+      <h2>{e(ind["flow_h"])}</h2><p>{phrase("流れの一例です。実際の制作では、御社の進め方に合わせて書き換えます。", e)}</p></div>
     <div class="flow">{steps}</div>
   </div>
 </section>
