@@ -41,7 +41,22 @@ python3 build.py yak-k      # 1つだけ
 
 `sites.json` に書くのは**事実**（社名・電話・住所・創業年）と、**自分で書いた文章**だけ。
 相手のサイトから文章・写真・ロゴは持ってこない。事実の収集には
-`~/kmtools/factfind.py`（電話・住所・創業年だけを拾う）を使う。
+`factfind.py`（電話・住所・創業年・許可番号だけを拾う）を使う。
+
+## 候補選びからCRM登録まで（2026-10-04 に Mac で作り直した）
+
+```sh
+python3 pick.py --min 40 --cat 住宅・建材 --out nav_todo.tsv   # 本番CRMから候補を選ぶ（読むだけ）
+python3 factfind.py nav_todo.tsv > facts.tsv                    # 電話・住所・創業年・許可番号の候補
+python3 navfind.py nav_todo.tsv                                 # メニュー項目の候補
+python3 colorfind.py                                            # その会社らしい色の候補
+# → 目で確かめて sites.json に書く → python3 build.py <キー> → 確認 → push
+python3 register.py            # 公開済みの見本をCRMに入れる予定を表示（何も変えない）
+python3 register.py --apply    # 本番CRMに書き込む（了解を取ってから）
+```
+
+手順の細かい決まりは Claude Code のスキル `top-proposal`（`~/.claude/skills/top-proposal/SKILL.md`）にまとめてある。
+`pick.tsv`（CRMの番号・点数入り）は公開しないので `.gitignore` に入れてある。
 
 ## 業種別の型（`build.py` の INDUSTRY）
 
