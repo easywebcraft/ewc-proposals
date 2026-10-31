@@ -414,5 +414,21 @@ def main(only=None):
         print(f"  {sid:<14} {d['name'][:22]:<24} {len(render(sid, d)):>6} バイト")
 
 
+def trial(sid):
+    """試作（v2）を <キー>-v2/ に作る。今の見本（<キー>/）は変えない（2026-10-31）。
+    写真は ../photos を参照するので、出力はキーと同じ深さに置く。"""
+    root = pathlib.Path(__file__).resolve().parent
+    d = dict(json.loads((root / "sites.json").read_text(encoding="utf-8"))[sid])
+    d["_v2"] = True
+    out = root / (sid + "-v2")
+    out.mkdir(exist_ok=True)
+    html = render(sid, d)
+    (out / "index.html").write_text(html, encoding="utf-8")
+    print(f"  {sid}-v2  {d['name']}  {len(html)} バイト（試作）")
+
+
 if __name__ == "__main__":
-    main(sys.argv[1] if len(sys.argv) > 1 else None)
+    if len(sys.argv) > 2 and sys.argv[1] == "--trial":
+        trial(sys.argv[2])
+    else:
+        main(sys.argv[1] if len(sys.argv) > 1 else None)

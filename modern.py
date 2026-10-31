@@ -911,6 +911,9 @@ def render(sid, d, ind):
     css += motion_css(navbp)      # 動きは皮の後ろ。皮の指定を上書きしないため
     if (d.get("photos") or {}).get("hero"):
         css += HERO_FULL_CSS
+    v2 = bool(d.get("_v2"))
+    if v2:
+        css += V2_CSS % {"acc_rgb": acc_rgb}
     roman = d.get("roman", "")
     since = bigen = tagline = badge = ""
     news_t = ind.get("news_hint", "お知らせが入ります（工事のご報告・休業日など）")
@@ -938,11 +941,19 @@ def render(sid, d, ind):
             f'<div class="rows">{rows_html}</div>'
             '<a class="more" href="#contact">NEWS →</a></div></div></div>')
 
+    if v2:
+        news = ""        # 試作：表示例のお知らせは出さない（仮の表示に見えるため）
     stats = "".join(f'<div><b>{e(a)}<small>{e(b)}</small></b><span>{e(c)}</span></div>'
                     for a, b, c in d["stats"])
-    cards = "".join(
-        f'<div class="card" id="svc{i}"><h3>{e(t)}</h3><p>{e(p)}</p></div>'
-        for i, (t, p) in enumerate(d["services"], 1))
+    if v2:
+        cards = "".join(
+            f'<div class="card" id="svc{i}"><span class="ic">{icon_svg(t)}</span><span class="no" aria-hidden="true">{i:02d}</span>'
+            f'<h3>{e(t)}</h3><p>{e(p)}</p></div>'
+            for i, (t, p) in enumerate(d["services"], 1))
+    else:
+        cards = "".join(
+            f'<div class="card" id="svc{i}"><h3>{e(t)}</h3><p>{e(p)}</p></div>'
+            for i, (t, p) in enumerate(d["services"], 1))
     steps = "".join(f'<div class="step"><h3>{e(t)}</h3><p>{e(p)}</p></div>'
                     for t, p in ind["flow"])
 
@@ -974,6 +985,21 @@ def render(sid, d, ind):
   </div>
 </section>"""
 
+    feat = ""
+    if v2 and d.get("features"):
+        rows_f = ""
+        for i, f in enumerate(d["features"], 1):
+            st = photo_style(f.get("photo"))
+            ph = (f'<div class="fph"{st}><span class="cap">イメージ写真</span></div>' if st else "")
+            rows_f += (f'<div class="frow">{ph}<div class="ftx"><span class="no">{i:02d}</span>'
+                       f'<h3>{phrase(f["h"], e)}</h3><p>{e(f["p"])}</p></div></div>')
+        feat = f"""\n<section class="feat" id="feature">
+  <div class="wrap">
+    <div class="sechead"><span class="en">OUR WORK</span><h2>{e(d.get("features_h", "大切にしていること"))}</h2></div>
+    <div class="frows">{rows_f}</div>
+  </div>
+</section>"""
+
     info = [("商号", name)]
     if d.get("addr"):
         info.append(("所在地", (f'〒{d["zip"]} ' if d.get("zip") else "") + d["addr"]))
@@ -1002,8 +1028,9 @@ def render(sid, d, ind):
         # 長峰の型: 右端に角ばったボタンを2つ（お問い合わせ／資料請求）
         call = f'<div class="calls">{call}<a class="call2" href="#contact">資料請求</a></div>'
     hero_btn = (f'<a class="btn p" href="tel:{e(tl)}">電話で相談する</a>' if tel else "")
+    hours_html = ("" if v2 and "が入ります" in ind["hours"] else f'<small>{e(ind["hours"])}</small>')
     ctel = (f'<a class="big" href="tel:{e(tl)}">{e(tel)}</a>'
-            f'<small>{e(ind["hours"])}</small>'
+            f'{hours_html or "<small></small>"}'
             f'<div><a class="btn w" href="tel:{e(tl)}">電話をかける</a></div>'
             if tel else f'<small>{e(ind["hours"])}</small>')
 
@@ -1053,7 +1080,7 @@ def render(sid, d, ind):
   </div>
 {bigen}  <div class="wrap"><div class="stats">{stats}</div></div>
 </div>
-{news}
+{news}{feat}
 <section id="works">
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
@@ -1067,7 +1094,7 @@ def render(sid, d, ind):
 <section{flow_cls} id="flow">
   <div class="wrap">
     <div class="sechead"><span class="en">FLOW</span>
-      <h2>{e(ind["flow_h"])}</h2><p>{phrase("流れの一例です。実際の制作では、御社の進め方に合わせて書き換えます。", e)}</p></div>
+      <h2>{e(ind["flow_h"])}</h2>{"" if v2 else "<p>" + phrase("流れの一例です。実際の制作では、御社の進め方に合わせて書き換えます。", e) + "</p>"}</div>
     <div class="flow">{steps}</div>
   </div>
 </section>
@@ -1076,7 +1103,7 @@ def render(sid, d, ind):
   <div class="wrap" style="max-width:720px">
     <div class="sechead"><span class="en">COMPANY</span><h2>会社概要</h2></div>
     <table class="info">{rows}</table>
-    <div class="mapbox"><b>地図が入ります</b>最寄り駅・駐車場のご案内もここに</div>
+    {"" if v2 else '<div class="mapbox"><b>地図が入ります</b>最寄り駅・駐車場のご案内もここに</div>'}
   </div>
 </section>
 
@@ -1111,4 +1138,105 @@ def render(sid, d, ind):
 {body_js()}
 </body>
 </html>
+"""
+
+
+# =====================================================================
+# 試作（v2・2026-10-31）：松本さん「開いてもこの程度かと思われたくない」から。
+#   build.py --trial <キー> のときだけ使う（今の見本は変えない）。出力は <キー>-v2/
+#   ・ヒーローの下が「白い箱に文字」だけで続いて設計図のように見えたので、
+#     写真と文字を左右に並べる「大切にしていること」（sites.json の features）を足す
+#   ・「できること」に線の絵と番号を付けて、6つ同じ箱の単調さをなくす
+#   ・仮の表示（お知らせの表示例・地図の灰色の枠・「流れの一例です」・受付時間の仮の文）を出さない
+# =====================================================================
+ICONS = {  # 24×24 の線の絵。stroke は文字色
+    "house": '<path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.8V20h13V9.8"/><path d="M10 20v-5.5h4V20"/>',
+    "build": '<path d="M4 20V7l6-3v16"/><path d="M10 9h10v11"/><path d="M3 20h18"/><path d="M13 12.5h1.5M16.5 12.5H18M13 16h1.5M16.5 16H18M6.5 9.5h1M6.5 13h1M6.5 16.5h1"/>',
+    "pin": '<path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>',
+    "key": '<circle cx="8" cy="15" r="4"/><path d="m11 12 8.5-8.5M16 7l2.5 2.5M14 9l2 2"/>',
+    "tool": '<path d="M14.5 6.5a4 4 0 0 0 5 5L11 20a2.1 2.1 0 0 1-3-3l8.5-8.5"/><path d="M14.5 6.5 17 4l3 3-2.5 2.5"/>',
+    "shield": '<path d="M12 3.5 19 6v5.5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"/><path d="m8.8 12 2.2 2.2 4.3-4.4"/>',
+    "plan": '<rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M4 11h7v9M11 11V4M15 4v7h5"/>',
+    "gear": '<circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/>',
+    "roller": '<rect x="4" y="4" width="13" height="5" rx="1"/><path d="M17 6.5h2.5V12H11v3"/><rect x="9.5" y="15" width="3" height="5.5" rx="1"/>',
+    "drop": '<path d="M12 3.5s6 6.4 6 10.5a6 6 0 0 1-12 0c0-4.1 6-10.5 6-10.5z"/>',
+    "bolt": '<path d="M13 3 5.5 13.5H12L11 21l7.5-10.5H12z"/>',
+    "car": '<path d="M5 16.5V12l2-5h10l2 5v4.5"/><path d="M3.5 16.5h17"/><circle cx="7.5" cy="16.5" r="1.8"/><circle cx="16.5" cy="16.5" r="1.8"/><path d="M5.5 12h13"/>',
+    "leaf": '<path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19 13 11"/>',
+    "doc": '<path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/>',
+    "chat": '<path d="M4.5 5.5h15v10h-8l-4 3.5v-3.5h-3z"/><path d="M8.5 9.5h7M8.5 12h4.5"/>',
+}
+ICON_HINTS = (  # 項目名に含まれる語 → 絵。上から順に見る
+    (("引渡", "点検", "保証", "アフター", "メンテ", "保全", "保険"), "shield"),
+    (("土地", "不動産", "物件", "立地"), "pin"),
+    (("中古", "賃貸", "売買", "仲介"), "key"),
+    (("リフォーム", "修理", "修繕", "改修", "補修", "直し"), "tool"),
+    (("設計", "プラン", "図面", "間取り", "監理"), "plan"),
+    (("分譲", "マンション", "ビル", "施設", "店舗", "公共"), "build"),
+    (("塗装", "塗り", "外壁"), "roller"),
+    (("水", "配管", "給排水", "浴"), "drop"),
+    (("電気", "電設", "計装", "太陽光"), "bolt"),
+    (("車", "板金", "車検"), "car"),
+    (("造園", "庭", "緑"), "leaf"),
+    (("機械", "製作", "加工", "製造", "装置", "治具"), "gear"),
+    (("相談", "ご案内", "Q&A", "質問"), "chat"),
+    (("住宅", "家", "新築", "住まい"), "house"),
+)
+
+
+def icon_svg(title):
+    key = next((ic for words, ic in ICON_HINTS if any(w in title for w in words)), "doc")
+    return (f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" '
+            f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{ICONS[key]}</svg>')
+
+
+V2_CSS = """
+/* ---- 試作 v2 ---- */
+body{font-size:15.5px}
+.sechead .en{font-size:11.5px;letter-spacing:.32em;font-weight:700}
+.sechead h2{font-size:clamp(24px,5.8vw,34px);letter-spacing:.08em}
+.sechead h2::after{content:"";display:block;width:36px;height:2px;background:var(--accent);margin:16px auto 0}
+/* できること：線の絵と番号。白い箱の繰り返しに見えないよう、絵の丸と大きな番号で強弱を付ける */
+.card{padding:30px 26px 28px;border-radius:14px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card .ic{display:grid;place-items:center;width:54px;height:54px;border-radius:50%%;
+  background:rgba(%(acc_rgb)s,.1);color:var(--accent);margin-bottom:16px}
+.card .ic svg{width:28px;height:28px}
+.card .no{position:absolute;right:20px;top:14px;font-family:var(--serif);font-size:44px;line-height:1;
+  color:rgba(%(acc_rgb)s,.12);letter-spacing:.02em}
+.card h3{font-size:17.5px}
+.card p{font-size:14px;line-height:1.85}
+@media(hover:hover){.card:hover{transform:translateY(-3px);border-color:rgba(%(acc_rgb)s,.45);
+  box-shadow:0 14px 30px rgba(30,40,35,.08)}}
+/* 大切にしていること：写真と文字を左右に。互い違いに並べる */
+.feat{background:var(--paper)}
+.frows{display:grid;gap:56px}
+.frow{display:grid;gap:22px;align-items:center}
+.fph{position:relative;aspect-ratio:4/3;border-radius:14px;background-size:cover;background-position:center;
+  box-shadow:0 18px 40px rgba(30,40,35,.14)}
+.fph::before{content:"";position:absolute;inset:auto -12px -12px auto;width:46%%;height:46%%;
+  border-radius:14px;background:rgba(%(acc_rgb)s,.14);z-index:-1}
+.fph .cap{position:absolute;left:12px;bottom:12px;background:rgba(20,18,14,.72);color:#fff;
+  border-radius:6px;padding:5px 10px;font-size:11px;letter-spacing:.06em}
+.ftx .no{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:15px;
+  color:var(--accent);letter-spacing:.12em;margin-bottom:10px}
+.ftx .no::after{content:"";width:44px;height:1px;background:var(--accent)}
+.ftx h3{font-family:var(--serif);font-weight:500;font-size:clamp(22px,5.6vw,30px);line-height:1.55;
+  letter-spacing:.06em;margin:0 0 14px}
+.ftx p{margin:0;color:var(--muted);font-size:15px;line-height:2}
+/* 流れ：番号を大きく、つなぎの線を引く */
+.step{border-radius:14px;padding:24px 22px 22px 70px}
+.step::before{font-size:24px;top:20px;left:20px}
+/* 会社概要：地図の灰色の枠の代わりに、表だけを白い面に */
+#company table.info{background:var(--paper);border-radius:14px;overflow:hidden;
+  box-shadow:0 10px 30px rgba(30,40,35,.06)}
+section.alt #company table.info,section.alt table.info{background:var(--ground)}
+#company table.info th,#company table.info td{padding:18px 22px}
+@media(min-width:900px){
+  .frows{gap:96px}
+  .frow{grid-template-columns:1.12fr 1fr;gap:64px}
+  .frow:nth-child(even) .fph{order:2}
+  .frow:nth-child(even) .fph::before{inset:auto auto -12px -12px}
+  .ftx{max-width:30em}
+  .step:not(:last-child)::after{content:"";position:absolute;top:50%%;right:-12px;width:12px;height:1px;background:var(--accent)}
+}
 """
