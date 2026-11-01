@@ -260,7 +260,7 @@ footer .next li{margin:2px 0}
   /* 縦書きの明朝（TATSUSHO の型）。広い画面のときだけ。 */
   .vt{writing-mode:vertical-rl;text-orientation:upright;
       max-height:470px;margin-left:auto;white-space:nowrap}
-  .hero h1{line-height:2.0;letter-spacing:.14em;font-size:33px}
+  .hero h1{line-height:2.0;letter-spacing:.14em;font-size:calc(33px * var(--h1k,1))}
   .hero .sub,.hero .en,.hero .acts{writing-mode:horizontal-tb}
   .hero .side{display:flex;flex-direction:column;align-items:flex-end;gap:0}
   .hero .textcol{flex-direction:row;gap:26px;justify-content:flex-end}
@@ -477,7 +477,16 @@ html.ewl-on:not(.ewl-go) :is(.hero .meta > *,.hero h1,.hero .shot){animation-pla
   .hero.full .shot{position:absolute;inset:0;width:auto;margin:0;height:auto;max-height:none;order:0}
   /* 文字が読めるように、左を濃く右を薄く */
   .hero.full .shot::before{content:"";position:absolute;inset:0;
-    background:linear-gradient(90deg,rgba(20,18,14,.62) 0%,rgba(20,18,14,.32) 55%,rgba(20,18,14,.12) 100%)}
+    z-index:1;background:linear-gradient(90deg,rgba(20,18,14,.62) 0%,rgba(20,18,14,.32) 55%,rgba(20,18,14,.12) 100%)}
+  .hero.full .shot .lb{z-index:2}
+  /* ★2026-11-01「FVのインパクトを出したい、全体的に暗い」。写真を切り替える先（.fv＝住宅）だけ、
+     高さを画面いっぱいに、黒い幕は文字の後ろ（左4割）だけにして写真の明るさを見せる。見出しも2割大きく。
+     ほかの業種は写真が暗め・込み入っているものがあり、幕を薄くすると文字が読めなくなるので前のまま */
+  .hero.full.fv{--h1k:1.22}
+  .hero.full.fv .inner{min-height:max(600px,min(calc(100vh - 96px),900px))}
+  .hero.full.fv .vt{max-height:600px}
+  .hero.full.fv .shot::before{background:linear-gradient(90deg,rgba(20,18,14,.58) 0%,rgba(20,18,14,.40) 36%,rgba(20,18,14,0) 68%)}
+  .hero.full.fv .side{padding-bottom:110px}
   .hero.full .side{position:relative;z-index:1;align-items:flex-start;padding:64px 20px 96px}
   .hero.full .textcol{justify-content:flex-start;gap:34px}
   .hero.full .textcol h1{order:-1}
@@ -494,7 +503,9 @@ html.ewl-on:not(.ewl-go) :is(.hero .meta > *,.hero h1,.hero .shot){animation-pla
   .hero.full .stats{margin-top:-44px;position:relative;z-index:2}
   .hero.full .stats div{box-shadow:0 10px 30px rgba(20,18,14,.10)}
 }
-@media(prefers-reduced-motion:reduce){.hero.full .shot{animation:none}}
+/* 2枚目以降の写真。各ページで切り替えの間合い（@keyframes heroSl）を書き足す */
+.hero.full .shot .sl{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0}
+@media(prefers-reduced-motion:reduce){.hero.full .shot{animation:none}.hero.full .shot .sl{animation:none!important}}
 @media print{
   .hero.full .inner{min-height:0;display:block}
   .hero.full .shot{position:relative;inset:auto;width:auto;margin:0;height:auto;aspect-ratio:16/7;

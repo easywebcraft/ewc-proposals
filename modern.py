@@ -275,7 +275,7 @@ footer .next li{margin:2px 0}
   /* 縦書きの明朝（TATSUSHO の型）。広い画面のときだけ。 */
   .vt{writing-mode:vertical-rl;text-orientation:upright;
       max-height:470px;margin-left:auto;white-space:nowrap}
-  .hero h1{line-height:2.0;letter-spacing:.14em;font-size:%(h1px)spx}
+  .hero h1{line-height:2.0;letter-spacing:.14em;font-size:calc(%(h1px)spx * var(--h1k,1))}
   .hero .sub,.hero .en,.hero .acts{writing-mode:horizontal-tb}
   .hero .side{display:flex;flex-direction:column;align-items:flex-end;gap:0}
   .hero .textcol{flex-direction:row;gap:26px;justify-content:flex-end}
@@ -577,7 +577,16 @@ HERO_FULL_CSS = """
   .hero.full .shot{position:absolute;inset:0;width:auto;margin:0;height:auto;max-height:none;order:0}
   /* 文字が読めるように、左を濃く右を薄く */
   .hero.full .shot::before{content:"";position:absolute;inset:0;
-    background:linear-gradient(90deg,rgba(20,18,14,.62) 0%,rgba(20,18,14,.32) 55%,rgba(20,18,14,.12) 100%)}
+    z-index:1;background:linear-gradient(90deg,rgba(20,18,14,.62) 0%,rgba(20,18,14,.32) 55%,rgba(20,18,14,.12) 100%)}
+  .hero.full .shot .lb{z-index:2}
+  /* ★2026-11-01「FVのインパクトを出したい、全体的に暗い」。写真を切り替える先（.fv＝住宅）だけ、
+     高さを画面いっぱいに、黒い幕は文字の後ろ（左4割）だけにして写真の明るさを見せる。見出しも2割大きく。
+     ほかの業種は写真が暗め・込み入っているものがあり、幕を薄くすると文字が読めなくなるので前のまま */
+  .hero.full.fv{--h1k:1.22}
+  .hero.full.fv .inner{min-height:max(600px,min(calc(100vh - 96px),900px))}
+  .hero.full.fv .vt{max-height:600px}
+  .hero.full.fv .shot::before{background:linear-gradient(90deg,rgba(20,18,14,.58) 0%,rgba(20,18,14,.40) 36%,rgba(20,18,14,0) 68%)}
+  .hero.full.fv .side{padding-bottom:110px}
   .hero.full .side{position:relative;z-index:1;align-items:flex-start;padding:64px 20px 96px}
   .hero.full .textcol{justify-content:flex-start;gap:34px}
   .hero.full .textcol h1{order:-1}
@@ -594,7 +603,9 @@ HERO_FULL_CSS = """
   .hero.full .stats{margin-top:-44px;position:relative;z-index:2}
   .hero.full .stats div{box-shadow:0 10px 30px rgba(20,18,14,.10)}
 }
-@media(prefers-reduced-motion:reduce){.hero.full .shot{animation:none}}
+/* 2枚目以降の写真。各ページで切り替えの間合い（@keyframes heroSl）を書き足す */
+.hero.full .shot .sl{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0}
+@media(prefers-reduced-motion:reduce){.hero.full .shot{animation:none}.hero.full .shot .sl{animation:none!important}}
 @media print{
   .hero.full .inner{min-height:0;display:block}
   .hero.full .shot{position:relative;inset:auto;width:auto;margin:0;height:auto;aspect-ratio:16/7;
@@ -984,6 +995,26 @@ import os
 PHOTO_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "photos")
 
 
+SLIDE_SEC = 6       # 1枚を見せる秒数
+
+
+def hero_slides(pids):
+    """トップの2枚目以降の写真を重ねる層と、その切り替えの間合い。
+    n枚を SLIDE_SEC 秒ずつ、1秒かけて重ねて替える（1枚目は .shot の背景のまま下に敷く）。"""
+    if not pids:
+        return ""
+    n = len(pids) + 1
+    cyc = n * SLIDE_SEC
+    a = 100 / cyc                     # 1秒が周期の何％か
+    on = SLIDE_SEC * a
+    kf = (f"@keyframes heroSl{{0%{{opacity:0;transform:scale(1.08)}}{a:.2f}%{{opacity:1}}"
+          f"{on + a:.2f}%{{opacity:1}}{on + 2 * a:.2f}%{{opacity:0;transform:none}}100%{{opacity:0}}}}")
+    layers = "".join(
+        f'<i class="sl"{photo_style(p)[:-1]};animation:heroSl {cyc}s linear {i * SLIDE_SEC - 1}s infinite"></i>'
+        for i, p in enumerate(pids, 1))
+    return f"<style>{kf}</style>{layers}"
+
+
 def photo_style(pid):
     """photos/<id>.jpg を参照する style 属性にする。無ければ空（枠のまま）。"""
     if not pid:
@@ -1075,6 +1106,7 @@ def render(sid, d, ind):
     # 無いと項目を押しても「できること」に着地して、中身が無いのが分かる。
     photos = d.get("photos") or {}
     hero_ph = photo_style(photos.get("hero"))
+    slides = hero_slides(photos.get("slides") if hero_ph else None)
     hero_lb = ("<b>イメージ写真です</b>実際の制作では御社のお写真に差し替えます" if hero_ph else
                f'<b>お写真が入ります</b>{e(ind.get("shot", "現場のようす・完成した建物など"))}')
     gal = d.get("gallery")
@@ -1177,7 +1209,7 @@ def render(sid, d, ind):
   </div></header>
 </div>
 
-<div class="hero{" tx" if tex else ""}{" full" if hero_ph else ""}">
+<div class="hero{" tx" if tex else ""}{" full" if hero_ph else ""}{" fv" if slides else ""}">
   {tex}{tagline}
   <div class="wrap inner">
     <div class="side">
@@ -1190,7 +1222,7 @@ def render(sid, d, ind):
         {since}<h1 class="vt">{h1_html}</h1>
       </div>
     </div>
-    <div class="shot{" ph" if hero_ph else ""}"{hero_ph}>
+    <div class="shot{" ph" if hero_ph else ""}"{hero_ph}>{slides}
       <div class="lb">{hero_lb}</div>
     </div>
     <span class="scroll">scroll</span>

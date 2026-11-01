@@ -260,7 +260,7 @@ footer .next li{margin:2px 0}
   /* 縦書きの明朝（TATSUSHO の型）。広い画面のときだけ。 */
   .vt{writing-mode:vertical-rl;text-orientation:upright;
       max-height:470px;margin-left:auto;white-space:nowrap}
-  .hero h1{line-height:2.0;letter-spacing:.14em;font-size:40px}
+  .hero h1{line-height:2.0;letter-spacing:.14em;font-size:calc(40px * var(--h1k,1))}
   .hero .sub,.hero .en,.hero .acts{writing-mode:horizontal-tb}
   .hero .side{display:flex;flex-direction:column;align-items:flex-end;gap:0}
   .hero .textcol{flex-direction:row;gap:26px;justify-content:flex-end}
