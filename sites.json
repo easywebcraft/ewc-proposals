@@ -7974,14 +7974,7 @@
    ],
    "accent": "#1a4d7a",
    "texture": "zumen",
-   "photos": {
-     "hero": "1762813384339-c526d5533976",
-     "gallery": [
-       "1700581316314-9e6a809bd656",
-       null,
-       null
-     ]
-   },
+   "photos": {"hero": "ai-house-h2", "gallery": ["1700581316314-9e6a809bd656", null, "ai-house-g2"], "slides": ["ai-house-h1", "ai-house-h4"]},
   "permits": ["愛知県知事許可（特-6）第65148号"]
  },
  "inter-group": {
@@ -8352,14 +8345,7 @@
    ],
    "accent": "#6b4a1e",
    "texture": "mokume",
-   "photos": {
-     "hero": "1762813384339-c526d5533976",
-     "gallery": [
-       "1700581316314-9e6a809bd656",
-       null,
-       null
-     ]
-   }
+   "photos": {"hero": "ai-house-h5", "gallery": ["ai-house-h1", "ai-house-h4", null], "slides": ["ai-house-h3", "ai-house-h2"]}
  },
  "kotaki": {
    "name": "小瀧窯業株式会社",
@@ -8643,14 +8629,7 @@
    ],
    "accent": "#2e7d4f",
    "texture": "mokume",
-   "photos": {
-     "hero": "1762813384339-c526d5533976",
-     "gallery": [
-       "1700581316314-9e6a809bd656",
-       null,
-       null
-     ]
-   }
+   "photos": {"hero": "ai-house-h5", "gallery": [null, "ai-house-h1", "ai-house-g3"], "slides": ["ai-house-h4", "ai-house-h2"]}
  },
  "e-matsunaga": {
    "name": "松永建設株式会社",
@@ -8721,9 +8700,7 @@
    ],
    "accent": "#1f5f9a",
    "texture": "ashiba",
-   "photos": {
-     "hero": "1762813384339-c526d5533976"
-   },
+   "photos": {"hero": "ai-house-h2", "gallery": [null, "ai-house-g2", null], "slides": ["ai-house-h1", "ai-house-h4"]},
   "permits": ["岐阜県知事許可（特-8）第125号"]
  },
  "koderakensetsu": {
@@ -8795,14 +8772,7 @@
    ],
    "accent": "#7a3b12",
    "texture": "mokume",
-   "photos": {
-     "hero": "1762813384339-c526d5533976",
-     "gallery": [
-       "1700581316314-9e6a809bd656",
-       null,
-       null
-     ]
-   }
+   "photos": {"hero": "ai-house-h1", "gallery": ["1700581316314-9e6a809bd656", "ai-house-h4", null], "slides": ["ai-house-h3", "ai-house-h2"]}
  },
  "kanesan": {
    "name": "株式会社カネサン",
@@ -8937,9 +8907,7 @@
    ],
    "accent": "#1b5e8a",
    "texture": "ashiba",
-   "photos": {
-     "hero": "1762813384339-c526d5533976"
-   }
+   "photos": {"hero": "ai-house-h2", "slides": ["ai-house-h1", "ai-house-h4"]}
  },
  "sankikensou": {
    "name": "有限会社三輝建創",
@@ -9462,9 +9430,7 @@
    ],
    "accent": "#1b5e8a",
    "texture": "ashiba",
-   "photos": {
-     "hero": "1762813384339-c526d5533976"
-   }
+   "photos": {"hero": "ai-house-h1", "gallery": ["ai-house-g2", "ai-house-g3", null], "slides": ["ai-house-h4", "ai-house-h2"]}
  },
  "txc": {
    "name": "株式会社ティーバイシー",
