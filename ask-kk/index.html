@@ -104,7 +104,9 @@ footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
    「イメージ写真」の札を必ず出す（本物の実績と誤認させないため） */
 .ph{background-size:cover;background-position:center}
 .ph::after{display:none}
-.shot.ph,.gframe.ph{display:block;padding:0}
+.shot.ph,.gframe.ph{display:block;padding:0;background-size:cover;background-position:center}
+/* ★.gframe の background 一括指定が後ろにあり、.ph の cover/center を打ち消していた
+   （写真が原寸のまま左上だけ写っていた）。ここで写真の枠に限って掛け直す */
 /* 札は大きく・はっきり（2026-09-19 指示: イメージ写真であることを強調）。
    1行目に「イメージ写真」を太く、2行目に差し替えの断り */
 .shot.ph .lb,.gframe.ph .cap{position:absolute;left:12px;bottom:12px;z-index:1;text-align:left;
@@ -495,7 +497,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
         <h1 class="vt">土地の活かし方から、<br>建物の完成まで。<br><em>事業計画・設計・施工を、<br>ひとつの窓口で。</em></h1>
       </div>
     </div>
-    <div class="shot ph" style="background-image:url(../photos/1762813384339-c526d5533976.jpg?v=9d91fba7)">
+    <div class="shot ph" style="background-image:url(../photos/ai-house-h2.jpg?v=03298fc0)">
       <div class="lb"><b>イメージ写真です</b>実際の制作では御社のお写真に差し替えます</div>
     </div>
     <span class="scroll">scroll</span>
@@ -517,7 +519,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
     <div class="sechead"><span class="en">WORKS</span>
       <h2>実績・事例</h2>
       <p>お預かりしたお写真を、ここに並べます。</p></div>
-    <div class="gal"><div class="gframe ph" style="background-image:url(../photos/1700581316314-9e6a809bd656.jpg?v=2e8f41d8)"><span class="cap"><b>イメージ写真です</b>賃貸住宅の事例（御社のお写真に差し替え）</span></div><div class="gframe"><b>お写真が入ります</b>店舗・施設の事例</div><div class="gframe"><b>お写真が入ります</b>改修の事例</div></div>
+    <div class="gal"><div class="gframe"><b>お写真が入ります</b>賃貸住宅の事例</div><div class="gframe"><b>お写真が入ります</b>店舗・施設の事例</div><div class="gframe ph" style="background-image:url(../photos/ai-house-g3.jpg?v=4a8d5af3)"><span class="cap"><b>イメージ写真です</b>改修の事例（御社のお写真に差し替え）</span></div></div>
   </div>
 </section>
 

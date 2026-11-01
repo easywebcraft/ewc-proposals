@@ -119,7 +119,9 @@ footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
    「イメージ写真」の札を必ず出す（本物の実績と誤認させないため） */
 .ph{background-size:cover;background-position:center}
 .ph::after{display:none}
-.shot.ph,.gframe.ph{display:block;padding:0}
+.shot.ph,.gframe.ph{display:block;padding:0;background-size:cover;background-position:center}
+/* ★.gframe の background 一括指定が後ろにあり、.ph の cover/center を打ち消していた
+   （写真が原寸のまま左上だけ写っていた）。ここで写真の枠に限って掛け直す */
 /* 札は大きく・はっきり（2026-09-19 指示: イメージ写真であることを強調）。
    1行目に「イメージ写真」を太く、2行目に差し替えの断り */
 .shot.ph .lb,.gframe.ph .cap{position:absolute;left:12px;bottom:12px;z-index:1;text-align:left;

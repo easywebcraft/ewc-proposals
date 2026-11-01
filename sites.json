@@ -53,7 +53,7 @@
    ]
   ],
   "texture": "zumen",
-  "photos": {"hero": "1762813384339-c526d5533976"}
+  "photos": {"hero": "ai-house-h5"}
  },
  "kuniedatoso": {
   "name": "有限会社国枝塗装",
@@ -164,7 +164,7 @@
    ]
   ],
   "texture": "zumen",
-  "photos": {"hero": "1762813384339-c526d5533976"},
+  "photos": {"hero": "ai-house-h1"},
   "features": [
    {
     "h": "建てる土地から一緒に探します",
@@ -635,7 +635,7 @@
   ],
   "accent": "#1a4f96",
   "texture": "zumen",
-  "photos": {"hero": "1762813384339-c526d5533976"}
+  "photos": {"hero": "ai-house-h2"}
  },
  "yamanaka-denki": {
   "name": "有限会社山中電器",
@@ -916,7 +916,7 @@
   ],
   "accent": "#59a52c",
   "texture": "ashiba",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, "ai-house-g7"]}
  },
  "ek-kinzoku": {
   "industry": "seizo",
@@ -2068,7 +2068,7 @@
   ],
   "accent": "#a55d0f",
   "texture": "zumen",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "ai-house-h4", "gallery": ["ai-house-g2", "ai-house-g3", null]}
  },
  "hasegawa-koumuten": {
   "name": "株式会社長谷川工務店",
@@ -2656,7 +2656,7 @@
   ],
   "accent": "#47840b",
   "texture": "mokume",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "ai-house-h1", "gallery": ["ai-house-g2", "ai-house-g3", "ai-house-g4"]}
  },
  "ichikawa-mokko": {
   "name": "株式会社市川木工",
@@ -2804,7 +2804,7 @@
   ],
   "accent": "#1e6b2e",
   "texture": "zumen",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]},
+  "photos": {"hero": "ai-house-h5", "gallery": ["ai-house-g2", null, "ai-house-g3"]},
   "permits": ["愛知県知事許可（般-7）第36832号"]
  },
  "asahi-homes": {
@@ -2881,7 +2881,7 @@
   ],
   "accent": "#0e824d",
   "texture": "mokume",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]},
+  "photos": {"hero": "ai-house-h3", "gallery": ["ai-house-h1", "ai-house-h4", null]},
   "permits": ["愛知県知事許可（般-27）第40648号"]
  },
  "asada-denki": {
@@ -3247,7 +3247,7 @@
   ],
   "accent": "#122550",
   "texture": "mokume",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]},
+  "photos": {"hero": "ai-house-h3", "gallery": ["ai-house-g2", "ai-house-g3", null]},
   "permits": ["愛知県知事許可（般-19）第62366号"]
  },
  "jpaintm": {
@@ -3732,7 +3732,7 @@
   ],
   "accent": "#3f7782",
   "texture": "mokume",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]},
+  "photos": {"hero": "ai-house-h1", "gallery": ["ai-house-g2", null, "ai-house-g3"]},
   "permits": ["愛知県知事許可（特-4）第27351号"]
  },
  "hinode-j": {
@@ -3945,7 +3945,7 @@
    "改修の事例"
   ],
   "gallery_h": "実績・事例",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]},
+  "photos": {"hero": "ai-house-h2", "gallery": [null, null, "ai-house-g3"]},
   "permits": ["愛知県知事許可（特-5）第36632号"]
  },
  "shinei-fp": {
@@ -4019,7 +4019,7 @@
    "構造見学会"
   ],
   "gallery_h": "施工事例",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "ai-house-h3", "gallery": ["ai-house-g2", "ai-house-g7", "1700581316314-9e6a809bd656"]}
  },
  "tam-cp": {
   "name": "有限会社タムカンパニー",
@@ -4636,7 +4636,7 @@
    "看板・店舗装飾の事例"
   ],
   "gallery_h": "施工事例",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "ai-house-h1", "gallery": ["ai-house-g2", "ai-house-h2", null]}
  },
  "reform-aiti": {
   "name": "リフォーム愛知株式会社",
@@ -4983,7 +4983,7 @@
    "店舗の設計例"
   ],
   "gallery_h": "設計事例",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "ai-house-h4", "gallery": ["ai-house-g2", null, null]}
  },
  "toei-iak": {
   "name": "株式会社トーエイ",
@@ -5193,7 +5193,7 @@
   ],
   "gallery_h": "施工例",
   "hours": "営業時間 8:00–18:00（日曜・祝日 定休）",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "ai-house-h2", "gallery": ["ai-house-g2", "ai-house-g3", null]}
  },
  "tsugeburo": {
   "name": "株式会社Ｒｉｖｅｔ（つげ風呂設備）",
@@ -5536,7 +5536,7 @@
   "texture": "zumen",
   "zip": "481-0006",
   "founded": "2003",
-  "photos": {"hero": "1762813384339-c526d5533976"}
+  "photos": {"hero": "ai-house-h3"}
  },
  "idhomestudio": {
   "name": "アイディーホームスタジオ有限会社",
@@ -5615,7 +5615,7 @@
    "収納・造作"
   ],
   "gallery_h": "施工事例",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "ai-house-h1", "gallery": ["ai-house-g2", "ai-house-g3", "ai-house-g6"]}
  },
  "remake-tokai": {
   "name": "有限会社リメーク東海",
@@ -6318,7 +6318,7 @@
    "リフォーム"
   ],
   "gallery_h": "施工事例",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]},
+  "photos": {"hero": "ai-house-h1", "gallery": ["ai-house-g2", null, "ai-house-g3"]},
   "permits": ["岐阜県知事許可（般-4）第3311号"]
  },
  "hasegawa-garasu": {
@@ -6808,7 +6808,7 @@
    "住宅の施工例"
   ],
   "gallery_h": "施工実績",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]},
+  "photos": {"hero": "ai-house-h2", "gallery": [null, null, "ai-house-g2"]},
   "permits": ["岐阜県知事許可（般-4）第12923号"]
  },
  "hashiba-denki": {
@@ -7027,7 +7027,7 @@
   ],
   "gallery_h": "施工事例",
   "hours": "営業時間 8:00–18:00",
-  "photos": {"hero": "1762813384339-c526d5533976", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "ai-house-h3", "gallery": ["ai-house-g2", "ai-house-g3", "1700581316314-9e6a809bd656"]}
  },
  "itokenzai": {
    "name": "有限会社伊藤建材",
@@ -10488,9 +10488,7 @@
   ],
   "accent": "#2f5a3a",
   "texture": "zumen",
-  "photos": {
-   "hero": "1762813384339-c526d5533976"
-  }
+  "photos": {"hero": "ai-house-h4", "gallery": ["ai-house-g2", null, null]}
  },
  "kurumado": {
   "name": "株式会社車戸建築事務所",
@@ -10581,9 +10579,7 @@
   ],
   "accent": "#3f7f4f",
   "texture": "zumen",
-  "photos": {
-   "hero": "1762813384339-c526d5533976"
-  }
+  "photos": {"hero": "ai-house-h2", "gallery": ["ai-house-g2", null, null]}
  },
  "taikokensetu": {
   "name": "大興建設株式会社",
@@ -10655,9 +10651,7 @@
   ],
   "accent": "#2a9a46",
   "texture": "mokume",
-  "photos": {
-   "hero": "1762813384339-c526d5533976"
-  },
+  "photos": {"hero": "ai-house-h5", "gallery": ["ai-house-g2", "ai-house-g3", "ai-house-g7"]},
   "permits": [
    "岐阜県知事許可（特-4）第3044号",
    "一級建築士事務所 岐阜県知事登録 第8388号"
