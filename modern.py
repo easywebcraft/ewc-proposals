@@ -14,6 +14,7 @@
   提案として何が入るかを示すほうが伝わる。
 """
 import html as H
+import re
 
 
 def e(x):
@@ -433,6 +434,116 @@ BODY_JS = """<script>
 })();
 window.__animReady=true;                    // <head> の保険に「動いた」と伝える
 </script>"""
+
+
+# ★冒頭の演出（2026-11-01・LFグループのトップと同じ流れ。中身は社名だけ）
+#   輪が埋まる → 社名が中央に出る → ヘッダーの社名の位置へ吸い込まれ、白い幕が透けてページが出る。
+#   ・1回の訪問で1度だけ（sessionStorage）。押せばすぐ終わる。動きを減らす設定の人には出さない
+#   ・演出の社名はヘッダーと同じ .logo の指定で組むので、着いたところで本物と入れ替えても境目が出ない
+#   ・幕の下でトップの出る動きが先に終わらないよう、演出中は止めておき、幕が透けるときに動かす
+#   ・JS が動かなくても 6秒で幕を外す（見本の断り書きを隠したままにしない）
+LOADER_CSS = """
+.ewl{display:none}
+html.ewl-on{overflow:hidden}
+html.ewl-on .ewl{display:grid;place-items:center;position:fixed;inset:0;z-index:1000;background:#fff;
+  transition:background-color .9s ease .25s,opacity .5s ease;cursor:pointer}
+html.ewl-on .ewl.is-absorb{background-color:rgba(255,255,255,0)}
+html.ewl-on .ewl.is-out{opacity:0}
+.ewl-p1{position:relative;width:112px;height:112px;display:grid;place-items:center;transition:opacity .3s,transform .3s}
+.ewl.is-p2 .ewl-p1{opacity:0;transform:scale(.92)}
+.ewl-ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.ewl-ring circle{fill:none;stroke-width:2}
+.ewl-ring .t{stroke:#e6e3dc}
+.ewl-ring .f{stroke:var(--accent);stroke-linecap:round}
+.ewl-mark{display:grid;place-items:center;width:56px;height:56px;border-radius:14px;background:var(--accent);
+  color:#fff;font-family:var(--serif);font-weight:700;font-size:24px;animation:ewlBreathe 1.6s ease-in-out infinite}
+@keyframes ewlBreathe{50%{transform:scale(.94)}}
+.ewl-pct{position:absolute;top:calc(100% + 14px);left:0;right:0;text-align:center;font-size:12px;
+  font-weight:700;letter-spacing:.14em;color:var(--accent)}
+.ewl-p2{position:absolute;inset:0;display:grid;place-content:center;opacity:0;pointer-events:none}
+.ewl.is-p2 .ewl-p2{opacity:1;transition:opacity .7s ease .1s}
+.ewl .logo{transform:scale(1.9);transform-origin:50% 50%;white-space:nowrap;
+  transition:transform 1s cubic-bezier(.65,0,.35,1),opacity .45s ease .95s}
+/* 着いてから本物と入れ替える（途中で消すと、吸い込まれる動きが見えない） */
+.ewl.is-absorb .logo{opacity:0}
+.ewl-skip{position:absolute;bottom:26px;left:0;right:0;text-align:center;font-size:11px;letter-spacing:.1em;
+  color:#888;transition:opacity .3s}
+.ewl.is-absorb .ewl-skip{opacity:0}
+@media(hover:hover){.ewl-skip{display:none}}
+html.ewl-on .hd .logo{opacity:0}
+.hd .logo.ewl-in{transition:opacity .8s ease}
+html.ewl-on:not(.ewl-go) :is(.hero .meta > *,.hero h1,.hero .shot){animation-play-state:paused}
+"""
+
+LOADER_HEAD = """<script>
+(function(){
+  var r=document.documentElement,played=false;
+  try{played=sessionStorage.getItem('ewl')==='1';}catch(e){}
+  if(played||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))return;
+  r.classList.add('ewl-on');
+  if('scrollRestoration' in history)history.scrollRestoration='manual';
+  setTimeout(function(){r.classList.remove('ewl-on');},6000);
+})();
+</script>"""
+
+LOADER_HTML = """<div class="ewl" id="ewl" aria-hidden="true">
+  <div class="ewl-p1">
+    <svg class="ewl-ring" viewBox="0 0 120 120"><circle class="t" cx="60" cy="60" r="54"/><circle class="f" cx="60" cy="60" r="54"/></svg>
+    <span class="ewl-mark">%(mark)s</span><span class="ewl-pct">0%%</span>
+  </div>
+  <div class="ewl-p2"><div class="logo">%(name)s<small>%(roman)s</small></div></div>
+  <span class="ewl-skip">タップでスキップ</span>
+</div>"""
+
+LOADER_JS = """<script>
+(function(){
+  var r=document.documentElement,L=document.getElementById('ewl');
+  if(!r.classList.contains('ewl-on')||!L){if(L)L.remove();return;}
+  try{sessionStorage.setItem('ewl','1');}catch(e){}
+  scrollTo(0,0);
+  var real=document.querySelector('.hd .logo'),copy=L.querySelector('.logo'),ended=false;
+  var show=function(){if(real){real.classList.add('ewl-in');}};
+  var end=function(){
+    if(ended)return;ended=true;
+    r.classList.add('ewl-go');L.classList.add('is-out');
+    setTimeout(function(){r.classList.remove('ewl-on','ewl-go');L.remove();},500);
+  };
+  L.addEventListener('click',end);
+  var absorb=function(){
+    if(ended)return;
+    if(real&&copy){
+      var a=copy.getBoundingClientRect(),b=real.getBoundingClientRect();
+      // 中央に1.9倍で置いた社名を、ヘッダーの社名にぴったり重なる位置・大きさ（1倍）へ動かす
+      var dx=(b.left+b.width/2)-(a.left+a.width/2),dy=(b.top+b.height/2)-(a.top+a.height/2);
+      copy.style.transform='translate('+dx+'px,'+dy+'px) scale(1)';
+    }
+    r.classList.add('ewl-go');          // 幕の下で止めていたトップの動きを、ここから流す
+    L.classList.add('is-absorb');
+    setTimeout(function(){if(real)real.style.opacity='1';},950);
+    setTimeout(end,1800);
+  };
+  var fill=L.querySelector('.ewl-ring .f'),pct=L.querySelector('.ewl-pct');
+  var C=2*Math.PI*54,D=1100,t0=null;
+  fill.style.strokeDasharray=C;fill.style.strokeDashoffset=C;
+  var tick=function(ts){
+    if(ended)return;
+    if(t0===null)t0=ts;
+    var p=Math.min((ts-t0)/D,1),k=1-Math.pow(1-p,3);
+    pct.textContent=Math.round(k*100)+'%';
+    fill.style.strokeDashoffset=C*(1-k);
+    if(p<1){requestAnimationFrame(tick);return;}
+    setTimeout(function(){if(ended)return;L.classList.add('is-p2');setTimeout(absorb,1000);},200);
+  };
+  requestAnimationFrame(tick);
+})();
+</script>"""
+
+
+def loader_mark(name):
+    """輪の中の1文字。会社の種類（株式会社など）を除いた最初の字。"""
+    n = re.sub(r"^(株式会社|有限会社|合同会社|合資会社|合名会社|（株）|\(株\)|（有）|\(有\))\s*", "", name)
+    n = re.sub(r"\s*(株式会社|有限会社|合同会社)$", "", n)
+    return (n or name)[:1]
 
 
 def motion_css(navbp):
@@ -909,6 +1020,7 @@ def render(sid, d, ind):
         css += SKIN_SEIZO % {"sub": ind.get("sub", "#d4420a"), "acc_rgb": acc_rgb}
         tex = ""            # 製造は幾何形の地で持たせる。質感は問い合わせ帯だけ
     css += motion_css(navbp)      # 動きは皮の後ろ。皮の指定を上書きしないため
+    css += LOADER_CSS
     if (d.get("photos") or {}).get("hero"):
         css += HERO_FULL_CSS
     v2 = bool(d.get("_v2"))
@@ -1034,6 +1146,7 @@ def render(sid, d, ind):
             f'<div><a class="btn w" href="tel:{e(tl)}">電話をかける</a></div>'
             if tel else f'<small>{e(ind["hours"])}</small>')
 
+    loader = LOADER_HTML % {"mark": e(loader_mark(name)), "name": e(name), "roman": e(roman)}
     return f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -1044,8 +1157,10 @@ def render(sid, d, ind):
 <title>【提案見本】{e(name)}さま トップページ案｜EasyWebCraft</title>
 <style>{css}</style>
 {HEAD_JS}
+{LOADER_HEAD}
 </head>
 <body>
+{loader}
 
 <div class="notice">
   <b>これは EasyWebCraft が作成した提案用の見本です。</b>
@@ -1136,6 +1251,7 @@ def render(sid, d, ind):
 </footer>
 
 {body_js()}
+{LOADER_JS}
 </body>
 </html>
 """
