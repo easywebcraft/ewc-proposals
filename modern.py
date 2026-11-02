@@ -91,6 +91,7 @@ nav a:hover{color:var(--accent)}
 .hero h1 em{font-style:normal;color:var(--accent)}
 .hero .sub{margin:16px 0 0;color:var(--muted);font-size:14.5px;max-width:30em}
 .ph{display:inline-block}
+.cp{display:inline-block}.cp+.cp{margin-inline-start:.55em}
 .notice .ph,footer .ph{display:inline-block;margin-right:.15em}
 footer .by{margin:14px 0 0;font-size:11.5px}
 footer .by .ph{margin:0 .5em}
@@ -887,8 +888,8 @@ def headline(d, e):
     """見出しのHTMLと、縦書きのときの文字の大きさ。"""
     a, b = vsplit(d["catch"]), vsplit(d["catch_em"])
     px = max(26, min(40, int(VBUDGET / (max(len(x) for x in a + b) * 1.14))))
-    html = "<br>".join(e(x) for x in a)
-    html += "<br><em>" + "<br>".join(e(x) for x in b) + "</em>"
+    html = "<br>".join(copy_html(x, e) for x in a)
+    html += "<br><em>" + "<br>".join(copy_html(x, e) for x in b) + "</em>"
     return html, px
 
 
@@ -904,6 +905,13 @@ def phrase(text, e):
     if buf:
         out.append(buf)
     return "".join(f'<span class="ph">{e(x)}</span>' for x in out)
+
+
+# コピー（キャッチ・見出しの一言）は読点・句点を付けない（松本さんの指示 2026-11-02）。
+# 読点のあった所は少しあけて、その切れ目でだけ折り返す
+def copy_html(text, e):
+    parts = [x for x in re.split(r"[、。]", text) if x]
+    return "".join(f'<span class="cp">{e(x)}</span>' for x in parts)
 
 
 def _bigrams(text):
@@ -1078,7 +1086,7 @@ def render(sid, d, ind):
             bigen = f'  <p class="bigen" aria-hidden="true">{e(roman)}</p>\n'
     else:
         # TATSUSHO の型: 左端の縦書きの一言と、丸い CONTACT のバッジ（広い画面だけ出る）
-        tagline = f'\n  <p class="tagline">{e(d.get("svc_lead") or ind["svc_lead"])}</p>'
+        tagline = f'\n  <p class="tagline">{copy_html(d.get("svc_lead") or ind["svc_lead"], e)}</p>'
         badge = ('\n<a class="badge" href="#contact" aria-label="お問い合わせ">'
                  '<svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="bc" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>'
                  '<text><textPath href="#bc">CONTACT · CONTACT · CONTACT · </textPath></text></svg>'
@@ -1176,7 +1184,7 @@ def render(sid, d, ind):
                 else '<div class="abph"><b>お写真が入ります</b>お店・会社の外観</div>')
         gallery = f"""<section class="alt about" id="about">
   <div class="wrap abrow">{abph}
-    <div class="abtx"><span class="en">ABOUT US</span><h2>{phrase(ab["h"], e)}</h2>
+    <div class="abtx"><span class="en">ABOUT US</span><h2>{copy_html(ab["h"], e)}</h2>
       {"".join(f"<p>{phrase(x, e)}</p>" for x in ab["p"])}
       <a class="btn p" href="#company">{e(ab.get("btn", "会社概要"))}</a></div>
   </div>
@@ -1285,7 +1293,7 @@ def render(sid, d, ind):
 <section id="works">
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
-      <h2>{e(ind["svc"])}</h2><p>{e(ind["svc_lead"])}</p></div>
+      <h2>{e(ind["svc"])}</h2><p>{copy_html(ind["svc_lead"], e)}</p></div>
     <div class="cards">{cards}</div>
   </div>
 </section>
@@ -1310,7 +1318,7 @@ def render(sid, d, ind):
 
 <div class="contact{" tx" if ctex else ""}" id="contact">
   {ctex}
-  <h2>{e(ind["cta"])}</h2>
+  <h2>{copy_html(ind["cta"], e)}</h2>
   <p>{e(ind["cta_sub"])}</p>
   {ctel}
   <p class="note">{phrase("メールフォーム・LINEでのお問い合わせ窓口は、実際の制作でお付けします。", e)}</p>
