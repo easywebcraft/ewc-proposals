@@ -32,7 +32,10 @@ CSS = """
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--ground);
-     line-height:1.9;-webkit-text-size-adjust:100%%;overflow-x:hidden}
+     line-height:1.9;-webkit-text-size-adjust:100%%;overflow-x:hidden;overflow-x:clip}
+/* ★横のはみ出しは clip で切る（hidden だけだと、冒頭の演出で html を overflow:hidden にした間に
+   body がスクロールの枠になり、初回アクセスだけメニューの固定が効かないことがあった 2026-11-02）。
+   clip は枠を作らない。古いブラウザは前の行の hidden が効く */
 a{color:inherit}
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
