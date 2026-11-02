@@ -701,7 +701,7 @@
    "アクセス"
   ],
   "accent": "#2f6bb5",
-  "photos": {"hero": "1759772238012-9d5ad59ae637"}
+  "photos": {"hero": "ai-denkiten-2", "slides": ["ai-denkiten-1", "ai-denkiten-3"]}
  },
  "shimizukako": {
   "industry": "kensetsu",
@@ -2428,7 +2428,7 @@
   ],
   "accent": "#2f7a2f",
   "texture": "mokume",
-  "photos": {"hero": "1715734925148-692a4f2c4ab8", "gallery": ["1775854169418-ae7bbab70d5d", null, null]},
+  "photos": {"hero": "ai-zoen-1", "gallery": ["1775854169418-ae7bbab70d5d", null, null], "slides": ["ai-zoen-2", "ai-zoen-3"]},
   "permits": ["愛知県知事許可（般-18）第62884号"]
  },
  "takeuchi-yokuso": {
@@ -3172,7 +3172,7 @@
   ],
   "accent": "#1d5fa6",
   "texture": "kinzoku",
-  "photos": {"hero": "1759772238012-9d5ad59ae637"}
+  "photos": {"hero": "ai-denkiten-2", "slides": ["ai-denkiten-1", "ai-denkiten-3"]}
  },
  "youi-factory": {
   "name": "株式会社ユーアイファクトリー",
@@ -4909,7 +4909,7 @@
   "accent": "#027480",
   "texture": "mokume",
   "zip": "509-0206",
-  "photos": {"hero": "1785964165946-ba4a58eebcb6"}
+  "photos": {"hero": "1785964165946-ba4a58eebcb6", "slides": ["ai-zoen-1", "ai-zoen-2"]}
  },
  "matsuoka-arch": {
   "name": "株式会社松岡設計事務所",
@@ -6534,7 +6534,7 @@
    "坪庭"
   ],
   "gallery_h": "施工実績",
-  "photos": {"hero": "1715734925148-692a4f2c4ab8", "gallery": ["1775854169418-ae7bbab70d5d", null, null]}
+  "photos": {"hero": "ai-zoen-1", "gallery": ["1775854169418-ae7bbab70d5d", null, null], "slides": ["ai-zoen-2", "ai-zoen-3"]}
  },
  "hirai-kogyo": {
   "name": "平井工業株式会社",
@@ -9634,14 +9634,7 @@
    ],
    "accent": "#2e7d4f",
    "texture": "mokume",
-   "photos": {
-     "hero": "1715734925148-692a4f2c4ab8",
-     "gallery": [
-       "1775854169418-ae7bbab70d5d",
-       null,
-       null
-     ]
-   }
+   "photos": {"hero": "ai-zoen-1", "gallery": ["1775854169418-ae7bbab70d5d", null, null], "slides": ["ai-zoen-2", "ai-zoen-3"]}
  },
  "daisindaisin": {
    "name": "大辰工業株式会社",
