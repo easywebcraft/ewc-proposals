@@ -461,7 +461,10 @@ html.ewl-on .ewl.is-out{opacity:0}
 @media(hover:hover){.ewl-skip{display:none}}
 html.ewl-on .hd .logo{opacity:0}
 .hd .logo.ewl-in{transition:opacity .8s ease}
-html.ewl-on:not(.ewl-go) :is(.hero .meta > *,.hero h1,.hero .since,.hero .shot){animation-play-state:paused}
+html.ewl-on:not(.ewl-go) .hero .shot{animation-play-state:paused}
+html.ewl-on:not(.ewl-txt) :is(.hero .meta > *,.hero h1,.hero .since){animation-play-state:paused}
+/* ★写真は幕が透け始めたら（ewl-go）、文字は幕がほぼ消えてから（ewl-txt）動かす。
+   文字も幕と一緒に動かすと、演出が終わった時にはもう出終わっていた（2026-11-02） */
 /* ★止めるのは animation:none ではなく一時停止。none にすると、動き出す瞬間に写真が 1.04 倍へ跳ねてかたつき、
    幕が消えきるまで（社名が着いてから約2.3秒）コピーが出なかった（2026-11-02） */
 /* 幕を外したときにスクロールバーが出て、ページが横にずれないように（Windows など） */
@@ -850,8 +853,8 @@ window.__animReady=true;                    // <head> の保険に「動いた�
   var show=function(){if(real){real.classList.add('ewl-in');}};
   var end=function(){
     if(ended)return;ended=true;
-    r.classList.add('ewl-go');L.classList.add('is-out');
-    setTimeout(function(){r.classList.remove('ewl-on','ewl-go');L.remove();},500);
+    r.classList.add('ewl-go','ewl-txt');L.classList.add('is-out');
+    setTimeout(function(){r.classList.remove('ewl-on','ewl-go','ewl-txt');L.remove();},500);
   };
   L.addEventListener('click',end);
   var absorb=function(){
@@ -865,7 +868,8 @@ window.__animReady=true;                    // <head> の保険に「動いた�
     r.classList.add('ewl-go');          // 幕の下で止めていたトップの動きを、ここから流す
     L.classList.add('is-absorb');
     setTimeout(function(){if(real)real.style.opacity='1';},950);
-    setTimeout(end,1800);
+    setTimeout(function(){r.classList.add('ewl-txt');},850);   // 幕がほぼ透けたところで文字を出し始める
+    setTimeout(end,1200);                                       // 幕の白が消えたらすぐ外す（前は 1.8秒待っていた）
   };
   var fill=L.querySelector('.ewl-ring .f'),pct=L.querySelector('.ewl-pct');
   var C=2*Math.PI*54,D=1100,t0=null;
