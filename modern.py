@@ -339,7 +339,7 @@ footer .next li{margin:2px 0}
 #   ・JSが途中で止まっても消えたままにしない保険が2重（head側 4秒、body側 5秒）
 #   ・「動きを減らす」設定と印刷では全部止まる。外部リソースは読み込まない
 #   ★隠す対象（REVEAL_SEL）は CSS と JS で同じ並びを使う。食い違うと隠れたまま出ない要素ができる
-REVEAL_SEL = ".stats > *,.sechead,.cards > *,.gal > *,.flow > *,.info,.mapbox,.news .pill"
+REVEAL_SEL = ".stats > *,.sechead,.cards > *,.gal > *,.flow > *,.info,.mapbox,.news .pill,.abph,.abtx"
 
 MOTION_CSS = """
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
@@ -413,7 +413,11 @@ BODY_JS = """<script>
   sweep();                                  // 最初から見えている分
   addEventListener('load',sweep);
   // 保険: スクロールを拾えない環境でも、文字が消えたままにはしない
-  setTimeout(function(){units.forEach(function(el){el.classList.add('on');});units.length=0;},5000);
+  //   冒頭の演出の間は数えない（演出の裏で全部出しきって、動きが見えなかった）
+  (function wait(){
+    if(document.documentElement.classList.contains('ewl-on'))return setTimeout(wait,300);
+    sweep();setTimeout(function(){units.forEach(function(el){el.classList.add('on');});units.length=0;},5000);
+  })();
 })();
 // スマホのメニュー開閉。外を押す／項目を押す／Esc で閉じ、幅を広げてボタンが消えたら閉じる
 (function(){
@@ -1620,5 +1624,36 @@ V3_CSS = """
   .flow .step:not(:last-child)::after{content:"";position:absolute;top:32px;left:calc(50%% + 48px);
     right:calc(-50%% + 48px);width:auto;height:1.5px;background:var(--accent);opacity:.7}
   .cgrid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:stretch}
+}
+/* ---- 動き（v3）：出てくる動きを大きめにし、写真・線にも動きを付ける。隠す・出すは MOTION_CSS の .anim/.on ---- */
+@keyframes riseL{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes clipIn{from{opacity:1;clip-path:inset(0 100%% 0 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
+@keyframes popC{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:none}}
+.anim .on{animation:riseL .9s cubic-bezier(.2,.7,.2,1) both}
+@media(max-width:700px){.anim .on{animation-name:riseL}}
+/* 見出しの下の線が伸びる */
+.anim .sechead h2::after{transform:scaleX(0);transition:transform .8s cubic-bezier(.6,0,.2,1) .4s}
+.anim .sechead.on h2::after{transform:none}
+/* カードの写真は少し大きい所から寄ってくる（枠の中だけで動く） */
+.card.pc .cph{transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.anim .card.pc .cph{transform:scale(1.14)}
+.anim .card.pc.on .cph{transform:none}
+/* 会社紹介の写真は左から開く */
+.anim .abph.on{animation:clipIn 1.3s cubic-bezier(.7,0,.2,1) both}
+/* 流れ：丸がはずんで出て、つなぐ線が左から伸びる */
+.anim .flow .step.on .si{animation:popC .7s cubic-bezier(.3,1.5,.5,1) both;animation-delay:inherit}
+@media(min-width:900px){
+  .anim .flow .step:not(:last-child)::after{transform:scaleX(0);transform-origin:left;transition:transform .7s ease .6s}
+  .anim .flow .step.on:not(:last-child)::after{transform:none}
+}
+/* 指を乗せたとき：カードが浮いて、写真が少し寄る */
+.card.pc{transition:transform .3s,box-shadow .3s}
+@media(hover:hover){
+  .card.pc:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(30,40,35,.12)}
+  .card.pc:hover .cph{transform:scale(1.06);transition-duration:.8s}
+}
+@media(prefers-reduced-motion:reduce){
+  .anim .card.pc .cph,.anim .sechead h2::after,.anim .flow .step::after{transform:none!important;transition:none}
+  .anim .abph.on,.anim .flow .step.on .si{animation:none}
 }
 """
