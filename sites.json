@@ -169,7 +169,7 @@
    {
     "h": "建てる土地から一緒に探します",
     "p": "ご希望の場所と予算をうかがって、土地さがしから始められます。可児・多治見・美濃加茂のまちを、地元の目でご案内します。",
-    "photo": "1685533272451-eee3d96d9f29"
+    "photo": "ai-c-design"
    },
    {
     "h": "相談から工事まで同じ会社で",
@@ -179,7 +179,7 @@
    {
     "h": "建てたあともここが窓口です",
     "p": "お引渡し後の点検やご相談も、同じ窓口で承ります。建てて終わりにはしません。",
-    "photo": "1662624914003-9bb2095ca7a0"
+    "photo": "ai-c-handover"
    }
   ]
  },
@@ -917,7 +917,7 @@
   ],
   "accent": "#59a52c",
   "texture": "ashiba",
-  "photos": {"hero": "ai-house-h2", "gallery": ["1700581316314-9e6a809bd656", null, "ai-house-g7"], "slides": ["ai-house-h1", "ai-house-h5"]}
+  "photos": {"hero": "ai-house-h2", "gallery": ["ai-c-seismic", null, "ai-house-g7"], "slides": ["ai-house-h1", "ai-house-h5"]}
  },
  "ek-kinzoku": {
   "industry": "seizo",
@@ -1191,7 +1191,7 @@
   ],
   "accent": "#4a4d85",
   "texture": "zumen",
-  "photos": {"hero": "1685533272451-eee3d96d9f29"}
+  "photos": {"hero": "ai-house-h1", "slides": ["ai-house-h4", "ai-house-h2"]}
  },
  "igawa-kk": {
   "industry": "kensetsu",
@@ -2429,7 +2429,7 @@
   ],
   "accent": "#2f7a2f",
   "texture": "mokume",
-  "photos": {"hero": "ai-zoen-1", "gallery": ["1775854169418-ae7bbab70d5d", null, null], "slides": ["ai-zoen-2", "ai-zoen-3"]},
+  "photos": {"hero": "ai-zoen-1", "gallery": ["ai-c-exterior", null, null], "slides": ["ai-zoen-2", "ai-zoen-3"]},
   "permits": ["愛知県知事許可（般-18）第62884号"]
  },
  "takeuchi-yokuso": {
@@ -3105,7 +3105,7 @@
   ],
   "accent": "#c05a1e",
   "texture": "nuri",
-  "photos": {"hero": "1685533272451-eee3d96d9f29", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "ai-house-h1", "slides": ["ai-house-h4", "ai-house-h2"], "gallery": ["ai-c-seismic", null, null]}
  },
  "funakata": {
   "name": "株式会社フナカタ一ツ山店",
@@ -3803,7 +3803,7 @@
   ],
   "accent": "#897031",
   "texture": "zumen",
-  "photos": {"hero": "1685533272451-eee3d96d9f29"},
+  "photos": {"hero": "ai-house-h1", "slides": ["ai-house-h4", "ai-house-h2"]},
   "permits": ["愛知県知事許可（般-20）第104861号"]
  },
  "itozen": {
@@ -3877,7 +3877,7 @@
    "ショールーム"
   ],
   "gallery_h": "施工事例",
-  "photos": {"hero": "1685533272451-eee3d96d9f29", "gallery": ["1700581316314-9e6a809bd656", null, null]}
+  "photos": {"hero": "ai-house-h1", "slides": ["ai-house-h4", "ai-house-h2"], "gallery": ["ai-c-seismic", null, null]}
  },
  "ask-kk": {
   "name": "アスク環境開発株式会社",
@@ -4020,7 +4020,7 @@
    "構造見学会"
   ],
   "gallery_h": "施工事例",
-  "photos": {"hero": "ai-house-h3", "gallery": ["ai-house-g2", "ai-house-g7", "1700581316314-9e6a809bd656"], "slides": ["ai-house-h1", "ai-house-h4"]}
+  "photos": {"hero": "ai-house-h3", "gallery": ["ai-house-g2", "ai-house-g7", "ai-c-seismic"], "slides": ["ai-house-h1", "ai-house-h4"]}
  },
  "tam-cp": {
   "name": "有限会社タムカンパニー",
@@ -4429,7 +4429,7 @@
   "texture": "kinzoku",
   "zip": "488-0033",
   "founded": "1979",
-  "photos": {"hero": "1662624914003-9bb2095ca7a0"}
+  "photos": {"hero": "ai-house-g4"}
  },
  "nankai": {
   "name": "ナンカイ株式会社",
@@ -4705,7 +4705,7 @@
   "accent": "#996600",
   "texture": "mokume",
   "founded": "1989",
-  "photos": {"hero": "1685533272451-eee3d96d9f29"},
+  "photos": {"hero": "ai-house-h1", "slides": ["ai-house-h4", "ai-house-h2"]},
   "permits": ["愛知県知事許可（般-18）第62839号"]
  },
  "sanyuhousing": {
@@ -4773,7 +4773,7 @@
   "accent": "#cf4b01",
   "texture": "zumen",
   "zip": "464-0074",
-  "photos": {"hero": "1685533272451-eee3d96d9f29"},
+  "photos": {"hero": "ai-house-h1", "slides": ["ai-house-h4", "ai-house-h2"]},
   "permits": ["愛知県知事許可（般-29）第108500号"]
  },
  "kamimura-mekki": {
@@ -4910,7 +4910,7 @@
   "accent": "#027480",
   "texture": "mokume",
   "zip": "509-0206",
-  "photos": {"hero": "1785964165946-ba4a58eebcb6", "slides": ["ai-zoen-1", "ai-zoen-2"]}
+  "photos": {"hero": "ai-zoen-2", "slides": ["ai-zoen-1", "ai-zoen-3"]}
  },
  "matsuoka-arch": {
   "name": "株式会社松岡設計事務所",
@@ -5269,7 +5269,7 @@
   ],
   "gallery_h": "施工例一覧",
   "hours": "電話受付 8:00–18:00",
-  "photos": {"hero": "1662624914003-9bb2095ca7a0"}
+  "photos": {"hero": "ai-house-g4"}
  },
  "nesystem": {
   "name": "株式会社名古屋電機システム",
@@ -5891,7 +5891,7 @@
   "texture": "mokume",
   "zip": "497-0041",
   "founded": "2005",
-  "photos": {"hero": "1685533272451-eee3d96d9f29"}
+  "photos": {"hero": "ai-house-h1", "slides": ["ai-house-h4", "ai-house-h2"]}
  },
  "b-factory": {
   "name": "株式会社ビィファクトリー",
@@ -6535,7 +6535,7 @@
    "坪庭"
   ],
   "gallery_h": "施工実績",
-  "photos": {"hero": "ai-zoen-1", "gallery": ["1775854169418-ae7bbab70d5d", null, null], "slides": ["ai-zoen-2", "ai-zoen-3"]}
+  "photos": {"hero": "ai-zoen-1", "gallery": ["ai-c-exterior", null, null], "slides": ["ai-zoen-2", "ai-zoen-3"]}
  },
  "hirai-kogyo": {
   "name": "平井工業株式会社",
@@ -6953,7 +6953,7 @@
    "内装"
   ],
   "gallery_h": "当社の施工事例",
-  "photos": {"hero": "1685533272451-eee3d96d9f29", "gallery": ["1700581316314-9e6a809bd656", null, null]},
+  "photos": {"hero": "ai-house-h1", "slides": ["ai-house-h4", "ai-house-h2"], "gallery": ["ai-c-seismic", null, null]},
   "permits": ["岐阜県知事許可（般-30）第103436号"]
  },
  "nagai-sekkei": {
@@ -7028,7 +7028,7 @@
   ],
   "gallery_h": "施工事例",
   "hours": "営業時間 8:00–18:00",
-  "photos": {"hero": "ai-house-h3", "gallery": ["ai-house-g2", "ai-house-g3", "1700581316314-9e6a809bd656"], "slides": ["ai-house-h1", "ai-house-h4"]}
+  "photos": {"hero": "ai-house-h3", "gallery": ["ai-house-g2", "ai-house-g3", "ai-c-seismic"], "slides": ["ai-house-h1", "ai-house-h4"]}
  },
  "itokenzai": {
    "name": "有限会社伊藤建材",
@@ -7464,9 +7464,10 @@
    "accent": "#c4451c",
    "texture": "mokume",
    "photos": {
-     "hero": "1685533272451-eee3d96d9f29",
+     "hero": "ai-house-h1",
+     "slides": ["ai-house-h4", "ai-house-h2"],
      "gallery": [
-       "1700581316314-9e6a809bd656",
+       "ai-c-seismic",
        null,
        null
      ]
@@ -7753,7 +7754,8 @@
    "accent": "#1b4f8a",
    "texture": "zumen",
    "photos": {
-     "hero": "1685533272451-eee3d96d9f29"
+     "hero": "ai-house-h1",
+     "slides": ["ai-house-h4", "ai-house-h2"]
    }
  },
  "ozeki-kk": {
@@ -7975,7 +7977,7 @@
    ],
    "accent": "#1a4d7a",
    "texture": "zumen",
-   "photos": {"hero": "ai-house-h2", "gallery": ["1700581316314-9e6a809bd656", null, "ai-house-g2"], "slides": ["ai-house-h1", "ai-house-h4"]},
+   "photos": {"hero": "ai-house-h2", "gallery": ["ai-c-seismic", null, "ai-house-g2"], "slides": ["ai-house-h1", "ai-house-h4"]},
   "permits": ["愛知県知事許可（特-6）第65148号"]
  },
  "inter-group": {
@@ -8127,9 +8129,9 @@
    "accent": "#1f6fb2",
    "texture": "mokume",
    "photos": {
-     "hero": "1662624914003-9bb2095ca7a0",
+     "hero": "ai-house-g4",
      "gallery": [
-       "1700581316314-9e6a809bd656",
+       "ai-c-seismic",
        null,
        null
      ]
@@ -8773,7 +8775,7 @@
    ],
    "accent": "#7a3b12",
    "texture": "mokume",
-   "photos": {"hero": "ai-house-h1", "gallery": ["1700581316314-9e6a809bd656", "ai-house-h4", null], "slides": ["ai-house-h3", "ai-house-h2"]}
+   "photos": {"hero": "ai-house-h1", "gallery": ["ai-c-seismic", "ai-house-h4", null], "slides": ["ai-house-h3", "ai-house-h2"]}
  },
  "kanesan": {
    "name": "株式会社カネサン",
@@ -8982,9 +8984,10 @@
    "accent": "#d4620f",
    "texture": "mokume",
    "photos": {
-     "hero": "1685533272451-eee3d96d9f29",
+     "hero": "ai-house-h1",
+     "slides": ["ai-house-h4", "ai-house-h2"],
      "gallery": [
-       "1700581316314-9e6a809bd656",
+       "ai-c-seismic",
        null,
        null
      ]
@@ -9351,9 +9354,10 @@
    "accent": "#2f6b2f",
    "texture": "ashiba",
    "photos": {
-     "hero": "1715734925148-692a4f2c4ab8",
+     "hero": "ai-zoen-1",
+     "slides": ["ai-zoen-2", "ai-zoen-3"],
      "gallery": [
-       "1775854169418-ae7bbab70d5d",
+       "ai-c-exterior",
        null,
        null
      ]
@@ -9635,7 +9639,7 @@
    ],
    "accent": "#2e7d4f",
    "texture": "mokume",
-   "photos": {"hero": "ai-zoen-1", "gallery": ["1775854169418-ae7bbab70d5d", null, null], "slides": ["ai-zoen-2", "ai-zoen-3"]}
+   "photos": {"hero": "ai-zoen-1", "gallery": ["ai-c-exterior", null, null], "slides": ["ai-zoen-2", "ai-zoen-3"]}
  },
  "daisindaisin": {
    "name": "大辰工業株式会社",
@@ -9923,7 +9927,7 @@
   ],
   "accent": "#806c3f",
   "texture": "zumen",
-  "photos": {"hero": "1685533272451-eee3d96d9f29"}
+  "photos": {"hero": "ai-house-h1", "slides": ["ai-house-h4", "ai-house-h2"]}
  },
  "azabu-co": {
   "name": "株式会社麻布",
@@ -10079,7 +10083,7 @@
   ],
   "accent": "#55821d",
   "texture": "zumen",
-  "photos": {"hero": "1685533272451-eee3d96d9f29"}
+  "photos": {"hero": "ai-house-h1", "slides": ["ai-house-h4", "ai-house-h2"]}
  },
  "takamiya-d": {
   "name": "株式会社高宮電計",
