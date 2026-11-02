@@ -455,6 +455,8 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
 .card.pc .cph{aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#eef0ec 0 10px,#e6e9e3 10px 20px);
   display:grid;place-items:center;background-size:cover;background-position:center}
 .card.pc .cph span{font-size:12px;color:#7a7f78;letter-spacing:.08em}
+.card.pc .cph.ci{background:rgba(24,54,108,.08);color:var(--accent)}
+.card.pc .cph.ci svg{width:52px;height:52px;opacity:.85}
 .card.pc .cb{position:relative;padding:18px 40px 20px 20px}
 .card.pc .cb::after{content:"";position:absolute;right:20px;top:50%;width:8px;height:8px;
   border-top:2px solid var(--accent);border-right:2px solid var(--accent);transform:translateY(-50%) rotate(45deg)}
@@ -575,13 +577,19 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
       <h2>できること</h2><p>雨漏りの前に、雨漏りの後に。</p></div>
-    <div class="cards"><div class="card" id="svc1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5s6 6.4 6 10.5a6 6 0 0 1-12 0c0-4.1 6-10.5 6-10.5z"/></svg></span><span class="no" aria-hidden="true">01</span><h3>防水工事</h3><p>屋上、ベランダ、バルコニー。ウレタン、シート、アスファルト。</p></div><div class="card" id="svc2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">02</span><h3>シーリング工事</h3><p>外壁の目地、サッシまわり。創業からの専門。</p></div><div class="card" id="svc3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6.5a4 4 0 0 0 5 5L11 20a2.1 2.1 0 0 1-3-3l8.5-8.5"/><path d="M14.5 6.5 17 4l3 3-2.5 2.5"/></svg></span><span class="no" aria-hidden="true">03</span><h3>外壁改修工事</h3><p>ひび割れ、タイルの浮き、塗り替え。</p></div><div class="card" id="svc4"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6.5a4 4 0 0 0 5 5L11 20a2.1 2.1 0 0 1-3-3l8.5-8.5"/><path d="M14.5 6.5 17 4l3 3-2.5 2.5"/></svg></span><span class="no" aria-hidden="true">04</span><h3>新築・リフォーム</h3><p>住宅の新築と改装。</p></div><div class="card" id="svc5"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6.5a4 4 0 0 0 5 5L11 20a2.1 2.1 0 0 1-3-3l8.5-8.5"/><path d="M14.5 6.5 17 4l3 3-2.5 2.5"/></svg></span><span class="no" aria-hidden="true">05</span><h3>雨漏りの調査・修理</h3><p>原因を突き止めて直します。</p></div><div class="card" id="svc6"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">06</span><h3>お見積り</h3><p>現地を拝見して、無料でお出しします。</p></div></div>
+    <div class="cards"><div class="card pc" id="svc1"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5s6 6.4 6 10.5a6 6 0 0 1-12 0c0-4.1 6-10.5 6-10.5z"/></svg></div><div class="cb"><h3>防水工事</h3><p>屋上、ベランダ、バルコニー。ウレタン、シート、アスファルト。</p></div></div><div class="card pc" id="svc2"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>シーリング工事</h3><p>外壁の目地、サッシまわり。創業からの専門。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-house-g7.jpg?v=f6bb359f)"></div><div class="cb"><h3>外壁改修工事</h3><p>ひび割れ、タイルの浮き、塗り替え。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-house-g6.jpg?v=2bdf5f60)"></div><div class="cb"><h3>新築・リフォーム</h3><p>住宅の新築と改装。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/1678694180534-974017792a3e.jpg?v=2b4ad7e4)"></div><div class="cb"><h3>雨漏りの調査・修理</h3><p>原因を突き止めて直します。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-c-estimate.jpg?v=450b10c4)"></div><div class="cb"><h3>お見積り</h3><p>現地を拝見して、無料でお出しします。</p></div></div></div>
   </div>
 </section>
 
+<section class="alt about" id="about">
+  <div class="wrap abrow"><div class="abph ph" style="background-image:url(../photos/ai-o-office.jpg?v=ee0640ad)"><span class="cap">イメージ写真</span></div>
+    <div class="abtx"><span class="en">ABOUT US</span><h2><span class="ph">一宮市の、</span><span class="ph">ＳＡＮＥＩ。</span></h2>
+      <p><span class="ph">1961年の創業。</span><span class="ph">愛知県一宮市貴船2丁目13番38号にあります。</span></p><p><span class="ph">「防水工事」「シーリング工事」「外壁改修工事」などを承っています。</span></p>
+      <a class="btn p" href="#company">会社概要</a></div>
+  </div>
+</section>
 
-
-<section class="alt" id="flow">
+<section id="flow">
   <div class="wrap">
     <div class="sechead"><span class="en">FLOW</span>
       <h2>ご相談から完成まで</h2></div>
@@ -589,7 +597,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   </div>
 </section>
 
-<section id="company">
+<section class="alt" id="company">
   <div class="wrap">
     <div class="sechead"><span class="en">COMPANY</span><h2>会社概要</h2></div>
     <div class="cgrid"><table class="info"><tr><th>商号</th><td>株式会社ＳＡＮＥＩ</td></tr><tr><th>所在地</th><td>〒491-0037 愛知県一宮市貴船2丁目13番38号</td></tr><tr><th>電話</th><td><a href="tel:0586241840">0586-24-1840</a></td></tr><tr><th>創業</th><td>1961年</td></tr><tr><th>事業内容</th><td>防水工事／シーリング工事／外壁改修工事／新築・リフォーム／雨漏りの調査・修理</td></tr></table>

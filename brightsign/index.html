@@ -455,6 +455,8 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
 .card.pc .cph{aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#eef0ec 0 10px,#e6e9e3 10px 20px);
   display:grid;place-items:center;background-size:cover;background-position:center}
 .card.pc .cph span{font-size:12px;color:#7a7f78;letter-spacing:.08em}
+.card.pc .cph.ci{background:rgba(182,82,24,.08);color:var(--accent)}
+.card.pc .cph.ci svg{width:52px;height:52px;opacity:.85}
 .card.pc .cb{position:relative;padding:18px 40px 20px 20px}
 .card.pc .cb::after{content:"";position:absolute;right:20px;top:50%;width:8px;height:8px;
   border-top:2px solid var(--accent);border-right:2px solid var(--accent);transform:translateY(-50%) rotate(45deg)}
@@ -576,12 +578,11 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   </div>
 </section>
 
-<section class="alt" id="gallery">
-  <div class="wrap">
-    <div class="sechead"><span class="en">WORKS</span>
-      <h2>施工例</h2>
-      <p>お預かりしたお写真を、ここに並べます。</p></div>
-    <div class="gal"><div class="gframe"><b>お写真が入ります</b>店舗の壁面看板</div><div class="gframe"><b>お写真が入ります</b>野立て看板</div><div class="gframe"><b>お写真が入ります</b>箱文字・LEDサイン</div></div>
+<section class="alt about" id="about">
+  <div class="wrap abrow"><div class="abph ph" style="background-image:url(../photos/ai-o-office.jpg?v=ee0640ad)"><span class="cap">イメージ写真</span></div>
+    <div class="abtx"><span class="en">ABOUT US</span><h2><span class="ph">岐阜市の、</span><span class="ph">ブライトサイン。</span></h2>
+      <p><span class="ph">1995年の創業。</span><span class="ph">岐阜県岐阜市六条南3丁目14-8にあります。</span></p><p><span class="ph">「壁面・野立て看板」「箱文字・切り文字・銘板」「LED・電飾看板」などを承っています。</span></p>
+      <a class="btn p" href="#company">会社概要</a></div>
   </div>
 </section>
 

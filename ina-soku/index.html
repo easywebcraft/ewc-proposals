@@ -455,6 +455,8 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
 .card.pc .cph{aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#eef0ec 0 10px,#e6e9e3 10px 20px);
   display:grid;place-items:center;background-size:cover;background-position:center}
 .card.pc .cph span{font-size:12px;color:#7a7f78;letter-spacing:.08em}
+.card.pc .cph.ci{background:rgba(42,93,143,.08);color:var(--accent)}
+.card.pc .cph.ci svg{width:52px;height:52px;opacity:.85}
 .card.pc .cb{position:relative;padding:18px 40px 20px 20px}
 .card.pc .cb::after{content:"";position:absolute;right:20px;top:50%;width:8px;height:8px;
   border-top:2px solid var(--accent);border-right:2px solid var(--accent);transform:translateY(-50%) rotate(45deg)}
@@ -578,13 +580,19 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
       <h2>できること</h2><p>境界のことも、手続きのことも。</p></div>
-    <div class="cards"><div class="card" id="svc1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg></span><span class="no" aria-hidden="true">01</span><h3>土地家屋調査士</h3><p>境界確定測量、現況測量、土地・建物の表示に関する登記。</p></div><div class="card" id="svc2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">02</span><h3>行政書士</h3><p>開発行為、雨水浸透阻害行為、農地転用の申請書類。</p></div><div class="card" id="svc3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">03</span><h3>境界確定測量</h3><p>隣地との境目を確定し、後の争いを防ぎます。</p></div><div class="card" id="svc4"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M4 11h7v9M11 11V4M15 4v7h5"/></svg></span><span class="no" aria-hidden="true">04</span><h3>土木設計</h3><p>造成や排水の設計。</p></div><div class="card" id="svc5"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg></span><span class="no" aria-hidden="true">05</span><h3>不動産登記</h3><p>分筆・合筆・地目変更・建物表題登記。</p></div><div class="card" id="svc6"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">06</span><h3>採用情報</h3><p>測量と登記の技術を、現場で身につけられます。</p></div></div>
+    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-c-design.jpg?v=7d9b92e4)"></div><div class="cb"><h3>土地家屋調査士</h3><p>境界確定測量、現況測量、土地・建物の表示に関する登記。</p></div></div><div class="card pc" id="svc2"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>行政書士</h3><p>開発行為、雨水浸透阻害行為、農地転用の申請書類。</p></div></div><div class="card pc" id="svc3"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>境界確定測量</h3><p>隣地との境目を確定し、後の争いを防ぎます。</p></div></div><div class="card pc" id="svc4"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M4 11h7v9M11 11V4M15 4v7h5"/></svg></div><div class="cb"><h3>土木設計</h3><p>造成や排水の設計。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/ai-house-h2.jpg?v=03298fc0)"></div><div class="cb"><h3>不動産登記</h3><p>分筆・合筆・地目変更・建物表題登記。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-c-recruit.jpg?v=35e029f7)"></div><div class="cb"><h3>採用情報</h3><p>測量と登記の技術を、現場で身につけられます。</p></div></div></div>
   </div>
 </section>
 
+<section class="alt about" id="about">
+  <div class="wrap abrow"><div class="abph ph" style="background-image:url(../photos/ai-o-yard.jpg?v=d9632679)"><span class="cap">イメージ写真</span></div>
+    <div class="abtx"><span class="en">ABOUT US</span><h2><span class="ph">小牧市の、</span><span class="ph">稲山測量設計。</span></h2>
+      <p><span class="ph">愛知県小牧市大字間々48番地1にあります。</span></p><p><span class="ph">「土地家屋調査士」「行政書士」「境界確定測量」などを承っています。</span></p>
+      <a class="btn p" href="#company">会社概要</a></div>
+  </div>
+</section>
 
-
-<section class="alt" id="flow">
+<section id="flow">
   <div class="wrap">
     <div class="sechead"><span class="en">FLOW</span>
       <h2>ご相談から完成まで</h2></div>
@@ -592,7 +600,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   </div>
 </section>
 
-<section id="company">
+<section class="alt" id="company">
   <div class="wrap">
     <div class="sechead"><span class="en">COMPANY</span><h2>会社概要</h2></div>
     <div class="cgrid"><table class="info"><tr><th>商号</th><td>株式会社稲山測量設計</td></tr><tr><th>所在地</th><td>〒485-0015 愛知県小牧市大字間々48番地1</td></tr><tr><th>電話</th><td><a href="tel:0568722283">0568-72-2283</a></td></tr><tr><th>事業内容</th><td>土地家屋調査士／行政書士／境界確定測量／土木設計／不動産登記</td></tr></table>

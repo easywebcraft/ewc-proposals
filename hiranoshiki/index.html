@@ -528,6 +528,8 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
 .card.pc .cph{aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#eef0ec 0 10px,#e6e9e3 10px 20px);
   display:grid;place-items:center;background-size:cover;background-position:center}
 .card.pc .cph span{font-size:12px;color:#7a7f78;letter-spacing:.08em}
+.card.pc .cph.ci{background:rgba(181,83,42,.08);color:var(--accent)}
+.card.pc .cph.ci svg{width:52px;height:52px;opacity:.85}
 .card.pc .cb{position:relative;padding:18px 40px 20px 20px}
 .card.pc .cb::after{content:"";position:absolute;right:20px;top:50%;width:8px;height:8px;
   border-top:2px solid var(--accent);border-right:2px solid var(--accent);transform:translateY(-50%) rotate(45deg)}
@@ -644,9 +646,15 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   </div>
 </section>
 
+<section class="alt about" id="about">
+  <div class="wrap abrow"><div class="abph ph" style="background-image:url(../photos/ai-o-factory.jpg?v=e8be366d)"><span class="cap">イメージ写真</span></div>
+    <div class="abtx"><span class="en">ABOUT US</span><h2><span class="ph">瑞穂市の、</span><span class="ph">平野紙器。</span></h2>
+      <p><span class="ph">1951年の創業。</span><span class="ph">岐阜県瑞穂市生津天王町1-105にあります。</span></p><p><span class="ph">「製菓用容器」「製パン用容器」「業務用の容器」などを承っています。</span></p>
+      <a class="btn p" href="#company">会社概要</a></div>
+  </div>
+</section>
 
-
-<section class="alt" id="flow">
+<section id="flow">
   <div class="wrap">
     <div class="sechead"><span class="en">FLOW</span>
       <h2>ご発注までの流れ</h2></div>
@@ -654,7 +662,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   </div>
 </section>
 
-<section id="company">
+<section class="alt" id="company">
   <div class="wrap">
     <div class="sechead"><span class="en">COMPANY</span><h2>会社概要</h2></div>
     <div class="cgrid"><table class="info"><tr><th>商号</th><td>株式会社平野紙器</td></tr><tr><th>所在地</th><td>〒501-0216 岐阜県瑞穂市生津天王町1-105</td></tr><tr><th>電話</th><td><a href="tel:0583276111">058-327-6111</a></td></tr><tr><th>創業</th><td>1951年</td></tr><tr><th>事業内容</th><td>製菓用容器／製パン用容器／業務用の容器／原紙素材の開発／製品カタログ</td></tr></table>

@@ -1107,15 +1107,16 @@ def render(sid, d, ind):
         stats_cls = "stats pts"
         stats = "".join(f'<div><span class="pi">{icon_svg("", ic)}</span><span class="pt"><b>{t}</b>'
                         f'<small>{e(c)}</small></span></div>' for ic, t, c in pts)
-    if v3 and (d.get("photos") or {}).get("svc"):
-        # v3：写真付きのカード（sites.json の svc_photos。無い枠は「お写真が入ります」）
-        sph = (d.get("photos") or {}).get("svc") or []
-        def cph(i):
+    sph = ((d.get("photos") or {}).get("svc") or auto_svc_photos(d)) if v3 else None
+    if sph:
+        # v3：写真付きのカード（sites.json の photos.svc、無ければ項目名から選ぶ）。
+        #   写真の無い枠は、項目名の絵を写真の大きさで出す（空の枠を見せないため）
+        def cph(i, t):
             st = photo_style(sph[i] if i < len(sph) else None)
             return (f'<div class="cph ph"{st}></div>' if st else
-                    '<div class="cph"><span>お写真が入ります</span></div>')
+                    f'<div class="cph ci">{icon_svg(t)}</div>')
         cards = "".join(
-            f'<div class="card pc" id="svc{i}">{cph(i - 1)}<div class="cb"><h3>{e(t)}</h3>'
+            f'<div class="card pc" id="svc{i}">{cph(i - 1, t)}<div class="cb"><h3>{e(t)}</h3>'
             f'<p>{e(p)}</p></div></div>'
             for i, (t, p) in enumerate(d["services"], 1))
     elif v2:
@@ -1397,10 +1398,84 @@ def point_icon(a, b, c):
     return next((ic for words, ic in ICON_HINTS if any(w in a + b + c for w in words)), "check")
 
 
+# できることの写真：項目名に含まれる語 → 写真（photos/ のファイル名、並べた順に使う）。上から順に見る。
+#   写真が [] の行は「まだ写真が無い業種」。下の住宅の行に誤って当たらないよう、ここで止める
+#   （業種別の写真 t-* がそろったら、ここに足す）。最後の値は当てない業種（実績→住宅の模型は製造に合わない）
+ROOF = ["1678694180534-974017792a3e", "1760544137552-b225c3379c76", "1621419370788-980a005356a4"]
+SVC_PHOTOS = (
+    (("見積", "相談", "質問", "Q&A", "問い合わせ", "お問合せ"), ["ai-c-estimate"], ()),
+    (("採用", "求人", "リクルート", "人材", "職人紹介", "教育"), ["ai-c-recruit"], ()),
+    (("耐震", "補強", "構造"), ["ai-c-seismic"], ()),
+    (("外構", "エクステリア", "カーポート", "ブロック", "門まわり", "門扉"), ["ai-c-exterior"], ()),
+    (("パソコン", "ネットワーク", "インターネット", "通信", "Wi-Fi", "LAN"), ["ai-c-pc"], ()),
+    (("剪定", "伐採", "手入れ"), ["ai-zoen-3", "ai-zoen-2"], ()),
+    (("造園", "庭", "植栽", "ガーデ", "緑化"), ["ai-zoen-1", "ai-zoen-2", "ai-zoen-3"], ()),
+    (("テレビ", "家電", "アンテナ", "エアコン", "オール電化"), ["ai-denkiten-1", "ai-denkiten-3"], ()),
+    (("水まわり", "水回り", "キッチン", "浴室", "風呂", "トイレ", "洗面", "給湯"), ["ai-house-g4", "ai-house-g3"], ()),
+    (("屋根", "瓦", "雨漏", "雨もれ", "雨とい", "雨樋", "葺"), ROOF, ()),
+    (("太陽光", "発電", "蓄電"), ["1658298775754-5839ffd434cc", "1724041875334-0a6397111c7e"], ()),
+    (("メンテ", "点検", "保守", "保全", "アフター", "定期"), ["ai-c-mainte"], ()),
+    (("修理", "修繕", "補修", "お困り", "故障", "水漏れ", "詰まり"), ["ai-c-repair"], ()),
+    (("設計", "図面", "プラン", "監理", "調査", "診断", "測量", "デザイン"), ["ai-c-design"], ()),
+    (("お客様の声", "実績", "事例", "引渡", "引き渡し"), ["ai-c-handover"], ("seizo",)),
+    (("外壁", "塗り壁", "左官"), ["ai-house-g7"], ()),
+    (("家具", "木工", "造作", "建具", "製材", "木材"), [], ()),
+    (("電気", "電設", "計装", "照明", "LED", "弱電", "制御盤"), [], ()),
+    (("給排水", "配管", "衛生", "ガス", "上下水道", "消防", "設備", "空調", "冷凍", "冷蔵", "ダクト", "換気"), [], ()),
+    (("土木", "舗装", "造成", "解体", "重機", "地盤", "コンクリ", "生コン"), [], ()),
+    (("塗装", "防水", "シーリング", "板金", "加工", "溶接", "組立", "試作", "部品", "機械", "製作", "製造", "製缶", "車"), [], ()),
+    (("リフォーム", "リノベ", "改修", "内装", "改装", "増改築"), ["ai-house-g6", "ai-house-g2", "ai-house-g5"], ()),
+    (("不動産", "土地", "売買", "賃貸", "物件", "仲介", "買取", "空き家", "空家"), ["ai-house-h2", "ai-house-h1"], ()),
+    (("大工", "木の家", "伝統"), ["ai-house-h5"], ()),
+    (("新築", "注文住宅", "住宅", "家", "分譲", "建築", "木造"), ["ai-house-h1", "ai-house-h3", "ai-house-h4", "ai-house-g2"], ()),
+)
+
+
+def auto_svc_photos(d):
+    """できることの写真を項目名から選ぶ（photos.svc を書いていない先）。
+    同じページで同じ写真を2回使わない。合う写真が無い項目は、その会社の写真
+    （切り替え→実績→トップ）を1回ずつ使い回す。写真が付くのが半分未満なら None（絵のカードのまま）。"""
+    photos = d.get("photos") or {}
+    hero = photos.get("hero")
+    # v3 では「これまでの仕事」の段を出さないので、その写真も使ってよい
+    spare = [p for p in (photos.get("slides") or []) + (photos.get("gallery") or []) + [hero] if p]
+    used = {(hero or "").partition("@")[0]}   # トップと同じ写真をカードに重ねない
+    out = []
+    # 先に項目名に合う写真を当て、残った項目にだけ会社の写真を回す
+    #   （順に当てると、会社の写真が先に取られて「不動産」に鉋の写真が当たった）
+    for t, _ in d["services"]:
+        pool = next((ps for ws, ps, skip in SVC_PHOTOS
+                     if any(w in t for w in ws) and d.get("industry") not in skip), [])
+        pid = next((p for p in pool if p not in used), None)
+        if pid:
+            used.add(pid)
+        out.append(pid)
+    for i, pid in enumerate(out):
+        if pid is None:   # 合う写真が無い項目：切り替え・実績の写真、最後にトップの写真を1回ずつ
+            pid = next((p for p in spare if p not in out and (p == hero or p.partition("@")[0] not in used)), None)
+            if pid:
+                used.add(pid.partition("@")[0])
+                out[i] = pid
+    return out if sum(1 for p in out if p) * 2 >= len(out) else None
+
+
+def about_photo(d):
+    """会社紹介の外観写真を業種で選ぶ。町の電器店は自前の店先の写真があるので、それを使う。"""
+    words = d["name"] + "".join(t for t, _ in d["services"])
+    if any(w in words for w in ("電器", "電機商会", "家電")):
+        return None
+    if d.get("industry") == "seizo":
+        return "ai-o-factory"
+    if any(w in words for w in ("土木", "舗装", "造成", "解体", "造園", "庭", "石材", "生コン", "砕石", "資材")):
+        return "ai-o-yard"
+    return "ai-o-office"
+
+
 def auto_about(d, photos):
-    """会社紹介の段を事実だけで組む（about を書いていない先）。写真が1枚も無い先は出さない
-    （空の枠を並べないため）。写真はトップの2枚目→1枚目の順で使い回す。"""
-    pid = (photos.get("about") or (photos.get("slides") or [None])[0] or photos.get("hero"))
+    """会社紹介の段を事実だけで組む（about を書いていない先）。写真は業種に合う外観のイメージ。
+    町の電器店などはトップの2枚目→1枚目の順で使い回し、写真が1枚も無ければ出さない。"""
+    pid = (photos.get("about") or about_photo(d)
+           or (photos.get("slides") or [None])[0] or photos.get("hero"))
     if not pid:
         return None
     short = re.sub(r"(株式会社|有限会社|合同会社|合資会社|協同組合|医療法人|一般社団法人|社会福祉法人)", "", d["name"]).strip()
@@ -1498,6 +1573,8 @@ V3_CSS = """
 .card.pc .cph{aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#eef0ec 0 10px,#e6e9e3 10px 20px);
   display:grid;place-items:center;background-size:cover;background-position:center}
 .card.pc .cph span{font-size:12px;color:#7a7f78;letter-spacing:.08em}
+.card.pc .cph.ci{background:rgba(%(acc_rgb)s,.08);color:var(--accent)}
+.card.pc .cph.ci svg{width:52px;height:52px;opacity:.85}
 .card.pc .cb{position:relative;padding:18px 40px 20px 20px}
 .card.pc .cb::after{content:"";position:absolute;right:20px;top:50%%;width:8px;height:8px;
   border-top:2px solid var(--accent);border-right:2px solid var(--accent);transform:translateY(-50%%) rotate(45deg)}
