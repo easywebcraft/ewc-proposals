@@ -1056,9 +1056,12 @@ def render(sid, d, ind):
     css += LOADER_CSS
     if (d.get("photos") or {}).get("hero"):
         css += HERO_FULL_CSS
-    v2 = bool(d.get("_v2"))
+    v3 = bool(d.get("_v3"))
+    v2 = bool(d.get("_v2")) or v3      # v3 は v2 の「仮の表示を出さない」を引き継ぐ
     if v2:
         css += V2_CSS % {"acc_rgb": acc_rgb}
+    if v3:
+        css += V3_CSS % {"acc_rgb": acc_rgb}
     roman = d.get("roman", "")
     since = bigen = tagline = badge = ""
     news_t = ind.get("news_hint", "お知らせが入ります（工事のご報告・休業日など）")
@@ -1090,7 +1093,24 @@ def render(sid, d, ind):
         news = ""        # 試作：表示例のお知らせは出さない（仮の表示に見えるため）
     stats = "".join(f'<div><b>{e(a)}<small>{e(b)}</small></b><span>{e(c)}</span></div>'
                     for a, b, c in d["stats"])
-    if v2:
+    stats_cls = "stats"
+    if v3 and d.get("points"):
+        # v3：数字の帯の代わりに、線の絵＋見出し＋一言（sites.json の points = [絵, 見出し, 一言]）
+        stats_cls = "stats pts"
+        stats = "".join(f'<div><span class="pi">{icon_svg(t, ic)}</span><span class="pt"><b>{e(t)}</b>'
+                        f'<small>{e(c)}</small></span></div>' for ic, t, c in d["points"])
+    if v3:
+        # v3：写真付きのカード（sites.json の svc_photos。無い枠は「お写真が入ります」）
+        sph = (d.get("photos") or {}).get("svc") or []
+        def cph(i):
+            st = photo_style(sph[i] if i < len(sph) else None)
+            return (f'<div class="cph ph"{st}></div>' if st else
+                    '<div class="cph"><span>お写真が入ります</span></div>')
+        cards = "".join(
+            f'<div class="card pc" id="svc{i}">{cph(i - 1)}<div class="cb"><h3>{e(t)}</h3>'
+            f'<p>{e(p)}</p></div></div>'
+            for i, (t, p) in enumerate(d["services"], 1))
+    elif v2:
         cards = "".join(
             f'<div class="card" id="svc{i}"><span class="ic">{icon_svg(t)}</span><span class="no" aria-hidden="true">{i:02d}</span>'
             f'<h3>{e(t)}</h3><p>{e(p)}</p></div>'
@@ -1101,6 +1121,10 @@ def render(sid, d, ind):
             for i, (t, p) in enumerate(d["services"], 1))
     steps = "".join(f'<div class="step"><h3>{e(t)}</h3><p>{e(p)}</p></div>'
                     for t, p in ind["flow"])
+    if v3:
+        steps = "".join(f'<div class="step"><span class="si">{icon_svg(t, FLOW_ICONS[min(i, 3)])}</span>'
+                        f'<span class="sn">{i + 1:02d}</span><h3>{e(t)}</h3><p>{e(p)}</p></div>'
+                        for i, (t, p) in enumerate(ind["flow"]))
 
     # メニューに「実績」「事例」がある先には、その受け皿を作る。
     # 無いと項目を押しても「できること」に着地して、中身が無いのが分かる。
@@ -1130,6 +1154,21 @@ def render(sid, d, ind):
     <div class="gal">{frames}</div>
   </div>
 </section>"""
+
+    if v3 and d.get("about"):
+        # v3：写真と紹介文を左右に（画像の「暮らしのそばに」の段）。写真は外観のイメージ
+        ab = d["about"]
+        st = photo_style(ab.get("photo"))
+        abph = (f'<div class="abph ph"{st}><span class="cap">{e(ab.get("cap", "外観写真イメージ"))}</span></div>' if st
+                else '<div class="abph"><b>お写真が入ります</b>お店・会社の外観</div>')
+        gallery = f"""<section class="alt about" id="about">
+  <div class="wrap abrow">{abph}
+    <div class="abtx"><span class="en">ABOUT US</span><h2>{phrase(ab["h"], e)}</h2>
+      {"".join(f"<p>{phrase(x, e)}</p>" for x in ab["p"])}
+      <a class="btn p" href="#company">{e(ab.get("btn", "会社概要"))}</a></div>
+  </div>
+</section>"""
+        flow_cls, comp_cls = "", ' class="alt"'
 
     feat = ""
     if v2 and d.get("features"):
@@ -1227,7 +1266,7 @@ def render(sid, d, ind):
     </div>
     <span class="scroll">scroll</span>
   </div>
-{bigen}  <div class="wrap"><div class="stats">{stats}</div></div>
+{bigen}  <div class="wrap"><div class="{stats_cls}">{stats}</div></div>
 </div>
 {news}{feat}
 <section id="works">
@@ -1249,10 +1288,10 @@ def render(sid, d, ind):
 </section>
 
 <section{comp_cls} id="company">
-  <div class="wrap" style="max-width:720px">
-    <div class="sechead"><span class="en">COMPANY</span><h2>会社概要</h2></div>
-    <table class="info">{rows}</table>
-    {"" if v2 else '<div class="mapbox"><b>地図が入ります</b>最寄り駅・駐車場のご案内もここに</div>'}
+  <div class="wrap"{"" if v3 else ' style="max-width:720px"'}>
+    <div class="sechead"><span class="en">COMPANY</span><h2>{e(d.get("company_h", "会社概要")) if v3 else "会社概要"}</h2></div>
+    {'<div class="cgrid">' if v3 else ""}<table class="info">{rows}</table>
+    {'<div class="mapbox"><b>地図が入ります</b>実際の制作で、お店の場所の地図を入れます</div></div>' if v3 else "" if v2 else '<div class="mapbox"><b>地図が入ります</b>最寄り駅・駐車場のご案内もここに</div>'}
   </div>
 </section>
 
@@ -1314,6 +1353,8 @@ ICONS = {  # 24×24 の線の絵。stroke は文字色
     "car": '<path d="M5 16.5V12l2-5h10l2 5v4.5"/><path d="M3.5 16.5h17"/><circle cx="7.5" cy="16.5" r="1.8"/><circle cx="16.5" cy="16.5" r="1.8"/><path d="M5.5 12h13"/>',
     "leaf": '<path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19 13 11"/>',
     "doc": '<path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/>',
+    "phone": '<path d="M6.5 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.2 6.2l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2z"/>',
+    "hand": '<path d="M2.5 11.5 6 8l3 1 3-2.5 3.5 1L21.5 12"/><path d="M6 8l-3.5 3.5L8 17l1.5-1.2 1.5 1.2 1.5-1.2 1.5 1.2 1.5-1.2L19 12"/><path d="M12 6.5 9 9.5a1.4 1.4 0 0 0 2 2l2.5-2"/>',
     "chat": '<path d="M4.5 5.5h15v10h-8l-4 3.5v-3.5h-3z"/><path d="M8.5 9.5h7M8.5 12h4.5"/>',
 }
 ICON_HINTS = (  # 項目名に含まれる語 → 絵。上から順に見る
@@ -1334,8 +1375,11 @@ ICON_HINTS = (  # 項目名に含まれる語 → 絵。上から順に見る
 )
 
 
-def icon_svg(title):
-    key = next((ic for words, ic in ICON_HINTS if any(w in title for w in words)), "doc")
+FLOW_ICONS = ("phone", "house", "doc", "tool")   # v3 の流れ：相談→確認→提案→施工
+
+
+def icon_svg(title, key=None):
+    key = key or next((ic for words, ic in ICON_HINTS if any(w in title for w in words)), "doc")
     return (f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" '
             f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{ICONS[key]}</svg>')
 
@@ -1388,5 +1432,80 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .frow:nth-child(even) .fph::before{inset:auto auto -12px -12px}
   .ftx{max-width:30em}
   .step:not(:last-child)::after{content:"";position:absolute;top:50%%;right:-12px;width:12px;height:1px;background:var(--accent)}
+}
+"""
+
+
+# =====================================================================
+# 試作（v3・2026-11-02）：松本さんが持ってきた改善後の画像（山中電器）に寄せる。
+#   build.py --v3 <キー> のときだけ使う（今の見本は変えない）。出力は <キー>-v3/
+#   ・トップの下：数字の帯 → 線の絵＋見出し＋一言（points）
+#   ・できること：写真付きのカード（photos.svc）
+#   ・会社紹介：外観の写真と紹介文を左右に（about）
+#   ・流れ：丸い絵を線でつなぐ／会社概要：表と地図の枠を左右に
+# =====================================================================
+V3_CSS = """
+/* ---- 試作 v3 ---- */
+.hero .stats.pts{grid-template-columns:1fr;gap:0;background:var(--paper);border:1px solid var(--line);
+  border-radius:12px;padding:6px 18px;box-shadow:0 10px 30px rgba(30,40,35,.06)}
+.hero .stats.pts div{display:flex;align-items:center;gap:16px;text-align:left;background:none;border:0;
+  border-radius:0;padding:14px 0;box-shadow:none}
+.hero .stats.pts div+div{border-top:1px solid var(--line)}
+.pts .pi{flex:none;display:grid;place-items:center;width:52px;height:52px;color:var(--accent)}
+.pts .pi svg{width:40px;height:40px}
+.pts .pt b{display:block;font-family:var(--serif);font-size:18px;color:var(--ink);letter-spacing:.06em;margin:0}
+.pts .pt small{display:block;margin-top:4px;font-size:12.5px;color:var(--muted);line-height:1.7;letter-spacing:.02em}
+/* 写真付きのカード */
+.cards{display:grid;grid-template-columns:1fr;gap:18px}
+.card.pc{padding:0;border-radius:10px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column;
+  box-shadow:0 6px 20px rgba(30,40,35,.06)}
+.card.pc .cph{aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#eef0ec 0 10px,#e6e9e3 10px 20px);
+  display:grid;place-items:center;background-size:cover;background-position:center}
+.card.pc .cph span{font-size:12px;color:#7a7f78;letter-spacing:.08em}
+.card.pc .cb{position:relative;padding:18px 40px 20px 20px}
+.card.pc .cb::after{content:"";position:absolute;right:20px;top:50%%;width:8px;height:8px;
+  border-top:2px solid var(--accent);border-right:2px solid var(--accent);transform:translateY(-50%%) rotate(45deg)}
+.card.pc h3{font-size:17px;margin:0 0 6px}
+.card.pc p{font-size:13px;line-height:1.75}
+/* 会社紹介 */
+.abrow{display:grid;gap:26px;align-items:center}
+.abph{position:relative;aspect-ratio:16/10;border-radius:6px;background:repeating-linear-gradient(135deg,#eef0ec 0 10px,#e6e9e3 10px 20px);
+  background-size:cover;background-position:center;display:grid;place-items:center;text-align:center;
+  font-size:12px;color:#7a7f78;box-shadow:0 14px 34px rgba(30,40,35,.12)}
+.abph b{display:block;font-family:var(--serif);font-size:14px;color:#575a51}
+.abph .cap{position:absolute;right:10px;bottom:10px;background:rgba(255,255,255,.92);color:#333;
+  border-radius:4px;padding:4px 10px;font-size:11px;letter-spacing:.06em}
+.abtx .en{display:block;font-size:11.5px;letter-spacing:.3em;color:var(--muted);font-weight:700;margin-bottom:10px}
+.abtx h2{font-size:clamp(23px,5.6vw,30px);line-height:1.5;margin:0 0 16px}
+.abtx p{margin:0 0 12px;color:var(--muted);font-size:14.5px;line-height:2}
+.abtx .btn{margin-top:10px}
+/* 流れ：丸い絵を線でつなぐ */
+.flow{grid-template-columns:repeat(2,1fr);gap:26px 12px;counter-reset:none}
+.flow .step{background:none;border:0;padding:0;text-align:center;position:relative}
+.flow .step::before{display:none}
+.step .si{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 10px;border-radius:50%%;
+  border:1.5px solid var(--accent);color:var(--accent);background:var(--paper)}
+.step .si svg{width:28px;height:28px}
+.step .sn{position:absolute;top:0;left:calc(50%% + 36px);font-family:var(--serif);font-size:14px;color:var(--accent);font-weight:700}
+.step h3{font-size:16px;margin:0 0 4px}
+.step p{font-size:12.5px}
+/* 会社概要と地図 */
+.cgrid{display:grid;gap:22px;grid-template-columns:minmax(0,1fr)}
+.cgrid table.info{table-layout:fixed}
+.cgrid table.info th{width:7.5em}
+.cgrid table.info td{overflow-wrap:anywhere}
+.cgrid table.info{background:var(--paper);border-radius:8px}
+.cgrid .mapbox{margin:0;min-height:220px;aspect-ratio:auto;padding:0 16px}
+.contact .big{font-family:var(--sans);font-weight:800;font-size:clamp(34px,10vw,52px);letter-spacing:.02em}
+@media(min-width:900px){
+  .hero .stats.pts{grid-template-columns:repeat(3,1fr);padding:8px 10px}
+  .hero .stats.pts div{padding:14px 22px;justify-content:center}
+  .hero .stats.pts div+div{border-top:0;border-left:1px solid var(--line)}
+  .cards{grid-template-columns:repeat(3,1fr);gap:22px}
+  .abrow{grid-template-columns:1.15fr 1fr;gap:56px}
+  .flow{grid-template-columns:repeat(4,1fr);gap:0}
+  .flow .step:not(:last-child)::after{content:"";position:absolute;top:32px;left:calc(50%% + 48px);
+    right:calc(-50%% + 48px);width:auto;height:1.5px;background:var(--accent);opacity:.7}
+  .cgrid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:stretch}
 }
 """

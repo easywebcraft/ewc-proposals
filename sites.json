@@ -701,7 +701,8 @@
    "アクセス"
   ],
   "accent": "#2f6bb5",
-  "photos": {"hero": "ai-denkiten-2", "slides": ["ai-denkiten-1", "ai-denkiten-3"]}
+  "photos": {"hero": "ai-denkiten-2", "slides": ["ai-denkiten-1", "ai-denkiten-3"]},
+  "v3": {"points": [["pin", "岐阜市早田", "忠節橋の北、地域の暮らしに寄り添う電器屋です。"], ["house", "家電・住まい", "家電から住まいの設備まで、まとめてご相談ください。"], ["hand", "訪問相談", "ご自宅にうかがって、ご相談を承ります。"]], "photos": {"hero": "ai-denkiten-1", "slides": ["ai-denkiten-3"], "svc": ["ai-denkiten-1@62% 55%", "1759772238012-9d5ad59ae637", "ai-denkiten-3@70% 40%", "ai-house-g4", null, null]}, "about": {"photo": "ai-denkiten-2", "cap": "店舗写真イメージ", "h": "暮らしのそばに、山中電器。", "p": ["忠節橋の北、岐阜市早田のお店です。", "家電のことも住まいのことも、気軽にご相談いただける町の電器屋です。お困りごとがあれば、どうぞお電話ください。"], "btn": "お店について"}, "company_h": "お店案内・アクセス"}
  },
  "shimizukako": {
   "industry": "kensetsu",

@@ -427,8 +427,24 @@ def trial(sid):
     print(f"  {sid}-v2  {d['name']}  {len(html)} バイト（試作）")
 
 
+def trial_v3(sid):
+    """試作（v3）を <キー>-v3/ に作る。sites.json の "v3" の中身で上書きしてから組む（2026-11-02）。
+    今の見本（<キー>/）は変えない。"""
+    root = pathlib.Path(__file__).resolve().parent
+    d = dict(json.loads((root / "sites.json").read_text(encoding="utf-8"))[sid])
+    d.update(d.pop("v3", {}))
+    d["_v3"] = True
+    out = root / (sid + "-v3")
+    out.mkdir(exist_ok=True)
+    html = render(sid, d)
+    (out / "index.html").write_text(html, encoding="utf-8")
+    print(f"  {sid}-v3  {d['name']}  {len(html)} バイト（試作）")
+
+
 if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[1] == "--trial":
         trial(sys.argv[2])
+    elif len(sys.argv) > 2 and sys.argv[1] == "--v3":
+        trial_v3(sys.argv[2])
     else:
         main(sys.argv[1] if len(sys.argv) > 1 else None)
