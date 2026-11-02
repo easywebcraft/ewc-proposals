@@ -1055,8 +1055,9 @@
   "accent": "#e95313",
   "texture": "kawara",
   "photos": {
-    "hero": "1678694180534-974017792a3e",
-    "gallery": ["1760544137552-b225c3379c76", null, "1621419370788-980a005356a4"]
+    "hero": "ai-roof-1",
+    "slides": ["ai-roof-2", "ai-roof-3"],
+    "gallery": ["ai-roof-4", null, "ai-roof-5"]
   },
   "permits": ["岐阜県知事許可（般-2）第201321号"]
  },
@@ -1320,7 +1321,7 @@
    ]
   ],
   "texture": "zumen",
-  "photos": {"hero": "1602193458517-db6caca8f1fe"}
+  "photos": {"hero": "ai-roof-3", "slides": ["ai-roof-4", "ai-roof-5"]}
  },
  "itochu-tosou": {
   "industry": "kensetsu",
@@ -1994,7 +1995,7 @@
   ],
   "accent": "#283c91",
   "texture": "kinzoku",
-  "photos": {"hero": "1658298775754-5839ffd434cc", "gallery": ["1724041875334-0a6397111c7e", null, null]}
+  "photos": {"hero": "ai-solar-1", "slides": ["ai-solar-2", "ai-solar-3"]}
  },
  "sousekkei": {
   "name": "株式会社想設計",
@@ -2212,7 +2213,7 @@
   ],
   "accent": "#1f2874",
   "texture": "kawara",
-  "photos": {"hero": "1602193458517-db6caca8f1fe"}
+  "photos": {"hero": "ai-roof-3", "slides": ["ai-roof-4", "ai-roof-5"]}
  },
  "aotec": {
   "name": "アオテック株式会社",
@@ -2281,7 +2282,7 @@
   ],
   "accent": "#2e669c",
   "texture": "kinzoku",
-  "photos": {"hero": "1658298775754-5839ffd434cc"},
+  "photos": {"hero": "ai-solar-1", "slides": ["ai-solar-2", "ai-solar-3"]},
   "permits": ["愛知県知事許可（般-2）第74237号"]
  },
  "fujimoto-kogei": {
