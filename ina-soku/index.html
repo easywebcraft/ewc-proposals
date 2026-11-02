@@ -317,18 +317,21 @@ footer .next li{margin:2px 0}
   @page{margin:14mm}
 }
 
-@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-@keyframes riseSp{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes heroUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @keyframes popIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
-.hero .meta > *,.hero h1{animation:rise .7s cubic-bezier(.2,.7,.3,1) both}
-.hero h1{animation-delay:.1s}
-.hero .meta > :nth-child(1){animation-delay:.25s}
-.hero .meta > :nth-child(2){animation-delay:.4s}
-.hero .meta > :nth-child(3){animation-delay:.55s}
+.hero .meta > *,.hero h1,.hero .since{animation:heroUp .8s cubic-bezier(.2,.7,.3,1) both}
+/* トップの文字は 見出し → 説明 → ボタン の順に少しずつ */
+.hero .since,.hero h1{animation-delay:.15s}
+.hero .meta > :nth-child(1){animation-delay:.4s}
+.hero .meta > :nth-child(2){animation-delay:.5s}
+.hero .meta > :nth-child(3){animation-delay:.65s}
+/* 冒頭の演出の間は止めておき、演出が消えたところから始める（裏で終わってしまわないように） */
+.ewl-on .hero .meta > *,.ewl-on .hero h1,.ewl-on .hero .since{animation:none!important;opacity:0}
+.ewl-on .hero .shot{animation:none!important}
 .hero .shot{animation:popIn 1s cubic-bezier(.2,.7,.3,1) .45s both}
 .anim :is(.stats > *,.sechead,.cards > *,.gal > *,.flow > *,.info,.mapbox,.news .pill,.abph,.abtx){opacity:0}
 .anim .on{animation:rise .7s cubic-bezier(.2,.7,.3,1) both}
-@media(max-width:700px){.anim .on{animation-name:riseSp}}
 /* スマホのメニュー開閉。社名＋電話＋ボタンが 390px 幅で1段に収まるよう、アイコンの下に小さく「メニュー」 */
 .mbtn{display:none;order:2;flex-direction:column;align-items:center;gap:4px;background:none;
       border:0;padding:4px 6px;font:inherit;font-size:9px;font-weight:700;
@@ -349,12 +352,12 @@ footer .next li{margin:2px 0}
 }
 @media(prefers-reduced-motion:reduce){
   .anim :is(.stats > *,.sechead,.cards > *,.gal > *,.flow > *,.info,.mapbox,.news .pill,.abph,.abtx){opacity:1}
-  .anim .on,.hero .meta > *,.hero h1,.hero .shot{animation:none}
+  .anim .on,.hero .meta > *,.hero h1,.hero .since,.hero .shot{animation:none}
   .mbtn i::before,.mbtn i::after,.mbtn i span{transition:none}
 }
 @media print{
   .anim :is(.stats > *,.sechead,.cards > *,.gal > *,.flow > *,.info,.mapbox,.news .pill,.abph,.abtx){opacity:1!important}
-  .anim .on,.hero .meta > *,.hero h1,.hero .shot{animation:none!important}
+  .anim .on,.hero .meta > *,.hero h1,.hero .since,.hero .shot{animation:none!important}
   .mbtn{display:none}nav{display:flex!important}
 }
 
@@ -514,36 +517,22 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .hero .side{align-items:flex-start}
   .hero .meta{max-width:34em}
 }
-/* ---- 動き（v3）：出てくる動きを大きめにし、写真・線にも動きを付ける。隠す・出すは MOTION_CSS の .anim/.on ---- */
-@keyframes riseL{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
-@keyframes clipIn{from{opacity:1;clip-path:inset(0 100% 0 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
-@keyframes popC{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:none}}
-.anim .on{animation:riseL .9s cubic-bezier(.2,.7,.2,1) both}
-@media(max-width:700px){.anim .on{animation-name:riseL}}
-/* 見出しの下の線が伸びる */
-.anim .sechead h2::after{transform:scaleX(0);transition:transform .8s cubic-bezier(.6,0,.2,1) .4s}
+/* ---- 動き（v3）：出てくる動きは MOTION_CSS（.anim/.on）。ここでは見出しの線と流れの線を伸ばすだけ ---- */
+.anim .sechead h2::after{transform:scaleX(0);transition:transform .7s cubic-bezier(.6,0,.2,1) .3s}
 .anim .sechead.on h2::after{transform:none}
-/* カードの写真は少し大きい所から寄ってくる（枠の中だけで動く） */
-.card.pc .cph{transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
-.anim .card.pc .cph{transform:scale(1.14)}
-.anim .card.pc.on .cph{transform:none}
-/* 会社紹介の写真は左から開く */
-.anim .abph.on{animation:clipIn 1.3s cubic-bezier(.7,0,.2,1) both}
-/* 流れ：丸がはずんで出て、つなぐ線が左から伸びる */
-.anim .flow .step.on .si{animation:popC .7s cubic-bezier(.3,1.5,.5,1) both;animation-delay:inherit}
 @media(min-width:900px){
-  .anim .flow .step:not(:last-child)::after{transform:scaleX(0);transform-origin:left;transition:transform .7s ease .6s}
+  .anim .flow .step:not(:last-child)::after{transform:scaleX(0);transform-origin:left;transition:transform .6s ease .45s}
   .anim .flow .step.on:not(:last-child)::after{transform:none}
 }
+.card.pc .cph{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 /* 指を乗せたとき：カードが浮いて、写真が少し寄る */
 .card.pc{transition:transform .3s,box-shadow .3s}
 @media(hover:hover){
   .card.pc:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(30,40,35,.12)}
-  .card.pc:hover .cph{transform:scale(1.06);transition-duration:.8s}
+  .card.pc:hover .cph{transform:scale(1.06)}
 }
 @media(prefers-reduced-motion:reduce){
-  .anim .card.pc .cph,.anim .sechead h2::after,.anim .flow .step::after{transform:none!important;transition:none}
-  .anim .abph.on,.anim .flow .step.on .si{animation:none}
+  .anim .sechead h2::after,.anim .flow .step::after{transform:none!important;transition:none}
 }
 </style>
 <script>
@@ -691,32 +680,29 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
 </footer>
 
 <script>
-// スクロールで出てくる動き。隠す指定は <head> の CSS 側（.anim）。ここでは出す順番だけを決める
+// スクロールで出てくる動き。隠す指定は <head> の CSS 側（.anim）。ここでは出す時と順番だけを決める
+//   ・IntersectionObserver で、画面の下1割より上に入ったら出す。一度出したら見張らない（戻っても隠さない）
+//   ・同じ並び（カード・流れ・数字の帯）で同時に入ったものは 100ms ずつずらす
+//   ・冒頭の演出の間は見張らない（演出の裏で出しきって、動きが見えなかった）
 (function(){
-  var units=[].slice.call(document.querySelectorAll('.stats > *,.sechead,.cards > *,.gal > *,.flow > *,.info,.mapbox,.news .pill,.abph,.abtx'));
-  function sweep(){
-    var vh=innerHeight||document.documentElement.clientHeight,shown=[];
-    for(var i=units.length-1;i>=0;i--){
-      var r=units[i].getBoundingClientRect();
-      if(r.top<vh*0.92&&r.bottom>0){shown.push(units[i]);units.splice(i,1);}  // 一度出したら見張らない
-    }
-    if(!shown.length)return;
-    shown.sort(function(a,b){return a.getBoundingClientRect().top-b.getBoundingClientRect().top;})
-      .forEach(function(el,i){el.style.animationDelay=(i*0.06)+'s';el.classList.add('on');});
-    if(!units.length){removeEventListener('scroll',onScroll);removeEventListener('resize',onScroll);}
-  }
-  var waiting=false;
-  function onScroll(){if(waiting)return;waiting=true;requestAnimationFrame(function(){waiting=false;sweep();});}
-  addEventListener('scroll',onScroll,{passive:true});
-  addEventListener('resize',onScroll);
-  sweep();                                  // 最初から見えている分
-  addEventListener('load',sweep);
-  // 保険: スクロールを拾えない環境でも、文字が消えたままにはしない
-  //   冒頭の演出の間は数えない（演出の裏で全部出しきって、動きが見えなかった）
-  (function wait(){
-    if(document.documentElement.classList.contains('ewl-on'))return setTimeout(wait,300);
-    sweep();setTimeout(function(){units.forEach(function(el){el.classList.add('on');});units.length=0;},5000);
-  })();
+  var r=document.documentElement,units=[].slice.call(document.querySelectorAll('.stats > *,.sechead,.cards > *,.gal > *,.flow > *,.info,.mapbox,.news .pill,.abph,.abtx'));
+  function show(el){el.classList.add('on');}
+  if(!('IntersectionObserver' in window)){units.forEach(show);return;}
+  var io=new IntersectionObserver(function(es){
+    var hit=es.filter(function(x){return x.isIntersecting;}).map(function(x){return x.target;});
+    hit.sort(function(a,b){var p=a.getBoundingClientRect(),q=b.getBoundingClientRect();return (p.top-q.top)||(p.left-q.left);});
+    var rows=[],n=[];
+    hit.forEach(function(el){
+      var k=rows.indexOf(el.parentNode);if(k<0){k=rows.push(el.parentNode)-1;n[k]=0;}
+      el.style.animationDelay=(Math.min(n[k]++,5)*0.1)+'s';
+      show(el);io.unobserve(el);
+    });
+  },{rootMargin:'0px 0px -10% 0px',threshold:0});
+  function start(){units.forEach(function(el){io.observe(el);});}
+  if(r.classList.contains('ewl-on')){
+    var mo=new MutationObserver(function(){if(!r.classList.contains('ewl-on')){mo.disconnect();start();}});
+    mo.observe(r,{attributes:true,attributeFilter:['class']});
+  }else start();
 })();
 // スマホのメニュー開閉。外を押す／項目を押す／Esc で閉じ、幅を広げてボタンが消えたら閉じる
 (function(){
