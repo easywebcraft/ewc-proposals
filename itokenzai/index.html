@@ -653,6 +653,10 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .hdwrap.ovl{margin-bottom:-77px}
   .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
+  /* 明るい写真（白い天井・白い壁）でも白い文字が読めるよう、帯の所だけ上から薄く暗くする */
+  /*   （下の透明な枠線の所に、暗い上端がくり返して細い線に見えないよう、枠線まで1枚で敷く） */
+  .hdwrap.ovl:not(.solid) header{background-image:linear-gradient(rgba(20,24,22,.42),rgba(20,24,22,.16) 70%,rgba(20,24,22,0));
+    background-origin:border-box;background-repeat:no-repeat}
   .hdwrap.ovl:not(.solid) .logo,.hdwrap.ovl:not(.solid) nav a{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
   .hdwrap.ovl:not(.solid) .logo small{color:rgba(255,255,255,.85)}
   .hdwrap.ovl:not(.solid) nav a::after{background:#fff}
@@ -720,7 +724,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   </div></header>
 </div>
 
-<div class="hero tx full">
+<div class="hero tx full fv">
   <svg class="tex" aria-hidden="true"><defs><pattern id="tx" width="64" height="64" patternUnits="userSpaceOnUse">
  <g stroke="rgba(47,125,50,.18)" stroke-width="1.6">
   <line x1="10" y1="0" x2="10" y2="64"/><line x1="42" y1="0" x2="42" y2="64"/>
@@ -742,7 +746,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
         <h1 class="vt"><span class="cp">壊して</span><span class="cp">運んで</span><br><span class="cp">また使う</span><br><em><span class="cp">江南で</span><span class="cp">循環をつくる</span></em></h1>
       </div>
     </div>
-    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/1786742593319-a97fbeda2ef5.jpg?v=22f22ec3)"></i>
+    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/ai-doboku-2.jpg?v=fd93219b)"><style>@keyframes heroSl{0%{opacity:0;transform:scale(1.08)}5.56%{opacity:1}38.89%{opacity:1}44.44%{opacity:0;transform:none}100%{opacity:0}}</style><i class="sl" style="background-image:url(../photos/ai-doboku-1.jpg?v=00c6bea6);animation:heroSl 18s linear 5s infinite"></i><i class="sl" style="background-image:url(../photos/ai-doboku-3.jpg?v=13c23288);animation:heroSl 18s linear 11s infinite"></i></i>
       <div class="lb"><b>イメージ写真です</b>実際の制作では御社のお写真に差し替えます</div>
     </div>
     <span class="scroll">scroll</span>
@@ -754,7 +758,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
       <h2>できること</h2><p><span class="cp">解体から</span><span class="cp">資材の再生まで</span></p></div>
-    <div class="cards"><div class="card" id="svc1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">01</span><h3>解体工事</h3><p>住宅から工場まで。解体から整地までお任せください。</p></div><div class="card" id="svc2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">02</span><h3>重機工事</h3><p>掘削・整地・造成。重機を自社で持っています。</p></div><div class="card" id="svc3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">03</span><h3>資材の販売</h3><p>土木・建築資材を現場へお届けします。</p></div><div class="card" id="svc4"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">04</span><h3>産業廃棄物の収集運搬</h3><p>許可を受けた車両で、確実に運びます。</p></div><div class="card" id="svc5"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">05</span><h3>リサイクル処理</h3><p>東海美化リサイクルセンターで再生資源に。</p></div><div class="card" id="svc6"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.8V20h13V9.8"/><path d="M10 20v-5.5h4V20"/></svg></span><span class="no" aria-hidden="true">06</span><h3>空家・空地の管理</h3><p>遠方にお住まいの方に代わって、定期的に見回ります。</p></div></div>
+    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-doboku-1.jpg?v=00c6bea6)"></div><div class="cb"><h3>解体工事</h3><p>住宅から工場まで。解体から整地までお任せください。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-doboku-3.jpg?v=13c23288)"></div><div class="cb"><h3>重機工事</h3><p>掘削・整地・造成。重機を自社で持っています。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-doboku-2.jpg?v=fd93219b)"></div><div class="cb"><h3>資材の販売</h3><p>土木・建築資材を現場へお届けします。</p></div></div><div class="card pc" id="svc4"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>産業廃棄物の収集運搬</h3><p>許可を受けた車両で、確実に運びます。</p></div></div><div class="card pc" id="svc5"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>リサイクル処理</h3><p>東海美化リサイクルセンターで再生資源に。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-fudosan-1.jpg?v=23179312)"></div><div class="cb"><h3>空家・空地の管理</h3><p>遠方にお住まいの方に代わって、定期的に見回ります。</p></div></div></div>
   </div>
 </section>
 

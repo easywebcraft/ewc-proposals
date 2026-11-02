@@ -653,6 +653,10 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .hdwrap.ovl{margin-bottom:-77px}
   .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
+  /* 明るい写真（白い天井・白い壁）でも白い文字が読めるよう、帯の所だけ上から薄く暗くする */
+  /*   （下の透明な枠線の所に、暗い上端がくり返して細い線に見えないよう、枠線まで1枚で敷く） */
+  .hdwrap.ovl:not(.solid) header{background-image:linear-gradient(rgba(20,24,22,.42),rgba(20,24,22,.16) 70%,rgba(20,24,22,0));
+    background-origin:border-box;background-repeat:no-repeat}
   .hdwrap.ovl:not(.solid) .logo,.hdwrap.ovl:not(.solid) nav a{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
   .hdwrap.ovl:not(.solid) .logo small{color:rgba(255,255,255,.85)}
   .hdwrap.ovl:not(.solid) nav a::after{background:#fff}
@@ -752,7 +756,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
       <h2>できること</h2><p><span class="cp">建てることと</span><span class="cp">住まいを探すこと</span></p></div>
-    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-house-h3.jpg?v=b7947167)"></div><div class="cb"><h3>注文住宅</h3><p>自由設計。暮らしに合わせて。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-solar-2.jpg?v=a97f5184)"></div><div class="cb"><h3>ソーラーサーキットの家</h3><p>外断熱と二重通気で、夏涼しく冬あたたかい。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-house-h4.jpg?v=8ccf10b3)"></div><div class="cb"><h3>長期優良住宅</h3><p>長く住める家の基準に対応。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-house-h2.jpg?v=03298fc0)"></div><div class="cb"><h3>売買物件</h3><p>土地、戸建、マンション。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/ai-house-g3.jpg?v=4a8d5af3)"></div><div class="cb"><h3>賃貸物件・月極駐車場</h3><p>土岐市内の賃貸と駐車場。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-house-g2.jpg?v=34916124)"></div><div class="cb"><h3>家づくりの流れ</h3><p>ご相談から完成まで。</p></div></div></div>
+    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-house-h3.jpg?v=b7947167)"></div><div class="cb"><h3>注文住宅</h3><p>自由設計。暮らしに合わせて。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-solar-2.jpg?v=a97f5184)"></div><div class="cb"><h3>ソーラーサーキットの家</h3><p>外断熱と二重通気で、夏涼しく冬あたたかい。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-house-h4.jpg?v=8ccf10b3)"></div><div class="cb"><h3>長期優良住宅</h3><p>長く住める家の基準に対応。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-fudosan-1.jpg?v=23179312)"></div><div class="cb"><h3>売買物件</h3><p>土地、戸建、マンション。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/ai-house-h2.jpg?v=03298fc0)"></div><div class="cb"><h3>賃貸物件・月極駐車場</h3><p>土岐市内の賃貸と駐車場。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-house-g2.jpg?v=34916124)"></div><div class="cb"><h3>家づくりの流れ</h3><p>ご相談から完成まで。</p></div></div></div>
   </div>
 </section>
 

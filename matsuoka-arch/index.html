@@ -653,6 +653,10 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .hdwrap.ovl{margin-bottom:-77px}
   .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
+  /* 明るい写真（白い天井・白い壁）でも白い文字が読めるよう、帯の所だけ上から薄く暗くする */
+  /*   （下の透明な枠線の所に、暗い上端がくり返して細い線に見えないよう、枠線まで1枚で敷く） */
+  .hdwrap.ovl:not(.solid) header{background-image:linear-gradient(rgba(20,24,22,.42),rgba(20,24,22,.16) 70%,rgba(20,24,22,0));
+    background-origin:border-box;background-repeat:no-repeat}
   .hdwrap.ovl:not(.solid) .logo,.hdwrap.ovl:not(.solid) nav a{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
   .hdwrap.ovl:not(.solid) .logo small{color:rgba(255,255,255,.85)}
   .hdwrap.ovl:not(.solid) nav a::after{background:#fff}
@@ -757,7 +761,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
       <h2>できること</h2><p><span class="cp">設計から申請</span><span class="cp">工事の管理まで</span></p></div>
-    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-house-h1.jpg?v=e4d72746)"></div><div class="cb"><h3>CM方式の家づくり</h3><p>分離発注で費用を透明に。メリットと流れをご説明します。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-c-design.jpg?v=7d9b92e4)"></div><div class="cb"><h3>プラン提案サービス</h3><p>土地とご希望から間取りのご提案。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-house-h3.jpg?v=b7947167)"></div><div class="cb"><h3>住宅関連の申請サポート</h3><p>確認申請、長期優良住宅、補助金の手続き。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-c-seismic.jpg?v=f00023e3)"></div><div class="cb"><h3>耐震リフォーム</h3><p>診断から補強設計まで。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/ai-house-h2.jpg?v=03298fc0)"></div><div class="cb"><h3>土地探しのアドバイス</h3><p>建てられる土地かどうか、設計の目で。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-house-g2.jpg?v=34916124)"></div><div class="cb"><h3>店舗・マンション・公共</h3><p>住宅以外の設計も承ります。</p></div></div></div>
+    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-house-h1.jpg?v=e4d72746)"></div><div class="cb"><h3>CM方式の家づくり</h3><p>分離発注で費用を透明に。メリットと流れをご説明します。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-c-design.jpg?v=7d9b92e4)"></div><div class="cb"><h3>プラン提案サービス</h3><p>土地とご希望から間取りのご提案。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-house-h3.jpg?v=b7947167)"></div><div class="cb"><h3>住宅関連の申請サポート</h3><p>確認申請、長期優良住宅、補助金の手続き。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-c-seismic.jpg?v=f00023e3)"></div><div class="cb"><h3>耐震リフォーム</h3><p>診断から補強設計まで。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/ai-fudosan-1.jpg?v=23179312)"></div><div class="cb"><h3>土地探しのアドバイス</h3><p>建てられる土地かどうか、設計の目で。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-house-g2.jpg?v=34916124)"></div><div class="cb"><h3>店舗・マンション・公共</h3><p>住宅以外の設計も承ります。</p></div></div></div>
   </div>
 </section>
 

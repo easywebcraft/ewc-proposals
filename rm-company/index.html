@@ -653,6 +653,10 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .hdwrap.ovl{margin-bottom:-77px}
   .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
+  /* 明るい写真（白い天井・白い壁）でも白い文字が読めるよう、帯の所だけ上から薄く暗くする */
+  /*   （下の透明な枠線の所に、暗い上端がくり返して細い線に見えないよう、枠線まで1枚で敷く） */
+  .hdwrap.ovl:not(.solid) header{background-image:linear-gradient(rgba(20,24,22,.42),rgba(20,24,22,.16) 70%,rgba(20,24,22,0));
+    background-origin:border-box;background-repeat:no-repeat}
   .hdwrap.ovl:not(.solid) .logo,.hdwrap.ovl:not(.solid) nav a{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
   .hdwrap.ovl:not(.solid) .logo small{color:rgba(255,255,255,.85)}
   .hdwrap.ovl:not(.solid) nav a::after{background:#fff}
@@ -720,7 +724,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   </div></header>
 </div>
 
-<div class="hero tx full">
+<div class="hero tx full fv">
   <svg class="tex" aria-hidden="true"><defs><pattern id="tx" width="48" height="48" patternUnits="userSpaceOnUse">
  <g stroke="rgba(43,95,138,.24)" stroke-width="2.6" stroke-linecap="round">
   <line x1="5" y1="15" x2="19" y2="7"/><line x1="8" y1="20" x2="22" y2="12"/>
@@ -741,7 +745,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
         <h1 class="vt"><span class="cp">空調と給湯器を</span><br><span class="cp">売って</span><span class="cp">付けて</span><span class="cp">守る</span><br><em><span class="cp">不動産会社・管理会社の設備係として</span></em></h1>
       </div>
     </div>
-    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/1639600993675-2281b2c939f0.jpg?v=209a36b4)"></i>
+    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/ai-setsubi-1.jpg?v=bbcfb81f)"><style>@keyframes heroSl{0%{opacity:0;transform:scale(1.08)}5.56%{opacity:1}38.89%{opacity:1}44.44%{opacity:0;transform:none}100%{opacity:0}}</style><i class="sl" style="background-image:url(../photos/ai-setsubi-3.jpg?v=f8b917cc);animation:heroSl 18s linear 5s infinite"></i><i class="sl" style="background-image:url(../photos/ai-setsubi-2.jpg?v=ae6187c6);animation:heroSl 18s linear 11s infinite"></i></i>
       <div class="lb"><b>イメージ写真です</b>実際の制作では御社のお写真に差し替えます</div>
     </div>
     <span class="scroll">scroll</span>
@@ -753,7 +757,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
       <h2>できること</h2><p><span class="cp">設備の困りごとを</span><span class="cp">ひとつの窓口で</span></p></div>
-    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/1639600993675-2281b2c939f0.jpg?v=209a36b4)"></div><div class="cb"><h3>空調機の販売施工</h3><p>業務用・家庭用エアコンの選定、設置、入れ替え。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-house-g4.jpg?v=8b83ef88)"></div><div class="cb"><h3>ガス給湯器の販売施工</h3><p>給湯器の交換、新設。急な故障にも。</p></div></div><div class="card pc" id="svc3"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.8V20h13V9.8"/><path d="M10 20v-5.5h4V20"/></svg></div><div class="cb"><h3>住宅設備機器の販売施工</h3><p>キッチン・浴室・トイレの機器。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-denkiten-1.jpg?v=2bc7ef6b)"></div><div class="cb"><h3>エアコンクリーニング</h3><p>分解洗浄で効きとにおいを戻します。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/ai-house-g3.jpg?v=4a8d5af3)"></div><div class="cb"><h3>空調・給湯器の管理業務</h3><p>管理物件の設備をまとめて点検・保守。</p></div></div><div class="card pc" id="svc6"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>弱電工事</h3><p>防犯カメラ、インターホンの設置。</p></div></div><div class="card pc" id="svc7"><div class="cph ph" style="background-image:url(../photos/ai-c-recruit.jpg?v=35e029f7)"></div><div class="cb"><h3>求人情報</h3><p>設備工事・管理の仲間を募集しています。</p></div></div></div>
+    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-setsubi-3.jpg?v=f8b917cc)"></div><div class="cb"><h3>空調機の販売施工</h3><p>業務用・家庭用エアコンの選定、設置、入れ替え。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-house-g4.jpg?v=8b83ef88)"></div><div class="cb"><h3>ガス給湯器の販売施工</h3><p>給湯器の交換、新設。急な故障にも。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-setsubi-2.jpg?v=ae6187c6)"></div><div class="cb"><h3>住宅設備機器の販売施工</h3><p>キッチン・浴室・トイレの機器。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-denkiten-1.jpg?v=2bc7ef6b)"></div><div class="cb"><h3>エアコンクリーニング</h3><p>分解洗浄で効きとにおいを戻します。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/ai-house-g3.jpg?v=4a8d5af3)"></div><div class="cb"><h3>空調・給湯器の管理業務</h3><p>管理物件の設備をまとめて点検・保守。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-denki-3.jpg?v=ddad9b2a)"></div><div class="cb"><h3>弱電工事</h3><p>防犯カメラ、インターホンの設置。</p></div></div><div class="card pc" id="svc7"><div class="cph ph" style="background-image:url(../photos/ai-c-recruit.jpg?v=35e029f7)"></div><div class="cb"><h3>求人情報</h3><p>設備工事・管理の仲間を募集しています。</p></div></div></div>
   </div>
 </section>
 

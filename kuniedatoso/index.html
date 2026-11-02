@@ -653,6 +653,10 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .hdwrap.ovl{margin-bottom:-77px}
   .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
+  /* 明るい写真（白い天井・白い壁）でも白い文字が読めるよう、帯の所だけ上から薄く暗くする */
+  /*   （下の透明な枠線の所に、暗い上端がくり返して細い線に見えないよう、枠線まで1枚で敷く） */
+  .hdwrap.ovl:not(.solid) header{background-image:linear-gradient(rgba(20,24,22,.42),rgba(20,24,22,.16) 70%,rgba(20,24,22,0));
+    background-origin:border-box;background-repeat:no-repeat}
   .hdwrap.ovl:not(.solid) .logo,.hdwrap.ovl:not(.solid) nav a{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
   .hdwrap.ovl:not(.solid) .logo small{color:rgba(255,255,255,.85)}
   .hdwrap.ovl:not(.solid) nav a::after{background:#fff}
@@ -720,7 +724,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   </div></header>
 </div>
 
-<div class="hero tx full">
+<div class="hero tx full fv">
   <svg class="tex" aria-hidden="true"><defs><pattern id="tx" width="96" height="30" patternUnits="userSpaceOnUse">
  <g fill="none" stroke="rgba(31,122,77,.17)" stroke-width="2.2" stroke-linecap="round">
   <path d="M4 9 H60"/><path d="M8 15 H52"/><path d="M4 21 H64"/>
@@ -739,7 +743,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
         <h1 class="vt"><span class="cp">塗り替えは</span><br><span class="cp">家を長持ちさせる工事です</span><br><em><span class="cp">見た目だけの話ではありません</span></em></h1>
       </div>
     </div>
-    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/1562259949-e8e7689d7828.jpg?v=116a59f4)"></i>
+    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/ai-tosou-1.jpg?v=db1a0649)"><style>@keyframes heroSl{0%{opacity:0;transform:scale(1.08)}5.56%{opacity:1}38.89%{opacity:1}44.44%{opacity:0;transform:none}100%{opacity:0}}</style><i class="sl" style="background-image:url(../photos/ai-tosou-3.jpg?v=4c286a41);animation:heroSl 18s linear 5s infinite"></i><i class="sl" style="background-image:url(../photos/ai-tosou-2.jpg?v=7e267e0d);animation:heroSl 18s linear 11s infinite"></i></i>
       <div class="lb"><b>イメージ写真です</b>実際の制作では御社のお写真に差し替えます</div>
     </div>
     <span class="scroll">scroll</span>

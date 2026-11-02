@@ -726,6 +726,10 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .hdwrap.ovl{margin-bottom:-77px}
   .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
+  /* 明るい写真（白い天井・白い壁）でも白い文字が読めるよう、帯の所だけ上から薄く暗くする */
+  /*   （下の透明な枠線の所に、暗い上端がくり返して細い線に見えないよう、枠線まで1枚で敷く） */
+  .hdwrap.ovl:not(.solid) header{background-image:linear-gradient(rgba(20,24,22,.42),rgba(20,24,22,.16) 70%,rgba(20,24,22,0));
+    background-origin:border-box;background-repeat:no-repeat}
   .hdwrap.ovl:not(.solid) .logo,.hdwrap.ovl:not(.solid) nav a{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
   .hdwrap.ovl:not(.solid) .logo small{color:rgba(255,255,255,.85)}
   .hdwrap.ovl:not(.solid) nav a::after{background:#fff}
@@ -793,7 +797,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   </div></header>
 </div>
 
-<div class="hero full">
+<div class="hero full fv">
   
   <div class="wrap inner">
     <div class="side">
@@ -806,7 +810,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
         <p class="since">SINCE 1982</p><h1 class="vt"><span class="cp">地面の下で</span><br><span class="cp">まちを支える</span><br><em><span class="cp">コンクリート製品を</span><br><span class="cp">瀬戸から</span></em></h1>
       </div>
     </div>
-    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/1781255575629-9044eb9b73f9.jpg?v=cc5f2ec1);background-position:50% 45%"></i>
+    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/ai-doboku-3.jpg?v=13c23288)"><style>@keyframes heroSl{0%{opacity:0;transform:scale(1.08)}5.56%{opacity:1}38.89%{opacity:1}44.44%{opacity:0;transform:none}100%{opacity:0}}</style><i class="sl" style="background-image:url(../photos/ai-doboku-1.jpg?v=00c6bea6);animation:heroSl 18s linear 5s infinite"></i><i class="sl" style="background-image:url(../photos/ai-doboku-2.jpg?v=fd93219b);animation:heroSl 18s linear 11s infinite"></i></i>
       <div class="lb"><b>イメージ写真です</b>実際の制作では御社のお写真に差し替えます</div>
     </div>
     <span class="scroll">scroll</span>
@@ -819,7 +823,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
       <h2>できること</h2><p><span class="cp">現場に合わせた</span><span class="cp">コンクリート製品</span></p></div>
-    <div class="cards"><div class="card" id="svc1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">01</span><h3>ボックスカルバート</h3><p>水路や通路の函渠。寸法に合わせて製造します。</p></div><div class="card" id="svc2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">02</span><h3>大型合併浄化槽</h3><p>施設や集合住宅向けの浄化槽。</p></div><div class="card" id="svc3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">03</span><h3>丸型合併浄化槽</h3><p>住宅向けの浄化槽。</p></div><div class="card" id="svc4"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">04</span><h3>土留め壁・コンクリート床版</h3><p>擁壁、床版。設計図に合わせて。</p></div><div class="card" id="svc5"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">05</span><h3>生コンクリート</h3><p>自社で製造。品質管理のうえ出荷します。</p></div><div class="card" id="svc6"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">06</span><h3>特注品</h3><p>図面に合わせた一点物も製造します。</p></div></div>
+    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-doboku-1.jpg?v=00c6bea6)"></div><div class="cb"><h3>ボックスカルバート</h3><p>水路や通路の函渠。寸法に合わせて製造します。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-doboku-3.jpg?v=13c23288)"></div><div class="cb"><h3>大型合併浄化槽</h3><p>施設や集合住宅向けの浄化槽。</p></div></div><div class="card pc" id="svc3"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>丸型合併浄化槽</h3><p>住宅向けの浄化槽。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-doboku-2.jpg?v=fd93219b)"></div><div class="cb"><h3>土留め壁・コンクリート床版</h3><p>擁壁、床版。設計図に合わせて。</p></div></div><div class="card pc" id="svc5"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>生コンクリート</h3><p>自社で製造。品質管理のうえ出荷します。</p></div></div><div class="card pc" id="svc6"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>特注品</h3><p>図面に合わせた一点物も製造します。</p></div></div></div>
   </div>
 </section>
 

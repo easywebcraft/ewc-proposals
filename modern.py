@@ -546,6 +546,10 @@ OVL_CSS = """
   .hdwrap.ovl{margin-bottom:-77px}
   .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
+  /* 明るい写真（白い天井・白い壁）でも白い文字が読めるよう、帯の所だけ上から薄く暗くする */
+  /*   （下の透明な枠線の所に、暗い上端がくり返して細い線に見えないよう、枠線まで1枚で敷く） */
+  .hdwrap.ovl:not(.solid) header{background-image:linear-gradient(rgba(20,24,22,.42),rgba(20,24,22,.16) 70%%,rgba(20,24,22,0));
+    background-origin:border-box;background-repeat:no-repeat}
   .hdwrap.ovl:not(.solid) .logo,.hdwrap.ovl:not(.solid) nav a{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
   .hdwrap.ovl:not(.solid) .logo small{color:rgba(255,255,255,.85)}
   .hdwrap.ovl:not(.solid) nav a::after{background:#fff}
@@ -1578,18 +1582,28 @@ SVC_PHOTOS = (
     (("金属屋根", "ガルバ", "屋根板金", "板金屋根"), ["ai-roof-3", "ai-roof-4"], ()),
     (("屋根", "瓦", "雨漏", "雨もれ", "雨とい", "雨樋", "葺"), ROOF, ()),
     (("太陽光", "発電", "ソーラー"), ["ai-solar-2", "ai-solar-1"], ()),
+    (("車検", "鈑金", "自動車", "中古車", "福祉車両", "カーコーティング", "エアロ", "全塗装", "特装車", "お車"), ["ai-car-1", "ai-car-2", "ai-car-3"], ()),
     (("メンテ", "点検", "保守", "保全", "アフター", "定期"), ["ai-c-mainte"], ()),
     (("修理", "修繕", "補修", "お困り", "故障", "水漏れ", "詰まり"), ["ai-c-repair"], ()),
     (("設計", "図面", "プラン", "監理", "調査", "診断", "測量", "デザイン"), ["ai-c-design"], ()),
     (("お客様の声", "実績", "事例", "引渡", "引き渡し"), ["ai-c-handover"], ("seizo",)),
     (("外壁", "塗り壁", "左官"), ["ai-house-g7"], ()),
-    (("家具", "木工", "造作", "建具", "製材", "木材"), [], ()),
-    (("電気", "電設", "計装", "照明", "LED", "弱電", "制御盤"), [], ()),
-    (("給排水", "配管", "衛生", "ガス", "上下水道", "消防", "設備", "空調", "冷凍", "冷蔵", "ダクト", "換気"), [], ()),
-    (("土木", "舗装", "造成", "解体", "重機", "地盤", "コンクリ", "生コン"), [], ()),
-    (("塗装", "防水", "シーリング", "板金", "加工", "溶接", "組立", "試作", "部品", "機械", "製作", "製造", "製缶", "車"), [], ()),
+    (("家具", "木工", "造作", "建具", "什器", "インテリア"), ["ai-mokko-2", "ai-mokko-1", "ai-mokko-3"], ()),
+    (("製材", "木材", "木型", "無垢", "県産材"), ["ai-mokko-3", "ai-mokko-1"], ()),
+    (("制御盤", "計装", "盤"), ["ai-denki-1", "ai-denki-2"], ()),
+    (("照明", "LED"), ["ai-denki-2", "ai-denki-1"], ()),
+    (("電気", "電設", "弱電", "配線", "受変電", "電柱", "架線"), ["ai-denki-3", "ai-denki-1", "ai-denki-2"], ()),
+    (("空調", "冷凍", "冷蔵", "ダクト", "換気", "冷暖房"), ["ai-setsubi-3", "ai-setsubi-1"], ()),
+    (("給排水", "配管", "衛生", "ガス", "上下水道", "消防", "設備", "井戸"), ["ai-setsubi-2", "ai-setsubi-3"], ()),
+    (("舗装", "道路", "区画線", "防護柵"), ["ai-doboku-1", "ai-doboku-2"], ()),
+    (("造成", "解体", "重機", "土工", "整地", "土砂"), ["ai-doboku-2", "ai-doboku-1"], ()),
+    (("土木", "地盤", "コンクリ", "生コン", "杭", "橋", "カルバート", "のり面"), ["ai-doboku-3", "ai-doboku-1", "ai-doboku-2"], ()),
+    (("防水", "シーリング"), ["ai-tosou-3", "ai-tosou-2"], ()),
+    (("塗装", "塗り替え", "塗替"), ["ai-tosou-1", "ai-tosou-2", "ai-tosou-3"], ()),
+    (("板金", "車"), [], ()),
+    (("加工", "溶接", "組立", "試作", "部品", "機械", "製作", "製造", "製缶", "金型", "切削", "旋盤"), ["ai-seizo-2", "ai-seizo-1", "ai-seizo-3"], ()),
     (("リフォーム", "リノベ", "改修", "内装", "改装", "増改築"), ["ai-house-g6", "ai-house-g2", "ai-house-g5"], ()),
-    (("不動産", "土地", "売買", "賃貸", "物件", "仲介", "買取", "空き家", "空家"), ["ai-house-h2", "ai-house-h1"], ()),
+    (("不動産", "土地", "売買", "賃貸", "物件", "仲介", "買取", "空き家", "空家"), ["ai-fudosan-1", "ai-fudosan-2", "ai-house-h2", "ai-house-h1"], ()),
     (("大工", "木の家", "伝統"), ["ai-house-h5"], ()),
     (("新築", "注文住宅", "住宅", "家", "分譲", "建築", "木造"), ["ai-house-h1", "ai-house-h3", "ai-house-h4", "ai-house-g2"], ()),
 )

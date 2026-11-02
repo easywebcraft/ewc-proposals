@@ -653,6 +653,10 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .hdwrap.ovl{margin-bottom:-77px}
   .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
+  /* 明るい写真（白い天井・白い壁）でも白い文字が読めるよう、帯の所だけ上から薄く暗くする */
+  /*   （下の透明な枠線の所に、暗い上端がくり返して細い線に見えないよう、枠線まで1枚で敷く） */
+  .hdwrap.ovl:not(.solid) header{background-image:linear-gradient(rgba(20,24,22,.42),rgba(20,24,22,.16) 70%,rgba(20,24,22,0));
+    background-origin:border-box;background-repeat:no-repeat}
   .hdwrap.ovl:not(.solid) .logo,.hdwrap.ovl:not(.solid) nav a{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
   .hdwrap.ovl:not(.solid) .logo small{color:rgba(255,255,255,.85)}
   .hdwrap.ovl:not(.solid) nav a::after{background:#fff}
@@ -720,7 +724,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   </div></header>
 </div>
 
-<div class="hero tx full">
+<div class="hero tx full fv">
   <svg class="tex" aria-hidden="true"><defs><pattern id="tx" width="96" height="30" patternUnits="userSpaceOnUse">
  <g fill="none" stroke="rgba(191,79,0,.17)" stroke-width="2.2" stroke-linecap="round">
   <path d="M4 9 H60"/><path d="M8 15 H52"/><path d="M4 21 H64"/>
@@ -739,7 +743,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
         <h1 class="vt"><span class="cp">外壁と屋根を</span><br><span class="cp">塗り替える</span><br><em><span class="cp">春日井の</span><span class="cp">塗装の会社</span></em></h1>
       </div>
     </div>
-    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/1562259949-e8e7689d7828.jpg?v=116a59f4)"></i>
+    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/ai-tosou-1.jpg?v=db1a0649)"><style>@keyframes heroSl{0%{opacity:0;transform:scale(1.08)}5.56%{opacity:1}38.89%{opacity:1}44.44%{opacity:0;transform:none}100%{opacity:0}}</style><i class="sl" style="background-image:url(../photos/ai-tosou-3.jpg?v=4c286a41);animation:heroSl 18s linear 5s infinite"></i><i class="sl" style="background-image:url(../photos/ai-tosou-2.jpg?v=7e267e0d);animation:heroSl 18s linear 11s infinite"></i></i>
       <div class="lb"><b>イメージ写真です</b>実際の制作では御社のお写真に差し替えます</div>
     </div>
     <span class="scroll">scroll</span>
@@ -751,7 +755,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
       <h2>できること</h2><p><span class="cp">塗り替えから</span><span class="cp">住まいの手入れまで</span></p></div>
-    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-house-g7.jpg?v=f6bb359f)"></div><div class="cb"><h3>外壁塗装</h3><p>外壁の塗り替え。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-roof-2.jpg?v=764b291f)"></div><div class="cb"><h3>屋根塗装</h3><p>屋根の塗り替え。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/1562259949-e8e7689d7828.jpg?v=116a59f4)"></div><div class="cb"><h3>防水工事</h3><p>ベランダや屋上の防水。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-house-g6.jpg?v=2bdf5f60)"></div><div class="cb"><h3>リフォーム</h3><p>住まいの改修。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/ai-solar-2.jpg?v=a97f5184)"></div><div class="cb"><h3>太陽光発電工事</h3><p>太陽光発電の工事。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-c-handover.jpg?v=18c000eb)"></div><div class="cb"><h3>施工事例</h3><p>これまでの塗り替え。</p></div></div></div>
+    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-house-g7.jpg?v=f6bb359f)"></div><div class="cb"><h3>外壁塗装</h3><p>外壁の塗り替え。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-roof-2.jpg?v=764b291f)"></div><div class="cb"><h3>屋根塗装</h3><p>屋根の塗り替え。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-tosou-3.jpg?v=4c286a41)"></div><div class="cb"><h3>防水工事</h3><p>ベランダや屋上の防水。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-house-g6.jpg?v=2bdf5f60)"></div><div class="cb"><h3>リフォーム</h3><p>住まいの改修。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/ai-solar-2.jpg?v=a97f5184)"></div><div class="cb"><h3>太陽光発電工事</h3><p>太陽光発電の工事。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-c-handover.jpg?v=18c000eb)"></div><div class="cb"><h3>施工事例</h3><p>これまでの塗り替え。</p></div></div></div>
   </div>
 </section>
 

@@ -653,6 +653,10 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .hdwrap.ovl{margin-bottom:-77px}
   .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
+  /* 明るい写真（白い天井・白い壁）でも白い文字が読めるよう、帯の所だけ上から薄く暗くする */
+  /*   （下の透明な枠線の所に、暗い上端がくり返して細い線に見えないよう、枠線まで1枚で敷く） */
+  .hdwrap.ovl:not(.solid) header{background-image:linear-gradient(rgba(20,24,22,.42),rgba(20,24,22,.16) 70%,rgba(20,24,22,0));
+    background-origin:border-box;background-repeat:no-repeat}
   .hdwrap.ovl:not(.solid) .logo,.hdwrap.ovl:not(.solid) nav a{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
   .hdwrap.ovl:not(.solid) .logo small{color:rgba(255,255,255,.85)}
   .hdwrap.ovl:not(.solid) nav a::after{background:#fff}
@@ -745,7 +749,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
         <h1 class="vt"><span class="cp">住宅ローンのお悩みを</span><br><span class="cp">ご相談ください</span><br><em><span class="cp">名古屋の</span><br><span class="cp">任意売却の相談先</span></em></h1>
       </div>
     </div>
-    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/ai-house-h1.jpg?v=e4d72746)"><style>@keyframes heroSl{0%{opacity:0;transform:scale(1.08)}5.56%{opacity:1}38.89%{opacity:1}44.44%{opacity:0;transform:none}100%{opacity:0}}</style><i class="sl" style="background-image:url(../photos/ai-house-h4.jpg?v=8ccf10b3);animation:heroSl 18s linear 5s infinite"></i><i class="sl" style="background-image:url(../photos/ai-house-h2.jpg?v=03298fc0);animation:heroSl 18s linear 11s infinite"></i></i>
+    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/ai-fudosan-3.jpg?v=7495965f)"><style>@keyframes heroSl{0%{opacity:0;transform:scale(1.08)}5.56%{opacity:1}38.89%{opacity:1}44.44%{opacity:0;transform:none}100%{opacity:0}}</style><i class="sl" style="background-image:url(../photos/ai-fudosan-2.jpg?v=14917112);animation:heroSl 18s linear 5s infinite"></i><i class="sl" style="background-image:url(../photos/ai-fudosan-1.jpg?v=23179312);animation:heroSl 18s linear 11s infinite"></i></i>
       <div class="lb"><b>イメージ写真です</b>実際の制作では御社のお写真に差し替えます</div>
     </div>
     <span class="scroll">scroll</span>
@@ -757,7 +761,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
       <h2>できること</h2><p><span class="cp">ひとりで悩まず</span><span class="cp">まずはご相談を</span></p></div>
-    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-c-estimate.jpg?v=450b10c4)"></div><div class="cb"><h3>任意売却のご相談</h3><p>住宅ローンが払えないときの方法のひとつ。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-house-h4.jpg?v=8ccf10b3)"></div><div class="cb"><h3>住宅ローン返済のご相談</h3><p>返済や滞納のお悩みをうかがいます。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-house-h2.jpg?v=03298fc0)"></div><div class="cb"><h3>連帯保証人がいる場合</h3><p>保証人の方も含めたご相談。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-c-mainte.jpg?v=8df4fdbd)"></div><div class="cb"><h3>アフターサポート</h3><p>売却のあとのご相談。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/ai-house-h1.jpg?v=e4d72746)"></div><div class="cb"><h3>任意売却の流れ</h3><p>手順をわかりやすくご説明します。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-c-handover.jpg?v=18c000eb)"></div><div class="cb"><h3>解決事例</h3><p>これまでのご相談の例。</p></div></div></div>
+    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-c-estimate.jpg?v=450b10c4)"></div><div class="cb"><h3>任意売却のご相談</h3><p>住宅ローンが払えないときの方法のひとつ。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-fudosan-2.jpg?v=14917112)"></div><div class="cb"><h3>住宅ローン返済のご相談</h3><p>返済や滞納のお悩みをうかがいます。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-fudosan-1.jpg?v=23179312)"></div><div class="cb"><h3>連帯保証人がいる場合</h3><p>保証人の方も含めたご相談。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-c-mainte.jpg?v=8df4fdbd)"></div><div class="cb"><h3>アフターサポート</h3><p>売却のあとのご相談。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/ai-fudosan-3.jpg?v=7495965f)"></div><div class="cb"><h3>任意売却の流れ</h3><p>手順をわかりやすくご説明します。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-c-handover.jpg?v=18c000eb)"></div><div class="cb"><h3>解決事例</h3><p>これまでのご相談の例。</p></div></div></div>
   </div>
 </section>
 

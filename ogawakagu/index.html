@@ -653,6 +653,10 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .hdwrap.ovl{margin-bottom:-77px}
   .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
+  /* 明るい写真（白い天井・白い壁）でも白い文字が読めるよう、帯の所だけ上から薄く暗くする */
+  /*   （下の透明な枠線の所に、暗い上端がくり返して細い線に見えないよう、枠線まで1枚で敷く） */
+  .hdwrap.ovl:not(.solid) header{background-image:linear-gradient(rgba(20,24,22,.42),rgba(20,24,22,.16) 70%,rgba(20,24,22,0));
+    background-origin:border-box;background-repeat:no-repeat}
   .hdwrap.ovl:not(.solid) .logo,.hdwrap.ovl:not(.solid) nav a{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
   .hdwrap.ovl:not(.solid) .logo small{color:rgba(255,255,255,.85)}
   .hdwrap.ovl:not(.solid) nav a::after{background:#fff}
@@ -720,7 +724,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   </div></header>
 </div>
 
-<div class="hero tx full">
+<div class="hero tx full fv">
   <svg class="tex" aria-hidden="true"><defs><pattern id="tx" width="120" height="54" patternUnits="userSpaceOnUse">
  <g fill="none" stroke="rgba(138,90,43,.16)" stroke-width="1.3">
   <path d="M0 12 C30 2 90 22 120 12"/><path d="M0 27 C34 18 86 36 120 27"/>
@@ -740,7 +744,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
         <h1 class="vt"><span class="cp">家具を</span><span class="cp">選ぶ</span><br><span class="cp">直す</span><span class="cp">つくる</span><br><em><span class="cp">小牧の家具屋です</span></em></h1>
       </div>
     </div>
-    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/1597113366853-fea190b6cd82.jpg?v=e1c65b02)"></i>
+    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/ai-mokko-2.jpg?v=72bfbb20)"><style>@keyframes heroSl{0%{opacity:0;transform:scale(1.08)}5.56%{opacity:1}38.89%{opacity:1}44.44%{opacity:0;transform:none}100%{opacity:0}}</style><i class="sl" style="background-image:url(../photos/ai-mokko-1.jpg?v=5b60321d);animation:heroSl 18s linear 5s infinite"></i><i class="sl" style="background-image:url(../photos/ai-mokko-3.jpg?v=15d0466f);animation:heroSl 18s linear 11s infinite"></i></i>
       <div class="lb"><b>イメージ写真です</b>実際の制作では御社のお写真に差し替えます</div>
     </div>
     <span class="scroll">scroll</span>
@@ -752,7 +756,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
       <h2>承っていること</h2><p><span class="cp">売って終わりにしません</span></p></div>
-    <div class="cards"><div class="card" id="svc1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.8V20h13V9.8"/><path d="M10 20v-5.5h4V20"/></svg></span><span class="no" aria-hidden="true">01</span><h3>家具の販売</h3><p>ソファ、ダイニング、収納。実物をご覧いただけます。</p></div><div class="card" id="svc2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.8V20h13V9.8"/><path d="M10 20v-5.5h4V20"/></svg></span><span class="no" aria-hidden="true">02</span><h3>別注家具</h3><p>置く場所の寸法に合わせてお作りします。図面からご相談ください。</p></div><div class="card" id="svc3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6.5a4 4 0 0 0 5 5L11 20a2.1 2.1 0 0 1-3-3l8.5-8.5"/><path d="M14.5 6.5 17 4l3 3-2.5 2.5"/></svg></span><span class="no" aria-hidden="true">03</span><h3>リフォーム家具</h3><p>使ってきた家具を直します。張り替え・塗り直しも承ります。</p></div><div class="card" id="svc4"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">04</span><h3>桐簞笥</h3><p>昔からの簞笥の修理・洗い直しもお引き受けします。</p></div><div class="card" id="svc5"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">05</span><h3>納品と設置</h3><p>運び込みから据え付けまで。古い家具の引き取りもご相談ください。</p></div><div class="card" id="svc6"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V7l6-3v16"/><path d="M10 9h10v11"/><path d="M3 20h18"/><path d="M13 12.5h1.5M16.5 12.5H18M13 16h1.5M16.5 16H18M6.5 9.5h1M6.5 13h1M6.5 16.5h1"/></svg></span><span class="no" aria-hidden="true">06</span><h3>店舗でのご相談</h3><p>小牧の店舗でお待ちしています。お気軽にどうぞ。</p></div></div>
+    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-mokko-1.jpg?v=5b60321d)"></div><div class="cb"><h3>家具の販売</h3><p>ソファ、ダイニング、収納。実物をご覧いただけます。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-mokko-3.jpg?v=15d0466f)"></div><div class="cb"><h3>別注家具</h3><p>置く場所の寸法に合わせてお作りします。図面からご相談ください。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-mokko-2.jpg?v=72bfbb20)"></div><div class="cb"><h3>リフォーム家具</h3><p>使ってきた家具を直します。張り替え・塗り直しも承ります。</p></div></div><div class="card pc" id="svc4"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>桐簞笥</h3><p>昔からの簞笥の修理・洗い直しもお引き受けします。</p></div></div><div class="card pc" id="svc5"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>納品と設置</h3><p>運び込みから据え付けまで。古い家具の引き取りもご相談ください。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-c-estimate.jpg?v=450b10c4)"></div><div class="cb"><h3>店舗でのご相談</h3><p>小牧の店舗でお待ちしています。お気軽にどうぞ。</p></div></div></div>
   </div>
 </section>
 

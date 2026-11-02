@@ -653,6 +653,10 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .hdwrap.ovl{margin-bottom:-77px}
   .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
+  /* 明るい写真（白い天井・白い壁）でも白い文字が読めるよう、帯の所だけ上から薄く暗くする */
+  /*   （下の透明な枠線の所に、暗い上端がくり返して細い線に見えないよう、枠線まで1枚で敷く） */
+  .hdwrap.ovl:not(.solid) header{background-image:linear-gradient(rgba(20,24,22,.42),rgba(20,24,22,.16) 70%,rgba(20,24,22,0));
+    background-origin:border-box;background-repeat:no-repeat}
   .hdwrap.ovl:not(.solid) .logo,.hdwrap.ovl:not(.solid) nav a{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
   .hdwrap.ovl:not(.solid) .logo small{color:rgba(255,255,255,.85)}
   .hdwrap.ovl:not(.solid) nav a::after{background:#fff}
@@ -740,7 +744,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
         <h1 class="vt"><span class="cp">自分の工場で挽いた木で</span><br><span class="cp">家を建てる</span><br><em><span class="cp">付知の</span><br><span class="cp">製材所の家づくり</span></em></h1>
       </div>
     </div>
-    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/ai-house-h5.jpg?v=e257d36d)"><style>@keyframes heroSl{0%{opacity:0;transform:scale(1.08)}5.56%{opacity:1}38.89%{opacity:1}44.44%{opacity:0;transform:none}100%{opacity:0}}</style><i class="sl" style="background-image:url(../photos/1597113366853-fea190b6cd82.jpg?v=e1c65b02);animation:heroSl 18s linear 5s infinite"></i><i class="sl" style="background-image:url(../photos/ai-house-h1.jpg?v=e4d72746);animation:heroSl 18s linear 11s infinite"></i></i>
+    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/ai-house-h5.jpg?v=e257d36d)"><style>@keyframes heroSl{0%{opacity:0;transform:scale(1.08)}5.56%{opacity:1}38.89%{opacity:1}44.44%{opacity:0;transform:none}100%{opacity:0}}</style><i class="sl" style="background-image:url(../photos/ai-mokko-1.jpg?v=5b60321d);animation:heroSl 18s linear 5s infinite"></i><i class="sl" style="background-image:url(../photos/ai-house-h1.jpg?v=e4d72746);animation:heroSl 18s linear 11s infinite"></i></i>
       <div class="lb"><b>イメージ写真です</b>実際の制作では御社のお写真に差し替えます</div>
     </div>
     <span class="scroll">scroll</span>
@@ -752,7 +756,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
       <h2>できること</h2><p><span class="cp">木を挽くところから</span></p></div>
-    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-house-h1.jpg?v=e4d72746)"></div><div class="cb"><h3>東濃ひのきの家</h3><p>自社で製材した木で建てます。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-house-g6.jpg?v=2bdf5f60)"></div><div class="cb"><h3>リフォーム</h3><p>住まいの改装、改修。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/1597113366853-fea190b6cd82.jpg?v=e1c65b02)"></div><div class="cb"><h3>製材・建築材料</h3><p>造作材・構造材。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-solar-2.jpg?v=a97f5184)"></div><div class="cb"><h3>太陽光発電</h3><p>屋根の上の発電設備。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/ai-house-h3.jpg?v=b7947167)"></div><div class="cb"><h3>お家を建てる流れ</h3><p>ご相談から完成まで。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-house-g2.jpg?v=34916124)"></div><div class="cb"><h3>木の家ができるまで</h3><p>原木から家になるまで。</p></div></div></div>
+    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-house-h1.jpg?v=e4d72746)"></div><div class="cb"><h3>東濃ひのきの家</h3><p>自社で製材した木で建てます。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-house-g6.jpg?v=2bdf5f60)"></div><div class="cb"><h3>リフォーム</h3><p>住まいの改装、改修。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-mokko-3.jpg?v=15d0466f)"></div><div class="cb"><h3>製材・建築材料</h3><p>造作材・構造材。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-solar-2.jpg?v=a97f5184)"></div><div class="cb"><h3>太陽光発電</h3><p>屋根の上の発電設備。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/ai-house-h3.jpg?v=b7947167)"></div><div class="cb"><h3>お家を建てる流れ</h3><p>ご相談から完成まで。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-mokko-1.jpg?v=5b60321d)"></div><div class="cb"><h3>木の家ができるまで</h3><p>原木から家になるまで。</p></div></div></div>
   </div>
 </section>
 

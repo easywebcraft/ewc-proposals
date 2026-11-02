@@ -653,6 +653,10 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .hdwrap.ovl{margin-bottom:-77px}
   .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
+  /* 明るい写真（白い天井・白い壁）でも白い文字が読めるよう、帯の所だけ上から薄く暗くする */
+  /*   （下の透明な枠線の所に、暗い上端がくり返して細い線に見えないよう、枠線まで1枚で敷く） */
+  .hdwrap.ovl:not(.solid) header{background-image:linear-gradient(rgba(20,24,22,.42),rgba(20,24,22,.16) 70%,rgba(20,24,22,0));
+    background-origin:border-box;background-repeat:no-repeat}
   .hdwrap.ovl:not(.solid) .logo,.hdwrap.ovl:not(.solid) nav a{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
   .hdwrap.ovl:not(.solid) .logo small{color:rgba(255,255,255,.85)}
   .hdwrap.ovl:not(.solid) nav a::after{background:#fff}
@@ -757,7 +761,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
       <h2>できること</h2><p><span class="cp">住まいの小さな修繕から</span><span class="cp">大きな工事まで</span></p></div>
-    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-house-g6.jpg?v=2bdf5f60)"></div><div class="cb"><h3>住宅の新築・増改築</h3><p>ご家族の暮らし方をうかがってから設計します。建てたあとのお付き合いも続きます。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-house-g2.jpg?v=34916124)"></div><div class="cb"><h3>リフォーム・営繕</h3><p>水まわりの入れ替えから、雨漏りの補修まで。小さな工事もお気軽にどうぞ。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-house-h1.jpg?v=e4d72746)"></div><div class="cb"><h3>社寺・仏閣</h3><p>伝統的な造りに携わってきた職人が対応します。改修のご相談も承ります。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-zoen-1.jpg?v=13e9704c)"></div><div class="cb"><h3>土木・造園</h3><p>造成、外構、庭づくり。敷地全体を見たうえでご提案します。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/ai-house-h4.jpg?v=8ccf10b3)"></div><div class="cb"><h3>店舗・工場</h3><p>事業のご計画に合わせて、工期と費用の見通しを先にお示しします。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-house-h5.jpg?v=e257d36d)"></div><div class="cb"><h3>上下水道工事</h3><p>給排水設備の新設・改修。生活に直結する部分だからこそ、丁寧に。</p></div></div></div>
+    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-house-g6.jpg?v=2bdf5f60)"></div><div class="cb"><h3>住宅の新築・増改築</h3><p>ご家族の暮らし方をうかがってから設計します。建てたあとのお付き合いも続きます。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-house-g2.jpg?v=34916124)"></div><div class="cb"><h3>リフォーム・営繕</h3><p>水まわりの入れ替えから、雨漏りの補修まで。小さな工事もお気軽にどうぞ。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-house-h1.jpg?v=e4d72746)"></div><div class="cb"><h3>社寺・仏閣</h3><p>伝統的な造りに携わってきた職人が対応します。改修のご相談も承ります。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-zoen-1.jpg?v=13e9704c)"></div><div class="cb"><h3>土木・造園</h3><p>造成、外構、庭づくり。敷地全体を見たうえでご提案します。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/ai-house-h4.jpg?v=8ccf10b3)"></div><div class="cb"><h3>店舗・工場</h3><p>事業のご計画に合わせて、工期と費用の見通しを先にお示しします。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-setsubi-2.jpg?v=ae6187c6)"></div><div class="cb"><h3>上下水道工事</h3><p>給排水設備の新設・改修。生活に直結する部分だからこそ、丁寧に。</p></div></div></div>
   </div>
 </section>
 

@@ -653,6 +653,10 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .hdwrap.ovl{margin-bottom:-77px}
   .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
+  /* 明るい写真（白い天井・白い壁）でも白い文字が読めるよう、帯の所だけ上から薄く暗くする */
+  /*   （下の透明な枠線の所に、暗い上端がくり返して細い線に見えないよう、枠線まで1枚で敷く） */
+  .hdwrap.ovl:not(.solid) header{background-image:linear-gradient(rgba(20,24,22,.42),rgba(20,24,22,.16) 70%,rgba(20,24,22,0));
+    background-origin:border-box;background-repeat:no-repeat}
   .hdwrap.ovl:not(.solid) .logo,.hdwrap.ovl:not(.solid) nav a{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
   .hdwrap.ovl:not(.solid) .logo small{color:rgba(255,255,255,.85)}
   .hdwrap.ovl:not(.solid) nav a::after{background:#fff}
@@ -753,7 +757,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
       <h2>できること</h2><p><span class="cp">電気のことは</span><span class="cp">まとめて一軒で</span></p></div>
-    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-denkiten-1.jpg?v=2bc7ef6b)"></div><div class="cb"><h3>エアコン工事</h3><p>取り付け、取り外し、移設。買い替えのご相談も。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-denkiten-3.jpg?v=4568e8cb)"></div><div class="cb"><h3>アンテナ工事</h3><p>地デジ・BS・CSのアンテナ設置、映りの改善。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-denkiten-2.jpg?v=99bc4015)"></div><div class="cb"><h3>コンセント・照明・インターホン工事</h3><p>増設、交換、LED化。</p></div></div><div class="card pc" id="svc4"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6.5a4 4 0 0 0 5 5L11 20a2.1 2.1 0 0 1-3-3l8.5-8.5"/><path d="M14.5 6.5 17 4l3 3-2.5 2.5"/></svg></div><div class="cb"><h3>家電の販売・修理</h3><p>冷蔵庫、洗濯機、テレビ。買うのも直すのもこちらで。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/ai-solar-3.jpg?v=3abe0774)"></div><div class="cb"><h3>オール電化・太陽光発電工事</h3><p>IH、エコキュート、太陽光の設計施工。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-house-g6.jpg?v=2bdf5f60)"></div><div class="cb"><h3>リフォーム工事</h3><p>水まわりや内装の小さな改装。電気とあわせて。</p></div></div></div>
+    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-denkiten-1.jpg?v=2bc7ef6b)"></div><div class="cb"><h3>エアコン工事</h3><p>取り付け、取り外し、移設。買い替えのご相談も。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-denkiten-3.jpg?v=4568e8cb)"></div><div class="cb"><h3>アンテナ工事</h3><p>地デジ・BS・CSのアンテナ設置、映りの改善。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-denki-2.jpg?v=73220f8c)"></div><div class="cb"><h3>コンセント・照明・インターホン工事</h3><p>増設、交換、LED化。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-denkiten-2.jpg?v=99bc4015)"></div><div class="cb"><h3>家電の販売・修理</h3><p>冷蔵庫、洗濯機、テレビ。買うのも直すのもこちらで。</p></div></div><div class="card pc" id="svc5"><div class="cph ph" style="background-image:url(../photos/ai-solar-3.jpg?v=3abe0774)"></div><div class="cb"><h3>オール電化・太陽光発電工事</h3><p>IH、エコキュート、太陽光の設計施工。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-house-g6.jpg?v=2bdf5f60)"></div><div class="cb"><h3>リフォーム工事</h3><p>水まわりや内装の小さな改装。電気とあわせて。</p></div></div></div>
   </div>
 </section>
 

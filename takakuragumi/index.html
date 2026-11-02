@@ -653,6 +653,10 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .hdwrap.ovl{margin-bottom:-77px}
   .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
+  /* 明るい写真（白い天井・白い壁）でも白い文字が読めるよう、帯の所だけ上から薄く暗くする */
+  /*   （下の透明な枠線の所に、暗い上端がくり返して細い線に見えないよう、枠線まで1枚で敷く） */
+  .hdwrap.ovl:not(.solid) header{background-image:linear-gradient(rgba(20,24,22,.42),rgba(20,24,22,.16) 70%,rgba(20,24,22,0));
+    background-origin:border-box;background-repeat:no-repeat}
   .hdwrap.ovl:not(.solid) .logo,.hdwrap.ovl:not(.solid) nav a{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
   .hdwrap.ovl:not(.solid) .logo small{color:rgba(255,255,255,.85)}
   .hdwrap.ovl:not(.solid) nav a::after{background:#fff}
@@ -720,7 +724,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   </div></header>
 </div>
 
-<div class="hero tx full">
+<div class="hero tx full fv">
   <svg class="tex" aria-hidden="true"><defs><pattern id="tx" width="64" height="64" patternUnits="userSpaceOnUse">
  <g stroke="rgba(31,111,58,.18)" stroke-width="1.6">
   <line x1="10" y1="0" x2="10" y2="64"/><line x1="42" y1="0" x2="42" y2="64"/>
@@ -742,7 +746,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
         <h1 class="vt"><span class="cp">安全と技術に</span><br><span class="cp">心を添えて</span><br><em><span class="cp">春日井の土木を</span><span class="cp">支える</span></em></h1>
       </div>
     </div>
-    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/1786742593319-a97fbeda2ef5.jpg?v=22f22ec3)"></i>
+    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/ai-doboku-1.jpg?v=00c6bea6)"><style>@keyframes heroSl{0%{opacity:0;transform:scale(1.08)}5.56%{opacity:1}38.89%{opacity:1}44.44%{opacity:0;transform:none}100%{opacity:0}}</style><i class="sl" style="background-image:url(../photos/ai-doboku-2.jpg?v=fd93219b);animation:heroSl 18s linear 5s infinite"></i><i class="sl" style="background-image:url(../photos/ai-doboku-3.jpg?v=13c23288);animation:heroSl 18s linear 11s infinite"></i></i>
       <div class="lb"><b>イメージ写真です</b>実際の制作では御社のお写真に差し替えます</div>
     </div>
     <span class="scroll">scroll</span>
@@ -754,7 +758,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
       <h2>できること</h2><p><span class="cp">まちの足元から</span><span class="cp">お宅の駐車場まで</span></p></div>
-    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/1786742593319-a97fbeda2ef5.jpg?v=22f22ec3)"></div><div class="cb"><h3>公共工事</h3><p>愛知県尾張建設事務所・春日井市発注の工事。区画整理、緊急維持。</p></div></div><div class="card pc" id="svc2"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>民間工事</h3><p>駐車場の新設・改修、乗入口の新設。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-c-exterior.jpg?v=9c3c6e9f)"></div><div class="cb"><h3>外構工事</h3><p>ブロック・フェンス・舗装。</p></div></div><div class="card pc" id="svc4"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>防災協定</h3><p>災害時の緊急対応を自治体と結んでいます。</p></div></div><div class="card pc" id="svc5"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>優良表彰・地域貢献</h3><p>表彰の実績と、地域での活動。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-c-recruit.jpg?v=35e029f7)"></div><div class="cb"><h3>採用情報</h3><p>土木の技術者を募集しています。</p></div></div></div>
+    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-doboku-2.jpg?v=fd93219b)"></div><div class="cb"><h3>公共工事</h3><p>愛知県尾張建設事務所・春日井市発注の工事。区画整理、緊急維持。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-doboku-3.jpg?v=13c23288)"></div><div class="cb"><h3>民間工事</h3><p>駐車場の新設・改修、乗入口の新設。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/ai-c-exterior.jpg?v=9c3c6e9f)"></div><div class="cb"><h3>外構工事</h3><p>ブロック・フェンス・舗装。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-doboku-1.jpg?v=00c6bea6)"></div><div class="cb"><h3>防災協定</h3><p>災害時の緊急対応を自治体と結んでいます。</p></div></div><div class="card pc" id="svc5"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>優良表彰・地域貢献</h3><p>表彰の実績と、地域での活動。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-c-recruit.jpg?v=35e029f7)"></div><div class="cb"><h3>採用情報</h3><p>土木の技術者を募集しています。</p></div></div></div>
   </div>
 </section>
 
