@@ -44,6 +44,16 @@ a{color:inherit}
         font-size:13px;line-height:1.6;padding:9px 16px;text-align:center}
 .notice b{font-weight:700}
 .notice span{display:block;opacity:.92;font-size:12px}
+/* ★2026-11-02 松本さん「見本の帯が強調されすぎて邪魔」。会社の色の2段から、濃い灰色の細い1行に。
+   公式サイトではないことは常に見せる（閉じられない）。詳しい断り書きはページ下（footer）に残す */
+.notice.slim{background:#2a2c2b;color:rgba(255,255,255,.8);font-size:11.5px;line-height:1.5;
+  padding:6px 16px;letter-spacing:.04em}
+.notice.slim span{display:inline-block;opacity:1;font-size:inherit}
+.notice.slim i{display:inline-block;width:6px;height:6px;border-radius:50%%;background:var(--accent);
+  margin-right:7px;vertical-align:1px;box-shadow:0 0 0 2px rgba(255,255,255,.25)}
+.notice.slim .ph{margin-right:0}
+/* スマホは1行に収めるため「EasyWebCraft の」を省く（会社名はページ下の断り書きにある） */
+@media(max-width:600px){.notice.slim{font-size:11px;padding:6px 10px;letter-spacing:.02em}.notice.slim .ewc{display:none}}
 
 /* ヘッダーは画面の端まで届く帯（2026-09-18・PCも）。
    角丸で浮かせる型（SUZUKI の型）は両端に隙間ができて「ずれている」ように見えるので
@@ -1351,10 +1361,7 @@ def render(sid, d, ind):
 <body>
 {loader}
 
-<div class="notice">
-  <b>これは EasyWebCraft が作成した提案用の見本です。</b>
-  <span><span class="ph">{e(name)}さまの公式サイトではありません。</span><span class="ph"><b>トップページだけを形にした見本</b>で、</span><span class="ph">メニューの各ページは実際の制作でお作りします。</span><span class="ph">写真・文章は当社が用意したものです。</span></span>
-</div>
+<div class="notice slim"><span class="ph"><i></i><span class="ewc">EasyWebCraft の</span>提案用の見本｜</span><span class="ph">{e(short_name(name))}さまの公式サイトではありません</span></div>
 
 <div class="hdwrap{" ovl" if v3 and hero_ph else ""}">
   <header><div class="hd">
@@ -1428,6 +1435,7 @@ def render(sid, d, ind):
 {badge}
 <footer>
   <span class="ph">この見本は EasyWebCraft が作成した提案資料です。</span><span class="ph">{e(name)}さまの公式サイトではありません。</span><br>
+  <span class="ph">トップページだけを形にした見本で、</span><span class="ph">メニューの各ページは実際の制作でお作りします。</span><br>
   <span class="ph">実際の制作では、</span><span class="ph">御社の写真・実績・文章に差し替えて仕上げます。</span>
   <div class="next"><b>この見本を本物のサイトにするには</b>
     <ol>
@@ -1577,6 +1585,11 @@ def about_photo(d):
     if any(w in words for w in ("土木", "舗装", "造成", "解体", "造園", "庭", "石材", "生コン", "砕石", "資材")):
         return "ai-o-yard"
     return "ai-o-office"
+
+
+def short_name(name):
+    """会社の種類（株式会社など）を除いた呼び名。見本の帯の「〇〇さま」に使う。"""
+    return re.sub(r"(株式会社|有限会社|合同会社|合資会社|協同組合|医療法人|一般社団法人|社会福祉法人)", "", name).strip() or name
 
 
 def auto_about(d, photos):
