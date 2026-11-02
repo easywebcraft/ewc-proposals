@@ -516,6 +516,48 @@ html.ewl-on:not(.ewl-txt) :is(.hero .meta > *,.hero h1,.hero .since,nav a){anima
 html{scrollbar-gutter:stable}
 """
 
+# ★2026-11-02 松本さん「LFのFVのように、メニューを分かりやすい大きさにして、白い帯なしで背景の写真の上に。
+#   スクロールしたら帯を出す」。PC（メニューが横に並ぶ幅）で、トップに写真がある見本だけ。
+#   ・帯はそのまま sticky にして、下に負の余白を付けて写真の上に重ねる（見本の断り書きは上に残る）
+#   ・写真の上では白い文字＋薄い影、少し下がったら（.solid）白い帯と濃い文字に戻す
+#   ・冒頭の演出の社名は、写真の上に着地するので白に変えながら吸い込む
+OVL_CSS = """
+/* 大きなメニューは並びきる広い画面だけ（ノートパソコンでは今までの大きさで横に並べる） */
+@media(min-width:%(navbig)spx){
+  .logo{font-size:21px}
+  .logo small{font-size:10.5px}
+  nav{font-size:16.5px;column-gap:30px;letter-spacing:.08em}
+  .hd .call{padding:13px 24px;font-size:14.5px}
+}
+@media(min-width:%(navbp)spx){
+  .hd{min-height:76px;max-width:1240px;padding:0 28px}
+  .hdwrap.ovl{margin-bottom:-77px}
+  .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
+    backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
+  .hdwrap.ovl:not(.solid) .logo,.hdwrap.ovl:not(.solid) nav a{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+  .hdwrap.ovl:not(.solid) .logo small{color:rgba(255,255,255,.85)}
+  .hdwrap.ovl:not(.solid) nav a::after{background:#fff}
+  .hdwrap.ovl .logo,.hdwrap.ovl nav a{transition:color .35s,text-shadow .35s}
+  .hdwrap.ovl.solid header{background:rgba(255,255,255,.96);border-bottom-color:var(--line);
+    box-shadow:0 2px 12px rgba(40,50,45,.08);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  /* 帯の分だけ、写真の上の文字の塊を下げる */
+  .hdwrap.ovl ~ .hero.full .inner .side{padding-top:125px}
+  /* 「イメージ写真です」の札がメニューの電話ボタンに隠れないよう、帯の下へ */
+  .hdwrap.ovl ~ .hero.full .shot .lb{top:96px}
+  html:has(.hdwrap.ovl) .ewl.is-absorb .logo{color:#fff;transition:transform 1s cubic-bezier(.65,0,.35,1),opacity .45s ease .95s,color .8s ease}
+  html:has(.hdwrap.ovl) .ewl.is-absorb .logo small{color:rgba(255,255,255,.85);transition:color .8s ease}
+}
+"""
+
+OVL_JS = """<script>
+(function(){
+  var w=document.querySelector('.hdwrap.ovl');if(!w)return;
+  var n=document.querySelector('.notice'),f=function(){
+    var y=(n?n.offsetHeight:0)+24;w.classList.toggle('solid',(window.scrollY||pageYOffset)>y);};
+  addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f();
+})();
+</script>"""
+
 LOADER_HEAD = """<script>
 (function(){
   var r=document.documentElement,played=false;
@@ -776,11 +818,12 @@ def _tw(text, px):
 # ★ヘッダーを1行に戻す幅は、社名とメニューの長さから1件ずつ計算する。
 #   固定の境目（1100px）にしたら、社名14字＋7項目の小川木工家具センターで
 #   電話番号がはみ出した。項目数も社名の長さも先によって倍近く違う。
-def nav_breakpoint(d, ind):
+def nav_breakpoint(d, ind, big=False):
+    """メニューを横に並べられる最小の幅。big は v3 の大きなメニュー（OVL_CSS）で並べられる幅。"""
     labels = d.get("nav") or [ind["svc"], ind["flow_h"], "会社概要", "お問い合わせ"]
-    nav = sum(_tw(x, 14.3) for x in labels) + (len(labels) - 1) * 22
-    logo = _tw(d["name"], 18.4)
-    call = _tw("お電話 " + d.get("tel", ""), 14.5) + 40
+    nav = sum(_tw(x, 17.7 if big else 14.3) for x in labels) + (len(labels) - 1) * (30 if big else 22)
+    logo = _tw(d["name"], 22 if big else 18.4)
+    call = _tw("お電話 " + d.get("tel", ""), 15.5 if big else 14.5) + (52 if big else 40)
     if ind.get("skin") == "seizo":
         call += _tw("資料請求", 12.5) + 36          # 2つ目のボタンのぶん
     need = logo + nav + call + 24 * 2 + 30 + 24 + 100  # すきま・内側の余白・安全分
@@ -1112,6 +1155,7 @@ def render(sid, d, ind):
         css += V2_CSS % {"acc_rgb": acc_rgb}
     if v3:
         css += V3_CSS % {"acc_rgb": acc_rgb}
+        css += OVL_CSS % {"navbp": max(navbp, 900), "navbig": nav_breakpoint(d, ind, big=True)}
     roman = d.get("roman", "")
     since = bigen = tagline = badge = ""
     news_t = ind.get("news_hint", "お知らせが入ります（工事のご報告・休業日など）")
@@ -1297,7 +1341,7 @@ def render(sid, d, ind):
   <span><span class="ph">{e(name)}さまの公式サイトではありません。</span><span class="ph"><b>トップページだけを形にした見本</b>で、</span><span class="ph">メニューの各ページは実際の制作でお作りします。</span><span class="ph">写真・文章は当社が用意したものです。</span></span>
 </div>
 
-<div class="hdwrap">
+<div class="hdwrap{" ovl" if v3 and hero_ph else ""}">
   <header><div class="hd">
     <div class="logo">{e(name)}<small>{e(roman)}</small></div>
     <nav>{nav}</nav>
@@ -1381,6 +1425,7 @@ def render(sid, d, ind):
 </footer>
 
 {body_js()}
+{OVL_JS if v3 and hero_ph else ""}
 {LOADER_JS}
 </body>
 </html>
@@ -1674,7 +1719,12 @@ V3_CSS = """
   .hero .vt,.hero.full.fv .vt{writing-mode:horizontal-tb;max-height:none;margin-left:0;white-space:normal}
   .hero h1.vt{line-height:1.45;letter-spacing:.06em;font-size:calc(clamp(34px,3.5vw,50px) * var(--h1k,1) / 1.1)}
   .hero h1.vt em{white-space:nowrap}
-  .hero .textcol,.hero.full .textcol{flex-direction:column;gap:26px;justify-content:flex-start}
+  .hero .textcol,.hero.full .textcol{flex-direction:column;gap:18px;justify-content:flex-start}
+  .hero h1.vt{line-height:1.38}
+  /* 文字の塊は写真の高さの真ん中より少し上に置く（上から 64px 固定だと、縦に大きい画面で
+     下に 300px 近く空いて文字が浮いて見えた 2026-11-02）。下端に重なる数字の帯の分も下を多めにあける */
+  .hero.full .wrap.inner{display:flex;flex-direction:column;justify-content:center;align-items:stretch}
+  .hero.full .inner .side,.hero.full.fv .inner .side{padding:48px 20px 136px}
   .hero .textcol h1,.hero.full .textcol h1{order:-1}
   .hero .side{align-items:flex-start}
   .hero .meta{max-width:34em}

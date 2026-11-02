@@ -601,7 +601,12 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .hero .vt,.hero.full.fv .vt{writing-mode:horizontal-tb;max-height:none;margin-left:0;white-space:normal}
   .hero h1.vt{line-height:1.45;letter-spacing:.06em;font-size:calc(clamp(34px,3.5vw,50px) * var(--h1k,1) / 1.1)}
   .hero h1.vt em{white-space:nowrap}
-  .hero .textcol,.hero.full .textcol{flex-direction:column;gap:26px;justify-content:flex-start}
+  .hero .textcol,.hero.full .textcol{flex-direction:column;gap:18px;justify-content:flex-start}
+  .hero h1.vt{line-height:1.38}
+  /* 文字の塊は写真の高さの真ん中より少し上に置く（上から 64px 固定だと、縦に大きい画面で
+     下に 300px 近く空いて文字が浮いて見えた 2026-11-02）。下端に重なる数字の帯の分も下を多めにあける */
+  .hero.full .wrap.inner{display:flex;flex-direction:column;justify-content:center;align-items:stretch}
+  .hero.full .inner .side,.hero.full.fv .inner .side{padding:48px 20px 136px}
   .hero .textcol h1,.hero.full .textcol h1{order:-1}
   .hero .side{align-items:flex-start}
   .hero .meta{max-width:34em}
@@ -622,6 +627,32 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
 }
 @media(prefers-reduced-motion:reduce){
   .anim .sechead h2::after,.anim .flow .step::after{transform:none!important;transition:none}
+}
+
+/* 大きなメニューは並びきる広い画面だけ（ノートパソコンでは今までの大きさで横に並べる） */
+@media(min-width:1200px){
+  .logo{font-size:21px}
+  .logo small{font-size:10.5px}
+  nav{font-size:16.5px;column-gap:30px;letter-spacing:.08em}
+  .hd .call{padding:13px 24px;font-size:14.5px}
+}
+@media(min-width:1020px){
+  .hd{min-height:76px;max-width:1240px;padding:0 28px}
+  .hdwrap.ovl{margin-bottom:-77px}
+  .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
+    backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
+  .hdwrap.ovl:not(.solid) .logo,.hdwrap.ovl:not(.solid) nav a{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+  .hdwrap.ovl:not(.solid) .logo small{color:rgba(255,255,255,.85)}
+  .hdwrap.ovl:not(.solid) nav a::after{background:#fff}
+  .hdwrap.ovl .logo,.hdwrap.ovl nav a{transition:color .35s,text-shadow .35s}
+  .hdwrap.ovl.solid header{background:rgba(255,255,255,.96);border-bottom-color:var(--line);
+    box-shadow:0 2px 12px rgba(40,50,45,.08);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  /* 帯の分だけ、写真の上の文字の塊を下げる */
+  .hdwrap.ovl ~ .hero.full .inner .side{padding-top:125px}
+  /* 「イメージ写真です」の札がメニューの電話ボタンに隠れないよう、帯の下へ */
+  .hdwrap.ovl ~ .hero.full .shot .lb{top:96px}
+  html:has(.hdwrap.ovl) .ewl.is-absorb .logo{color:#fff;transition:transform 1s cubic-bezier(.65,0,.35,1),opacity .45s ease .95s,color .8s ease}
+  html:has(.hdwrap.ovl) .ewl.is-absorb .logo small{color:rgba(255,255,255,.85);transition:color .8s ease}
 }
 </style>
 <script>
@@ -655,7 +686,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <span><span class="ph">日興インテリア有限会社さまの公式サイトではありません。</span><span class="ph"><b>トップページだけを形にした見本</b>で、</span><span class="ph">メニューの各ページは実際の制作でお作りします。</span><span class="ph">写真・文章は当社が用意したものです。</span></span>
 </div>
 
-<div class="hdwrap">
+<div class="hdwrap ovl">
   <header><div class="hd">
     <div class="logo">日興インテリア有限会社<small>NIKKO INTERIOR</small></div>
     <nav><a href="#company">会社概要</a><a href="#works">事業案内</a><a href="#svc6">施工実績</a><a href="#works">取扱商品</a><a href="#works">リクルート情報</a><a href="#contact">お問い合わせ</a></nav>
@@ -804,6 +835,14 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   addEventListener('resize',function(){if(getComputedStyle(b).display==='none')close();});
 })();
 window.__animReady=true;                    // <head> の保険に「動いた」と伝える
+</script>
+<script>
+(function(){
+  var w=document.querySelector('.hdwrap.ovl');if(!w)return;
+  var n=document.querySelector('.notice'),f=function(){
+    var y=(n?n.offsetHeight:0)+24;w.classList.toggle('solid',(window.scrollY||pageYOffset)>y);};
+  addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f();
+})();
 </script>
 <script>
 (function(){
