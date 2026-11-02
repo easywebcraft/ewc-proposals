@@ -1056,7 +1056,9 @@ def render(sid, d, ind):
     css += LOADER_CSS
     if (d.get("photos") or {}).get("hero"):
         css += HERO_FULL_CSS
-    v3 = bool(d.get("_v3"))
+    # ★2026-11-02 から全見本を v3 の形にする（松本さん「この形に全体的に切り替えて」）。
+    #   写真の無い所は空の枠を出さず、絵のカード・トップの写真で埋める
+    v3 = not d.get("_classic")
     v2 = bool(d.get("_v2")) or v3      # v3 は v2 の「仮の表示を出さない」を引き継ぐ
     if v2:
         css += V2_CSS % {"acc_rgb": acc_rgb}
@@ -1094,12 +1096,18 @@ def render(sid, d, ind):
     stats = "".join(f'<div><b>{e(a)}<small>{e(b)}</small></b><span>{e(c)}</span></div>'
                     for a, b, c in d["stats"])
     stats_cls = "stats"
-    if v3 and d.get("points"):
-        # v3：数字の帯の代わりに、線の絵＋見出し＋一言（sites.json の points = [絵, 見出し, 一言]）
-        stats_cls = "stats pts"
-        stats = "".join(f'<div><span class="pi">{icon_svg(t, ic)}</span><span class="pt"><b>{e(t)}</b>'
-                        f'<small>{e(c)}</small></span></div>' for ic, t, c in d["points"])
     if v3:
+        # v3：数字の帯の代わりに、線の絵＋見出し＋一言（sites.json の points = [絵, 見出し, 一言]）。
+        #   書いていない先は数字の帯（stats）から作る：「1981」「年」「創業」→ 1981年 ／ 創業
+        #   見出しは大きい字と小さい字を並べたまま（「瑞穂」「東京」を「瑞穂東京」とつなげないため）
+        if d.get("points"):
+            pts = [(ic, e(t), c) for ic, t, c in d["points"]]
+        else:
+            pts = [(point_icon(a, b, c), f'{e(a)}<i>{e(b)}</i>', c) for a, b, c in d["stats"]]
+        stats_cls = "stats pts"
+        stats = "".join(f'<div><span class="pi">{icon_svg("", ic)}</span><span class="pt"><b>{t}</b>'
+                        f'<small>{e(c)}</small></span></div>' for ic, t, c in pts)
+    if v3 and (d.get("photos") or {}).get("svc"):
         # v3：写真付きのカード（sites.json の svc_photos。無い枠は「お写真が入ります」）
         sph = (d.get("photos") or {}).get("svc") or []
         def cph(i):
@@ -1155,9 +1163,9 @@ def render(sid, d, ind):
   </div>
 </section>"""
 
-    if v3 and d.get("about"):
+    ab = (d.get("about") or auto_about(d, photos)) if v3 else None
+    if ab:
         # v3：写真と紹介文を左右に（画像の「暮らしのそばに」の段）。写真は外観のイメージ
-        ab = d["about"]
         st = photo_style(ab.get("photo"))
         abph = (f'<div class="abph ph"{st}><span class="cap">{e(ab.get("cap", "外観写真イメージ"))}</span></div>' if st
                 else '<div class="abph"><b>お写真が入ります</b>お店・会社の外観</div>')
@@ -1353,6 +1361,8 @@ ICONS = {  # 24×24 の線の絵。stroke は文字色
     "car": '<path d="M5 16.5V12l2-5h10l2 5v4.5"/><path d="M3.5 16.5h17"/><circle cx="7.5" cy="16.5" r="1.8"/><circle cx="16.5" cy="16.5" r="1.8"/><path d="M5.5 12h13"/>',
     "leaf": '<path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19 13 11"/>',
     "doc": '<path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/>',
+    "cal": '<rect x="4" y="5.5" width="16" height="14.5" rx="1.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/>',
+    "check": '<circle cx="12" cy="12" r="8.5"/><path d="m8.3 12.2 2.6 2.6 4.9-5"/>',
     "phone": '<path d="M6.5 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.2 6.2l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2z"/>',
     "hand": '<path d="M2.5 11.5 6 8l3 1 3-2.5 3.5 1L21.5 12"/><path d="M6 8l-3.5 3.5L8 17l1.5-1.2 1.5 1.2 1.5-1.2 1.5 1.2 1.5-1.2L19 12"/><path d="M12 6.5 9 9.5a1.4 1.4 0 0 0 2 2l2.5-2"/>',
     "chat": '<path d="M4.5 5.5h15v10h-8l-4 3.5v-3.5h-3z"/><path d="M8.5 9.5h7M8.5 12h4.5"/>',
@@ -1376,6 +1386,31 @@ ICON_HINTS = (  # 項目名に含まれる語 → 絵。上から順に見る
 
 
 FLOW_ICONS = ("phone", "house", "doc", "tool")   # v3 の流れ：相談→確認→提案→施工
+
+
+def point_icon(a, b, c):
+    """数字の帯の1つ分に合う絵。年（創業・設立）→暦、地名・拠点→ピン、それ以外は項目名から。"""
+    if b == "年" or "創業" in c or "設立" in c or "創立" in c:
+        return "cal"
+    if any(w in a + b + c for w in ("拠点", "エリア", "県", "市", "町", "地域")):
+        return "pin"
+    return next((ic for words, ic in ICON_HINTS if any(w in a + b + c for w in words)), "check")
+
+
+def auto_about(d, photos):
+    """会社紹介の段を事実だけで組む（about を書いていない先）。写真が1枚も無い先は出さない
+    （空の枠を並べないため）。写真はトップの2枚目→1枚目の順で使い回す。"""
+    pid = (photos.get("about") or (photos.get("slides") or [None])[0] or photos.get("hero"))
+    if not pid:
+        return None
+    short = re.sub(r"(株式会社|有限会社|合同会社|合資会社|協同組合|医療法人|一般社団法人|社会福祉法人)", "", d["name"]).strip()
+    m = re.search(r"(?:都|道|府|県)?([^都道府県]{1,6}?(?:市|郡[^町村]{1,4}?[町村]|区))", d.get("addr", ""))
+    city = m.group(1) if m else ""
+    p1 = (f'{d["founded"]}年の創業。' if d.get("founded") else "") + (f'{d["addr"]}にあります。' if d.get("addr") else "")
+    names = [t for t, _ in d["services"][:3]]
+    p2 = "「" + "」「".join(names) + "」などを承っています。"
+    return {"photo": pid, "cap": "イメージ写真", "h": (f"{city}の、{short}。" if city else f"{short}について"),
+            "p": [x for x in (p1, p2) if x], "btn": "会社概要"}
 
 
 def icon_svg(title, key=None):
@@ -1454,6 +1489,7 @@ V3_CSS = """
 .pts .pi{flex:none;display:grid;place-items:center;width:52px;height:52px;color:var(--accent)}
 .pts .pi svg{width:40px;height:40px}
 .pts .pt b{display:block;font-family:var(--serif);font-size:18px;color:var(--ink);letter-spacing:.06em;margin:0}
+.pts .pt b i{font-style:normal;font-size:12.5px;margin-left:3px;letter-spacing:.04em}
 .pts .pt small{display:block;margin-top:4px;font-size:12.5px;color:var(--muted);line-height:1.7;letter-spacing:.02em}
 /* 写真付きのカード */
 .cards{display:grid;grid-template-columns:1fr;gap:18px}
@@ -1481,7 +1517,7 @@ V3_CSS = """
 .abtx .btn{margin-top:10px}
 /* 流れ：丸い絵を線でつなぐ */
 .flow{grid-template-columns:repeat(2,1fr);gap:26px 12px;counter-reset:none}
-.flow .step{background:none;border:0;padding:0;text-align:center;position:relative}
+.flow .step{background:none!important;border:0;padding:0;text-align:center;position:relative;box-shadow:none}
 .flow .step::before{display:none}
 .step .si{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 10px;border-radius:50%%;
   border:1.5px solid var(--accent);color:var(--accent);background:var(--paper)}

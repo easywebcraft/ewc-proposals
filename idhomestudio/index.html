@@ -443,6 +443,120 @@ html.ewl-on:not(.ewl-go) :is(.hero .meta > *,.hero h1,.hero .shot){animation-pla
   .hero.full .btn.g{background:#fff;color:var(--ink);border-color:var(--ink)}
   .hero.full .stats{margin-top:12px}
 }
+
+/* ---- 試作 v2 ---- */
+body{font-size:15.5px}
+.sechead .en{font-size:11.5px;letter-spacing:.32em;font-weight:700}
+.sechead h2{font-size:clamp(24px,5.8vw,34px);letter-spacing:.08em}
+.sechead h2::after{content:"";display:block;width:36px;height:2px;background:var(--accent);margin:16px auto 0}
+/* できること：線の絵と番号。白い箱の繰り返しに見えないよう、絵の丸と大きな番号で強弱を付ける */
+.card{padding:30px 26px 28px;border-radius:14px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card .ic{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;
+  background:rgba(63,119,130,.1);color:var(--accent);margin-bottom:16px}
+.card .ic svg{width:28px;height:28px}
+.card .no{position:absolute;right:20px;top:14px;font-family:var(--serif);font-size:44px;line-height:1;
+  color:rgba(63,119,130,.12);letter-spacing:.02em}
+.card h3{font-size:17.5px}
+.card p{font-size:14px;line-height:1.85}
+@media(hover:hover){.card:hover{transform:translateY(-3px);border-color:rgba(63,119,130,.45);
+  box-shadow:0 14px 30px rgba(30,40,35,.08)}}
+/* 大切にしていること：写真と文字を左右に。互い違いに並べる */
+.feat{background:var(--paper)}
+.frows{display:grid;gap:56px}
+.frow{display:grid;gap:22px;align-items:center}
+.fph{position:relative;aspect-ratio:4/3;border-radius:14px;background-size:cover;background-position:center;
+  box-shadow:0 18px 40px rgba(30,40,35,.14)}
+.fph::before{content:"";position:absolute;inset:auto -12px -12px auto;width:46%;height:46%;
+  border-radius:14px;background:rgba(63,119,130,.14);z-index:-1}
+.fph .cap{position:absolute;left:12px;bottom:12px;background:rgba(20,18,14,.72);color:#fff;
+  border-radius:6px;padding:5px 10px;font-size:11px;letter-spacing:.06em}
+.ftx .no{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:15px;
+  color:var(--accent);letter-spacing:.12em;margin-bottom:10px}
+.ftx .no::after{content:"";width:44px;height:1px;background:var(--accent)}
+.ftx h3{font-family:var(--serif);font-weight:500;font-size:clamp(22px,5.6vw,30px);line-height:1.55;
+  letter-spacing:.06em;margin:0 0 14px}
+.ftx p{margin:0;color:var(--muted);font-size:15px;line-height:2}
+/* 流れ：番号を大きく、つなぎの線を引く */
+.step{border-radius:14px;padding:24px 22px 22px 70px}
+.step::before{font-size:24px;top:20px;left:20px}
+/* 会社概要：地図の灰色の枠の代わりに、表だけを白い面に */
+#company table.info{background:var(--paper);border-radius:14px;overflow:hidden;
+  box-shadow:0 10px 30px rgba(30,40,35,.06)}
+section.alt #company table.info,section.alt table.info{background:var(--ground)}
+#company table.info th,#company table.info td{padding:18px 22px}
+@media(min-width:900px){
+  .frows{gap:96px}
+  .frow{grid-template-columns:1.12fr 1fr;gap:64px}
+  .frow:nth-child(even) .fph{order:2}
+  .frow:nth-child(even) .fph::before{inset:auto auto -12px -12px}
+  .ftx{max-width:30em}
+  .step:not(:last-child)::after{content:"";position:absolute;top:50%;right:-12px;width:12px;height:1px;background:var(--accent)}
+}
+
+/* ---- 試作 v3 ---- */
+.hero .stats.pts{grid-template-columns:1fr;gap:0;background:var(--paper);border:1px solid var(--line);
+  border-radius:12px;padding:6px 18px;box-shadow:0 10px 30px rgba(30,40,35,.06)}
+.hero .stats.pts div{display:flex;align-items:center;gap:16px;text-align:left;background:none;border:0;
+  border-radius:0;padding:14px 0;box-shadow:none}
+.hero .stats.pts div+div{border-top:1px solid var(--line)}
+.pts .pi{flex:none;display:grid;place-items:center;width:52px;height:52px;color:var(--accent)}
+.pts .pi svg{width:40px;height:40px}
+.pts .pt b{display:block;font-family:var(--serif);font-size:18px;color:var(--ink);letter-spacing:.06em;margin:0}
+.pts .pt b i{font-style:normal;font-size:12.5px;margin-left:3px;letter-spacing:.04em}
+.pts .pt small{display:block;margin-top:4px;font-size:12.5px;color:var(--muted);line-height:1.7;letter-spacing:.02em}
+/* 写真付きのカード */
+.cards{display:grid;grid-template-columns:1fr;gap:18px}
+.card.pc{padding:0;border-radius:10px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column;
+  box-shadow:0 6px 20px rgba(30,40,35,.06)}
+.card.pc .cph{aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#eef0ec 0 10px,#e6e9e3 10px 20px);
+  display:grid;place-items:center;background-size:cover;background-position:center}
+.card.pc .cph span{font-size:12px;color:#7a7f78;letter-spacing:.08em}
+.card.pc .cb{position:relative;padding:18px 40px 20px 20px}
+.card.pc .cb::after{content:"";position:absolute;right:20px;top:50%;width:8px;height:8px;
+  border-top:2px solid var(--accent);border-right:2px solid var(--accent);transform:translateY(-50%) rotate(45deg)}
+.card.pc h3{font-size:17px;margin:0 0 6px}
+.card.pc p{font-size:13px;line-height:1.75}
+/* 会社紹介 */
+.abrow{display:grid;gap:26px;align-items:center}
+.abph{position:relative;aspect-ratio:16/10;border-radius:6px;background:repeating-linear-gradient(135deg,#eef0ec 0 10px,#e6e9e3 10px 20px);
+  background-size:cover;background-position:center;display:grid;place-items:center;text-align:center;
+  font-size:12px;color:#7a7f78;box-shadow:0 14px 34px rgba(30,40,35,.12)}
+.abph b{display:block;font-family:var(--serif);font-size:14px;color:#575a51}
+.abph .cap{position:absolute;right:10px;bottom:10px;background:rgba(255,255,255,.92);color:#333;
+  border-radius:4px;padding:4px 10px;font-size:11px;letter-spacing:.06em}
+.abtx .en{display:block;font-size:11.5px;letter-spacing:.3em;color:var(--muted);font-weight:700;margin-bottom:10px}
+.abtx h2{font-size:clamp(23px,5.6vw,30px);line-height:1.5;margin:0 0 16px}
+.abtx p{margin:0 0 12px;color:var(--muted);font-size:14.5px;line-height:2}
+.abtx .btn{margin-top:10px}
+/* 流れ：丸い絵を線でつなぐ */
+.flow{grid-template-columns:repeat(2,1fr);gap:26px 12px;counter-reset:none}
+.flow .step{background:none!important;border:0;padding:0;text-align:center;position:relative;box-shadow:none}
+.flow .step::before{display:none}
+.step .si{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 10px;border-radius:50%;
+  border:1.5px solid var(--accent);color:var(--accent);background:var(--paper)}
+.step .si svg{width:28px;height:28px}
+.step .sn{position:absolute;top:0;left:calc(50% + 36px);font-family:var(--serif);font-size:14px;color:var(--accent);font-weight:700}
+.step h3{font-size:16px;margin:0 0 4px}
+.step p{font-size:12.5px}
+/* 会社概要と地図 */
+.cgrid{display:grid;gap:22px;grid-template-columns:minmax(0,1fr)}
+.cgrid table.info{table-layout:fixed}
+.cgrid table.info th{width:7.5em}
+.cgrid table.info td{overflow-wrap:anywhere}
+.cgrid table.info{background:var(--paper);border-radius:8px}
+.cgrid .mapbox{margin:0;min-height:220px;aspect-ratio:auto;padding:0 16px}
+.contact .big{font-family:var(--sans);font-weight:800;font-size:clamp(34px,10vw,52px);letter-spacing:.02em}
+@media(min-width:900px){
+  .hero .stats.pts{grid-template-columns:repeat(3,1fr);padding:8px 10px}
+  .hero .stats.pts div{padding:14px 22px;justify-content:center}
+  .hero .stats.pts div+div{border-top:0;border-left:1px solid var(--line)}
+  .cards{grid-template-columns:repeat(3,1fr);gap:22px}
+  .abrow{grid-template-columns:1.15fr 1fr;gap:56px}
+  .flow{grid-template-columns:repeat(4,1fr);gap:0}
+  .flow .step:not(:last-child)::after{content:"";position:absolute;top:32px;left:calc(50% + 48px);
+    right:calc(-50% + 48px);width:auto;height:1.5px;background:var(--accent);opacity:.7}
+  .cgrid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:stretch}
+}
 </style>
 <script>
 document.documentElement.classList.add('anim','js');
@@ -508,40 +622,38 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
     </div>
     <span class="scroll">scroll</span>
   </div>
-  <div class="wrap"><div class="stats"><div><b>2004<small>年</small></b><span>創業</span></div><div><b>設計<small>施工</small></b><span>監理まで自社で</span></div><div><b>耐震<small>診断</small></b><span>地震への備え</span></div></div></div>
+  <div class="wrap"><div class="stats pts"><div><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="1.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg></span><span class="pt"><b>2004<i>年</i></b><small>創業</small></span></div><div><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M4 11h7v9M11 11V4M15 4v7h5"/></svg></span><span class="pt"><b>設計<i>施工</i></b><small>監理まで自社で</small></span></div><div><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m8.3 12.2 2.6 2.6 4.9-5"/></svg></span><span class="pt"><b>耐震<i>診断</i></b><small>地震への備え</small></span></div></div></div>
 </div>
 
-<div class="news" id="news"><div class="wrap"><div class="pill"><span class="lbl">お知らせの<br>表示例</span><div class="rows"><div class="row"><span class="dot"></span><span class="date">2026.09.01</span><span class="t">施工事例を追加しました</span></div><div class="row"><span class="dot"></span><span class="date">2026.08.20</span><span class="t">休業日のご案内</span></div><div class="row"><span class="dot"></span><span class="date">2026.08.05</span><span class="t">お知らせのタイトルが入ります</span></div></div><a class="more" href="#contact">NEWS →</a></div></div></div>
 <section id="works">
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
       <h2>できること</h2><p>家のことを、まとめて相談できる。</p></div>
-    <div class="cards"><div class="card" id="svc1"><h3>新築</h3><p>一般住宅、店舗。設計から施工監理まで。</p></div><div class="card" id="svc2"><h3>リフォーム・リノベーション</h3><p>マンションの改装、間取り変更。</p></div><div class="card" id="svc3"><h3>耐震診断・補強</h3><p>診断から補強工事まで。</p></div><div class="card" id="svc4"><h3>シックハウス対策</h3><p>素材と換気の設計。</p></div><div class="card" id="svc5"><h3>不動産</h3><p>売却希望・購入希望のご相談。</p></div><div class="card" id="svc6"><h3>よくある質問</h3><p>費用、期間、進め方。</p></div><div class="card" id="svc7"><h3>お客様の声</h3><p>建てた方、直した方の声。</p></div></div>
+    <div class="cards"><div class="card" id="svc1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.8V20h13V9.8"/><path d="M10 20v-5.5h4V20"/></svg></span><span class="no" aria-hidden="true">01</span><h3>新築</h3><p>一般住宅、店舗。設計から施工監理まで。</p></div><div class="card" id="svc2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6.5a4 4 0 0 0 5 5L11 20a2.1 2.1 0 0 1-3-3l8.5-8.5"/><path d="M14.5 6.5 17 4l3 3-2.5 2.5"/></svg></span><span class="no" aria-hidden="true">02</span><h3>リフォーム・リノベーション</h3><p>マンションの改装、間取り変更。</p></div><div class="card" id="svc3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">03</span><h3>耐震診断・補強</h3><p>診断から補強工事まで。</p></div><div class="card" id="svc4"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">04</span><h3>シックハウス対策</h3><p>素材と換気の設計。</p></div><div class="card" id="svc5"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg></span><span class="no" aria-hidden="true">05</span><h3>不動産</h3><p>売却希望・購入希望のご相談。</p></div><div class="card" id="svc6"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 5.5h15v10h-8l-4 3.5v-3.5h-3z"/><path d="M8.5 9.5h7M8.5 12h4.5"/></svg></span><span class="no" aria-hidden="true">06</span><h3>よくある質問</h3><p>費用、期間、進め方。</p></div><div class="card" id="svc7"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">07</span><h3>お客様の声</h3><p>建てた方、直した方の声。</p></div></div>
   </div>
 </section>
 
-<section class="alt" id="gallery">
-  <div class="wrap">
-    <div class="sechead"><span class="en">WORKS</span>
-      <h2>施工事例</h2>
-      <p>お預かりしたお写真を、ここに並べます。</p></div>
-    <div class="gal"><div class="gframe ph" style="background-image:url(../photos/ai-house-g2.jpg?v=34916124)"><span class="cap"><b>イメージ写真です</b>新築の施工事例（御社のお写真に差し替え）</span></div><div class="gframe ph" style="background-image:url(../photos/ai-house-g3.jpg?v=4a8d5af3)"><span class="cap"><b>イメージ写真です</b>リフォームの事例（御社のお写真に差し替え）</span></div><div class="gframe ph" style="background-image:url(../photos/ai-house-g6.jpg?v=2bdf5f60)"><span class="cap"><b>イメージ写真です</b>収納・造作（御社のお写真に差し替え）</span></div></div>
+<section class="alt about" id="about">
+  <div class="wrap abrow"><div class="abph ph" style="background-image:url(../photos/ai-house-h4.jpg?v=8ccf10b3)"><span class="cap">イメージ写真</span></div>
+    <div class="abtx"><span class="en">ABOUT US</span><h2><span class="ph">清須市の、</span><span class="ph">アイディーホームスタジオ。</span></h2>
+      <p><span class="ph">2004年の創業。</span><span class="ph">愛知県清須市春日高札56-5にあります。</span></p><p><span class="ph">「新築」「リフォーム・リノベーション」「耐震診断・補強」などを承っています。</span></p>
+      <a class="btn p" href="#company">会社概要</a></div>
   </div>
 </section>
 
 <section id="flow">
   <div class="wrap">
     <div class="sechead"><span class="en">FLOW</span>
-      <h2>ご相談から完成まで</h2><p><span class="ph">流れの一例です。</span><span class="ph">実際の制作では、</span><span class="ph">御社の進め方に合わせて書き換えます。</span></p></div>
-    <div class="flow"><div class="step"><h3>ご相談</h3><p>ご要望をうかがいます。</p></div><div class="step"><h3>現地の確認</h3><p>現地を拝見します。</p></div><div class="step"><h3>ご提案・お見積り</h3><p>内容と費用をご説明します。</p></div><div class="step"><h3>施工</h3><p>工事を進めます。</p></div></div>
+      <h2>ご相談から完成まで</h2></div>
+    <div class="flow"><div class="step"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.2 6.2l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2z"/></svg></span><span class="sn">01</span><h3>ご相談</h3><p>ご要望をうかがいます。</p></div><div class="step"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.8V20h13V9.8"/><path d="M10 20v-5.5h4V20"/></svg></span><span class="sn">02</span><h3>現地の確認</h3><p>現地を拝見します。</p></div><div class="step"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="sn">03</span><h3>ご提案・お見積り</h3><p>内容と費用をご説明します。</p></div><div class="step"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6.5a4 4 0 0 0 5 5L11 20a2.1 2.1 0 0 1-3-3l8.5-8.5"/><path d="M14.5 6.5 17 4l3 3-2.5 2.5"/></svg></span><span class="sn">04</span><h3>施工</h3><p>工事を進めます。</p></div></div>
   </div>
 </section>
 
 <section class="alt" id="company">
-  <div class="wrap" style="max-width:720px">
+  <div class="wrap">
     <div class="sechead"><span class="en">COMPANY</span><h2>会社概要</h2></div>
-    <table class="info"><tr><th>商号</th><td>アイディーホームスタジオ有限会社</td></tr><tr><th>所在地</th><td>〒452-0962 愛知県清須市春日高札56-5</td></tr><tr><th>電話</th><td><a href="tel:0526187977">052-618-7977</a></td></tr><tr><th>創業</th><td>2004年</td></tr><tr><th>事業内容</th><td>新築／リフォーム・リノベーション／耐震診断・補強／シックハウス対策／不動産</td></tr></table>
-    <div class="mapbox"><b>地図が入ります</b>最寄り駅・駐車場のご案内もここに</div>
+    <div class="cgrid"><table class="info"><tr><th>商号</th><td>アイディーホームスタジオ有限会社</td></tr><tr><th>所在地</th><td>〒452-0962 愛知県清須市春日高札56-5</td></tr><tr><th>電話</th><td><a href="tel:0526187977">052-618-7977</a></td></tr><tr><th>創業</th><td>2004年</td></tr><tr><th>事業内容</th><td>新築／リフォーム・リノベーション／耐震診断・補強／シックハウス対策／不動産</td></tr></table>
+    <div class="mapbox"><b>地図が入ります</b>実際の制作で、お店の場所の地図を入れます</div></div>
   </div>
 </section>
 
@@ -555,7 +667,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
 </pattern></defs><rect width="100%" height="100%" fill="url(#tx2)"/></svg>
   <h2>まずはお電話ください</h2>
   <p>小さなご相談でも構いません。</p>
-  <a class="big" href="tel:0526187977">052-618-7977</a><small>受付時間が入ります</small><div><a class="btn w" href="tel:0526187977">電話をかける</a></div>
+  <a class="big" href="tel:0526187977">052-618-7977</a><small></small><div><a class="btn w" href="tel:0526187977">電話をかける</a></div>
   <p class="note"><span class="ph">メールフォーム・LINEでのお問い合わせ窓口は、</span><span class="ph">実際の制作でお付けします。</span></p>
 </div>
 
