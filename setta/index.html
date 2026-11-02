@@ -356,7 +356,7 @@ footer .next li{margin:2px 0}
    スマホ：メニューを開くと項目が上から順に横から出てくる。押すと少し右へ寄って色付く */
 @keyframes navIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 @keyframes menuIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
-nav a{position:relative;transition:color .25s}
+nav a{position:relative;transition:color .25s;cursor:pointer}
 nav a:hover,nav a:focus-visible{color:var(--accent)}
 @media(min-width:940px){
   .anim nav a{animation:navIn .6s cubic-bezier(.2,.7,.3,1) both}
@@ -691,7 +691,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
 <div class="hdwrap ovl">
   <header><div class="hd">
     <div class="logo">株式会社セッタ<small>SETTA</small></div>
-    <nav><a href="#works">事業案内</a><a href="#svc1">屋根の種類</a><a href="#gallery">施工事例</a><a href="#svc6">メンテナンス</a><a href="#company">会社概要</a><a href="#contact">お問い合わせ</a></nav>
+    <nav><a>事業案内</a><a>屋根の種類</a><a>施工事例</a><a>メンテナンス</a><a>会社概要</a><a>お問い合わせ</a></nav>
     <a class="call" href="tel:0584786151">お電話 0584-78-6151</a>
   </div></header>
 </div>

@@ -382,7 +382,7 @@ MOTION_CSS = """
    スマホ：メニューを開くと項目が上から順に横から出てくる。押すと少し右へ寄って色付く */
 @keyframes navIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 @keyframes menuIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
-nav a{position:relative;transition:color .25s}
+nav a{position:relative;transition:color .25s;cursor:pointer}
 nav a:hover,nav a:focus-visible{color:var(--accent)}
 @media(min-width:NAVMINpx){
   .anim nav a{animation:navIn .6s cubic-bezier(.2,.7,.3,1) both}
@@ -1314,6 +1314,9 @@ def render(sid, d, ind):
                    for k, v in info)
 
     nav = nav_html(d, ind, e)
+    # ★2026-11-02 松本さん「メニューは押しても反応しないように。基本は専用ページを用意するので、
+    #   ページ内へ飛ぶ動きは逆に出したくない」。リンク先を外し、合わせた時の色と下線だけ残す
+    nav = re.sub(r' href="[^"]*"', '', nav)
     # サイトの構成: メニューは6件までしか横に入らないが、ここは全項目を出す
     if d.get("nav"):
         pairs = nav_targets(d, ind) + [("お問い合わせ", "#contact")]

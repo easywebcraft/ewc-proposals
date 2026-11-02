@@ -356,7 +356,7 @@ footer .next li{margin:2px 0}
    スマホ：メニューを開くと項目が上から順に横から出てくる。押すと少し右へ寄って色付く */
 @keyframes navIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 @keyframes menuIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
-nav a{position:relative;transition:color .25s}
+nav a{position:relative;transition:color .25s;cursor:pointer}
 nav a:hover,nav a:focus-visible{color:var(--accent)}
 @media(min-width:1180px){
   .anim nav a{animation:navIn .6s cubic-bezier(.2,.7,.3,1) both}
@@ -691,7 +691,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
 <div class="hdwrap ovl">
   <header><div class="hd">
     <div class="logo">有限会社内藤工務店<small>NAITO KOUMUTEN</small></div>
-    <nav><a href="#svc4">介護リフォーム</a><a href="#svc3">一部リフォーム</a><a href="#svc2">全改装リフォーム</a><a href="#gallery">施工実績</a><a href="#flow">ご依頼の流れ</a><a href="#company">会社概要</a><a href="#contact">お問い合わせ</a></nav>
+    <nav><a>介護リフォーム</a><a>一部リフォーム</a><a>全改装リフォーム</a><a>施工実績</a><a>ご依頼の流れ</a><a>会社概要</a><a>お問い合わせ</a></nav>
     <a class="call" href="tel:0561537858">お電話 0561-53-7858</a>
   </div></header>
 </div>

@@ -356,7 +356,7 @@ footer .next li{margin:2px 0}
    スマホ：メニューを開くと項目が上から順に横から出てくる。押すと少し右へ寄って色付く */
 @keyframes navIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 @keyframes menuIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
-nav a{position:relative;transition:color .25s}
+nav a{position:relative;transition:color .25s;cursor:pointer}
 nav a:hover,nav a:focus-visible{color:var(--accent)}
 @media(min-width:1220px){
   .anim nav a{animation:navIn .6s cubic-bezier(.2,.7,.3,1) both}
@@ -691,7 +691,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
 <div class="hdwrap ovl">
   <header><div class="hd">
     <div class="logo">有限会社星光不動産販売<small>SEIKO FUDOSAN</small></div>
-    <nav><a href="#svc1">任意売却入門</a><a href="#works">当社の強み</a><a href="#flow">任意売却の手順・流れ</a><a href="#svc6">解決事例</a><a href="#works">よくあるご質問</a><a href="#company">会社概要</a><a href="#contact">お問い合わせ</a></nav>
+    <nav><a>任意売却入門</a><a>当社の強み</a><a>任意売却の手順・流れ</a><a>解決事例</a><a>よくあるご質問</a><a>会社概要</a><a>お問い合わせ</a></nav>
     <a class="call" href="tel:0524196661">お電話 052-419-6661</a>
   </div></header>
 </div>
