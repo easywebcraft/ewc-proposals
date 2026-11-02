@@ -704,6 +704,28 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
 html.ewl-on:not(.ewl-go) .shot .cam{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.shot .cam{animation:none}}
 @media print{.shot .cam{animation:none}}
+
+:root{--navy:#1b2c47;--navy-d:#121f34;--ground:#f4f5f7;--ink:#1e2a3a;--muted:#5f6b7a;--line:#dce1e7;--panel:#e9edf2}
+h2,.card h3,.card.pc h3{color:var(--navy)}
+.logo,nav a{color:var(--navy)}
+.stats b{color:var(--navy)}
+.btn.g:hover{border-color:var(--navy);color:var(--navy)}
+.step .si{border-color:var(--navy);color:var(--navy)}
+.step .sn{color:var(--navy)}
+@media(min-width:760px){.flow .step:not(:last-child)::after{background:var(--navy)}}
+.pts .pi{color:var(--navy)}
+.card.pc .cph.ci{background:rgba(27,44,71,.07);color:var(--navy)}
+.card.pc .cb::after{border-color:var(--navy)}
+.contact{background:var(--navy)}
+.contact .btn.w{color:var(--navy)}
+footer{background:var(--navy-d)}
+.mapbox,.gframe{background:linear-gradient(135deg,#e7ebf0 0%,#dfe4ea 55%,#ebeef2 100%);color:#5f6b7a}
+.mapbox b,.gframe b{color:var(--navy)}
+.ewl-ring .f{stroke:var(--navy)}
+.ewl-pct,.ewl .logo{color:var(--navy)}
+@media(min-width:900px){
+  .hero.full.fv .shot::before{background:linear-gradient(90deg,rgba(14,24,42,.62) 0%,rgba(14,24,42,.42) 36%,rgba(14,24,42,0) 68%)}
+}
 </style>
 <script>
 document.documentElement.classList.add('anim','js');

@@ -565,6 +565,34 @@ OVL_CSS = """
 }
 """
 
+# ★2026-11-03 松本さん「テーマカラーをネイビーで統一し、スタイリッシュに」。
+#   面積の大きい所（見出し・数字・流れ・お問い合わせの帯・足元・写真の幕・冒頭の演出）はネイビーにそろえ、
+#   会社の色は電話のボタン・主なボタン・見出しの強調・小さな点や線だけに残す（「うちの色だ」と感じてもらうため）。
+#   地の色も、温かい生成りから少し青みのある白へ。新しい作り（v3）だけに効く
+NAVY_CSS = """
+:root{--navy:#1b2c47;--navy-d:#121f34;--ground:#f4f5f7;--ink:#1e2a3a;--muted:#5f6b7a;--line:#dce1e7;--panel:#e9edf2}
+h2,.card h3,.card.pc h3{color:var(--navy)}
+.logo,nav a{color:var(--navy)}
+.stats b{color:var(--navy)}
+.btn.g:hover{border-color:var(--navy);color:var(--navy)}
+.step .si{border-color:var(--navy);color:var(--navy)}
+.step .sn{color:var(--navy)}
+@media(min-width:760px){.flow .step:not(:last-child)::after{background:var(--navy)}}
+.pts .pi{color:var(--navy)}
+.card.pc .cph.ci{background:rgba(27,44,71,.07);color:var(--navy)}
+.card.pc .cb::after{border-color:var(--navy)}
+.contact{background:var(--navy)}
+.contact .btn.w{color:var(--navy)}
+footer{background:var(--navy-d)}
+.mapbox,.gframe{background:linear-gradient(135deg,#e7ebf0 0%,#dfe4ea 55%,#ebeef2 100%);color:#5f6b7a}
+.mapbox b,.gframe b{color:var(--navy)}
+.ewl-ring .f{stroke:var(--navy)}
+.ewl-pct,.ewl .logo{color:var(--navy)}
+@media(min-width:900px){
+  .hero.full.fv .shot::before{background:linear-gradient(90deg,rgba(14,24,42,.62) 0%,rgba(14,24,42,.42) 36%,rgba(14,24,42,0) 68%)}
+}
+"""
+
 # ★メニューが帯に収まらない時の保険（文字幅の見積もりは目安なので、実際に測る）。
 #   はみ出していたら、すきま→文字の大きさの順に2段階まで詰める。幅が変わるたびに測り直す
 # ★2026-11-02 松本さん「FVの写真はカメラワークを。静止画だと退屈」。写真（と切り替えの写真）を
@@ -1226,6 +1254,7 @@ def render(sid, d, ind):
         # メニューの多い会社は、帯の中身の幅（既定 1240px）に収まらず右端が切れた。広い画面では中身の幅も広げる
         css += OVL_CSS % {"navbp": max(navbp, 900), "navbig": navbig, "hdmax": max(1240, min(1680, navbig + 100))}
         css += NAVFIT_CSS + CAM_CSS
+        css += NAVY_CSS
     roman = d.get("roman", "")
     since = bigen = tagline = badge = ""
     news_t = ind.get("news_hint", "お知らせが入ります（工事のご報告・休業日など）")
