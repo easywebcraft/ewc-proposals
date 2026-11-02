@@ -393,8 +393,18 @@ html.ewl-on .ewl{display:grid;place-items:center;position:fixed;inset:0;z-index:
   transition:background-color .9s ease .25s,opacity .5s ease;cursor:pointer}
 html.ewl-on .ewl.is-absorb{background-color:rgba(255,255,255,0)}
 html.ewl-on .ewl.is-out{opacity:0}
-.ewl-p2{position:absolute;inset:0;display:grid;place-content:center;opacity:0;pointer-events:none}
-.ewl.is-p2 .ewl-p2{opacity:1;transition:opacity .7s ease .1s}
+/* ★2026-11-02 輪の中は頭文字ではなく会社名。輪は会社名が収まる大きさ（--ewd、JS で決める） */
+.ewl-p1{position:absolute;left:50%;top:50%;width:var(--ewd,112px);height:var(--ewd,112px);
+  transform:translate(-50%,-50%);transition:opacity .45s,transform .45s}
+.ewl.is-p2 .ewl-p1{opacity:0;transform:translate(-50%,-50%) scale(1.04)}
+.ewl-ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.ewl-ring circle{fill:none;stroke-width:2;vector-effect:non-scaling-stroke}
+.ewl-ring .t{stroke:#e6e3dc}
+.ewl-ring .f{stroke:var(--accent);stroke-linecap:round}
+.ewl-pct{position:absolute;top:calc(100% + 16px);left:0;right:0;text-align:center;font-size:12px;
+  font-weight:700;letter-spacing:.14em;color:var(--accent)}
+.ewl-p2{position:absolute;inset:0;display:grid;place-content:center;opacity:0;pointer-events:none;transition:opacity .6s ease .1s}
+.ewl.is-in .ewl-p2{opacity:1}
 .ewl .logo{transform:scale(var(--ewk,1.9));transform-origin:50% 50%;white-space:nowrap;
   transition:transform 1s cubic-bezier(.65,0,.35,1),opacity .45s ease .95s}
 /* 着いてから本物と入れ替える（途中で消すと、吸い込まれる動きが見えない） */
@@ -606,6 +616,10 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
 </head>
 <body>
 <div class="ewl" id="ewl" aria-hidden="true">
+  <div class="ewl-p1">
+    <svg class="ewl-ring" viewBox="0 0 120 120"><circle class="t" cx="60" cy="60" r="54"/><circle class="f" cx="60" cy="60" r="54"/></svg>
+    <span class="ewl-pct">0%</span>
+  </div>
   <div class="ewl-p2"><div class="logo">ジェイピーエムズ株式会社<small>JPMS</small></div></div>
   <span class="ewl-skip">タップでスキップ</span>
 </div>
@@ -796,10 +810,29 @@ window.__animReady=true;                    // <head> の保険に「動いた�
     setTimeout(function(){r.classList.add('ewl-txt');},850);   // 幕がほぼ透けたところで文字を出し始める
     setTimeout(end,1200);                                       // 幕の白が消えたらすぐ外す（前は 1.8秒待っていた）
   };
-  // ★2026-11-02「ロゴ（輪と頭文字）は不要。会社名を大きく、長めに」。
-  //   会社名だけを画面の8割強の幅まで大きく（最大2.8倍）出し、約2.4秒見せてからヘッダーへ吸い込む
-  if(copy){var w=copy.offsetWidth||1;copy.style.setProperty('--ewk',Math.min(2.8,innerWidth*0.84/w).toFixed(3));}
-  setTimeout(function(){if(ended)return;L.classList.add('is-p2');setTimeout(absorb,2400);},150);
+  // ★2026-11-02「ローディングの演出はそのままで、表示は会社名のみ。会社名は大きく、長めに」。
+  //   輪の中に会社名を大きく置く。輪は会社名が収まる大きさにし、画面の短い辺の8割に収める
+  var m=Math.min(innerWidth,innerHeight)*0.82,k=1.9;
+  //   円の中で文字の端が線に触れないよう、輪の直径は会社名の幅の1.25倍＋余白
+  if(copy){var w=copy.offsetWidth||1;k=Math.max(.8,Math.min(2.2,(m-56)/(w*1.25)));
+    // 大きさを決める瞬間は動かさない（既定の 1.9倍 から縮んで見えていた）
+    copy.style.transition='none';copy.style.setProperty('--ewk',k.toFixed(3));void copy.offsetWidth;copy.style.transition='';
+    L.style.setProperty('--ewd',Math.round(Math.min(m,w*k*1.25+56))+'px');}
+  requestAnimationFrame(function(){L.classList.add('is-in');});
+  var fill=L.querySelector('.ewl-ring .f'),pct=L.querySelector('.ewl-pct');
+  var C=2*Math.PI*54,D=1600,t0=null;
+  fill.style.strokeDasharray=C;fill.style.strokeDashoffset=C;
+  var tick=function(ts){
+    if(ended)return;
+    if(t0===null)t0=ts;
+    var p=Math.min((ts-t0)/D,1),q=1-Math.pow(1-p,3);
+    pct.textContent=Math.round(q*100)+'%';
+    fill.style.strokeDashoffset=C*(1-q);
+    if(p<1){requestAnimationFrame(tick);return;}
+    // 輪が満ちたら輪と数字だけ消し、会社名はもう少し見せてからヘッダーへ
+    setTimeout(function(){if(ended)return;L.classList.add('is-p2');setTimeout(absorb,900);},250);
+  };
+  requestAnimationFrame(tick);
 })();
 </script>
 </body>
