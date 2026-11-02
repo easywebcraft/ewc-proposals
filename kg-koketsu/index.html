@@ -722,7 +722,7 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .hd .call{padding:13px 24px;font-size:14.5px}
 }
 @media(min-width:1000px){
-  .hd{min-height:76px;max-width:1240px;padding:0 28px}
+  .hd{min-height:76px;max-width:1260px;padding:0 28px}
   .hdwrap.ovl{margin-bottom:-77px}
   .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
@@ -739,6 +739,23 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   html:has(.hdwrap.ovl) .ewl.is-absorb .logo{color:#fff;transition:transform 1s cubic-bezier(.65,0,.35,1),opacity .45s ease .95s,color .8s ease}
   html:has(.hdwrap.ovl) .ewl.is-absorb .logo small{color:rgba(255,255,255,.85);transition:color .8s ease}
 }
+
+.hd.fit1 nav{column-gap:18px;font-size:14px;letter-spacing:.04em}
+.hd.fit1 .logo{font-size:18px}
+.hd.fit1 .call{padding:11px 18px;font-size:13.5px}
+.hd.fit2 nav{column-gap:12px;font-size:12.5px;letter-spacing:0}
+.hd.fit2 .logo{font-size:16px}
+.hd.fit2 .call{padding:10px 14px;font-size:12.5px}
+.hd.fit1,.hd.fit2{gap:14px}
+
+.shot.cam-on{overflow:hidden}
+.shot .cam{position:absolute;inset:0;display:block;background-size:cover;background-position:center;
+  animation:camDrift 26s ease-in-out 1.8s infinite alternate;will-change:transform}
+@keyframes camDrift{0%{transform:scale(1) translate3d(0,0,0)}
+  50%{transform:scale(1.08) translate3d(-1.5%,-1%,0)}100%{transform:scale(1.05) translate3d(1.5%,.8%,0)}}
+html.ewl-on:not(.ewl-go) .shot .cam{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.shot .cam{animation:none}}
+@media print{.shot .cam{animation:none}}
 </style>
 <script>
 document.documentElement.classList.add('anim','js');
@@ -789,7 +806,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
         <h1 class="vt"><span class="cp">図面の一枚から</span><br><span class="cp">量産まで</span><br><em><span class="cp">金属を</span><span class="cp">かたちにします</span></em></h1>
       </div>
     </div>
-    <div class="shot ph" style="background-image:url(../photos/1735494033576-9c882e80504c.jpg?v=a9037dee);background-position:50% 62%">
+    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/1735494033576-9c882e80504c.jpg?v=a9037dee);background-position:50% 62%"></i>
       <div class="lb"><b>イメージ写真です</b>実際の制作では御社のお写真に差し替えます</div>
     </div>
     <span class="scroll">scroll</span>
@@ -912,6 +929,20 @@ window.__animReady=true;                    // <head> の保険に「動いた�
   var n=document.querySelector('.notice'),f=function(){
     var y=(n?n.offsetHeight:0)+24;w.classList.toggle('solid',(window.scrollY||pageYOffset)>y);};
   addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f();
+})();
+</script>
+<script>
+(function(){
+  var hd=document.querySelector('.hd'),nav=hd&&hd.querySelector('nav');if(!hd||!nav)return;
+  var over=function(){return hd.scrollWidth>hd.clientWidth+1||nav.scrollWidth>nav.clientWidth+1;};
+  var fit=function(){
+    hd.classList.remove('fit1','fit2');
+    if(getComputedStyle(nav).display==='none'||getComputedStyle(nav).flexDirection==='column')return;
+    if(over())hd.classList.add('fit1');
+    if(over()){hd.classList.remove('fit1');hd.classList.add('fit2');}
+  };
+  fit();addEventListener('resize',fit);addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 })();
 </script>
 <script>

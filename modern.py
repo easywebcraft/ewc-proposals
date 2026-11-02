@@ -542,7 +542,7 @@ OVL_CSS = """
   .hd .call{padding:13px 24px;font-size:14.5px}
 }
 @media(min-width:%(navbp)spx){
-  .hd{min-height:76px;max-width:1240px;padding:0 28px}
+  .hd{min-height:76px;max-width:%(hdmax)spx;padding:0 28px}
   .hdwrap.ovl{margin-bottom:-77px}
   .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
@@ -560,6 +560,47 @@ OVL_CSS = """
   html:has(.hdwrap.ovl) .ewl.is-absorb .logo small{color:rgba(255,255,255,.85);transition:color .8s ease}
 }
 """
+
+# ★メニューが帯に収まらない時の保険（文字幅の見積もりは目安なので、実際に測る）。
+#   はみ出していたら、すきま→文字の大きさの順に2段階まで詰める。幅が変わるたびに測り直す
+# ★2026-11-02 松本さん「FVの写真はカメラワークを。静止画だと退屈」。写真（と切り替えの写真）を
+#   1枚の層（.cam）に入れ、ゆっくり寄りながら左右に流す。札（イメージ写真です）と暗い幕は動かさない。
+#   寄り（最大1.08倍）の分の余白より横の移動（1.5%）を小さくして、写真の端が見えないようにする
+CAM_CSS = """
+.shot.cam-on{overflow:hidden}
+.shot .cam{position:absolute;inset:0;display:block;background-size:cover;background-position:center;
+  animation:camDrift 26s ease-in-out 1.8s infinite alternate;will-change:transform}
+@keyframes camDrift{0%{transform:scale(1) translate3d(0,0,0)}
+  50%{transform:scale(1.08) translate3d(-1.5%,-1%,0)}100%{transform:scale(1.05) translate3d(1.5%,.8%,0)}}
+html.ewl-on:not(.ewl-go) .shot .cam{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.shot .cam{animation:none}}
+@media print{.shot .cam{animation:none}}
+"""
+
+NAVFIT_CSS = """
+.hd.fit1 nav{column-gap:18px;font-size:14px;letter-spacing:.04em}
+.hd.fit1 .logo{font-size:18px}
+.hd.fit1 .call{padding:11px 18px;font-size:13.5px}
+.hd.fit2 nav{column-gap:12px;font-size:12.5px;letter-spacing:0}
+.hd.fit2 .logo{font-size:16px}
+.hd.fit2 .call{padding:10px 14px;font-size:12.5px}
+.hd.fit1,.hd.fit2{gap:14px}
+"""
+
+NAVFIT_JS = """<script>
+(function(){
+  var hd=document.querySelector('.hd'),nav=hd&&hd.querySelector('nav');if(!hd||!nav)return;
+  var over=function(){return hd.scrollWidth>hd.clientWidth+1||nav.scrollWidth>nav.clientWidth+1;};
+  var fit=function(){
+    hd.classList.remove('fit1','fit2');
+    if(getComputedStyle(nav).display==='none'||getComputedStyle(nav).flexDirection==='column')return;
+    if(over())hd.classList.add('fit1');
+    if(over()){hd.classList.remove('fit1');hd.classList.add('fit2');}
+  };
+  fit();addEventListener('resize',fit);addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>"""
 
 OVL_JS = """<script>
 (function(){
@@ -1177,7 +1218,10 @@ def render(sid, d, ind):
         css += V2_CSS % {"acc_rgb": acc_rgb}
     if v3:
         css += V3_CSS % {"acc_rgb": acc_rgb}
-        css += OVL_CSS % {"navbp": max(navbp, 900), "navbig": nav_breakpoint(d, ind, big=True)}
+        navbig = nav_breakpoint(d, ind, big=True)
+        # メニューの多い会社は、帯の中身の幅（既定 1240px）に収まらず右端が切れた。広い画面では中身の幅も広げる
+        css += OVL_CSS % {"navbp": max(navbp, 900), "navbig": navbig, "hdmax": max(1240, min(1680, navbig + 100))}
+        css += NAVFIT_CSS + CAM_CSS
     roman = d.get("roman", "")
     since = bigen = tagline = badge = ""
     news_t = ind.get("news_hint", "お知らせが入ります（工事のご報告・休業日など）")
@@ -1384,7 +1428,7 @@ def render(sid, d, ind):
         {since}<h1 class="vt">{h1_html}</h1>
       </div>
     </div>
-    <div class="shot{" ph" if hero_ph else ""}"{hero_ph}>{slides}
+    {f'<div class="shot ph cam-on"><i class="cam"{hero_ph}>{slides}</i>' if v3 and hero_ph else f'<div class="shot{" ph" if hero_ph else ""}"{hero_ph}>{slides}'}
       <div class="lb">{hero_lb}</div>
     </div>
     <span class="scroll">scroll</span>
@@ -1449,6 +1493,7 @@ def render(sid, d, ind):
 
 {body_js()}
 {OVL_JS if v3 and hero_ph else ""}
+{NAVFIT_JS if v3 else ""}
 {LOADER_JS}
 </body>
 </html>
