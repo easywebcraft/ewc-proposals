@@ -82,7 +82,7 @@ nav a:hover{color:var(--accent)}
 .tex.ctex{opacity:.85;
   -webkit-mask-image:linear-gradient(180deg,#000 0%%,rgba(0,0,0,.22) 58%%,rgba(0,0,0,0) 100%%);
   mask-image:linear-gradient(180deg,#000 0%%,rgba(0,0,0,.22) 58%%,rgba(0,0,0,0) 100%%)}
-.hero .inner{position:relative;display:grid;gap:22px;padding:18px 0 0}
+.hero .inner{position:relative;display:grid;gap:22px;padding:18px 20px 0}   /* 左右は .wrap と同じ余白（0だとスマホで文字が端に付く） */
 .hero .textcol{display:flex;flex-direction:column}
 .hero .textcol h1{order:-1}   /* 狭い画面では見出しを先頭に */
 .vt{writing-mode:horizontal-tb}
@@ -271,7 +271,7 @@ footer .next li{margin:2px 0}
   .gframe:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
   .hero{padding:34px 0 20px}
   .hero .inner{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
-               align-items:center;gap:46px;padding:34px 0 46px}
+               align-items:center;gap:46px;padding:34px 20px 46px}
   /* 縦書きの明朝（TATSUSHO の型）。広い画面のときだけ。 */
   .vt{writing-mode:vertical-rl;text-orientation:upright;
       max-height:470px;margin-left:auto;white-space:nowrap}
