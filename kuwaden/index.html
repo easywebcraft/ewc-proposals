@@ -348,6 +348,34 @@ footer .next li{margin:2px 0}
   .js nav a:last-child{border-bottom:0}
   .js .hd.open nav{display:flex}
 }
+/* ---- メニュー（2026-11-02 松本さん「各メニューにも動き・カーソルを合わせたら選んでいると分かる動き」） ----
+   PC：トップと一緒に左から順に上から降りてくる。合わせると文字が色付き、下に線が中央から伸びる
+   スマホ：メニューを開くと項目が上から順に横から出てくる。押すと少し右へ寄って色付く */
+@keyframes navIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@keyframes menuIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
+nav a{position:relative;transition:color .25s}
+nav a:hover,nav a:focus-visible{color:var(--accent)}
+@media(min-width:1000px){
+  .anim nav a{animation:navIn .6s cubic-bezier(.2,.7,.3,1) both}
+  .anim nav a:nth-child(2){animation-delay:.06s}.anim nav a:nth-child(3){animation-delay:.12s}
+  .anim nav a:nth-child(4){animation-delay:.18s}.anim nav a:nth-child(5){animation-delay:.24s}
+  .anim nav a:nth-child(6){animation-delay:.3s}.anim nav a:nth-child(n+7){animation-delay:.36s}
+  nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;border-radius:2px;
+    background:var(--accent);transform:scaleX(0);transition:transform .3s cubic-bezier(.2,.7,.3,1)}
+  nav a:hover::after,nav a:focus-visible::after{transform:scaleX(1)}
+}
+@media(max-width:999px){
+  .js nav a{transition:color .2s,padding-left .25s,background-color .25s}
+  .js nav a:hover,.js nav a:active,.js nav a:focus-visible{padding-left:14px;color:var(--accent)}
+  .js .hd.open nav a{animation:menuIn .35s cubic-bezier(.2,.7,.3,1) both}
+  .js .hd.open nav a:nth-child(2){animation-delay:.04s}.js .hd.open nav a:nth-child(3){animation-delay:.08s}
+  .js .hd.open nav a:nth-child(4){animation-delay:.12s}.js .hd.open nav a:nth-child(5){animation-delay:.16s}
+  .js .hd.open nav a:nth-child(n+6){animation-delay:.2s}
+}
+@media(prefers-reduced-motion:reduce){
+  nav a{animation:none!important}
+  nav a::after{transition:none}
+}
 @media(prefers-reduced-motion:reduce){
   .anim :is(.stats > *,.sechead,.cards > *,.gal > *,.flow > *,.info,.mapbox,.news .pill,.abph,.abtx){opacity:1}
   .anim .on,.hero .meta > *,.hero h1,.hero .since,.hero .shot{animation:none}
@@ -355,7 +383,7 @@ footer .next li{margin:2px 0}
 }
 @media print{
   .anim :is(.stats > *,.sechead,.cards > *,.gal > *,.flow > *,.info,.mapbox,.news .pill,.abph,.abtx){opacity:1!important}
-  .anim .on,.hero .meta > *,.hero h1,.hero .since,.hero .shot{animation:none!important}
+  .anim .on,.hero .meta > *,.hero h1,.hero .since,.hero .shot,nav a{animation:none!important}
   .mbtn{display:none}nav{display:flex!important}
 }
 
@@ -389,7 +417,7 @@ html.ewl-on .ewl.is-out{opacity:0}
 html.ewl-on .hd .logo{opacity:0}
 .hd .logo.ewl-in{transition:opacity .8s ease}
 html.ewl-on:not(.ewl-go) .hero .shot{animation-play-state:paused}
-html.ewl-on:not(.ewl-txt) :is(.hero .meta > *,.hero h1,.hero .since){animation-play-state:paused}
+html.ewl-on:not(.ewl-txt) :is(.hero .meta > *,.hero h1,.hero .since,nav a){animation-play-state:paused}
 /* ★写真は幕が透け始めたら（ewl-go）、文字は幕がほぼ消えてから（ewl-txt）動かす。
    文字も幕と一緒に動かすと、演出が終わった時にはもう出終わっていた（2026-11-02） */
 /* ★止めるのは animation:none ではなく一時停止。none にすると、動き出す瞬間に写真が 1.04 倍へ跳ねてかたつき、
