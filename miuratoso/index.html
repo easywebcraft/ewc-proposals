@@ -326,9 +326,7 @@ footer .next li{margin:2px 0}
 .hero .meta > :nth-child(1){animation-delay:.4s}
 .hero .meta > :nth-child(2){animation-delay:.5s}
 .hero .meta > :nth-child(3){animation-delay:.65s}
-/* 冒頭の演出の間は止めておき、演出が消えたところから始める（裏で終わってしまわないように） */
-.ewl-on .hero .meta > *,.ewl-on .hero h1,.ewl-on .hero .since{animation:none!important;opacity:0}
-.ewl-on .hero .shot{animation:none!important}
+
 .hero .shot{animation:popIn 1s cubic-bezier(.2,.7,.3,1) .45s both}
 .anim :is(.stats > *,.sechead,.cards > *,.gal > *,.flow > *,.info,.mapbox,.news .pill,.abph,.abtx){opacity:0}
 .anim .on{animation:rise .7s cubic-bezier(.2,.7,.3,1) both}
@@ -390,7 +388,11 @@ html.ewl-on .ewl.is-out{opacity:0}
 @media(hover:hover){.ewl-skip{display:none}}
 html.ewl-on .hd .logo{opacity:0}
 .hd .logo.ewl-in{transition:opacity .8s ease}
-html.ewl-on:not(.ewl-go) :is(.hero .meta > *,.hero h1,.hero .shot){animation-play-state:paused}
+html.ewl-on:not(.ewl-go) :is(.hero .meta > *,.hero h1,.hero .since,.hero .shot){animation-play-state:paused}
+/* ★止めるのは animation:none ではなく一時停止。none にすると、動き出す瞬間に写真が 1.04 倍へ跳ねてかたつき、
+   幕が消えきるまで（社名が着いてから約2.3秒）コピーが出なかった（2026-11-02） */
+/* 幕を外したときにスクロールバーが出て、ページが横にずれないように（Windows など） */
+html{scrollbar-gutter:stable}
 
 @keyframes zoomOut{from{transform:scale(1.04)}to{transform:none}}
 .hero.full{padding:0 0 12px}
@@ -727,7 +729,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
 // スクロールで出てくる動き。隠す指定は <head> の CSS 側（.anim）。ここでは出す時と順番だけを決める
 //   ・IntersectionObserver で、画面の下1割より上に入ったら出す。一度出したら見張らない（戻っても隠さない）
 //   ・同じ並び（カード・流れ・数字の帯）で同時に入ったものは 100ms ずつずらす
-//   ・冒頭の演出の間は見張らない（演出の裏で出しきって、動きが見えなかった）
+//   ・冒頭の演出の幕が透け始めるまでは見張らない（演出の裏で出しきって、動きが見えなかった）
 (function(){
   var r=document.documentElement,units=[].slice.call(document.querySelectorAll('.stats > *,.sechead,.cards > *,.gal > *,.flow > *,.info,.mapbox,.news .pill,.abph,.abtx'));
   function show(el){el.classList.add('on');}
@@ -743,8 +745,9 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
     });
   },{rootMargin:'0px 0px -10% 0px',threshold:0});
   function start(){units.forEach(function(el){io.observe(el);});}
-  if(r.classList.contains('ewl-on')){
-    var mo=new MutationObserver(function(){if(!r.classList.contains('ewl-on')){mo.disconnect();start();}});
+  var veiled=function(){return r.classList.contains('ewl-on')&&!r.classList.contains('ewl-go');};
+  if(veiled()){
+    var mo=new MutationObserver(function(){if(!veiled()){mo.disconnect();start();}});
     mo.observe(r,{attributes:true,attributeFilter:['class']});
   }else start();
 })();
