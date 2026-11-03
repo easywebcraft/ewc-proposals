@@ -588,6 +588,39 @@ footer{background:var(--navy-d)}
 .mapbox b,.gframe b{color:var(--navy)}
 .ewl-ring .f{stroke:var(--navy)}
 .ewl-pct,.ewl .logo{color:var(--navy)}
+/* ★2026-11-03 松本さん「スマホの冒頭をコンパクトに。写真・地域名・キャッチ・相談ボタンをひとまとまりで」
+   ヘッダーは社名・電話・メニューを1行に（電話は番号を省いて短く）。写真を低くし、
+   地域とサービスの一言→見出し→相談ボタン→説明文の順に並べて、最初の画面に収める */
+.hero .htag{display:none}
+@media(max-width:899px){
+  .hd{padding:0 8px 0 14px;min-height:56px}
+  .logo{flex:1 1 0;min-width:0;white-space:normal;font-size:clamp(13.5px,3.9vw,15.5px)}
+  .logo small{white-space:nowrap;overflow:hidden;text-overflow:clip}
+  .hero.full .shot{height:auto;aspect-ratio:16/10;min-height:0;max-height:340px}
+  .hero.full .shot .lb{right:10px;bottom:10px;padding:6px 10px;font-size:10.5px;line-height:1.5}
+  .hero.full .shot .lb b{font-size:12px}
+  .hero.full .shot .lb b::before{width:6px;height:6px}
+  .hero.full .side{padding:18px 20px 0}
+  .hero .meta{display:contents}
+  .hero .htag{display:block;order:-3;margin:0 0 10px;font-size:12.5px;font-weight:700;letter-spacing:.08em;
+    color:var(--navy);line-height:1.5}
+  .hero .htag::before{content:"";display:inline-block;width:18px;height:2px;background:var(--accent);
+    vertical-align:4px;margin-right:8px}
+  .hero .since{order:-2}
+  .hero .textcol h1{order:-1}
+  .hero h1{font-size:min(28px,calc((100vw - 44px) / (var(--hn,12) * 1.1)));line-height:1.6;letter-spacing:.05em;color:var(--navy)}
+  .hero h1 .cp+.cp{margin-inline-start:.3em}
+  .hero .acts{order:0;margin-top:16px}
+  .hero .sub{order:1;margin-top:16px;font-size:13.5px;line-height:1.75}
+  .hero .en{order:2}
+}
+@media(max-width:599px){
+  .hd .call .cn{display:none}
+  .hd .call{padding:10px 14px}
+  .hero .acts{display:block}
+  .hero .acts .btn.p{display:block;text-align:center;padding:15px 20px;font-size:15px}
+  .hero .acts .btn.g{display:none}
+}
 @media(min-width:900px){
   .hero.full.fv .shot::before{background:linear-gradient(90deg,rgba(14,24,42,.62) 0%,rgba(14,24,42,.42) 36%,rgba(14,24,42,0) 68%)}
 }
@@ -1058,6 +1091,17 @@ def vsplit(text, limit=VLIMIT):
         segs[i:i + 1] = [segs[i][:cut], segs[i][cut:]]
 
 
+# ★2026-11-03 松本さん「スマホの冒頭で、どこの会社で何を頼めるかを伝える」。見出しの上に添える一言。
+#   sites.json の "hero_tag" があればそれ。無ければ住所の市町村と、できることの先頭（長ければ1つ）から作る
+def hero_tag(d):
+    if d.get("hero_tag"):
+        return d["hero_tag"]
+    m = re.search(r"(?:都|道|府|県)(?:.+?郡)?(.+?[市町村])", d.get("addr", ""))
+    svc = [t for t, _ in d.get("services", [])][:2]
+    svc = "／".join(svc) if sum(map(len, svc)) <= 15 else (svc[0] if svc and len(svc[0]) <= 15 else "")
+    return "｜".join(x for x in ((m.group(1) if m else ""), svc) if x)
+
+
 def headline(d, e):
     """見出しのHTMLと、縦書きのときの文字の大きさ。"""
     a, b = vsplit(d["catch"]), vsplit(d["catch_em"])
@@ -1257,6 +1301,8 @@ def render(sid, d, ind):
         css += NAVY_CSS
     roman = d.get("roman", "")
     since = bigen = tagline = badge = ""
+    htag = f'<p class="htag">{e(hero_tag(d))}</p>' if v3 and hero_tag(d) else ""
+    hn = max(len(re.sub(r"[、。]", "", x)) for x in vsplit(d["catch"]) + vsplit(d["catch_em"]))
     news_t = ind.get("news_hint", "お知らせが入ります（工事のご報告・休業日など）")
     if skin == "seizo":
         if d.get("founded"):
@@ -1410,12 +1456,12 @@ def render(sid, d, ind):
     else:
         pairs = [(ind["svc"], "#works"), (ind["flow_h"], "#flow"), ("会社概要", "#company"), ("お問い合わせ", "#contact")]
     sitemap = "".join(f'<li><a href="{href or "#works"}">{e(label)}</a></li>' for label, href in pairs)
-    call = (f'<a class="call" href="tel:{e(tl)}">お電話 {e(tel)}</a>' if tel
+    call = (f'<a class="call" href="tel:{e(tl)}">お電話<span class="cn"> {e(tel)}</span></a>' if tel
             else '<a class="call" href="#contact">お問い合わせ</a>')
     if skin == "seizo":
         # 長峰の型: 右端に角ばったボタンを2つ（お問い合わせ／資料請求）
         call = f'<div class="calls">{call}<a class="call2" href="#contact">資料請求</a></div>'
-    hero_btn = (f'<a class="btn p" href="tel:{e(tl)}">電話で相談する</a>' if tel else "")
+    hero_btn = (f'<a class="btn p" href="tel:{e(tl)}">{"お見積り・ご相談" if v3 else "電話で相談する"}</a>' if tel else "")
     hours_html = ("" if v2 and "が入ります" in ind["hours"] else f'<small>{e(ind["hours"])}</small>')
     ctel = (f'<a class="big" href="tel:{e(tl)}">{e(tel)}</a>'
             f'{hours_html or "<small></small>"}'
@@ -1458,7 +1504,7 @@ def render(sid, d, ind):
           <p class="en">{e(roman)}</p>
           <div class="acts">{hero_btn}<a class="btn g" href="#works">{e(ind["svc"])}を見る</a></div>
         </div>
-        {since}<h1 class="vt">{h1_html}</h1>
+        {htag}{since}<h1 class="vt" style="--hn:{hn}">{h1_html}</h1>
       </div>
     </div>
     {f'<div class="shot ph cam-on"><i class="cam"{hero_ph}>{slides}</i>' if v3 and hero_ph else f'<div class="shot{" ph" if hero_ph else ""}"{hero_ph}>{slides}'}

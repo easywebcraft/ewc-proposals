@@ -779,6 +779,39 @@ footer{background:var(--navy-d)}
 .mapbox b,.gframe b{color:var(--navy)}
 .ewl-ring .f{stroke:var(--navy)}
 .ewl-pct,.ewl .logo{color:var(--navy)}
+/* ★2026-11-03 松本さん「スマホの冒頭をコンパクトに。写真・地域名・キャッチ・相談ボタンをひとまとまりで」
+   ヘッダーは社名・電話・メニューを1行に（電話は番号を省いて短く）。写真を低くし、
+   地域とサービスの一言→見出し→相談ボタン→説明文の順に並べて、最初の画面に収める */
+.hero .htag{display:none}
+@media(max-width:899px){
+  .hd{padding:0 8px 0 14px;min-height:56px}
+  .logo{flex:1 1 0;min-width:0;white-space:normal;font-size:clamp(13.5px,3.9vw,15.5px)}
+  .logo small{white-space:nowrap;overflow:hidden;text-overflow:clip}
+  .hero.full .shot{height:auto;aspect-ratio:16/10;min-height:0;max-height:340px}
+  .hero.full .shot .lb{right:10px;bottom:10px;padding:6px 10px;font-size:10.5px;line-height:1.5}
+  .hero.full .shot .lb b{font-size:12px}
+  .hero.full .shot .lb b::before{width:6px;height:6px}
+  .hero.full .side{padding:18px 20px 0}
+  .hero .meta{display:contents}
+  .hero .htag{display:block;order:-3;margin:0 0 10px;font-size:12.5px;font-weight:700;letter-spacing:.08em;
+    color:var(--navy);line-height:1.5}
+  .hero .htag::before{content:"";display:inline-block;width:18px;height:2px;background:var(--accent);
+    vertical-align:4px;margin-right:8px}
+  .hero .since{order:-2}
+  .hero .textcol h1{order:-1}
+  .hero h1{font-size:min(28px,calc((100vw - 44px) / (var(--hn,12) * 1.1)));line-height:1.6;letter-spacing:.05em;color:var(--navy)}
+  .hero h1 .cp+.cp{margin-inline-start:.3em}
+  .hero .acts{order:0;margin-top:16px}
+  .hero .sub{order:1;margin-top:16px;font-size:13.5px;line-height:1.75}
+  .hero .en{order:2}
+}
+@media(max-width:599px){
+  .hd .call .cn{display:none}
+  .hd .call{padding:10px 14px}
+  .hero .acts{display:block}
+  .hero .acts .btn.p{display:block;text-align:center;padding:15px 20px;font-size:15px}
+  .hero .acts .btn.g{display:none}
+}
 @media(min-width:900px){
   .hero.full.fv .shot::before{background:linear-gradient(90deg,rgba(14,24,42,.62) 0%,rgba(14,24,42,.42) 36%,rgba(14,24,42,0) 68%)}
 }
@@ -815,7 +848,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <header><div class="hd">
     <div class="logo">有限会社オータス<small>AUTASS</small></div>
     <nav><a>会社案内</a><a>業務内容</a><a>インフォメーション</a><a>お問い合わせ</a></nav>
-    <div class="calls"><a class="call" href="tel:0574628182">お電話 0574-62-8182</a><a class="call2" href="#contact">資料請求</a></div>
+    <div class="calls"><a class="call" href="tel:0574628182">お電話<span class="cn"> 0574-62-8182</span></a><a class="call2" href="#contact">資料請求</a></div>
   </div></header>
 </div>
 
@@ -827,9 +860,9 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
         <div class="meta">
           <p class="sub"><span class="ph">自動機械の設計・製作、</span><span class="ph">機械部品の加工と治具の設計製作、</span><span class="ph">制御ソフトまで。</span><span class="ph">組立機械、</span><span class="ph">ロボットと周辺機器、</span><span class="ph">パレタイザー、</span><span class="ph">検査機、</span><span class="ph">搬送装置。</span></p>
           <p class="en">AUTASS</p>
-          <div class="acts"><a class="btn p" href="tel:0574628182">電話で相談する</a><a class="btn g" href="#works">できることを見る</a></div>
+          <div class="acts"><a class="btn p" href="tel:0574628182">お見積り・ご相談</a><a class="btn g" href="#works">できることを見る</a></div>
         </div>
-        <h1 class="vt"><span class="cp">設計から立ち上げまで</span><br><em><span class="cp">一台の機械を</span><span class="cp">社内で</span></em></h1>
+        <p class="htag">可児市｜部品加工・治具／組立機械</p><h1 class="vt" style="--hn:10"><span class="cp">設計から立ち上げまで</span><br><em><span class="cp">一台の機械を</span><span class="cp">社内で</span></em></h1>
       </div>
     </div>
     <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/ai-seizo-1.jpg?v=44015d72)"><style>@keyframes heroSl{0%{opacity:0;transform:scale(1.08)}5.56%{opacity:1}38.89%{opacity:1}44.44%{opacity:0;transform:none}100%{opacity:0}}</style><i class="sl" style="background-image:url(../photos/ai-seizo-2.jpg?v=a52c28d4);animation:heroSl 18s linear 5s infinite"></i><i class="sl" style="background-image:url(../photos/ai-seizo-3.jpg?v=45540dc4);animation:heroSl 18s linear 11s infinite"></i></i>
