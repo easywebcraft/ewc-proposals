@@ -427,6 +427,7 @@ html.ewl-on .ewl.is-out{opacity:0}
 .ewl.is-absorb .ewl-skip{opacity:0}
 @media(hover:hover){.ewl-skip{display:none}}
 html.ewl-on .hd .logo{opacity:0}
+.hd .logo .lw{display:inline-block}
 .hd .logo.ewl-in{transition:opacity .8s ease}
 html.ewl-on:not(.ewl-go) .hero .shot{animation-play-state:paused}
 html.ewl-on:not(.ewl-txt) :is(.hero .meta > *,.hero h1,.hero .since,nav a){animation-play-state:paused}
@@ -773,7 +774,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
 
 <div class="hdwrap ovl">
   <header><div class="hd">
-    <div class="logo">有限会社伊藤燃設<small>ITONEN</small></div>
+    <div class="logo"><span class="lw">有限会社</span><span class="lw">伊藤燃設</span><small>ITONEN</small></div>
     <nav><a>施工事例</a><a>住まいの試着</a><a>耐震診断</a><a>ショールーム</a><a>お客様の声</a><a>会社案内</a><a>お問い合わせ</a></nav>
     <a class="call" href="tel:0120975731">お電話<span class="cn"> 0120-975-731</span></a>
   </div></header>

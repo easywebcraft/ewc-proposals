@@ -517,6 +517,7 @@ html.ewl-on .ewl.is-out{opacity:0}
 .ewl.is-absorb .ewl-skip{opacity:0}
 @media(hover:hover){.ewl-skip{display:none}}
 html.ewl-on .hd .logo{opacity:0}
+.hd .logo .lw{display:inline-block}
 .hd .logo.ewl-in{transition:opacity .8s ease}
 html.ewl-on:not(.ewl-go) .hero .shot{animation-play-state:paused}
 html.ewl-on:not(.ewl-txt) :is(.hero .meta > *,.hero h1,.hero .since,nav a){animation-play-state:paused}
@@ -1488,7 +1489,7 @@ def render(sid, d, ind):
 
 <div class="hdwrap{" ovl" if v3 and hero_ph else ""}">
   <header><div class="hd">
-    <div class="logo">{e(name)}<small>{e(roman)}</small></div>
+    <div class="logo">{logo_name(name)}<small>{e(roman)}</small></div>
     <nav>{nav}</nav>
     {call}
   </div></header>
@@ -1722,6 +1723,15 @@ def about_photo(d):
     if any(w in words for w in ("土木", "舗装", "造成", "解体", "造園", "庭", "石材", "生コン", "砕石", "資材")):
         return "ai-o-yard"
     return "ai-o-office"
+
+
+def logo_name(name):
+    """ヘッダーの社名。会社の種類と呼び名をそれぞれひとかたまりにして、折り返すなら境目で折る。
+    「株式会社岐阜ソイルコンサルタ／ント」と1文字だけ落ちたため（2026-11-05）。"""
+    m = re.match(r"^(株式会社|有限会社|合同会社|合資会社)(.+)$", name) or re.match(r"^(.+?)(株式会社|有限会社|合同会社|合資会社)$", name)
+    if not m:
+        return e(name)
+    return "".join(f'<span class="lw">{e(x)}</span>' for x in m.groups())
 
 
 def short_name(name):

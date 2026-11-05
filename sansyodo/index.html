@@ -427,6 +427,7 @@ html.ewl-on .ewl.is-out{opacity:0}
 .ewl.is-absorb .ewl-skip{opacity:0}
 @media(hover:hover){.ewl-skip{display:none}}
 html.ewl-on .hd .logo{opacity:0}
+.hd .logo .lw{display:inline-block}
 .hd .logo.ewl-in{transition:opacity .8s ease}
 html.ewl-on:not(.ewl-go) .hero .shot{animation-play-state:paused}
 html.ewl-on:not(.ewl-txt) :is(.hero .meta > *,.hero h1,.hero .since,nav a){animation-play-state:paused}
@@ -773,7 +774,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
 
 <div class="hdwrap ovl">
   <header><div class="hd">
-    <div class="logo">株式会社三昭堂<small>SANSYODO</small></div>
+    <div class="logo"><span class="lw">株式会社</span><span class="lw">三昭堂</span><small>SANSYODO</small></div>
     <nav><a>注文住宅</a><a>分譲住宅・土地</a><a>看板・店舗装飾</a><a>施工事例</a><a>会社案内</a><a>お問い合わせ</a></nav>
     <a class="call" href="tel:0586770360">お電話<span class="cn"> 0586-77-0360</span></a>
   </div></header>

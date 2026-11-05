@@ -500,6 +500,7 @@ html.ewl-on .ewl.is-out{opacity:0}
 .ewl.is-absorb .ewl-skip{opacity:0}
 @media(hover:hover){.ewl-skip{display:none}}
 html.ewl-on .hd .logo{opacity:0}
+.hd .logo .lw{display:inline-block}
 .hd .logo.ewl-in{transition:opacity .8s ease}
 html.ewl-on:not(.ewl-go) .hero .shot{animation-play-state:paused}
 html.ewl-on:not(.ewl-txt) :is(.hero .meta > *,.hero h1,.hero .since,nav a){animation-play-state:paused}
@@ -790,7 +791,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
 
 <div class="hdwrap">
   <header><div class="hd">
-    <div class="logo">株式会社平野紙器<small>HIRANO SHIKI</small></div>
+    <div class="logo"><span class="lw">株式会社</span><span class="lw">平野紙器</span><small>HIRANO SHIKI</small></div>
     <nav><a>お知らせ</a><a>会社案内</a><a>製品カタログ</a><a>サイトマップ</a><a>お問い合わせ</a></nav>
     <div class="calls"><a class="call" href="tel:0583276111">お電話<span class="cn"> 058-327-6111</span></a><a class="call2" href="#contact">資料請求</a></div>
   </div></header>

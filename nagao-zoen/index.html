@@ -427,6 +427,7 @@ html.ewl-on .ewl.is-out{opacity:0}
 .ewl.is-absorb .ewl-skip{opacity:0}
 @media(hover:hover){.ewl-skip{display:none}}
 html.ewl-on .hd .logo{opacity:0}
+.hd .logo .lw{display:inline-block}
 .hd .logo.ewl-in{transition:opacity .8s ease}
 html.ewl-on:not(.ewl-go) .hero .shot{animation-play-state:paused}
 html.ewl-on:not(.ewl-txt) :is(.hero .meta > *,.hero h1,.hero .since,nav a){animation-play-state:paused}
@@ -773,7 +774,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
 
 <div class="hdwrap ovl">
   <header><div class="hd">
-    <div class="logo">有限会社長尾造園<small>NAGAO ZOEN</small></div>
+    <div class="logo"><span class="lw">有限会社</span><span class="lw">長尾造園</span><small>NAGAO ZOEN</small></div>
     <nav><a>造園について</a><a>エクステリア</a><a>プランニング</a><a>グリーンドクター</a><a>施工実績</a><a>会社案内</a><a>お問い合わせ</a></nav>
     <a class="call" href="tel:0572226400">お電話<span class="cn"> 0572-22-6400</span></a>
   </div></header>

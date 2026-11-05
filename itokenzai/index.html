@@ -427,6 +427,7 @@ html.ewl-on .ewl.is-out{opacity:0}
 .ewl.is-absorb .ewl-skip{opacity:0}
 @media(hover:hover){.ewl-skip{display:none}}
 html.ewl-on .hd .logo{opacity:0}
+.hd .logo .lw{display:inline-block}
 .hd .logo.ewl-in{transition:opacity .8s ease}
 html.ewl-on:not(.ewl-go) .hero .shot{animation-play-state:paused}
 html.ewl-on:not(.ewl-txt) :is(.hero .meta > *,.hero h1,.hero .since,nav a){animation-play-state:paused}
@@ -773,7 +774,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
 
 <div class="hdwrap ovl">
   <header><div class="hd">
-    <div class="logo">有限会社伊藤建材<small>ITO KENZAI</small></div>
+    <div class="logo"><span class="lw">有限会社</span><span class="lw">伊藤建材</span><small>ITO KENZAI</small></div>
     <nav><a>業務内容</a><a>解体工事の現場写真</a><a>空家・空地管理</a><a>リサイクルセンター</a><a>会社紹介</a><a>アクセスマップ</a><a>お問い合わせ</a></nav>
     <a class="call" href="tel:0587577766">お電話<span class="cn"> 0587-57-7766</span></a>
   </div></header>
