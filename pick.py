@@ -7,6 +7,7 @@
 
 候補の条件（CRMの「まとめて予約」に載る条件の裏返し＝見本だけが足りない先）:
   未着手・メール可・アドレスあり・見本なし・まだ1通も送っていない（テスト送信は数えない）
+  ＋同じアドレスに送った先・送付済／送らない／見本ありの先が別の行に無い
 
 書き出す nav_todo.tsv は「キー / サイトURL / 社名」の3列で、navfind.py・colorfind.py・factfind.py の入力になる。
 同じ内容に CRM の番号・点数・業種・地域・メモを足したものを pick.tsv に書く（register.py が使う）。
@@ -37,6 +38,11 @@ rows = c.execute("""
   WHERE p.status='未着手' AND p.reach='メール可' AND IFNULL(p.email,'')<>''
     AND IFNULL(p.proposal_url,'')='' AND IFNULL(p.url,'')<>''
     AND NOT EXISTS (SELECT 1 FROM prospect_mails m WHERE m.prospect_id=p.id AND m.is_test=0)
+    AND NOT EXISTS (SELECT 1 FROM prospect_mails m WHERE m.is_test=0
+                    AND lower(trim(m.to_email))=lower(trim(p.email)))
+    AND NOT EXISTS (SELECT 1 FROM prospects q WHERE q.id<>p.id
+                    AND lower(trim(q.email))=lower(trim(p.email))
+                    AND (q.status<>'未着手' OR q.reach='送らない' OR IFNULL(q.proposal_url,'')<>''))
   ORDER BY (p.score IS NULL), p.score DESC, p.id""").fetchall()
 print(json.dumps([dict(r) for r in rows], ensure_ascii=False))
 '''
@@ -67,6 +73,10 @@ def key_of(url, used):
     return k
 
 
+def norm_name(n):
+    return re.sub(r"(株式会社|有限会社|合資会社|合同会社|㈱|㈲|\s)", "", n or "")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--min", type=int, default=20, help="点数の下限（既定20）")
@@ -78,6 +88,18 @@ def main():
     sites = json.load(open(os.path.join(HERE, "sites.json"), encoding="utf-8"))
     used = set(sites)
     rows = [r for r in fetch() if (r["score"] or 0) >= a.min and (not a.cat or r["category"] == a.cat)]
+    # ★同じ会社が住所違いで2行あることがある（2026-11-05）。同じアドレスは1行だけ、
+    #   見本のある社名と同じ先は外す（アドレスが違っても同じ会社のことが多い）
+    made = {norm_name(v.get("name", "")) for v in sites.values()} - {""}
+    seen, kept, dup = set(), [], []
+    for r in rows:
+        e = r["email"].strip().lower()
+        if e in seen or norm_name(r["name"]) in made:
+            dup.append(r)
+            continue
+        seen.add(e)
+        kept.append(r)
+    rows = kept
     if a.limit:
         rows = rows[:a.limit]
     for r in rows:
@@ -88,6 +110,8 @@ def main():
         print("%3s点  %-6s %-22s %s  %s  %s" % (r["score"], r["check"] or "", r["key"], r["name"],
                                               r["category"] or "(業種なし)", r["area"] or ""))
     print("— %d件" % len(rows))
+    if dup:
+        print("（同じアドレス・見本のある社名と同じで外した %d件：%s）" % (len(dup), "、".join(r["name"] for r in dup)))
     if a.out:
         with open(a.out, "w", encoding="utf-8") as f:
             for r in rows:
