@@ -11,7 +11,8 @@ pick.py が書いた pick.tsv の先のうち、次をすべて満たすもの�
 
 ★本番のDBは CRM の利用者（ewc）として書く。root で書くと、SQLite の作業ファイルが root の持ち物になり、
   CRM がDBに書けなくなる。
-★書く前に本番で /opt/backup/backup.sh を流してDBの控えを取る。
+★書く前に本番で /opt/backup/backup-ewc.sh を流してDBの控えを取る。控えが取れなければ書かない。
+  （/opt/backup/backup.sh は保険CRMの控え。2026-11-07 まで誤ってこちらを呼んでいた）
 ★入れるのは proposal_url だけ。状態・送り方・メモなど人が使う欄には触らない
   （営業リストの作り方.md「項目ごとに持ち主が分かれている」）。
 """
@@ -71,7 +72,7 @@ def main():
         if plan:
             print("（--apply を付けると本番に書き込む）")
         return
-    subprocess.run(["ssh", REMOTE, "/opt/backup/backup.sh"], check=False)
+    subprocess.run(["ssh", REMOTE, "/opt/backup/backup-ewc.sh before-register"], check=True)
     # ssh の標準入力にスクリプトと計画の両方は渡せないので、計画はスクリプトに埋め込む
     script = APPLY.replace("json.loads(sys.stdin.read())", "json.loads(%r)" % json.dumps(plan))
     r = subprocess.run(["ssh", REMOTE, "cd /opt/ewc-crm && sudo -u ewc .venv/bin/python -"],
