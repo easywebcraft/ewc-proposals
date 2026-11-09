@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- ★提案用の見本。検索に載せない。本物と誤認されないための最低条件 -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>【提案見本】ティー・エス・ロード有限会社さま トップページ案｜EasyWebCraft</title>
+<style>
+:root{
+  --ground:#f3f1ea; --ink:#2f3a33; --muted:#667069; --line:#ddd9cf;
+  --accent:#1b7a33; --accent-d:#155d27; --paper:#fff;
+  --serif:"Noto Serif JP","游明朝体","Yu Mincho",YuMincho,"ヒラギノ明朝 ProN W3",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Yu Gothic",Meiryo,
+         "Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--ground);
+     line-height:1.9;-webkit-text-size-adjust:100%;overflow-x:hidden;overflow-x:clip}
+/* ★横のはみ出しは clip で切る（hidden だけだと、冒頭の演出で html を overflow:hidden にした間に
+   body がスクロールの枠になり、初回アクセスだけメニューの固定が効かないことがあった 2026-11-02）。
+   clip は枠を作らない。古いブラウザは前の行の hidden が効く */
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* 見本であることの明示。閉じられない。 */
+.notice{position:relative;z-index:60;background:var(--accent);color:#fff;
+        font-size:13px;line-height:1.6;padding:9px 16px;text-align:center}
+.notice b{font-weight:700}
+.notice span{display:block;opacity:.92;font-size:12px}
+/* ★2026-11-02 松本さん「見本の帯が強調されすぎて邪魔」。会社の色の2段から、濃い灰色の細い1行に。
+   公式サイトではないことは常に見せる（閉じられない）。詳しい断り書きはページ下（footer）に残す */
+.notice.slim{background:#2a2c2b;color:rgba(255,255,255,.8);font-size:11.5px;line-height:1.5;
+  padding:6px 16px;letter-spacing:.04em}
+.notice.slim span{display:inline-block;opacity:1;font-size:inherit}
+.notice.slim i{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);
+  margin-right:7px;vertical-align:1px;box-shadow:0 0 0 2px rgba(255,255,255,.25)}
+.notice.slim .ph{margin-right:0}
+/* スマホは1行に収めるため「EasyWebCraft の」を省く（会社名はページ下の断り書きにある） */
+@media(max-width:600px){.notice.slim{font-size:11px;padding:6px 10px;letter-spacing:.02em}.notice.slim .ewc{display:none}}
+
+/* ヘッダーは画面の端まで届く帯（2026-09-18・PCも）。
+   角丸で浮かせる型（SUZUKI の型）は両端に隙間ができて「ずれている」ように見えるので
+   スマホ・PCともやめた。中身だけ 1160px に揃える。 */
+.hdwrap{position:sticky;top:0;z-index:50;padding:0}
+header{background:rgba(255,255,255,.96);backdrop-filter:blur(8px);
+       border-bottom:1px solid var(--line);box-shadow:0 2px 12px rgba(40,50,45,.06)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    min-height:54px;flex-wrap:wrap;max-width:1160px;margin:0 auto;padding:0 12px 0 16px}
+.logo{font-family:var(--serif);font-size:15.5px;letter-spacing:.04em;font-weight:600;
+      line-height:1.25;white-space:nowrap}
+.logo small{display:block;font-family:var(--sans);font-size:9.5px;
+            letter-spacing:.16em;color:var(--muted);font-weight:400}
+/* 狭い画面ではヘッダーの2段目に折り返して全項目を出す。
+   以前は display:none で、スマホではメニューが一切見えなかった。
+   横スクロールにすると端で切れて「途中で終わっている」ように見えるので折り返す。 */
+nav{display:flex;order:3;flex:1 0 100%;flex-wrap:wrap;
+    column-gap:14px;row-gap:5px;font-size:11.5px;letter-spacing:.02em;
+    border-top:1px solid var(--line);margin:0 -4px;padding:7px 4px 9px}
+nav a{text-decoration:none;color:var(--muted);white-space:nowrap}
+nav a:hover{color:var(--accent)}
+.hd .call{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+          border-radius:999px;padding:10px 15px;font-size:12.5px;font-weight:700;
+          letter-spacing:.06em;white-space:nowrap}
+.hd .call:hover{background:var(--accent-d)}
+
+/* ヒーロー。巨大英字を面として敷き、縦書きの明朝を重ねる。 */
+.hero{position:relative;padding:26px 0 12px;overflow:hidden}
+/* 線画の地（SUZUKI の型を、街の輪郭ではなく等高線で） */
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:repeating-linear-gradient(115deg,rgba(27,122,51,.055) 0 1px,transparent 1px 42px);}
+/* 業種の質感。上に行くほど薄くして、見出しの邪魔をしないようにする */
+.tex{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;
+     -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.35) 0%,#000 30%,rgba(0,0,0,0) 86%);
+     mask-image:linear-gradient(180deg,rgba(0,0,0,.35) 0%,#000 30%,rgba(0,0,0,0) 86%)}
+.hero.tx::before{display:none}   /* 等高線の地とは重ねない */
+.contact.tx{position:relative;overflow:hidden}
+.contact.tx>*{position:relative;z-index:1}
+.tex.ctex{opacity:.85;
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.22) 58%,rgba(0,0,0,0) 100%);
+  mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.22) 58%,rgba(0,0,0,0) 100%)}
+.hero .inner{position:relative;display:grid;gap:22px;padding:18px 20px 0}   /* 左右は .wrap と同じ余白（0だとスマホで文字が端に付く） */
+.hero .textcol{display:flex;flex-direction:column}
+.hero .textcol h1{order:-1}   /* 狭い画面では見出しを先頭に */
+.vt{writing-mode:horizontal-tb}
+.hero h1{font-family:var(--serif);font-weight:500;margin:0;
+         font-size:clamp(27px,7.4vw,40px);line-height:1.65;letter-spacing:.06em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .sub{margin:16px 0 0;color:var(--muted);font-size:14.5px;max-width:30em}
+.ph{display:inline-block}
+.cp{display:inline-block}.cp+.cp{margin-inline-start:.55em}
+.notice .ph,footer .ph{display:inline-block;margin-right:.15em}
+footer .by{margin:14px 0 0;font-size:11.5px}
+footer .by .ph{margin:0 .5em}
+footer .by a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.hero .en{margin:10px 0 0;font-size:11px;letter-spacing:.22em;color:var(--muted)}
+.hero .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-block;text-decoration:none;border-radius:999px;white-space:nowrap;
+     padding:14px 26px;font-size:14.5px;font-weight:700;letter-spacing:.05em}
+.btn.p{background:var(--accent);color:#fff}
+.btn.p:hover{background:var(--accent-d)}
+.btn.g{border:1px solid var(--line);background:var(--paper);color:var(--ink)}
+.btn.g:hover{border-color:var(--accent);color:var(--accent)}
+
+/* 写真の枠。ごまかさず「ここに入る」と書く。 */
+.shot{position:relative;background:
+      linear-gradient(135deg,#eae7de 0%,#e3e1d8 55%,#edebe3 100%);
+      border:1px solid var(--line);border-radius:10px;aspect-ratio:4/3;
+      display:grid;place-items:center;text-align:center;overflow:hidden}
+.shot::after{content:"";position:absolute;inset:0;
+  background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.5) 0 2px,transparent 2px 12px)}
+.shot .lb{position:relative;z-index:1;color:#6f7268;font-size:12.5px;letter-spacing:.08em}
+.shot .lb b{display:block;font-family:var(--serif);font-size:15px;color:#575a51;
+            margin-bottom:5px;font-weight:500}
+/* ★当社が用意したイメージ写真を入れた枠（2026-09-19）。相手の写真は使わない原則はそのまま。
+   写真は data URI で内蔵するので1ファイル・外部読み込みなしは崩れない。
+   「イメージ写真」の札を必ず出す（本物の実績と誤認させないため） */
+.ph{background-size:cover;background-position:center}
+.ph::after{display:none}
+.shot.ph,.gframe.ph{display:block;padding:0;background-size:cover;background-position:center}
+/* ★.gframe の background 一括指定が後ろにあり、.ph の cover/center を打ち消していた
+   （写真が原寸のまま左上だけ写っていた）。ここで写真の枠に限って掛け直す */
+/* 札は大きく・はっきり（2026-09-19 指示: イメージ写真であることを強調）。
+   1行目に「イメージ写真」を太く、2行目に差し替えの断り */
+.shot.ph .lb,.gframe.ph .cap{position:absolute;left:12px;bottom:12px;z-index:1;text-align:left;
+  background:rgba(20,18,14,.78);color:#fff;border-radius:8px;padding:9px 14px 10px;
+  font-size:12px;letter-spacing:.04em;line-height:1.5;backdrop-filter:blur(4px);
+  box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.shot.ph .lb b,.gframe.ph .cap b{display:block;font-family:var(--sans);font-size:15px;
+  margin:0 0 1px;font-weight:700;color:#fff;letter-spacing:.12em}
+.shot.ph .lb b::before,.gframe.ph .cap b::before{content:"";display:inline-block;width:8px;height:8px;
+  border-radius:50%;background:var(--sub,#f0b429);margin:0 8px 2px 0;vertical-align:middle}
+/* 実績・事例の写真枠。ヒーローの枠と同じ見た目でそろえる */
+/* 地図の入る場所。写真枠と同じ見せ方でそろえる */
+.mapbox{margin-top:22px;background:
+        linear-gradient(135deg,#eae7de 0%,#e3e1d8 55%,#edebe3 100%);
+        border:1px solid var(--line);border-radius:10px;aspect-ratio:16/7;
+        display:grid;place-items:center;align-content:center;text-align:center;
+        color:#6f7268;font-size:11.5px;letter-spacing:.06em}
+.mapbox b{display:block;font-family:var(--serif);font-size:14px;color:#575a51;
+          margin-bottom:4px;font-weight:500}
+.gal{display:grid;gap:14px}
+.gframe{position:relative;background:
+        linear-gradient(135deg,#eae7de 0%,#e3e1d8 55%,#edebe3 100%);
+        border:1px solid var(--line);border-radius:10px;aspect-ratio:4/3;
+        display:grid;place-items:center;align-content:center;text-align:center;
+        color:#6f7268;font-size:12px;letter-spacing:.06em;padding:0 14px}
+.gframe{position:relative;overflow:hidden}
+.gframe::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.45) 0 2px,transparent 2px 12px)}
+.gframe>*,.gframe b{position:relative;z-index:1}
+.gframe b{display:block;font-family:var(--serif);font-size:14px;color:#575a51;
+          margin-bottom:4px;font-weight:500}
+.scroll{display:none;position:absolute;left:50%;transform:translateX(-50%);
+        bottom:-2px;font-size:10px;
+        letter-spacing:.2em;color:var(--muted)}
+
+/* TATSUSHO の型（画面から・2026-09-19）: 写真の外側に細い罫の枠をもう一つ置く */
+.shot{outline:1px solid rgba(27,122,51,.35);outline-offset:8px}
+/* TATSUSHO の型: 写真の右下に、お知らせを1行のピルで。日付・題名・矢印 */
+.news{padding:14px 0 0}
+.news .pill{display:flex;align-items:center;gap:12px;background:var(--paper);
+  border:1px solid var(--line);border-radius:22px;padding:6px 16px 6px 14px;font-size:12.5px;
+  max-width:560px;margin-left:auto}
+.news .pill .rows{min-width:0;flex:1 1 auto}
+.news .pill .lbl{flex:none;font-size:10px;line-height:1.35;font-weight:700;color:var(--muted);border-right:1px solid var(--line);padding-right:10px;text-align:center}
+.news .pill .row{display:flex;align-items:center;gap:12px;padding:5px 0}
+.news .pill .row+.row{border-top:1px dashed var(--line)}
+.news .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+.news .pill .date{color:var(--muted);letter-spacing:.06em;font-variant-numeric:tabular-nums;flex:none}
+.news .pill .t{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.news .pill .more{margin-left:auto;flex:none;color:var(--accent);font-weight:700;text-decoration:none;
+  font-size:11px;letter-spacing:.14em}
+/* TATSUSHO の型: 左端に細い縦書きの一言（広い画面だけ） */
+.tagline{display:none}
+/* TATSUSHO の型: 丸い CONTACT のバッジ。文字を円に沿わせ、中に一言 */
+.badge{display:none}
+/* scroll の合図に縦の線と点 */
+.scroll::after{content:"";display:block;width:1px;height:26px;margin:6px auto 0;
+  background:linear-gradient(180deg,var(--accent),transparent)}
+
+/* 帯（数字） */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+       margin:26px 0 0}
+.stats div{background:var(--paper);border:1px solid var(--line);border-radius:8px;
+           padding:18px 8px;text-align:center}
+.stats b{display:block;font-family:var(--serif);font-size:34px;color:var(--accent);
+         line-height:1.15;letter-spacing:.01em}
+.stats b small{font-size:13px;margin-left:2px}
+.stats span{display:block;margin-top:6px;font-size:11.5px;color:var(--muted);
+            letter-spacing:.08em}
+
+section{padding:60px 0}
+section.alt{background:var(--paper)}
+.sechead{text-align:center;margin-bottom:34px}
+.sechead .en{font-size:10.5px;letter-spacing:.28em;color:var(--accent);display:block;
+             margin-bottom:8px}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(21px,5.4vw,28px);
+   letter-spacing:.07em;margin:0}
+.sechead p{color:var(--muted);font-size:13.5px;margin:10px 0 0}
+
+.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.card{flex:0 1 100%;min-width:0;
+      background:var(--paper);border:1px solid var(--line);border-radius:10px;
+      padding:24px 22px;position:relative;overflow:hidden}
+section.alt .card{background:var(--ground)}
+.card h3{font-size:16.5px;margin:0 0 9px;letter-spacing:.04em}
+.card p{margin:0;font-size:13.5px;color:var(--muted)}
+
+.flow{display:grid;gap:12px;counter-reset:s}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:10px;
+      padding:20px 20px 20px 60px;position:relative}
+section.alt .step{background:var(--ground)}
+.step::before{counter-increment:s;content:"0" counter(s);position:absolute;left:18px;top:19px;
+              font-family:var(--serif);font-size:14px;color:var(--accent);letter-spacing:.04em}
+.step h3{font-size:15.5px;margin:0 0 5px}
+.step p{margin:0;font-size:13px;color:var(--muted)}
+
+table.info{width:100%;border-collapse:collapse;font-size:14px}
+table.info th,table.info td{border-bottom:1px solid var(--line);padding:14px 4px;
+                            text-align:left;vertical-align:top}
+table.info th{width:7.5em;color:var(--muted);font-weight:500}
+
+/* 丸いCONTACTバッジ（TATSUSHO の型） */
+.contact{position:relative;background:var(--accent);color:#fff;text-align:center;
+         padding:56px 20px;overflow:hidden}
+.contact::before{content:"";position:absolute;inset:auto -18% -55% 55%;height:90%;
+  border-radius:50%;background:rgba(255,255,255,.06)}
+.contact h2{color:#fff;position:relative}
+.contact p{color:rgba(255,255,255,.85);font-size:13.5px;margin:10px 0 20px;position:relative}
+.contact .big{position:relative;font-family:var(--serif);font-size:clamp(27px,8vw,36px);
+              letter-spacing:.05em;text-decoration:none;color:#fff;display:inline-block}
+.contact small{display:block;font-size:11.5px;opacity:.8;margin:6px 0 20px;position:relative}
+.contact .btn.w{background:#fff;color:var(--accent);position:relative}
+
+/* 問い合わせ帯の注記: 電話が苦手な客層に「窓口は増える」と伝える */
+.contact .note{font-size:11.5px;opacity:.8;margin:14px auto 0;max-width:40em;position:relative}
+/* ★サイトの構成（2026-09-19）。スマホでメニューを畳んだので、
+   「この構成で作ります」を一覧で見せる場所を別に持つ。営業メールの主旨と一致させる */
+.sitemap{background:var(--paper);border-top:1px solid var(--line);padding:34px 20px 36px;text-align:center}
+.sitemap h2{font-size:15px;margin:0 0 4px;letter-spacing:.08em}
+.sitemap p{margin:0 0 16px;font-size:12.5px;color:var(--muted)}
+.sitemap ul{list-style:none;margin:0 auto;padding:0;display:flex;flex-wrap:wrap;justify-content:center;
+  gap:8px;max-width:820px}
+.sitemap li a{display:inline-block;padding:8px 14px;border:1px solid var(--line);border-radius:999px;
+  background:var(--ground);text-decoration:none;font-size:12.5px;color:var(--ink);white-space:nowrap}
+.sitemap li a:hover{border-color:var(--accent);color:var(--accent)}
+.sitemap li a::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--accent);margin:0 8px 2px 0;vertical-align:middle}
+footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
+       padding:26px 20px;text-align:center;line-height:1.9}
+/* ★この見本を本物にするには（2026-09-19）。見本を見たあとの行き先。金額は書かない */
+footer .next{max-width:560px;margin:18px auto 0;padding:16px 18px;border:1px solid rgba(255,255,255,.18);
+  border-radius:10px;text-align:left;color:rgba(255,255,255,.78)}
+footer .next b{display:block;color:#fff;font-size:12.5px;margin-bottom:6px;letter-spacing:.06em;text-align:center}
+footer .next ol{margin:0;padding-left:1.4em}
+footer .next li{margin:2px 0}
+
+@media(min-width:1160px){
+  .hd{flex-wrap:nowrap;min-height:58px;padding:0 20px}
+  .logo{font-size:17px;letter-spacing:.08em}
+  .hd .call{padding:11px 20px;font-size:13.5px}
+  nav{order:0;flex:0 1 auto;flex-wrap:nowrap;column-gap:22px;
+      font-size:13.5px;letter-spacing:.06em;border-top:0;margin:0;padding:0}
+}
+
+@media(min-width:900px){
+  .gal{grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:18px}
+  .gframe:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  .hero{padding:34px 0 20px}
+  .hero .inner{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+               align-items:center;gap:46px;padding:34px 20px 46px}
+  /* 縦書きの明朝（TATSUSHO の型）。広い画面のときだけ。 */
+  .vt{writing-mode:vertical-rl;text-orientation:upright;
+      max-height:470px;margin-left:auto;white-space:nowrap}
+  .hero h1{line-height:2.0;letter-spacing:.14em;font-size:calc(36px * var(--h1k,1))}
+  .hero .sub,.hero .en,.hero .acts{writing-mode:horizontal-tb}
+  .hero .side{display:flex;flex-direction:column;align-items:flex-end;gap:0}
+  .hero .textcol{flex-direction:row;gap:26px;justify-content:flex-end}
+  .hero .textcol h1{order:0}
+  .hero .meta{max-width:21em}
+  .scroll{display:block}
+  .tagline{display:block;position:absolute;left:14px;top:40px;writing-mode:vertical-rl;
+    font-size:10.5px;letter-spacing:.24em;color:var(--muted);margin:0;padding-top:26px}
+  .tagline::before{content:"";position:absolute;left:50%;top:0;width:1px;height:18px;background:var(--muted)}
+  .badge{display:grid;place-items:center;position:fixed;right:22px;bottom:22px;z-index:40;
+    width:104px;height:104px;border-radius:50%;background:var(--accent);color:#fff;
+    text-decoration:none;box-shadow:0 8px 24px rgba(27,122,51,.35)}
+  .badge svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 24s linear infinite}
+  .badge svg text{fill:rgba(255,255,255,.8);font-size:9.5px;letter-spacing:.3em;font-family:var(--sans)}
+  .badge span{position:relative;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-align:center;line-height:1.5}
+  .badge span::before{content:"✉";display:block;font-size:15px;font-weight:400}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media(prefers-reduced-motion:reduce){.badge svg{animation:none}}
+  .cards{gap:16px}
+  .card{flex:0 1 calc((100% - 32px) / 3)}
+  .flow{grid-template-columns:repeat(4,1fr)}
+  section{padding:84px 0}
+  .stats{gap:14px}
+  .stats b{font-size:42px}
+}
+
+/* ★紙に出したときのため。提案資料は社内で回覧されることがある。
+   印刷では背景色が落ちるので、**濃い地に白抜きの箇所がそのままだと消える**。
+   とくに断り書きの帯（見本であることの表示）が消えるのは致命的なので、
+   白地＋黒文字＋太い枠に置き換える。 */
+@media print{
+  html,body{background:#fff}
+  .hdwrap{position:static;padding:0 0 8px}
+  header{box-shadow:none;border:1px solid var(--line);backdrop-filter:none}
+  .notice{position:static;background:#fff;color:#000;border:2px solid #000;
+          padding:8px 12px;margin-bottom:10px}
+  .notice b{color:#000}
+  .tex,.scroll,.badge,.tagline{display:none}
+  .shot{outline:0}
+  .contact{background:#fff;color:var(--ink);
+           border-top:2px solid var(--line);border-bottom:2px solid var(--line)}
+  .contact .big{color:var(--ink)}
+  .contact .btn.w{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+  footer{background:#fff;color:#333;border-top:1px solid var(--line)}
+  footer .by a{color:#333}
+  footer .next{border-color:#999;color:#333}footer .next b{color:#000}
+  .sitemap li a{border-color:#999}
+  /* 紙では押せないので、当社のリンク先を文字で出す */
+  footer .by a[href^="http"]::after{content:" (" attr(href) ")"}
+  .card,.step,.gframe,.mapbox,.shot,.stats div{break-inside:avoid;page-break-inside:avoid}
+  section{padding:26px 0}
+  .hero{padding:6px 0 0}
+  @page{margin:14mm}
+}
+
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes heroUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes popIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+.hero .meta > *,.hero h1,.hero .since{animation:heroUp .8s cubic-bezier(.2,.7,.3,1) both}
+/* トップの文字は 見出し → 説明 → ボタン の順に少しずつ */
+.hero .since,.hero h1{animation-delay:.15s}
+.hero .meta > :nth-child(1){animation-delay:.4s}
+.hero .meta > :nth-child(2){animation-delay:.5s}
+.hero .meta > :nth-child(3){animation-delay:.65s}
+
+.hero .shot{animation:popIn 1s cubic-bezier(.2,.7,.3,1) .45s both}
+.anim :is(.stats > *,.sechead,.cards > *,.gal > *,.flow > *,.info,.mapbox,.news .pill,.abph,.abtx){opacity:0}
+.anim .on{animation:rise .7s cubic-bezier(.2,.7,.3,1) both}
+/* スマホのメニュー開閉。社名＋電話＋ボタンが 390px 幅で1段に収まるよう、アイコンの下に小さく「メニュー」 */
+.mbtn{display:none;order:2;flex-direction:column;align-items:center;gap:4px;background:none;
+      border:0;padding:4px 6px;font:inherit;font-size:9px;font-weight:700;
+      letter-spacing:.04em;color:var(--ink);cursor:pointer;line-height:1}
+.mbtn i{display:block;width:20px;height:14px;position:relative}
+.mbtn i::before,.mbtn i::after,.mbtn i span{content:"";position:absolute;left:0;right:0;height:2px;
+      background:currentColor;border-radius:2px;transition:transform .25s,opacity .2s}
+.mbtn i::before{top:0}.mbtn i span{top:6px}.mbtn i::after{bottom:0}
+.hd.open .mbtn i::before{transform:translateY(6px) rotate(45deg)}
+.hd.open .mbtn i span{opacity:0}
+.hd.open .mbtn i::after{transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:1159px){
+  .js .mbtn{display:inline-flex}
+  .js nav{display:none;flex-direction:column;row-gap:0;font-size:14px;padding:4px 0 6px}
+  .js nav a{padding:10px 4px;border-bottom:1px dashed var(--line);color:var(--ink)}
+  .js nav a:last-child{border-bottom:0}
+  .js .hd.open nav{display:flex}
+  /* ★2026-11-09 松本さん「スマホでメニューを押すと表示がズレる」。ページの上でメニューを開くと、ヘッダーが
+     伸びて写真と本文が丸ごと下へ押し出されていた（写真が 85px → 430px）。メニューはヘッダーの真下に
+     重ねて出し、下のページは動かさない。項目が多くても画面に収まるよう、はみ出す分はメニューの中で流す */
+  .js .hd{position:relative}
+  .js .hd.open nav{position:absolute;top:calc(100% + 1px);left:0;right:0;margin:0;width:auto;box-sizing:border-box;z-index:5;
+    background:#fff;padding:4px 16px 10px;border-bottom:1px solid var(--line);
+    box-shadow:0 12px 24px rgba(30,40,50,.12);max-height:calc(100vh - 110px);max-height:calc(100dvh - 110px);
+    overflow-y:auto;overscroll-behavior:contain}
+}
+/* ---- メニュー（2026-11-02 松本さん「各メニューにも動き・カーソルを合わせたら選んでいると分かる動き」） ----
+   PC：トップと一緒に左から順に上から降りてくる。合わせると文字が色付き、下に線が中央から伸びる
+   スマホ：メニューを開くと項目が上から順に横から出てくる。押すと少し右へ寄って色付く */
+@keyframes navIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@keyframes menuIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
+nav a{position:relative;transition:color .25s;cursor:pointer}
+nav a:hover,nav a:focus-visible{color:var(--accent)}
+@media(min-width:1160px){
+  .anim nav a{animation:navIn .6s cubic-bezier(.2,.7,.3,1) both}
+  .anim nav a:nth-child(2){animation-delay:.06s}.anim nav a:nth-child(3){animation-delay:.12s}
+  .anim nav a:nth-child(4){animation-delay:.18s}.anim nav a:nth-child(5){animation-delay:.24s}
+  .anim nav a:nth-child(6){animation-delay:.3s}.anim nav a:nth-child(n+7){animation-delay:.36s}
+  nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;border-radius:2px;
+    background:var(--accent);transform:scaleX(0);transition:transform .3s cubic-bezier(.2,.7,.3,1)}
+  nav a:hover::after,nav a:focus-visible::after{transform:scaleX(1)}
+}
+@media(max-width:1159px){
+  .js nav a{transition:color .2s,padding-left .25s,background-color .25s}
+  .js nav a:hover,.js nav a:active,.js nav a:focus-visible{padding-left:14px;color:var(--accent)}
+  .js .hd.open nav a{animation:menuIn .35s cubic-bezier(.2,.7,.3,1) both}
+  .js .hd.open nav a:nth-child(2){animation-delay:.04s}.js .hd.open nav a:nth-child(3){animation-delay:.08s}
+  .js .hd.open nav a:nth-child(4){animation-delay:.12s}.js .hd.open nav a:nth-child(5){animation-delay:.16s}
+  .js .hd.open nav a:nth-child(n+6){animation-delay:.2s}
+}
+@media(prefers-reduced-motion:reduce){
+  nav a{animation:none!important}
+  nav a::after{transition:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .anim :is(.stats > *,.sechead,.cards > *,.gal > *,.flow > *,.info,.mapbox,.news .pill,.abph,.abtx){opacity:1}
+  .anim .on,.hero .meta > *,.hero h1,.hero .since,.hero .shot{animation:none}
+  .mbtn i::before,.mbtn i::after,.mbtn i span{transition:none}
+}
+@media print{
+  .anim :is(.stats > *,.sechead,.cards > *,.gal > *,.flow > *,.info,.mapbox,.news .pill,.abph,.abtx){opacity:1!important}
+  .anim .on,.hero .meta > *,.hero h1,.hero .since,.hero .shot,nav a{animation:none!important}
+  .mbtn{display:none}nav{display:flex!important}
+}
+
+.ewl{display:none}
+html.ewl-on{overflow:hidden}
+html.ewl-on .ewl{display:grid;place-items:center;position:fixed;inset:0;z-index:1000;background:#fff;
+  transition:background-color .9s ease .25s,opacity .5s ease;cursor:pointer}
+html.ewl-on .ewl.is-absorb{background-color:rgba(255,255,255,0)}
+html.ewl-on .ewl.is-out{opacity:0}
+/* ★2026-11-02 輪の中は頭文字ではなく会社名。輪は会社名が収まる大きさ（--ewd、JS で決める） */
+.ewl-p1{position:absolute;left:50%;top:50%;width:var(--ewd,112px);height:var(--ewd,112px);
+  transform:translate(-50%,-50%);transition:opacity .45s,transform .45s}
+.ewl.is-p2 .ewl-p1{opacity:0;transform:translate(-50%,-50%) scale(1.04)}
+.ewl-ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.ewl-ring circle{fill:none;stroke-width:2;vector-effect:non-scaling-stroke}
+.ewl-ring .t{stroke:#e6e3dc}
+.ewl-ring .f{stroke:var(--accent);stroke-linecap:round}
+.ewl-pct{position:absolute;top:calc(100% + 16px);left:0;right:0;text-align:center;font-size:12px;
+  font-weight:700;letter-spacing:.14em;color:var(--accent)}
+.ewl-p2{position:absolute;inset:0;display:grid;place-content:center;opacity:0;pointer-events:none;transition:opacity .6s ease .1s}
+.ewl.is-in .ewl-p2{opacity:1}
+.ewl .logo{transform:scale(var(--ewk,1.9));transform-origin:50% 50%;white-space:nowrap;
+  transition:transform 1s cubic-bezier(.65,0,.35,1),opacity .45s ease .95s}
+/* 着いてから本物と入れ替える（途中で消すと、吸い込まれる動きが見えない） */
+.ewl.is-absorb .logo{opacity:0}
+.ewl-skip{position:absolute;bottom:26px;left:0;right:0;text-align:center;font-size:11px;letter-spacing:.1em;
+  color:#888;transition:opacity .3s}
+.ewl.is-absorb .ewl-skip{opacity:0}
+@media(hover:hover){.ewl-skip{display:none}}
+html.ewl-on .hd .logo{opacity:0}
+.hd .logo .lw{display:inline-block}
+.hd .logo.ewl-in{transition:opacity .8s ease}
+html.ewl-on:not(.ewl-go) .hero .shot{animation-play-state:paused}
+html.ewl-on:not(.ewl-txt) :is(.hero .meta > *,.hero h1,.hero .since,nav a){animation-play-state:paused}
+/* ★写真は幕が透け始めたら（ewl-go）、文字は幕がほぼ消えてから（ewl-txt）動かす。
+   文字も幕と一緒に動かすと、演出が終わった時にはもう出終わっていた（2026-11-02） */
+/* ★止めるのは animation:none ではなく一時停止。none にすると、動き出す瞬間に写真が 1.04 倍へ跳ねてかたつき、
+   幕が消えきるまで（社名が着いてから約2.3秒）コピーが出なかった（2026-11-02） */
+/* 幕を外したときにスクロールバーが出て、ページが横にずれないように（Windows など） */
+html{scrollbar-gutter:stable}
+
+@keyframes zoomOut{from{transform:scale(1.04)}to{transform:none}}
+.hero.full{padding:0 0 12px}
+.hero.full::before,.hero.full::after,.hero.full .inner::before,.hero.full .tex,.hero.full .tagline{display:none}
+.hero.full .inner{display:flex;flex-direction:column;max-width:none;padding:0;gap:0}
+.hero.full .shot{order:-1;width:100vw;margin-left:calc(50% - 50vw);aspect-ratio:auto;height:58vh;
+  min-height:300px;max-height:520px;border:0;border-radius:0;outline:0;
+  animation:zoomOut 1.8s cubic-bezier(.2,.7,.3,1) both}
+.hero.full .shot .lb{left:auto;right:14px;bottom:14px}
+.hero.full .side{max-width:1120px;margin:0 auto;padding:22px 20px 0;width:100%}
+.hero.full .scroll{display:none}
+@media(min-width:900px){
+  .hero.full{padding:0 0 20px}
+  .hero.full .inner{display:block;position:relative;min-height:min(74vh,700px)}
+  .hero.full .shot{position:absolute;inset:0;width:auto;margin:0;height:auto;max-height:none;order:0}
+  /* 文字が読めるように、左を濃く右を薄く */
+  .hero.full .shot::before{content:"";position:absolute;inset:0;
+    z-index:1;background:linear-gradient(90deg,rgba(20,18,14,.62) 0%,rgba(20,18,14,.32) 55%,rgba(20,18,14,.12) 100%)}
+  .hero.full .shot .lb{z-index:2}
+  /* ★2026-11-01「FVのインパクトを出したい、全体的に暗い」。写真を切り替える先（.fv＝住宅）だけ、
+     高さを画面いっぱいに、黒い幕は文字の後ろ（左4割）だけにして写真の明るさを見せる。見出しも2割大きく。
+     ほかの業種は写真が暗め・込み入っているものがあり、幕を薄くすると文字が読めなくなるので前のまま */
+  .hero.full.fv{--h1k:1.22}
+  .hero.full.fv .inner{min-height:max(600px,min(calc(100vh - 96px),900px))}
+  .hero.full.fv .vt{max-height:600px}
+  .hero.full.fv .shot::before{background:linear-gradient(90deg,rgba(20,18,14,.58) 0%,rgba(20,18,14,.40) 36%,rgba(20,18,14,0) 68%)}
+  .hero.full.fv .side{padding-bottom:110px}
+  .hero.full .side{position:relative;z-index:1;align-items:flex-start;padding:64px 20px 96px}
+  .hero.full .textcol{justify-content:flex-start;gap:34px}
+  .hero.full .textcol h1{order:-1}
+  .hero.full h1,.hero.full .sub,.hero.full .en{color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.35)}
+  .hero.full h1 em{color:#fff;text-shadow:0 0 0 #fff,0 1px 14px rgba(0,0,0,.35)}
+  .hero.full .meta{padding-top:8px}
+  .hero.full .btn.g{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.7)}
+  .hero.full .btn.g:hover{background:#fff;color:var(--ink)}
+  /* 下端は数字の帯が重なるので、札は右上・scroll はその上に置く */
+  .hero.full .shot .lb{bottom:auto;top:18px;right:18px;left:auto}
+  .hero.full .scroll{display:block;color:#fff;bottom:66px}
+  .hero.full .scroll::after{background:#fff}
+  /* 数字の帯を写真の下端に少し重ねる */
+  .hero.full .stats{margin-top:-44px;position:relative;z-index:2}
+  .hero.full .stats div{box-shadow:0 10px 30px rgba(20,18,14,.10)}
+}
+/* 2枚目以降の写真。各ページで切り替えの間合い（@keyframes heroSl）を書き足す */
+.hero.full .shot .sl{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0}
+@media(prefers-reduced-motion:reduce){.hero.full .shot{animation:none}.hero.full .shot .sl{animation:none!important}}
+@media print{
+  .hero.full .inner{min-height:0;display:block}
+  .hero.full .shot{position:relative;inset:auto;width:auto;margin:0;height:auto;aspect-ratio:16/7;
+    border:1px solid var(--line);animation:none!important}
+  .hero.full .shot::before{display:none}
+  .hero.full .side{padding:12px 0 0}
+  .hero.full h1,.hero.full .sub,.hero.full .en,.hero.full h1 em{color:var(--ink);text-shadow:none}
+  .hero.full .btn.g{background:#fff;color:var(--ink);border-color:var(--ink)}
+  .hero.full .stats{margin-top:12px}
+}
+
+/* ---- 試作 v2 ---- */
+body{font-size:15.5px}
+.sechead .en{font-size:11.5px;letter-spacing:.32em;font-weight:700}
+.sechead h2{font-size:clamp(24px,5.8vw,34px);letter-spacing:.08em}
+.sechead h2::after{content:"";display:block;width:36px;height:2px;background:var(--accent);margin:16px auto 0}
+/* できること：線の絵と番号。白い箱の繰り返しに見えないよう、絵の丸と大きな番号で強弱を付ける */
+.card{padding:30px 26px 28px;border-radius:14px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card .ic{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;
+  background:rgba(27,122,51,.1);color:var(--accent);margin-bottom:16px}
+.card .ic svg{width:28px;height:28px}
+.card .no{position:absolute;right:20px;top:14px;font-family:var(--serif);font-size:44px;line-height:1;
+  color:rgba(27,122,51,.12);letter-spacing:.02em}
+.card h3{font-size:17.5px}
+.card p{font-size:14px;line-height:1.85}
+@media(hover:hover){.card:hover{transform:translateY(-3px);border-color:rgba(27,122,51,.45);
+  box-shadow:0 14px 30px rgba(30,40,35,.08)}}
+/* 大切にしていること：写真と文字を左右に。互い違いに並べる */
+.feat{background:var(--paper)}
+.frows{display:grid;gap:56px}
+.frow{display:grid;gap:22px;align-items:center}
+.fph{position:relative;aspect-ratio:4/3;border-radius:14px;background-size:cover;background-position:center;
+  box-shadow:0 18px 40px rgba(30,40,35,.14)}
+.fph::before{content:"";position:absolute;inset:auto -12px -12px auto;width:46%;height:46%;
+  border-radius:14px;background:rgba(27,122,51,.14);z-index:-1}
+.fph .cap{position:absolute;left:12px;bottom:12px;background:rgba(20,18,14,.72);color:#fff;
+  border-radius:6px;padding:5px 10px;font-size:11px;letter-spacing:.06em}
+.ftx .no{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:15px;
+  color:var(--accent);letter-spacing:.12em;margin-bottom:10px}
+.ftx .no::after{content:"";width:44px;height:1px;background:var(--accent)}
+.ftx h3{font-family:var(--serif);font-weight:500;font-size:clamp(22px,5.6vw,30px);line-height:1.55;
+  letter-spacing:.06em;margin:0 0 14px}
+.ftx p{margin:0;color:var(--muted);font-size:15px;line-height:2}
+/* 流れ：番号を大きく、つなぎの線を引く */
+.step{border-radius:14px;padding:24px 22px 22px 70px}
+.step::before{font-size:24px;top:20px;left:20px}
+/* 会社概要：地図の灰色の枠の代わりに、表だけを白い面に */
+#company table.info{background:var(--paper);border-radius:14px;overflow:hidden;
+  box-shadow:0 10px 30px rgba(30,40,35,.06)}
+section.alt #company table.info,section.alt table.info{background:var(--ground)}
+#company table.info th,#company table.info td{padding:18px 22px}
+@media(min-width:900px){
+  .frows{gap:96px}
+  .frow{grid-template-columns:1.12fr 1fr;gap:64px}
+  .frow:nth-child(even) .fph{order:2}
+  .frow:nth-child(even) .fph::before{inset:auto auto -12px -12px}
+  .ftx{max-width:30em}
+  .step:not(:last-child)::after{content:"";position:absolute;top:50%;right:-12px;width:12px;height:1px;background:var(--accent)}
+}
+
+/* ---- 試作 v3 ---- */
+.hero .stats.pts{grid-template-columns:1fr;gap:0;background:var(--paper);border:1px solid var(--line);
+  border-radius:12px;padding:6px 18px;box-shadow:0 10px 30px rgba(30,40,35,.06)}
+.hero .stats.pts div{display:flex;align-items:center;gap:16px;text-align:left;background:none;border:0;
+  border-radius:0;padding:14px 0;box-shadow:none}
+.hero .stats.pts div+div{border-top:1px solid var(--line)}
+.pts .pi{flex:none;display:grid;place-items:center;width:52px;height:52px;color:var(--accent)}
+.pts .pi svg{width:40px;height:40px}
+.pts .pt b{display:block;font-family:var(--serif);font-size:18px;color:var(--ink);letter-spacing:.06em;margin:0}
+.pts .pt b i{font-style:normal;font-size:12.5px;margin-left:3px;letter-spacing:.04em}
+.pts .pt small{display:block;margin-top:4px;font-size:12.5px;color:var(--muted);line-height:1.7;letter-spacing:.02em}
+/* 写真付きのカード */
+.cards{display:grid;grid-template-columns:1fr;gap:18px}
+.card.pc{padding:0;border-radius:10px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column;
+  box-shadow:0 6px 20px rgba(30,40,35,.06)}
+.card.pc .cph{aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#eef0ec 0 10px,#e6e9e3 10px 20px);
+  display:grid;place-items:center;background-size:cover;background-position:center}
+.card.pc .cph span{font-size:12px;color:#7a7f78;letter-spacing:.08em}
+.card.pc .cph.ci{background:rgba(27,122,51,.08);color:var(--accent)}
+.card.pc .cph.ci svg{width:52px;height:52px;opacity:.85}
+.card.pc .cb{position:relative;padding:18px 40px 20px 20px}
+.card.pc .cb::after{content:"";position:absolute;right:20px;top:50%;width:8px;height:8px;
+  border-top:2px solid var(--accent);border-right:2px solid var(--accent);transform:translateY(-50%) rotate(45deg)}
+.card.pc h3{font-size:17px;margin:0 0 6px}
+.card.pc p{font-size:13px;line-height:1.75}
+/* 会社紹介 */
+.abrow{display:grid;gap:26px;align-items:center}
+.abph{position:relative;aspect-ratio:16/10;border-radius:6px;background:repeating-linear-gradient(135deg,#eef0ec 0 10px,#e6e9e3 10px 20px);
+  background-size:cover;background-position:center;display:grid;place-items:center;text-align:center;
+  font-size:12px;color:#7a7f78;box-shadow:0 14px 34px rgba(30,40,35,.12)}
+.abph b{display:block;font-family:var(--serif);font-size:14px;color:#575a51}
+.abph .cap{position:absolute;right:10px;bottom:10px;background:rgba(255,255,255,.92);color:#333;
+  border-radius:4px;padding:4px 10px;font-size:11px;letter-spacing:.06em}
+.abtx .en{display:block;font-size:11.5px;letter-spacing:.3em;color:var(--muted);font-weight:700;margin-bottom:10px}
+.abtx h2{font-size:clamp(23px,5.6vw,30px);line-height:1.5;margin:0 0 16px}
+.abtx p{margin:0 0 12px;color:var(--muted);font-size:14.5px;line-height:2}
+.abtx .btn{margin-top:10px}
+/* 流れ：丸い絵を線でつなぐ */
+.flow{grid-template-columns:repeat(2,1fr);gap:26px 12px;counter-reset:none}
+.flow .step{background:none!important;border:0;padding:0;text-align:center;position:relative;box-shadow:none}
+.flow .step::before{display:none}
+.step .si{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 10px;border-radius:50%;
+  border:1.5px solid var(--accent);color:var(--accent);background:var(--paper)}
+.step .si svg{width:28px;height:28px}
+.step .sn{position:absolute;top:0;left:calc(50% + 36px);font-family:var(--serif);font-size:14px;color:var(--accent);font-weight:700}
+.step h3{font-size:16px;margin:0 0 4px}
+.step p{font-size:12.5px}
+/* 会社概要と地図 */
+.cgrid{display:grid;gap:22px;grid-template-columns:minmax(0,1fr)}
+.cgrid table.info{table-layout:fixed}
+.cgrid table.info th{width:7.5em}
+.cgrid table.info td{overflow-wrap:anywhere}
+.cgrid table.info{background:var(--paper);border-radius:8px}
+.cgrid .mapbox{margin:0;min-height:220px;aspect-ratio:auto;padding:0 16px}
+.contact .big{font-family:var(--sans);font-weight:800;font-size:clamp(34px,10vw,52px);letter-spacing:.02em}
+@media(min-width:900px){
+  .hero .stats.pts{grid-template-columns:repeat(3,1fr);padding:8px 10px}
+  .hero .stats.pts div{padding:14px 22px;justify-content:center}
+  .hero .stats.pts div+div{border-top:0;border-left:1px solid var(--line)}
+  .cards{grid-template-columns:repeat(3,1fr);gap:22px}
+  .abrow{grid-template-columns:1.15fr 1fr;gap:56px}
+  .flow{grid-template-columns:repeat(4,1fr);gap:0}
+  .flow .step:not(:last-child)::after{content:"";position:absolute;top:32px;left:calc(50% + 48px);
+    right:calc(-50% + 48px);width:auto;height:1.5px;background:var(--accent);opacity:.7}
+  .cgrid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:stretch}
+}
+/* PCのトップの見出しも横書き（松本さんの指示 2026-11-02。縦書きは読みにくい） */
+@media(min-width:900px){
+  .hero .vt,.hero.full.fv .vt{writing-mode:horizontal-tb;max-height:none;margin-left:0;white-space:normal}
+  .hero h1.vt{line-height:1.45;letter-spacing:.06em;font-size:calc(clamp(34px,3.5vw,50px) * var(--h1k,1) / 1.1)}
+  .hero h1.vt em{white-space:nowrap}
+  .hero .textcol,.hero.full .textcol{flex-direction:column;gap:18px;justify-content:flex-start}
+  .hero h1.vt{line-height:1.38}
+  /* 文字の塊は写真の高さの真ん中より少し上に置く（上から 64px 固定だと、縦に大きい画面で
+     下に 300px 近く空いて文字が浮いて見えた 2026-11-02）。下端に重なる数字の帯の分も下を多めにあける */
+  .hero.full .wrap.inner{display:flex;flex-direction:column;justify-content:center;align-items:stretch}
+  .hero.full .inner .side,.hero.full.fv .inner .side{padding:48px 20px 136px}
+  .hero .textcol h1,.hero.full .textcol h1{order:-1}
+  .hero .side{align-items:flex-start}
+  .hero .meta{max-width:34em}
+}
+/* ---- 動き（v3）：出てくる動きは MOTION_CSS（.anim/.on）。ここでは見出しの線と流れの線を伸ばすだけ ---- */
+.anim .sechead h2::after{transform:scaleX(0);transition:transform .7s cubic-bezier(.6,0,.2,1) .3s}
+.anim .sechead.on h2::after{transform:none}
+@media(min-width:900px){
+  .anim .flow .step:not(:last-child)::after{transform:scaleX(0);transform-origin:left;transition:transform .6s ease .45s}
+  .anim .flow .step.on:not(:last-child)::after{transform:none}
+}
+.card.pc .cph{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+/* 指を乗せたとき：カードが浮いて、写真が少し寄る */
+.card.pc{transition:transform .3s,box-shadow .3s}
+@media(hover:hover){
+  .card.pc:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(30,40,35,.12)}
+  .card.pc:hover .cph{transform:scale(1.06)}
+}
+@media(prefers-reduced-motion:reduce){
+  .anim .sechead h2::after,.anim .flow .step::after{transform:none!important;transition:none}
+}
+
+/* 大きなメニューは並びきる広い画面だけ（ノートパソコンでは今までの大きさで横に並べる） */
+@media(min-width:1380px){
+  .logo{font-size:21px}
+  .logo small{font-size:10.5px}
+  nav{font-size:16.5px;column-gap:30px;letter-spacing:.08em}
+  .hd .call{padding:13px 24px;font-size:14.5px}
+}
+@media(min-width:1160px){
+  .hd{min-height:76px;max-width:1480px;padding:0 28px}
+  .hdwrap.ovl{margin-bottom:-77px}
+  .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
+    backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}
+  /* 明るい写真（白い天井・白い壁）でも白い文字が読めるよう、帯の所だけ上から薄く暗くする */
+  /*   （下の透明な枠線の所に、暗い上端がくり返して細い線に見えないよう、枠線まで1枚で敷く） */
+  .hdwrap.ovl:not(.solid) header{background-image:linear-gradient(rgba(20,24,22,.42),rgba(20,24,22,.16) 70%,rgba(20,24,22,0));
+    background-origin:border-box;background-repeat:no-repeat}
+  .hdwrap.ovl:not(.solid) .logo,.hdwrap.ovl:not(.solid) nav a{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+  .hdwrap.ovl:not(.solid) .logo small{color:rgba(255,255,255,.85)}
+  .hdwrap.ovl:not(.solid) nav a::after{background:#fff}
+  .hdwrap.ovl .logo,.hdwrap.ovl nav a{transition:color .35s,text-shadow .35s}
+  .hdwrap.ovl.solid header{background:rgba(255,255,255,.96);border-bottom-color:var(--line);
+    box-shadow:0 2px 12px rgba(40,50,45,.08);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  /* 帯の分だけ、写真の上の文字の塊を下げる */
+  .hdwrap.ovl ~ .hero.full .inner .side{padding-top:125px}
+  /* 「イメージ写真です」の札がメニューの電話ボタンに隠れないよう、帯の下へ */
+  .hdwrap.ovl ~ .hero.full .shot .lb{top:96px}
+  html:has(.hdwrap.ovl) .ewl.is-absorb .logo{color:#fff;transition:transform 1s cubic-bezier(.65,0,.35,1),opacity .45s ease .95s,color .8s ease}
+  html:has(.hdwrap.ovl) .ewl.is-absorb .logo small{color:rgba(255,255,255,.85);transition:color .8s ease}
+}
+
+.hd.fit1 nav{column-gap:18px;font-size:14px;letter-spacing:.04em}
+.hd.fit1 .logo{font-size:18px}
+.hd.fit1 .call{padding:11px 18px;font-size:13.5px}
+.hd.fit2 nav{column-gap:12px;font-size:12.5px;letter-spacing:0}
+.hd.fit2 .logo{font-size:16px}
+.hd.fit2 .call{padding:10px 14px;font-size:12.5px}
+.hd.fit1,.hd.fit2{gap:14px}
+
+.shot.cam-on{overflow:hidden}
+.shot .cam{position:absolute;inset:0;display:block;background-size:cover;background-position:center;
+  animation:camDrift 26s ease-in-out 1.8s infinite alternate;will-change:transform}
+@keyframes camDrift{0%{transform:scale(1) translate3d(0,0,0)}
+  50%{transform:scale(1.08) translate3d(-1.5%,-1%,0)}100%{transform:scale(1.05) translate3d(1.5%,.8%,0)}}
+html.ewl-on:not(.ewl-go) .shot .cam{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.shot .cam{animation:none}}
+@media print{.shot .cam{animation:none}}
+
+:root{--navy:#1b2c47;--navy-d:#121f34;--ground:#f4f5f7;--ink:#1e2a3a;--muted:#5f6b7a;--line:#dce1e7;--panel:#e9edf2}
+h2,.card h3,.card.pc h3{color:var(--navy)}
+.logo,nav a{color:var(--navy)}
+.stats b{color:var(--navy)}
+.btn.g:hover{border-color:var(--navy);color:var(--navy)}
+.step .si{border-color:var(--navy);color:var(--navy)}
+.step .sn{color:var(--navy)}
+@media(min-width:760px){.flow .step:not(:last-child)::after{background:var(--navy)}}
+.pts .pi{color:var(--navy)}
+.card.pc .cph.ci{background:rgba(27,44,71,.07);color:var(--navy)}
+.card.pc .cb::after{border-color:var(--navy)}
+.contact{background:var(--navy)}
+.contact .btn.w{color:var(--navy)}
+footer{background:var(--navy-d)}
+.mapbox,.gframe{background:linear-gradient(135deg,#e7ebf0 0%,#dfe4ea 55%,#ebeef2 100%);color:#5f6b7a}
+.mapbox b,.gframe b{color:var(--navy)}
+.ewl-ring .f{stroke:var(--navy)}
+.ewl-pct,.ewl .logo{color:var(--navy)}
+/* ★2026-11-03 松本さん「スマホの冒頭をコンパクトに。写真・地域名・キャッチ・相談ボタンをひとまとまりで」
+   ヘッダーは社名・電話・メニューを1行に（電話は番号を省いて短く）。写真を低くし、
+   地域とサービスの一言→見出し→相談ボタン→説明文の順に並べて、最初の画面に収める */
+.hero .htag{display:none}
+@media(max-width:899px){
+  .hd{padding:0 8px 0 14px;min-height:56px}
+  .logo{flex:1 1 0;min-width:0;white-space:normal;font-size:clamp(13.5px,3.9vw,15.5px)}
+  .logo small{white-space:nowrap;overflow:hidden;text-overflow:clip}
+  .hero.full .shot{height:auto;aspect-ratio:16/10;min-height:0;max-height:340px}
+  .hero.full .shot .lb{right:10px;bottom:10px;padding:6px 10px;font-size:10.5px;line-height:1.5}
+  .hero.full .shot .lb b{font-size:12px}
+  .hero.full .shot .lb b::before{width:6px;height:6px}
+  .hero.full .side{padding:18px 20px 0}
+  .hero .meta{display:contents}
+  .hero .htag{display:block;order:-3;margin:0 0 10px;font-size:12.5px;font-weight:700;letter-spacing:.08em;
+    color:var(--navy);line-height:1.5}
+  .hero .htag::before{content:"";display:inline-block;width:18px;height:2px;background:var(--accent);
+    vertical-align:4px;margin-right:8px}
+  .hero .since{order:-2}
+  .hero .textcol h1{order:-1}
+  .hero h1{font-size:min(28px,calc((100vw - 44px) / (var(--hn,12) * 1.1)));line-height:1.6;letter-spacing:.05em;color:var(--navy)}
+  .hero h1 .cp+.cp{margin-inline-start:.3em}
+  .hero .acts{order:0;margin-top:16px}
+  .hero .sub{order:1;margin-top:16px;font-size:13.5px;line-height:1.75}
+  .hero .en{order:2}
+}
+@media(max-width:599px){
+  .hd .call .cn{display:none}
+  .hd .call{padding:10px 14px}
+  .hero .acts{display:block}
+  .hero .acts .btn.p{display:block;text-align:center;padding:15px 20px;font-size:15px}
+  .hero .acts .btn.g{display:none}
+}
+@media(min-width:900px){
+  .hero.full.fv .shot::before{background:linear-gradient(90deg,rgba(14,24,42,.62) 0%,rgba(14,24,42,.42) 36%,rgba(14,24,42,0) 68%)}
+}
+</style>
+<script>
+document.documentElement.classList.add('anim','js');
+// 保険: 下のJSが動かなかったときは、隠したまま・メニューを消したままにしない
+setTimeout(function(){if(!window.__animReady){document.documentElement.classList.remove('anim','js');}},4000);
+</script>
+<script>
+(function(){
+  var r=document.documentElement,played=false;
+  try{played=sessionStorage.getItem('ewl')==='1';}catch(e){}
+  if(played||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))return;
+  r.classList.add('ewl-on');
+  if('scrollRestoration' in history)history.scrollRestoration='manual';
+  setTimeout(function(){r.classList.remove('ewl-on');},6000);
+})();
+</script>
+</head>
+<body>
+<div class="ewl" id="ewl" aria-hidden="true">
+  <div class="ewl-p1">
+    <svg class="ewl-ring" viewBox="0 0 120 120"><circle class="t" cx="60" cy="60" r="54"/><circle class="f" cx="60" cy="60" r="54"/></svg>
+    <span class="ewl-pct">0%</span>
+  </div>
+  <div class="ewl-p2"><div class="logo">ティー・エス・ロード有限会社<small>TS ROAD</small></div></div>
+  <span class="ewl-skip">タップでスキップ</span>
+</div>
+
+<div class="notice slim"><span class="ph"><i></i><span class="ewc">EasyWebCraft の</span>提案用の見本｜</span><span class="ph">ティー・エス・ロードさまの公式サイトではありません</span></div>
+
+<div class="hdwrap ovl">
+  <header><div class="hd">
+    <div class="logo"><span class="lw">ティー・エス・ロード</span><span class="lw">有限会社</span><small>TS ROAD</small></div>
+    <nav><a>会社方針</a><a>施工事例</a><a>舗装工事の流れ</a><a>会社概要</a><a>採用情報</a><a>お問い合わせ</a></nav>
+    <a class="call" href="tel:0564575257">お電話<span class="cn"> 0564-57-5257</span></a>
+  </div></header>
+</div>
+
+<div class="hero tx full">
+  <svg class="tex" aria-hidden="true"><defs><pattern id="tx" width="64" height="64" patternUnits="userSpaceOnUse">
+ <g stroke="rgba(27,122,51,.18)" stroke-width="1.6">
+  <line x1="10" y1="0" x2="10" y2="64"/><line x1="42" y1="0" x2="42" y2="64"/>
+  <line x1="0" y1="20" x2="64" y2="20"/><line x1="0" y1="52" x2="64" y2="52"/>
+ </g>
+ <g stroke="rgba(27,122,51,.09)" stroke-width="1.2">
+  <line x1="10" y1="20" x2="42" y2="52"/><line x1="42" y1="20" x2="10" y2="52"/>
+ </g>
+</pattern></defs><rect width="100%" height="100%" fill="url(#tx)"/></svg>
+  <p class="tagline"><span class="cp">道と駐車場を</span><span class="cp">平らに</span><span class="cp">長く</span></p>
+  <div class="wrap inner">
+    <div class="side">
+      <div class="textcol">
+        <div class="meta">
+          <p class="sub"><span class="ph">舗装工事を専門とする土木施工管理の会社。</span><span class="ph">駐車場、</span><span class="ph">私有地の道路の舗装から、</span><span class="ph">ゼネコンからのご依頼まで。</span></p>
+          <p class="en">TS ROAD</p>
+          <div class="acts"><a class="btn p" href="tel:0564575257">お見積り・ご相談</a><a class="btn g" href="#works">できることを見る</a></div>
+        </div>
+        <p class="htag">岡崎市｜舗装工事／駐車場の舗装</p><h1 class="vt" style="--hn:10"><span class="cp">舗装のことなら</span><br><span class="cp">まず相談を</span><br><em><span class="cp">岡崎の舗装工事</span><br><span class="cp">ティー・エス・ロード</span></em></h1>
+      </div>
+    </div>
+    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/1786742593319-a97fbeda2ef5.jpg?v=22f22ec3)"></i>
+      <div class="lb"><b>イメージ写真です</b>実際の制作では御社のお写真に差し替えます</div>
+    </div>
+    <span class="scroll">scroll</span>
+  </div>
+  <div class="wrap"><div class="stats pts"><div><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="1.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg></span><span class="pt"><b>2005<i>年</i></b><small>設立</small></span></div><div><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m8.3 12.2 2.6 2.6 4.9-5"/></svg></span><span class="pt"><b>舗装<i>土木</i></b><small>とび・土工</small></span></div><div><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg></span><span class="pt"><b>岡崎<i>市</i></b><small>中島町</small></span></div></div></div>
+</div>
+
+<section id="works">
+  <div class="wrap">
+    <div class="sechead"><span class="en">SERVICE</span>
+      <h2>できること</h2><p><span class="cp">道と駐車場を</span><span class="cp">平らに</span><span class="cp">長く</span></p></div>
+    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-doboku-1.jpg?v=00c6bea6)"></div><div class="cb"><h3>舗装工事</h3><p>専門です。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-doboku-2.jpg?v=fd93219b)"></div><div class="cb"><h3>駐車場の舗装</h3><p>オーナー様から。</p></div></div><div class="card pc" id="svc3"><div class="cph ph" style="background-image:url(../photos/1786742593319-a97fbeda2ef5.jpg?v=22f22ec3)"></div><div class="cb"><h3>私有地の道路</h3><p>敷地内の道。</p></div></div><div class="card pc" id="svc4"><div class="cph ph" style="background-image:url(../photos/ai-mokko-2.jpg?v=72bfbb20)"></div><div class="cb"><h3>土木工事</h3><p>施工管理まで。</p></div></div><div class="card pc" id="svc5"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>とび・土工</h3><p>現場の準備から。</p></div></div><div class="card pc" id="svc6"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>舗装工事の流れ</h3><p>ご相談から完成まで。</p></div></div></div>
+  </div>
+</section>
+
+<section class="alt about" id="about">
+  <div class="wrap abrow"><div class="abph ph" style="background-image:url(../photos/ai-o-yard.jpg?v=d9632679)"><span class="cap">イメージ写真</span></div>
+    <div class="abtx"><span class="en">ABOUT US</span><h2><span class="cp">岡崎市の</span><span class="cp">ティー・エス・ロード</span></h2>
+      <p><span class="ph">愛知県岡崎市中島町字井龍43 岡崎第2東海ビル204にあります。</span></p><p><span class="ph">「舗装工事」「駐車場の舗装」「私有地の道路」などを承っています。</span></p>
+      <a class="btn p" href="#company">会社概要</a></div>
+  </div>
+</section>
+
+<section id="flow">
+  <div class="wrap">
+    <div class="sechead"><span class="en">FLOW</span>
+      <h2>ご相談から完成まで</h2></div>
+    <div class="flow"><div class="step"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.2 6.2l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2z"/></svg></span><span class="sn">01</span><h3>ご相談</h3><p>ご要望をうかがいます。</p></div><div class="step"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.8V20h13V9.8"/><path d="M10 20v-5.5h4V20"/></svg></span><span class="sn">02</span><h3>現地の確認</h3><p>現地を拝見します。</p></div><div class="step"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="sn">03</span><h3>ご提案・お見積り</h3><p>内容と費用をご説明します。</p></div><div class="step"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6.5a4 4 0 0 0 5 5L11 20a2.1 2.1 0 0 1-3-3l8.5-8.5"/><path d="M14.5 6.5 17 4l3 3-2.5 2.5"/></svg></span><span class="sn">04</span><h3>施工</h3><p>工事を進めます。</p></div></div>
+  </div>
+</section>
+
+<section class="alt" id="company">
+  <div class="wrap">
+    <div class="sechead"><span class="en">COMPANY</span><h2>会社概要</h2></div>
+    <div class="cgrid"><table class="info"><tr><th>商号</th><td>ティー・エス・ロード有限会社</td></tr><tr><th>所在地</th><td>〒444-0226 愛知県岡崎市中島町字井龍43 岡崎第2東海ビル204</td></tr><tr><th>電話</th><td><a href="tel:0564575257">0564-57-5257</a></td></tr><tr><th>事業内容</th><td>舗装工事／駐車場の舗装／私有地の道路／土木工事／とび・土工</td></tr></table>
+    <div class="mapbox"><b>地図が入ります</b>実際の制作で、お店の場所の地図を入れます</div></div>
+  </div>
+</section>
+
+<div class="contact tx" id="contact">
+  <svg class="tex ctex" aria-hidden="true"><defs><pattern id="tx2" width="64" height="64" patternUnits="userSpaceOnUse">
+ <g stroke="rgba(255,255,255,.18)" stroke-width="1.6">
+  <line x1="10" y1="0" x2="10" y2="64"/><line x1="42" y1="0" x2="42" y2="64"/>
+  <line x1="0" y1="20" x2="64" y2="20"/><line x1="0" y1="52" x2="64" y2="52"/>
+ </g>
+ <g stroke="rgba(255,255,255,.09)" stroke-width="1.2">
+  <line x1="10" y1="20" x2="42" y2="52"/><line x1="42" y1="20" x2="10" y2="52"/>
+ </g>
+</pattern></defs><rect width="100%" height="100%" fill="url(#tx2)"/></svg>
+  <h2><span class="cp">まずはお電話ください</span></h2>
+  <p>小さなご相談でも構いません。</p>
+  <a class="big" href="tel:0564575257">0564-57-5257</a><small></small><div><a class="btn w" href="tel:0564575257">電話をかける</a></div>
+  <p class="note"><span class="ph">メールフォーム・LINEでのお問い合わせ窓口は、</span><span class="ph">実際の制作でお付けします。</span></p>
+</div>
+
+<section class="sitemap" id="sitemap">
+  <h2>サイトの構成</h2>
+  <p>この見本はトップページだけです。実際の制作では、次のページをお作りします。</p>
+  <ul><li><a href="#company">会社方針</a></li><li><a href="#svc1">施工事例</a></li><li><a href="#flow">舗装工事の流れ</a></li><li><a href="#company">会社概要</a></li><li><a href="#works">採用情報</a></li><li><a href="#contact">お問い合わせ</a></li></ul>
+</section>
+
+
+<a class="badge" href="#contact" aria-label="お問い合わせ"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="bc" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text><textPath href="#bc">CONTACT · CONTACT · CONTACT · </textPath></text></svg><span>ご相談<br>ください</span></a>
+<footer>
+  <span class="ph">この見本は EasyWebCraft が作成した提案資料です。</span><span class="ph">ティー・エス・ロード有限会社さまの公式サイトではありません。</span><br>
+  <span class="ph">トップページだけを形にした見本で、</span><span class="ph">メニューの各ページは実際の制作でお作りします。</span><br>
+  <span class="ph">実際の制作では、</span><span class="ph">御社の写真・実績・文章に差し替えて仕上げます。</span>
+  <div class="next"><b>この見本を本物のサイトにするには</b>
+    <ol>
+      <li><span class="ph">御社の写真と文章をお預かりします（見本の写真・文章は当社が用意したものです）</span></li>
+      <li><span class="ph">お預かりしたものを入れて、</span><span class="ph">公開まで当社で仕上げます</span></li>
+      <li><span class="ph">初期制作費はいただきません。</span><span class="ph">制作と公開、</span><span class="ph">スマートフォン対応、</span><span class="ph">公開後の修正、</span><span class="ph">安全性の対応、</span><span class="ph">検索対策、</span><span class="ph">運用サポートは月額に含まれます</span></li>
+    </ol>
+  </div>
+  <p class="by"><span class="ph">EasyWebCraft（担当：田代）</span><span class="ph"><a href="mailto:info@easywebcraft.jp">info@easywebcraft.jp</a></span></p>
+</footer>
+
+<script>
+// スクロールで出てくる動き。隠す指定は <head> の CSS 側（.anim）。ここでは出す時と順番だけを決める
+//   ・IntersectionObserver で、画面の下1割より上に入ったら出す。一度出したら見張らない（戻っても隠さない）
+//   ・同じ並び（カード・流れ・数字の帯）で同時に入ったものは 100ms ずつずらす
+//   ・冒頭の演出の幕が透け始めるまでは見張らない（演出の裏で出しきって、動きが見えなかった）
+(function(){
+  var r=document.documentElement,units=[].slice.call(document.querySelectorAll('.stats > *,.sechead,.cards > *,.gal > *,.flow > *,.info,.mapbox,.news .pill,.abph,.abtx'));
+  function show(el){el.classList.add('on');}
+  if(!('IntersectionObserver' in window)){units.forEach(show);return;}
+  var io=new IntersectionObserver(function(es){
+    var hit=es.filter(function(x){return x.isIntersecting;}).map(function(x){return x.target;});
+    hit.sort(function(a,b){var p=a.getBoundingClientRect(),q=b.getBoundingClientRect();return (p.top-q.top)||(p.left-q.left);});
+    var rows=[],n=[];
+    hit.forEach(function(el){
+      var k=rows.indexOf(el.parentNode);if(k<0){k=rows.push(el.parentNode)-1;n[k]=0;}
+      el.style.animationDelay=(Math.min(n[k]++,5)*0.1)+'s';
+      show(el);io.unobserve(el);
+    });
+  },{rootMargin:'0px 0px -10% 0px',threshold:0});
+  function start(){units.forEach(function(el){io.observe(el);});}
+  var veiled=function(){return r.classList.contains('ewl-on')&&!r.classList.contains('ewl-go');};
+  if(veiled()){
+    var mo=new MutationObserver(function(){if(!veiled()){mo.disconnect();start();}});
+    mo.observe(r,{attributes:true,attributeFilter:['class']});
+  }else start();
+})();
+// スマホのメニュー開閉。外を押す／項目を押す／Esc で閉じ、幅を広げてボタンが消えたら閉じる
+(function(){
+  var hd=document.querySelector('.hd'),nav=hd&&hd.querySelector('nav'),call=hd&&hd.querySelector('.call,.calls');
+  if(!hd||!nav)return;
+  var b=document.createElement('button');b.type='button';b.className='mbtn';
+  b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls','gnav');
+  b.innerHTML='<i><span></span></i>メニュー';nav.id='gnav';
+  hd.insertBefore(b,call||null);
+  function close(){hd.classList.remove('open');b.setAttribute('aria-expanded','false');}
+  b.addEventListener('click',function(e){
+    e.stopPropagation();
+    var o=!hd.classList.contains('open');hd.classList.toggle('open',o);
+    b.setAttribute('aria-expanded',o?'true':'false');
+  });
+  document.addEventListener('click',function(e){if(hd.classList.contains('open')&&!hd.contains(e.target))close();});
+  nav.addEventListener('click',function(e){if(e.target.closest('a'))close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  addEventListener('resize',function(){if(getComputedStyle(b).display==='none')close();});
+})();
+window.__animReady=true;                    // <head> の保険に「動いた」と伝える
+</script>
+<script>
+(function(){
+  var w=document.querySelector('.hdwrap.ovl');if(!w)return;
+  var n=document.querySelector('.notice'),f=function(){
+    var y=(n?n.offsetHeight:0)+24;w.classList.toggle('solid',(window.scrollY||pageYOffset)>y);};
+  addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f();
+})();
+</script>
+<script>
+(function(){
+  var hd=document.querySelector('.hd'),nav=hd&&hd.querySelector('nav');if(!hd||!nav)return;
+  var over=function(){return hd.scrollWidth>hd.clientWidth+1||nav.scrollWidth>nav.clientWidth+1;};
+  var fit=function(){
+    hd.classList.remove('fit1','fit2');
+    if(getComputedStyle(nav).display==='none'||getComputedStyle(nav).flexDirection==='column')return;
+    if(over())hd.classList.add('fit1');
+    if(over()){hd.classList.remove('fit1');hd.classList.add('fit2');}
+  };
+  fit();addEventListener('resize',fit);addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+(function(){
+  var r=document.documentElement,L=document.getElementById('ewl');
+  if(!r.classList.contains('ewl-on')||!L){if(L)L.remove();return;}
+  try{sessionStorage.setItem('ewl','1');}catch(e){}
+  scrollTo(0,0);
+  var real=document.querySelector('.hd .logo'),copy=L.querySelector('.logo'),ended=false;
+  // 社名の文字（英字の小見出しより前）の範囲
+  var rng=function(el){var g=document.createRange(),sm=el.querySelector('small');g.setStart(el,0);
+    if(sm)g.setEndBefore(sm);else g.setEnd(el,el.childNodes.length);return g;};
+  var txt=function(el){return rng(el).getBoundingClientRect();};
+  // ★2026-11-09 スマホで長い社名はヘッダーで2行に折り返す。演出の社名を1行のままにすると2行目が合わないので、
+  //   同じ幅で同じ所で折り返す（2行かどうかは、ヘッダーの社名の各部分の上端の差で見る）
+  //   （「株式会社」と「丸信」は別々の箱なので、上端が数px違うだけのものは同じ行とみなす）
+  if(real&&copy){var tops=[].map.call(rng(real).getClientRects(),function(x){return x.top;});
+    if(tops.length&&Math.max.apply(null,tops)-Math.min.apply(null,tops)>parseFloat(getComputedStyle(real).fontSize)*.8){copy.style.whiteSpace='normal';copy.style.width=Math.ceil(real.getBoundingClientRect().width)+'px';}}
+  var show=function(){if(real){real.classList.add('ewl-in');}};
+  var end=function(){
+    if(ended)return;ended=true;
+    r.classList.add('ewl-go','ewl-txt');L.classList.add('is-out');
+    setTimeout(function(){r.classList.remove('ewl-on','ewl-go','ewl-txt');L.remove();},500);
+  };
+  L.addEventListener('click',end);
+  var absorb=function(){
+    if(ended)return;
+    if(real&&copy){
+      // 中央に拡大して置いた社名を、ヘッダーの社名にぴったり重なる位置・大きさ（1倍）へ動かす。
+      // ★2026-11-09 スマホではヘッダーの社名の枠が横幅いっぱいに広がる（文字は左寄せ）。枠の真ん中どうしを
+      //   合わせると、文字が右へずれた所に着いてから本物に入れ替わり、跳んで見えた（丸信で約70px）。
+      //   枠ではなく社名の文字（英字の小見出しより前）の左上どうしを合わせる
+      var a=copy.getBoundingClientRect(),cx=a.left+a.width/2,cy=a.top+a.height/2;
+      var k0=parseFloat(copy.style.getPropertyValue('--ewk'))||1.9,t=txt(copy),u=txt(real);
+      var dx=u.left-(cx+(t.left-cx)/k0),dy=u.top-(cy+(t.top-cy)/k0);
+      copy.style.transform='translate('+dx+'px,'+dy+'px) scale(1)';
+    }
+    r.classList.add('ewl-go');          // 幕の下で止めていたトップの動きを、ここから流す
+    L.classList.add('is-absorb');
+    setTimeout(function(){if(real)real.style.opacity='1';},950);
+    setTimeout(function(){r.classList.add('ewl-txt');},850);   // 幕がほぼ透けたところで文字を出し始める
+    setTimeout(end,1200);                                       // 幕の白が消えたらすぐ外す（前は 1.8秒待っていた）
+  };
+  // ★2026-11-02「ローディングの演出はそのままで、表示は会社名のみ。会社名は大きく、長めに」。
+  //   輪の中に会社名を大きく置く。輪は会社名が収まる大きさにし、画面の短い辺の8割に収める
+  var m=Math.min(innerWidth,innerHeight)*0.82,k=1.9;
+  //   円の中で文字の端が線に触れないよう、輪の直径は会社名の幅の1.25倍＋余白
+  if(copy){var w=copy.offsetWidth||1;k=Math.max(.8,Math.min(2.2,(m-56)/(w*1.25)));
+    // 大きさを決める瞬間は動かさない（既定の 1.9倍 から縮んで見えていた）
+    copy.style.transition='none';copy.style.setProperty('--ewk',k.toFixed(3));void copy.offsetWidth;copy.style.transition='';
+    L.style.setProperty('--ewd',Math.round(Math.min(m,w*k*1.25+56))+'px');}
+  requestAnimationFrame(function(){L.classList.add('is-in');});
+  var fill=L.querySelector('.ewl-ring .f'),pct=L.querySelector('.ewl-pct');
+  var C=2*Math.PI*54,D=1600,t0=null;
+  fill.style.strokeDasharray=C;fill.style.strokeDashoffset=C;
+  var tick=function(ts){
+    if(ended)return;
+    if(t0===null)t0=ts;
+    var p=Math.min((ts-t0)/D,1),q=1-Math.pow(1-p,3);
+    pct.textContent=Math.round(q*100)+'%';
+    fill.style.strokeDashoffset=C*(1-q);
+    if(p<1){requestAnimationFrame(tick);return;}
+    // 輪が満ちたら輪と数字だけ消し、会社名はもう少し見せてからヘッダーへ
+    setTimeout(function(){if(ended)return;L.classList.add('is-p2');setTimeout(absorb,900);},250);
+  };
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
