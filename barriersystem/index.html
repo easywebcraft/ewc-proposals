@@ -891,6 +891,15 @@ window.__animReady=true;                    // <head> の保険に「動いた�
   try{sessionStorage.setItem('ewl','1');}catch(e){}
   scrollTo(0,0);
   var real=document.querySelector('.hd .logo'),copy=L.querySelector('.logo'),ended=false;
+  // 社名の文字（英字の小見出しより前）の範囲
+  var rng=function(el){var g=document.createRange(),sm=el.querySelector('small');g.setStart(el,0);
+    if(sm)g.setEndBefore(sm);else g.setEnd(el,el.childNodes.length);return g;};
+  var txt=function(el){return rng(el).getBoundingClientRect();};
+  // ★2026-11-09 スマホで長い社名はヘッダーで2行に折り返す。演出の社名を1行のままにすると2行目が合わないので、
+  //   同じ幅で同じ所で折り返す（2行かどうかは、ヘッダーの社名の各部分の上端の差で見る）
+  //   （「株式会社」と「丸信」は別々の箱なので、上端が数px違うだけのものは同じ行とみなす）
+  if(real&&copy){var tops=[].map.call(rng(real).getClientRects(),function(x){return x.top;});
+    if(tops.length&&Math.max.apply(null,tops)-Math.min.apply(null,tops)>parseFloat(getComputedStyle(real).fontSize)*.8){copy.style.whiteSpace='normal';copy.style.width=Math.ceil(real.getBoundingClientRect().width)+'px';}}
   var show=function(){if(real){real.classList.add('ewl-in');}};
   var end=function(){
     if(ended)return;ended=true;
@@ -901,9 +910,13 @@ window.__animReady=true;                    // <head> の保険に「動いた�
   var absorb=function(){
     if(ended)return;
     if(real&&copy){
-      var a=copy.getBoundingClientRect(),b=real.getBoundingClientRect();
-      // 中央に1.9倍で置いた社名を、ヘッダーの社名にぴったり重なる位置・大きさ（1倍）へ動かす
-      var dx=(b.left+b.width/2)-(a.left+a.width/2),dy=(b.top+b.height/2)-(a.top+a.height/2);
+      // 中央に拡大して置いた社名を、ヘッダーの社名にぴったり重なる位置・大きさ（1倍）へ動かす。
+      // ★2026-11-09 スマホではヘッダーの社名の枠が横幅いっぱいに広がる（文字は左寄せ）。枠の真ん中どうしを
+      //   合わせると、文字が右へずれた所に着いてから本物に入れ替わり、跳んで見えた（丸信で約70px）。
+      //   枠ではなく社名の文字（英字の小見出しより前）の左上どうしを合わせる
+      var a=copy.getBoundingClientRect(),cx=a.left+a.width/2,cy=a.top+a.height/2;
+      var k0=parseFloat(copy.style.getPropertyValue('--ewk'))||1.9,t=txt(copy),u=txt(real);
+      var dx=u.left-(cx+(t.left-cx)/k0),dy=u.top-(cy+(t.top-cy)/k0);
       copy.style.transform='translate('+dx+'px,'+dy+'px) scale(1)';
     }
     r.classList.add('ewl-go');          // 幕の下で止めていたトップの動きを、ここから流す
