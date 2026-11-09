@@ -386,6 +386,14 @@ MOTION_CSS = """
   .js nav a{padding:10px 4px;border-bottom:1px dashed var(--line);color:var(--ink)}
   .js nav a:last-child{border-bottom:0}
   .js .hd.open nav{display:flex}
+  /* ★2026-11-09 松本さん「スマホでメニューを押すと表示がズレる」。ページの上でメニューを開くと、ヘッダーが
+     伸びて写真と本文が丸ごと下へ押し出されていた（写真が 85px → 430px）。メニューはヘッダーの真下に
+     重ねて出し、下のページは動かさない。項目が多くても画面に収まるよう、はみ出す分はメニューの中で流す */
+  .js .hd{position:relative}
+  .js .hd.open nav{position:absolute;top:calc(100% + 1px);left:0;right:0;margin:0;width:auto;box-sizing:border-box;z-index:5;
+    background:#fff;padding:4px 16px 10px;border-bottom:1px solid var(--line);
+    box-shadow:0 12px 24px rgba(30,40,50,.12);max-height:calc(100vh - 110px);max-height:calc(100dvh - 110px);
+    overflow-y:auto;overscroll-behavior:contain}
 }
 /* ---- メニュー（2026-11-02 松本さん「各メニューにも動き・カーソルを合わせたら選んでいると分かる動き」） ----
    PC：トップと一緒に左から順に上から降りてくる。合わせると文字が色付き、下に線が中央から伸びる
