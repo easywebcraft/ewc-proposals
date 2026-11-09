@@ -257,7 +257,7 @@ footer .next b{display:block;color:#fff;font-size:12.5px;margin-bottom:6px;lette
 footer .next ol{margin:0;padding-left:1.4em}
 footer .next li{margin:2px 0}
 
-@media(min-width:920px){
+@media(min-width:1020px){
   .hd{flex-wrap:nowrap;min-height:58px;padding:0 20px}
   .logo{font-size:17px;letter-spacing:.08em}
   .hd .call{padding:11px 20px;font-size:13.5px}
@@ -354,7 +354,7 @@ footer .next li{margin:2px 0}
 .hd.open .mbtn i::before{transform:translateY(6px) rotate(45deg)}
 .hd.open .mbtn i span{opacity:0}
 .hd.open .mbtn i::after{transform:translateY(-6px) rotate(-45deg)}
-@media(max-width:919px){
+@media(max-width:1019px){
   .js .mbtn{display:inline-flex}
   .js nav{display:none;flex-direction:column;row-gap:0;font-size:14px;padding:4px 0 6px}
   .js nav a{padding:10px 4px;border-bottom:1px dashed var(--line);color:var(--ink)}
@@ -376,7 +376,7 @@ footer .next li{margin:2px 0}
 @keyframes menuIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
 nav a{position:relative;transition:color .25s;cursor:pointer}
 nav a:hover,nav a:focus-visible{color:var(--accent)}
-@media(min-width:920px){
+@media(min-width:1020px){
   .anim nav a{animation:navIn .6s cubic-bezier(.2,.7,.3,1) both}
   .anim nav a:nth-child(2){animation-delay:.06s}.anim nav a:nth-child(3){animation-delay:.12s}
   .anim nav a:nth-child(4){animation-delay:.18s}.anim nav a:nth-child(5){animation-delay:.24s}
@@ -385,7 +385,7 @@ nav a:hover,nav a:focus-visible{color:var(--accent)}
     background:var(--accent);transform:scaleX(0);transition:transform .3s cubic-bezier(.2,.7,.3,1)}
   nav a:hover::after,nav a:focus-visible::after{transform:scaleX(1)}
 }
-@media(max-width:919px){
+@media(max-width:1019px){
   .js nav a{transition:color .2s,padding-left .25s,background-color .25s}
   .js nav a:hover,.js nav a:active,.js nav a:focus-visible{padding-left:14px;color:var(--accent)}
   .js .hd.open nav a{animation:menuIn .35s cubic-bezier(.2,.7,.3,1) both}
@@ -595,14 +595,14 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
 }
 
 /* 大きなメニューは並びきる広い画面だけ（ノートパソコンでは今までの大きさで横に並べる） */
-@media(min-width:1060px){
+@media(min-width:1200px){
   .logo{font-size:21px}
   .logo small{font-size:10.5px}
   nav{font-size:16.5px;column-gap:30px;letter-spacing:.08em}
   .hd .call{padding:13px 24px;font-size:14.5px}
 }
-@media(min-width:920px){
-  .hd{min-height:76px;max-width:1240px;padding:0 28px}
+@media(min-width:1020px){
+  .hd{min-height:76px;max-width:1300px;padding:0 28px}
   .hdwrap.ovl{margin-bottom:-77px}
   .hdwrap.ovl header{background:transparent;border-bottom-color:transparent;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .35s,box-shadow .35s,border-color .35s}

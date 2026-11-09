@@ -970,7 +970,7 @@ def _tw(text, px):
 #   電話番号がはみ出した。項目数も社名の長さも先によって倍近く違う。
 def nav_breakpoint(d, ind, big=False):
     """メニューを横に並べられる最小の幅。big は v3 の大きなメニュー（OVL_CSS）で並べられる幅。"""
-    labels = d.get("nav") or [ind["svc"], ind["flow_h"], "会社概要", "お問い合わせ"]
+    labels = (nav_labels(d) + ["お問い合わせ"]) if d.get("nav") else [ind["svc"], ind["flow_h"], "会社概要", "お問い合わせ"]
     nav = sum(_tw(x, 17.7 if big else 14.3) for x in labels) + (len(labels) - 1) * (30 if big else 22)
     logo = _tw(d["name"], 22 if big else 18.4)
     call = _tw("お電話 " + d.get("tel", ""), 15.5 if big else 14.5) + (52 if big else 40)
@@ -1162,9 +1162,19 @@ def _bigrams(text):
 # ★メニューの項目は、対応するサービスカードまで飛ばす。
 #   最初は全部 #works に飛ばしていたが、中駒だと7項目のうち5つが同じ場所に着地した。
 #   2つ押せば「同じところに戻る＝中身が無い」と分かってしまう。
+# ★2026-11-09 sites.json のメニューに「お問い合わせ」を書くと、末尾に必ず足す窓口と2つ並んでいた
+#   （尾張の見本で発覚。表記ゆれ「お問合せ」「お問合わせ」も同じ）。書いてあっても1つにまとめる
+CONTACT_LABEL = re.compile(r"^お問い?合わ?せ")
+
+
+def nav_labels(d):
+    """sites.json のメニューから、末尾に必ず足す「お問い合わせ」と重なる項目を除いたもの。"""
+    return [x for x in (d.get("nav") or []) if not CONTACT_LABEL.match(x)]
+
+
 def nav_targets(d, ind):
     """メニューの項目名 → 飛び先。当てはまるカードが無い項目は None で返す。"""
-    labels = list(d.get("nav") or [])
+    labels = nav_labels(d)
     pairs = {}
     has_gallery = bool(d.get("gallery"))
     svc = [t for t, _ in d.get("services", [])]
