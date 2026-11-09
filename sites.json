@@ -15462,7 +15462,8 @@
    "在庫・出荷",
    "お問い合わせ"
   ],
-  "accent": "#2c4a6e"
+  "accent": "#2c4a6e",
+  "photos": {"hero": "ai-onibuchi-1"}
  },
  "shimada-ss": {
   "name": "株式会社島田製作所",
@@ -16924,7 +16925,8 @@
    "資格一覧",
    "お問い合わせ"
   ],
-  "accent": "#b3261e"
+  "accent": "#b3261e",
+  "photos": {"hero": "ai-tyuo-giken-1"}
  },
  "kasatori": {
   "name": "株式会社笠取",
@@ -19442,7 +19444,8 @@
    "施工例"
   ],
   "accent": "#2f6f93",
-  "texture": "zumen"
+  "texture": "zumen",
+  "photos": {"hero": "ai-kk-saiden-1"}
  },
  "kongo-ss": {
   "name": "株式会社金剛製作所",
