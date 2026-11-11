@@ -753,6 +753,31 @@ footer{background:var(--navy-d)}
 @media(min-width:900px){
   .hero.full.fv .shot::before{background:linear-gradient(90deg,rgba(14,24,42,.62) 0%,rgba(14,24,42,.42) 36%,rgba(14,24,42,0) 68%)}
 }
+
+.stats.pts{box-shadow:0 2px 4px rgba(20,30,45,.06),0 24px 56px rgba(20,30,45,.20)!important}
+.pts .pi{border-radius:50%;background:linear-gradient(180deg,#fff,#eef1f5);box-shadow:0 6px 14px rgba(20,30,45,.14),inset 0 -2px 0 rgba(30,107,46,.28)}
+.pts .pi svg{width:30px;height:30px}
+.cards>.card{border-color:transparent;box-shadow:0 1px 2px rgba(20,30,45,.06),0 12px 30px rgba(20,30,45,.12);
+  transition:translate .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
+.cards>.card:hover{translate:0 -8px;box-shadow:0 2px 4px rgba(20,30,45,.08),0 24px 48px rgba(20,30,45,.20)}
+.abph{box-shadow:22px 22px 0 rgba(30,107,46,.16),0 2px 6px rgba(20,30,45,.10),0 26px 56px rgba(20,30,45,.24)}
+.si{background:linear-gradient(180deg,#fff,#eef1f5)!important;border-color:transparent!important;
+  box-shadow:0 8px 18px rgba(20,30,45,.16),inset 0 -3px 0 rgba(30,107,46,.30);transition:translate .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
+.step:hover .si{translate:0 -5px;box-shadow:0 14px 26px rgba(20,30,45,.22),inset 0 -3px 0 rgba(30,107,46,.40)}
+.info{box-shadow:0 2px 4px rgba(20,30,45,.06),0 18px 42px rgba(20,30,45,.13)}
+.mapbox{box-shadow:inset 0 2px 12px rgba(20,30,45,.10)}
+@media(min-width:900px){.hero.full h1{text-shadow:0 2px 2px rgba(0,0,0,.22),0 12px 32px rgba(0,0,0,.38)}}
+.hero .btn.p{box-shadow:0 10px 26px rgba(30,107,46,.50)}
+.btn{transition:translate .25s,box-shadow .25s,background-color .2s,color .2s}
+.btn:hover{translate:0 -2px}
+.contact .big{text-shadow:0 2px 0 rgba(0,0,0,.22),0 14px 34px rgba(0,0,0,.40)}
+.contact .btn{box-shadow:0 12px 28px rgba(0,0,0,.30)}
+.badge{box-shadow:0 14px 30px rgba(30,107,46,.45),inset 0 -4px 0 rgba(0,0,0,.18)}
+@media(max-width:599px){
+  .abph{box-shadow:12px 12px 0 rgba(30,107,46,.16),0 2px 6px rgba(20,30,45,.10),0 18px 40px rgba(20,30,45,.22)}
+  .step{box-shadow:0 1px 2px rgba(20,30,45,.05),0 8px 20px rgba(20,30,45,.09)}
+}
+@media(prefers-reduced-motion:reduce){.cards>.card:hover,.step:hover .si,.btn:hover{translate:none}}
 </style>
 <script>
 document.documentElement.classList.add('anim','js');

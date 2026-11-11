@@ -754,13 +754,13 @@ footer{background:var(--navy-d)}
   .hero.full.fv .shot::before{background:linear-gradient(90deg,rgba(14,24,42,.62) 0%,rgba(14,24,42,.42) 36%,rgba(14,24,42,0) 68%)}
 }
 
-.stats.pts{border-radius:16px!important;box-shadow:0 2px 4px rgba(20,30,45,.06),0 24px 56px rgba(20,30,45,.20)!important}
+.stats.pts{box-shadow:0 2px 4px rgba(20,30,45,.06),0 24px 56px rgba(20,30,45,.20)!important}
 .pts .pi{border-radius:50%;background:linear-gradient(180deg,#fff,#eef1f5);box-shadow:0 6px 14px rgba(20,30,45,.14),inset 0 -2px 0 rgba(154,42,42,.28)}
 .pts .pi svg{width:30px;height:30px}
-.pc{border-radius:14px;overflow:hidden;border-color:transparent;box-shadow:0 1px 2px rgba(20,30,45,.06),0 12px 30px rgba(20,30,45,.12);
+.cards>.card{border-color:transparent;box-shadow:0 1px 2px rgba(20,30,45,.06),0 12px 30px rgba(20,30,45,.12);
   transition:translate .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
-.pc:hover{translate:0 -8px;box-shadow:0 2px 4px rgba(20,30,45,.08),0 24px 48px rgba(20,30,45,.20)}
-.abph{border-radius:14px;box-shadow:22px 22px 0 rgba(154,42,42,.16),0 2px 6px rgba(20,30,45,.10),0 26px 56px rgba(20,30,45,.24)}
+.cards>.card:hover{translate:0 -8px;box-shadow:0 2px 4px rgba(20,30,45,.08),0 24px 48px rgba(20,30,45,.20)}
+.abph{box-shadow:22px 22px 0 rgba(154,42,42,.16),0 2px 6px rgba(20,30,45,.10),0 26px 56px rgba(20,30,45,.24)}
 .si{background:linear-gradient(180deg,#fff,#eef1f5)!important;border-color:transparent!important;
   box-shadow:0 8px 18px rgba(20,30,45,.16),inset 0 -3px 0 rgba(154,42,42,.30);transition:translate .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
 .step:hover .si{translate:0 -5px;box-shadow:0 14px 26px rgba(20,30,45,.22),inset 0 -3px 0 rgba(154,42,42,.40)}
@@ -777,7 +777,7 @@ footer{background:var(--navy-d)}
   .abph{box-shadow:12px 12px 0 rgba(154,42,42,.16),0 2px 6px rgba(20,30,45,.10),0 18px 40px rgba(20,30,45,.22)}
   .step{box-shadow:0 1px 2px rgba(20,30,45,.05),0 8px 20px rgba(20,30,45,.09)}
 }
-@media(prefers-reduced-motion:reduce){.pc:hover,.step:hover .si,.btn:hover{translate:none}}
+@media(prefers-reduced-motion:reduce){.cards>.card:hover,.step:hover .si,.btn:hover{translate:none}}
 </style>
 <script>
 document.documentElement.classList.add('anim','js');

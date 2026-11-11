@@ -782,17 +782,17 @@ def loader_mark(name):
     return (n or name)[:1]
 
 
-# ★立体版（2026-11-12 松本さん「見本を立体的にしたい」）。<キー>-3d/ の試作だけに付ける。今の見本は変えない。
-#   影を深く重ね、写真の後ろに色の板をずらして置き（影で描く。現れる動きで写真が重なりの単位になり、::before では前に出るため）、触れると浮く。浮く動きは translate を使う
+# ★立体版（2026-11-12 松本さん「見本を立体的にしたい」→ 同日「全てに立体案反映して」で全見本に付ける）。
+#   角の形は型ごとのまま（製造は角張っている）。影を深く重ね、写真の後ろに色の板をずらして置き（影で描く。現れる動きで写真が重なりの単位になり、::before では前に出るため）、触れると浮く。浮く動きは translate を使う
 #   （現れる動きの animation が transform を持ち続けるので、transform では上書きされて浮かない）
 DEPTH_CSS = """
-.stats.pts{border-radius:16px!important;box-shadow:0 2px 4px rgba(20,30,45,.06),0 24px 56px rgba(20,30,45,.20)!important}
+.stats.pts{box-shadow:0 2px 4px rgba(20,30,45,.06),0 24px 56px rgba(20,30,45,.20)!important}
 .pts .pi{border-radius:50%;background:linear-gradient(180deg,#fff,#eef1f5);box-shadow:0 6px 14px rgba(20,30,45,.14),inset 0 -2px 0 rgba(ACC,.28)}
 .pts .pi svg{width:30px;height:30px}
-.pc{border-radius:14px;overflow:hidden;border-color:transparent;box-shadow:0 1px 2px rgba(20,30,45,.06),0 12px 30px rgba(20,30,45,.12);
+.cards>.card{border-color:transparent;box-shadow:0 1px 2px rgba(20,30,45,.06),0 12px 30px rgba(20,30,45,.12);
   transition:translate .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
-.pc:hover{translate:0 -8px;box-shadow:0 2px 4px rgba(20,30,45,.08),0 24px 48px rgba(20,30,45,.20)}
-.abph{border-radius:14px;box-shadow:22px 22px 0 rgba(ACC,.16),0 2px 6px rgba(20,30,45,.10),0 26px 56px rgba(20,30,45,.24)}
+.cards>.card:hover{translate:0 -8px;box-shadow:0 2px 4px rgba(20,30,45,.08),0 24px 48px rgba(20,30,45,.20)}
+.abph{box-shadow:22px 22px 0 rgba(ACC,.16),0 2px 6px rgba(20,30,45,.10),0 26px 56px rgba(20,30,45,.24)}
 .si{background:linear-gradient(180deg,#fff,#eef1f5)!important;border-color:transparent!important;
   box-shadow:0 8px 18px rgba(20,30,45,.16),inset 0 -3px 0 rgba(ACC,.30);transition:translate .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
 .step:hover .si{translate:0 -5px;box-shadow:0 14px 26px rgba(20,30,45,.22),inset 0 -3px 0 rgba(ACC,.40)}
@@ -809,7 +809,7 @@ DEPTH_CSS = """
   .abph{box-shadow:12px 12px 0 rgba(ACC,.16),0 2px 6px rgba(20,30,45,.10),0 18px 40px rgba(20,30,45,.22)}
   .step{box-shadow:0 1px 2px rgba(20,30,45,.05),0 8px 20px rgba(20,30,45,.09)}
 }
-@media(prefers-reduced-motion:reduce){.pc:hover,.step:hover .si,.btn:hover{translate:none}}
+@media(prefers-reduced-motion:reduce){.cards>.card:hover,.step:hover .si,.btn:hover{translate:none}}
 """
 
 
@@ -1364,8 +1364,7 @@ def render(sid, d, ind):
         css += OVL_CSS % {"navbp": max(navbp, 900), "navbig": navbig, "hdmax": max(1240, min(1680, navbig + 100))}
         css += NAVFIT_CSS + CAM_CSS
         css += NAVY_CSS
-    if d.get("_3d"):
-        css += DEPTH_CSS.replace("ACC", acc_rgb)
+    css += DEPTH_CSS.replace("ACC", acc_rgb)   # ★2026-11-12 から全見本を立体版に（松本さん「全てに立体案反映して」）
     roman = d.get("roman", "")
     since = bigen = tagline = badge = ""
     htag = f'<p class="htag">{e(hero_tag(d))}</p>' if v3 and hero_tag(d) else ""
