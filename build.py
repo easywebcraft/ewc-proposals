@@ -442,9 +442,23 @@ def trial_v3(sid):
     print(f"  {sid}-v3  {d['name']}  {len(html)} バイト（試作）")
 
 
+def trial_3d(sid):
+    """立体版の試作を <キー>-3d/ に作る（2026-11-12 松本さん「見本を立体的にしたい」）。今の見本（<キー>/）は変えない。"""
+    root = pathlib.Path(__file__).resolve().parent
+    d = dict(json.loads((root / "sites.json").read_text(encoding="utf-8"))[sid])
+    d["_3d"] = True
+    out = root / (sid + "-3d")
+    out.mkdir(exist_ok=True)
+    html = render(sid, d)
+    (out / "index.html").write_text(html, encoding="utf-8")
+    print(f"  {sid}-3d  {d['name']}  {len(html)} バイト（立体版の試作）")
+
+
 if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[1] == "--trial":
         trial(sys.argv[2])
+    elif len(sys.argv) > 2 and sys.argv[1] == "--3d":
+        trial_3d(sys.argv[2])
     elif len(sys.argv) > 2 and sys.argv[1] == "--v3":
         trial_v3(sys.argv[2])
     else:

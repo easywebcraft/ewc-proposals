@@ -782,6 +782,37 @@ def loader_mark(name):
     return (n or name)[:1]
 
 
+# ★立体版（2026-11-12 松本さん「見本を立体的にしたい」）。<キー>-3d/ の試作だけに付ける。今の見本は変えない。
+#   影を深く重ね、写真の後ろに色の板をずらして置き（影で描く。現れる動きで写真が重なりの単位になり、::before では前に出るため）、触れると浮く。浮く動きは translate を使う
+#   （現れる動きの animation が transform を持ち続けるので、transform では上書きされて浮かない）
+DEPTH_CSS = """
+.stats.pts{border-radius:16px!important;box-shadow:0 2px 4px rgba(20,30,45,.06),0 24px 56px rgba(20,30,45,.20)!important}
+.pts .pi{border-radius:50%;background:linear-gradient(180deg,#fff,#eef1f5);box-shadow:0 6px 14px rgba(20,30,45,.14),inset 0 -2px 0 rgba(ACC,.28)}
+.pts .pi svg{width:30px;height:30px}
+.pc{border-radius:14px;overflow:hidden;border-color:transparent;box-shadow:0 1px 2px rgba(20,30,45,.06),0 12px 30px rgba(20,30,45,.12);
+  transition:translate .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
+.pc:hover{translate:0 -8px;box-shadow:0 2px 4px rgba(20,30,45,.08),0 24px 48px rgba(20,30,45,.20)}
+.abph{border-radius:14px;box-shadow:22px 22px 0 rgba(ACC,.16),0 2px 6px rgba(20,30,45,.10),0 26px 56px rgba(20,30,45,.24)}
+.si{background:linear-gradient(180deg,#fff,#eef1f5)!important;border-color:transparent!important;
+  box-shadow:0 8px 18px rgba(20,30,45,.16),inset 0 -3px 0 rgba(ACC,.30);transition:translate .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
+.step:hover .si{translate:0 -5px;box-shadow:0 14px 26px rgba(20,30,45,.22),inset 0 -3px 0 rgba(ACC,.40)}
+.info{box-shadow:0 2px 4px rgba(20,30,45,.06),0 18px 42px rgba(20,30,45,.13)}
+.mapbox{box-shadow:inset 0 2px 12px rgba(20,30,45,.10)}
+@media(min-width:900px){.hero.full h1{text-shadow:0 2px 2px rgba(0,0,0,.22),0 12px 32px rgba(0,0,0,.38)}}
+.hero .btn.p{box-shadow:0 10px 26px rgba(ACC,.50)}
+.btn{transition:translate .25s,box-shadow .25s,background-color .2s,color .2s}
+.btn:hover{translate:0 -2px}
+.contact .big{text-shadow:0 2px 0 rgba(0,0,0,.22),0 14px 34px rgba(0,0,0,.40)}
+.contact .btn{box-shadow:0 12px 28px rgba(0,0,0,.30)}
+.badge{box-shadow:0 14px 30px rgba(ACC,.45),inset 0 -4px 0 rgba(0,0,0,.18)}
+@media(max-width:599px){
+  .abph{box-shadow:12px 12px 0 rgba(ACC,.16),0 2px 6px rgba(20,30,45,.10),0 18px 40px rgba(20,30,45,.22)}
+  .step{box-shadow:0 1px 2px rgba(20,30,45,.05),0 8px 20px rgba(20,30,45,.09)}
+}
+@media(prefers-reduced-motion:reduce){.pc:hover,.step:hover .si,.btn:hover{translate:none}}
+"""
+
+
 def motion_css(navbp):
     return (MOTION_CSS.replace("SEL", REVEAL_SEL).replace("NAVMAX", str(navbp - 1))
             .replace("NAVMIN", str(navbp)))
@@ -1333,6 +1364,8 @@ def render(sid, d, ind):
         css += OVL_CSS % {"navbp": max(navbp, 900), "navbig": navbig, "hdmax": max(1240, min(1680, navbig + 100))}
         css += NAVFIT_CSS + CAM_CSS
         css += NAVY_CSS
+    if d.get("_3d"):
+        css += DEPTH_CSS.replace("ACC", acc_rgb)
     roman = d.get("roman", "")
     since = bigen = tagline = badge = ""
     htag = f'<p class="htag">{e(hero_tag(d))}</p>' if v3 and hero_tag(d) else ""
