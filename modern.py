@@ -839,7 +839,7 @@ EWCBAR = """<style>
 .ewcbar .in{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;
   justify-content:center;gap:8px 18px}
 .ewcbar p{margin:0;font-size:12.5px;line-height:1.55;text-align:center}
-.ewcbar p b{display:inline-block;font-size:13.5px}
+.ewcbar p b{display:inline-block;font-size:12.5px;line-height:1.6}
 .ewcbar p b .w{display:inline-block}
 .ewcbar p i{font-style:normal;display:inline-block;color:#ffc93c;font-weight:700}
 .ewcbar p > span{display:inline-block;margin-left:.6em;font-size:11px;color:rgba(255,255,255,.7)}
@@ -852,21 +852,24 @@ EWCBAR = """<style>
 .ewcbar .l{background:#06c755;color:#fff}
 .ewcbar .x{position:absolute;right:6px;top:6px;width:32px;height:32px;border:0;border-radius:50%;
   background:transparent;color:rgba(255,255,255,.7);font-size:18px;line-height:1;cursor:pointer}
-body{padding-bottom:128px}
+body{padding-bottom:190px}
 .badge{bottom:104px!important}
-@media(min-width:900px){body{padding-bottom:76px}.ewcbar p{text-align:left}}
+@media(min-width:900px){body{padding-bottom:84px}.ewcbar .in{flex-wrap:nowrap}.ewcbar p{text-align:left;flex:1 1 auto}.ewcbar p b{font-size:13.5px}}
 @media print{.ewcbar{display:none}body{padding-bottom:0}}
 </style>
 <div class="ewcbar" role="region" aria-label="EasyWebCraft へのご相談">
   <div class="in">
-    <p><b><span class="w">御社の写真を入れれば、このまま完成。</span><span class="w">ご要望に合わせて、もっと変えられます。</span></b><br><i>@@PRICE@@</i> <span>EasyWebCraft</span></p>
+    <p><b><span class="w">@@NAME@@様向けに制作した<span class="w">デザイン案です。</span></span><span class="w">文章やデザインは</span><span class="w">ご要望に応じて変更可能です。</span><span class="w">少しでもご興味があれば、</span><span class="w">お気軽にお問い合わせください。</span></b><br><i>@@PRICE@@</i> <span>EasyWebCraft</span></p>
     <div class="bt"><a class="m" href="@@MAILTO@@">メールで相談</a><a class="l" href="@@LINE@@" target="_blank" rel="noopener">LINEで相談</a></div>
   </div>
   <button class="x" type="button" aria-label="閉じる">×</button>
 </div>
 <script>
 (function(){var b=document.querySelector('.ewcbar');if(!b)return;
-function off(){b.remove();document.body.style.paddingBottom='0';}
+function off(){b.remove();document.body.style.paddingBottom='0';window.removeEventListener('resize',fit);}
+/* 帯の高さは社名の長さと画面の幅で変わるので、ページ下の余白を帯の実際の高さに合わせる（最下部の文字が隠れないように） */
+function fit(){if(b.isConnected)document.body.style.paddingBottom=(b.offsetHeight+8)+'px';}
+fit();window.addEventListener('resize',fit);
 try{if(sessionStorage.getItem('ewcbar')==='0')off();}catch(e){}
 b.querySelector('.x').addEventListener('click',function(){off();try{sessionStorage.setItem('ewcbar','0');}catch(e){}});
 })();
@@ -878,7 +881,7 @@ def ewc_bar(name):
     from urllib.parse import quote
     mailto = "mailto:%s?subject=%s" % (EWC_MAIL, quote(f"{name}様の見本について"))
     # ★目印は @@…@@ にする。「LINE」のままだとボタンの「LINEで相談」まで置き換わった（2026-11-13）
-    return (EWCBAR.replace("@@PRICE@@", H.escape(EWC_PRICE)).replace("@@MAILTO@@", H.escape(mailto))
+    return (EWCBAR.replace("@@NAME@@", H.escape(name)).replace("@@PRICE@@", H.escape(EWC_PRICE)).replace("@@MAILTO@@", H.escape(mailto))
             .replace("@@LINE@@", H.escape(EWC_LINE)))
 
 
