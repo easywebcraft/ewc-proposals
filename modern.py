@@ -1620,6 +1620,8 @@ def render(sid, d, ind):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- ★提案用の見本。検索に載せない。本物と誤認されないための最低条件 -->
 <meta name="robots" content="noindex, nofollow, noarchive">
+<!-- 一番上（FV）の写真の有無。CRMが毎朝7時に読み、写真なしで送る会社を知らせる（2026-11-14） -->
+<meta name="ewc-fv-photo" content="{1 if hero_ph else 0}">
 <title>【提案見本】{e(name)}さま トップページ案｜EasyWebCraft</title>
 <style>{css}</style>
 {HEAD_JS}
