@@ -9618,6 +9618,9 @@
  "daisindaisin": {
    "name": "大辰工業株式会社",
    "roman": "DAISHIN KOGYO",
+   "photos": {
+    "hero": "ai-steel-inspect"
+   },
    "industry": "kensetsu",
    "tel": "0120-23-0083",
    "zip": "503-0833",
