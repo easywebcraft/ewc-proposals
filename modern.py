@@ -840,8 +840,9 @@ EWCBAR = """<style>
   justify-content:center;gap:8px 18px}
 .ewcbar p{margin:0;font-size:12.5px;line-height:1.55;text-align:center}
 .ewcbar p b{display:inline-block;font-size:13.5px}
+.ewcbar p b .w{display:inline-block}
 .ewcbar p i{font-style:normal;display:inline-block;color:#ffc93c;font-weight:700}
-.ewcbar p span{display:inline-block;margin-left:.6em;font-size:11px;color:rgba(255,255,255,.7)}
+.ewcbar p > span{display:inline-block;margin-left:.6em;font-size:11px;color:rgba(255,255,255,.7)}
 .ewcbar .bt{display:flex;gap:8px;width:100%;max-width:340px;margin:0 auto}
 .ewcbar .bt a{flex:1}
 @media(min-width:900px){.ewcbar .bt{width:auto;margin:0}.ewcbar .bt a{flex:none}}
@@ -858,7 +859,7 @@ body{padding-bottom:128px}
 </style>
 <div class="ewcbar" role="region" aria-label="EasyWebCraft へのご相談">
   <div class="in">
-    <p><b>この見本を、本物のホームページに。</b><br><i>@@PRICE@@</i> <span>EasyWebCraft</span></p>
+    <p><b><span class="w">御社の写真を入れれば、このまま完成。</span><span class="w">ご要望に合わせて、もっと変えられます。</span></b><br><i>@@PRICE@@</i> <span>EasyWebCraft</span></p>
     <div class="bt"><a class="m" href="@@MAILTO@@">メールで相談</a><a class="l" href="@@LINE@@" target="_blank" rel="noopener">LINEで相談</a></div>
   </div>
   <button class="x" type="button" aria-label="閉じる">×</button>
