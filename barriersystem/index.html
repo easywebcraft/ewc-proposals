@@ -6,7 +6,7 @@
 <!-- ★提案用の見本。検索に載せない。本物と誤認されないための最低条件 -->
 <meta name="robots" content="noindex, nofollow, noarchive">
 <!-- 一番上（FV）の写真の有無。CRMが毎朝7時に読み、写真なしで送る会社を知らせる（2026-11-14） -->
-<meta name="ewc-fv-photo" content="0">
+<meta name="ewc-fv-photo" content="1">
 <title>【提案見本】今盛工業株式会社さま トップページ案｜EasyWebCraft</title>
 <style>
 :root{
@@ -451,6 +451,62 @@ html.ewl-on:not(.ewl-txt) :is(.hero .meta > *,.hero h1,.hero .since,nav a){anima
 /* 幕を外したときにスクロールバーが出て、ページが横にずれないように（Windows など） */
 html{scrollbar-gutter:stable}
 
+@keyframes zoomOut{from{transform:scale(1.04)}to{transform:none}}
+.hero.full{padding:0 0 12px}
+.hero.full::before,.hero.full::after,.hero.full .inner::before,.hero.full .tex,.hero.full .tagline{display:none}
+.hero.full .inner{display:flex;flex-direction:column;max-width:none;padding:0;gap:0}
+.hero.full .shot{order:-1;width:100vw;margin-left:calc(50% - 50vw);aspect-ratio:auto;height:58vh;
+  min-height:300px;max-height:520px;border:0;border-radius:0;outline:0;
+  animation:zoomOut 1.8s cubic-bezier(.2,.7,.3,1) both}
+.hero.full .shot .lb{left:auto;right:14px;bottom:14px}
+.hero.full .side{max-width:1120px;margin:0 auto;padding:22px 20px 0;width:100%}
+.hero.full .scroll{display:none}
+@media(min-width:900px){
+  .hero.full{padding:0 0 20px}
+  .hero.full .inner{display:block;position:relative;min-height:min(74vh,700px)}
+  .hero.full .shot{position:absolute;inset:0;width:auto;margin:0;height:auto;max-height:none;order:0}
+  /* 文字が読めるように、左を濃く右を薄く */
+  .hero.full .shot::before{content:"";position:absolute;inset:0;
+    z-index:1;background:linear-gradient(90deg,rgba(20,18,14,.62) 0%,rgba(20,18,14,.32) 55%,rgba(20,18,14,.12) 100%)}
+  .hero.full .shot .lb{z-index:2}
+  /* ★2026-11-01「FVのインパクトを出したい、全体的に暗い」。写真を切り替える先（.fv＝住宅）だけ、
+     高さを画面いっぱいに、黒い幕は文字の後ろ（左4割）だけにして写真の明るさを見せる。見出しも2割大きく。
+     ほかの業種は写真が暗め・込み入っているものがあり、幕を薄くすると文字が読めなくなるので前のまま */
+  .hero.full.fv{--h1k:1.22}
+  .hero.full.fv .inner{min-height:max(600px,min(calc(100vh - 96px),900px))}
+  .hero.full.fv .vt{max-height:600px}
+  .hero.full.fv .shot::before{background:linear-gradient(90deg,rgba(20,18,14,.58) 0%,rgba(20,18,14,.40) 36%,rgba(20,18,14,0) 68%)}
+  .hero.full.fv .side{padding-bottom:110px}
+  .hero.full .side{position:relative;z-index:1;align-items:flex-start;padding:64px 20px 96px}
+  .hero.full .textcol{justify-content:flex-start;gap:34px}
+  .hero.full .textcol h1{order:-1}
+  .hero.full h1,.hero.full .sub,.hero.full .en{color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.35)}
+  .hero.full h1 em{color:#fff;text-shadow:0 0 0 #fff,0 1px 14px rgba(0,0,0,.35)}
+  .hero.full .meta{padding-top:8px}
+  .hero.full .btn.g{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.7)}
+  .hero.full .btn.g:hover{background:#fff;color:var(--ink)}
+  /* 下端は数字の帯が重なるので、札は右上・scroll はその上に置く */
+  .hero.full .shot .lb{bottom:auto;top:18px;right:18px;left:auto}
+  .hero.full .scroll{display:block;color:#fff;bottom:66px}
+  .hero.full .scroll::after{background:#fff}
+  /* 数字の帯を写真の下端に少し重ねる */
+  .hero.full .stats{margin-top:-44px;position:relative;z-index:2}
+  .hero.full .stats div{box-shadow:0 10px 30px rgba(20,18,14,.10)}
+}
+/* 2枚目以降の写真。各ページで切り替えの間合い（@keyframes heroSl）を書き足す */
+.hero.full .shot .sl{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0}
+@media(prefers-reduced-motion:reduce){.hero.full .shot{animation:none}.hero.full .shot .sl{animation:none!important}}
+@media print{
+  .hero.full .inner{min-height:0;display:block}
+  .hero.full .shot{position:relative;inset:auto;width:auto;margin:0;height:auto;aspect-ratio:16/7;
+    border:1px solid var(--line);animation:none!important}
+  .hero.full .shot::before{display:none}
+  .hero.full .side{padding:12px 0 0}
+  .hero.full h1,.hero.full .sub,.hero.full .en,.hero.full h1 em{color:var(--ink);text-shadow:none}
+  .hero.full .btn.g{background:#fff;color:var(--ink);border-color:var(--ink)}
+  .hero.full .stats{margin-top:12px}
+}
+
 /* ---- 試作 v2 ---- */
 body{font-size:15.5px}
 .sechead .en{font-size:11.5px;letter-spacing:.32em;font-weight:700}
@@ -754,7 +810,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
 
 <div class="notice slim"><span class="ph"><i></i><span class="ewc">EasyWebCraft の</span>提案用の見本｜</span><span class="ph">今盛工業さまの公式サイトではありません</span></div>
 
-<div class="hdwrap">
+<div class="hdwrap ovl">
   <header><div class="hd">
     <div class="logo"><span class="lw">今盛工業</span><span class="lw">株式会社</span><small>IMAMORI KOGYO</small></div>
     <nav><a>バリアシステム</a><a>施工例</a><a>対応できる建物</a><a>会社概要</a><a>お問い合わせ</a></nav>
@@ -762,7 +818,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   </div></header>
 </div>
 
-<div class="hero tx">
+<div class="hero tx full">
   <svg class="tex" aria-hidden="true"><defs><pattern id="tx" width="48" height="48" patternUnits="userSpaceOnUse">
  <g stroke="rgba(43,87,151,.24)" stroke-width="2.6" stroke-linecap="round">
   <line x1="5" y1="15" x2="19" y2="7"/><line x1="8" y1="20" x2="22" y2="12"/>
@@ -783,8 +839,8 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
         <p class="htag">小牧市｜バリアシステム／現地調査</p><h1 class="vt" style="--hn:7"><span class="cp">ハトもカラスも</span><br><span class="cp">寄せつけない</span><br><em><span class="cp">目立たない</span><br><span class="cp">ステンレス線で</span></em></h1>
       </div>
     </div>
-    <div class="shot">
-      <div class="lb"><b>お写真が入ります</b>現場のようす・完成した建物など</div>
+    <div class="shot ph cam-on"><i class="cam" style="background-image:url(../photos/ai-bird-net.jpg?v=d934ee2d)"></i>
+      <div class="lb"><b>イメージ写真です</b>実際の制作では御社のお写真に差し替えます</div>
     </div>
     <span class="scroll">scroll</span>
   </div>
@@ -795,7 +851,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
       <h2>できること</h2><p><span class="cp">糞害も</span><span class="cp">食い荒らしも</span><span class="cp">根本から</span></p></div>
-    <div class="cards"><div class="card" id="svc1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">01</span><h3>バリアシステム</h3><p>ステンレス線で鳥の着地を防ぎます。建物の美観を損ねません。</p></div><div class="card" id="svc2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">02</span><h3>現地調査</h3><p>どこに、どの鳥が来るか。見てから対策を決めます。</p></div><div class="card" id="svc3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M4 11h7v9M11 11V4M15 4v7h5"/></svg></span><span class="no" aria-hidden="true">03</span><h3>設計・製作</h3><p>建物の形に合わせて一つずつ作ります。</p></div><div class="card" id="svc4"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">04</span><h3>取り付け工事</h3><p>高所も自社で施工します。</p></div><div class="card" id="svc5"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><span class="no" aria-hidden="true">05</span><h3>工場・倉庫</h3><p>広い屋根や梁にも対応します。</p></div><div class="card" id="svc6"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V7l6-3v16"/><path d="M10 9h10v11"/><path d="M3 20h18"/><path d="M13 12.5h1.5M16.5 12.5H18M13 16h1.5M16.5 16H18M6.5 9.5h1M6.5 13h1M6.5 16.5h1"/></svg></span><span class="no" aria-hidden="true">06</span><h3>集合住宅・店舗</h3><p>ベランダや看板まわりのハト対策もご相談ください。</p></div></div>
+    <div class="cards"><div class="card pc" id="svc1"><div class="cph ph" style="background-image:url(../photos/ai-bird-net.jpg?v=d934ee2d)"></div><div class="cb"><h3>バリアシステム</h3><p>ステンレス線で鳥の着地を防ぎます。建物の美観を損ねません。</p></div></div><div class="card pc" id="svc2"><div class="cph ph" style="background-image:url(../photos/ai-c-design.jpg?v=7d9b92e4)"></div><div class="cb"><h3>現地調査</h3><p>どこに、どの鳥が来るか。見てから対策を決めます。</p></div></div><div class="card pc" id="svc3"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M4 11h7v9M11 11V4M15 4v7h5"/></svg></div><div class="cb"><h3>設計・製作</h3><p>建物の形に合わせて一つずつ作ります。</p></div></div><div class="card pc" id="svc4"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>取り付け工事</h3><p>高所も自社で施工します。</p></div></div><div class="card pc" id="svc5"><div class="cph ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg></div><div class="cb"><h3>工場・倉庫</h3><p>広い屋根や梁にも対応します。</p></div></div><div class="card pc" id="svc6"><div class="cph ph" style="background-image:url(../photos/ai-house-h1.jpg?v=e4d72746)"></div><div class="cb"><h3>集合住宅・店舗</h3><p>ベランダや看板まわりのハト対策もご相談ください。</p></div></div></div>
   </div>
 </section>
 
@@ -963,7 +1019,14 @@ x.addEventListener('click',function(){set(!b.classList.contains('min'));});
 })();
 window.__animReady=true;                    // <head> の保険に「動いた」と伝える
 </script>
-
+<script>
+(function(){
+  var w=document.querySelector('.hdwrap.ovl');if(!w)return;
+  var n=document.querySelector('.notice'),f=function(){
+    var y=(n?n.offsetHeight:0)+24;w.classList.toggle('solid',(window.scrollY||pageYOffset)>y);};
+  addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f();
+})();
+</script>
 <script>
 (function(){
   var hd=document.querySelector('.hd'),nav=hd&&hd.querySelector('nav');if(!hd||!nav)return;

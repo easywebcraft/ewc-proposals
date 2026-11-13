@@ -1787,6 +1787,9 @@
  "brightsign": {
   "name": "株式会社ブライトサイン",
   "roman": "BRIGHT SIGN",
+  "photos": {
+   "hero": "ai-sign-install"
+  },
   "industry": "kensetsu",
   "tel": "058-275-5136",
   "addr": "岐阜県岐阜市六条南3丁目14-8",
@@ -3534,6 +3537,9 @@
  "c-sanei": {
   "name": "株式会社ＳＡＮＥＩ",
   "roman": "SANEI",
+  "photos": {
+   "hero": "ai-roof-rain"
+  },
   "industry": "kensetsu",
   "tel": "0586-24-1840",
   "zip": "491-0037",
@@ -7116,6 +7122,9 @@
  "barriersystem": {
    "name": "今盛工業株式会社",
    "roman": "IMAMORI KOGYO",
+   "photos": {
+    "hero": "ai-bird-net"
+   },
    "industry": "kensetsu",
    "tel": "0568-72-5056",
    "zip": "485-0073",
