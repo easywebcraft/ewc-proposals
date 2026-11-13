@@ -7323,6 +7323,9 @@
  "ina-soku": {
    "name": "株式会社稲山測量設計",
    "roman": "INAYAMA SURVEY",
+   "photos": {
+    "hero": "ai-survey"
+   },
    "industry": "kensetsu",
    "tel": "0568-72-2283",
    "zip": "485-0015",
