@@ -928,6 +928,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap}
 .ewcbar .m{background:#fff;color:#10294f}
 .ewcbar .l{background:#06c755;color:#fff}
+.ewcbar.min p b,.ewcbar.min p br{display:none}
 .ewcbar .x{position:absolute;right:6px;top:6px;width:32px;height:32px;border:0;border-radius:50%;
   background:transparent;color:rgba(255,255,255,.7);font-size:18px;line-height:1;cursor:pointer}
 body{padding-bottom:190px}
@@ -943,13 +944,16 @@ body{padding-bottom:190px}
   <button class="x" type="button" aria-label="閉じる">×</button>
 </div>
 <script>
-(function(){var b=document.querySelector('.ewcbar');if(!b)return;
-function off(){b.remove();document.body.style.paddingBottom='0';window.removeEventListener('resize',fit);}
+(function(){var b=document.querySelector('.ewcbar');if(!b)return;var x=b.querySelector('.x');
 /* 帯の高さは社名の長さと画面の幅で変わるので、ページ下の余白を帯の実際の高さに合わせる（最下部の文字が隠れないように） */
-function fit(){if(b.isConnected)document.body.style.paddingBottom=(b.offsetHeight+8)+'px';}
-fit();window.addEventListener('resize',fit);
-try{if(sessionStorage.getItem('ewcbar')==='0')off();}catch(e){}
-b.querySelector('.x').addEventListener('click',function(){off();try{sessionStorage.setItem('ewcbar','0');}catch(e){}});
+function fit(){document.body.style.paddingBottom=(b.offsetHeight+8)+'px';}
+/* ×は帯ごと消さず、説明の文だけ畳む（料金とボタンは残す。2026-11-13 松本さん）。もう一度押すと説明が出る */
+function set(min){b.classList.toggle('min',min);x.textContent=min?'＋':'×';
+  x.setAttribute('aria-label',min?'説明を表示':'説明をたたむ');fit();
+  try{sessionStorage.setItem('ewcbar',min?'min':'');}catch(e){}}
+var st='';try{st=sessionStorage.getItem('ewcbar')||'';}catch(e){}
+set(st==='min'||st==='0');window.addEventListener('resize',fit);
+x.addEventListener('click',function(){set(!b.classList.contains('min'));});
 })();
 </script>
 <script>
