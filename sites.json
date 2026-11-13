@@ -23341,6 +23341,9 @@
  "lieben-wax": {
   "name": "サトー産業株式会社",
   "roman": "SATO SANGYO",
+  "photos": {
+   "hero": "ai-knitting-wax"
+  },
   "industry": "seizo",
   "tel": "052-503-0201",
   "zip": "452-0823",
@@ -24561,6 +24564,9 @@
  "transfer-paper": {
   "name": "丸繁紙工株式会社",
   "roman": "MARUSHIGE SHIKO",
+  "photos": {
+   "hero": "ai-decal-plate"
+  },
   "industry": "seizo",
   "tel": "0568-31-7454",
   "zip": "486-0945",
