@@ -841,6 +841,8 @@ EWCBAR = """<style>
 .ewcbar p{margin:0;font-size:12.5px;line-height:1.55;text-align:center}
 .ewcbar p b{display:inline-block;font-size:12.5px;line-height:1.6}
 .ewcbar p b .w{display:inline-block}
+/* 前半（社名〜変更可能です）と後半（少しでも〜）のまとまり。PCで入りきらないときは「少しでも」の前で改行される */
+.ewcbar p b .g{display:inline-block}
 .ewcbar p i{font-style:normal;display:inline-block;color:#ffc93c;font-weight:700}
 .ewcbar p > span{display:inline-block;margin-left:.6em;font-size:11px;color:rgba(255,255,255,.7)}
 .ewcbar .bt{display:flex;gap:8px;width:100%;max-width:340px;margin:0 auto}
@@ -860,7 +862,7 @@ body{padding-bottom:190px}
 </style>
 <div class="ewcbar" role="region" aria-label="EasyWebCraft へのご相談">
   <div class="in">
-    <p><b><span class="w">@@NAME@@様向けに制作した<span class="w">デザイン案です。</span></span><span class="w">文章やデザインは</span><span class="w">ご要望に応じて変更可能です。</span><span class="w">少しでもご興味があれば、</span><span class="w">お気軽にお問い合わせください。</span></b><br><i>@@PRICE@@</i> <span>EasyWebCraft</span></p>
+    <p><b><span class="g"><span class="w">@@NAME@@様向けに制作した<span class="w">デザイン案です。</span></span><span class="w">文章やデザインは</span><span class="w">ご要望に応じて変更可能です。</span></span><span class="g"><span class="w">少しでもご興味があれば、</span><span class="w">お気軽にお問い合わせください。</span></span></b><br><i>@@PRICE@@</i> <span>EasyWebCraft</span></p>
     <div class="bt"><a class="m" href="@@MAILTO@@">メールで相談</a><a class="l" href="@@LINE@@" target="_blank" rel="noopener">LINEで相談</a></div>
   </div>
   <button class="x" type="button" aria-label="閉じる">×</button>
