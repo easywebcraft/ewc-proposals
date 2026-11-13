@@ -21214,6 +21214,12 @@
  "takigumi": {
   "name": "株式会社TAKIGUMI.",
   "roman": "TAKIGUMI",
+  "photos": {
+   "hero": "ai-ashiba-1",
+   "slides": [
+    "ai-ashiba-2"
+   ]
+  },
   "industry": "kensetsu",
   "tel": "0564-47-3160",
   "zip": "444-0004",
