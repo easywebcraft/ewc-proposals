@@ -21635,6 +21635,9 @@
  "okumura-kasei": {
   "name": "オクムラ化成株式会社",
   "roman": "OKUMURA KASEI",
+  "photos": {
+   "hero": "ai-vinyl-tube"
+  },
   "industry": "seizo",
   "tel": "052-301-3111",
   "zip": "455-0877",
@@ -22651,6 +22654,9 @@
  "isu-takayama": {
   "name": "株式会社高山商店",
   "roman": "TAKAYAMA SHOTEN",
+  "photos": {
+   "hero": "ai-chair-upholstery"
+  },
   "industry": "seizo",
   "tel": "052-301-0337",
   "zip": "455-0855",
@@ -22716,6 +22722,9 @@
  "seicousya": {
   "name": "合資会社清好社",
   "roman": "SEICOUSYA",
+  "photos": {
+   "hero": "ai-chochin"
+  },
   "industry": "seizo",
   "tel": "052-653-0881",
   "addr": "名古屋市港区辰巳町1番38号",
