@@ -250,7 +250,8 @@ table.info th{width:7.5em;color:var(--muted);font-weight:500}
   background:var(--accent);margin:0 8px 2px 0;vertical-align:middle}
 footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
        padding:26px 20px;text-align:center;line-height:1.9}
-/* ★この見本を本物にするには（2026-09-19）。見本を見たあとの行き先。金額は書かない */
+/* ★この見本を本物にするには（2026-09-19）。見本を見たあとの行き先。
+   金額は 2026-11-13 から LP と同じ表示（EWC_PRICE）を書く（画面下の EWC への相談の帯と同じ） */
 footer .next{max-width:560px;margin:18px auto 0;padding:16px 18px;border:1px solid rgba(255,255,255,.18);
   border-radius:10px;text-align:left;color:rgba(255,255,255,.78)}
 footer .next b{display:block;color:#fff;font-size:12.5px;margin-bottom:6px;letter-spacing:.06em;text-align:center}
@@ -947,7 +948,7 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
   <h2><span class="cp">まずはご相談ください</span></h2>
   <p>小さなご相談でも構いません。</p>
   <a class="big" href="tel:0575222886">0575-22-2886</a><small></small><div><a class="btn w" href="tel:0575222886">電話をかける</a></div>
-  <p class="note"><span class="ph">メールフォーム・LINEでのお問い合わせ窓口は、</span><span class="ph">実際の制作でお付けします。</span></p>
+  <p class="note"><span class="ph">見本の電話のボタンは、</span><span class="ph">御社の電話番号につながります。</span><span class="ph">メールフォーム・LINEでのお問い合わせ窓口は、</span><span class="ph">実際の制作でお付けします。</span></p>
 </div>
 
 <section class="sitemap" id="sitemap">
@@ -965,12 +966,50 @@ setTimeout(function(){if(!window.__animReady){document.documentElement.classList
     <ol>
       <li><span class="ph">御社の写真と文章をお預かりします（見本の写真・文章は当社が用意したものです）</span></li>
       <li><span class="ph">お預かりしたものを入れて、</span><span class="ph">公開まで当社で仕上げます</span></li>
-      <li><span class="ph">初期制作費はいただきません。</span><span class="ph">制作と公開、</span><span class="ph">スマートフォン対応、</span><span class="ph">公開後の修正、</span><span class="ph">安全性の対応、</span><span class="ph">検索対策、</span><span class="ph">運用サポートは月額に含まれます</span></li>
+      <li><span class="ph">初期費用0円・月額5,980円〜（税別）。</span><span class="ph">制作と公開、</span><span class="ph">スマートフォン対応、</span><span class="ph">公開後の修正、</span><span class="ph">安全性の対応、</span><span class="ph">検索対策、</span><span class="ph">運用サポートは月額に含まれます</span></li>
     </ol>
   </div>
   <p class="by"><span class="ph">EasyWebCraft（担当：田代）</span><span class="ph"><a href="mailto:info@easywebcraft.jp">info@easywebcraft.jp</a></span></p>
 </footer>
 
+<style>
+.ewcbar{position:fixed;left:0;right:0;bottom:0;z-index:80;background:#10294f;color:#fff;
+  padding:10px 44px calc(10px + env(safe-area-inset-bottom)) 14px;box-shadow:0 -8px 24px rgba(0,0,0,.2);
+  font-family:"Noto Sans JP",system-ui,sans-serif;letter-spacing:.02em}
+.ewcbar .in{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:center;gap:8px 18px}
+.ewcbar p{margin:0;font-size:12.5px;line-height:1.55;text-align:center}
+.ewcbar p b{display:inline-block;font-size:13.5px}
+.ewcbar p i{font-style:normal;display:inline-block;color:#ffc93c;font-weight:700}
+.ewcbar p span{display:inline-block;margin-left:.6em;font-size:11px;color:rgba(255,255,255,.7)}
+.ewcbar .bt{display:flex;gap:8px;width:100%;max-width:340px;margin:0 auto}
+.ewcbar .bt a{flex:1}
+@media(min-width:900px){.ewcbar .bt{width:auto;margin:0}.ewcbar .bt a{flex:none}}
+.ewcbar a{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 18px;
+  border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap}
+.ewcbar .m{background:#fff;color:#10294f}
+.ewcbar .l{background:#06c755;color:#fff}
+.ewcbar .x{position:absolute;right:6px;top:6px;width:32px;height:32px;border:0;border-radius:50%;
+  background:transparent;color:rgba(255,255,255,.7);font-size:18px;line-height:1;cursor:pointer}
+body{padding-bottom:128px}
+.badge{bottom:104px!important}
+@media(min-width:900px){body{padding-bottom:76px}.ewcbar p{text-align:left}}
+@media print{.ewcbar{display:none}body{padding-bottom:0}}
+</style>
+<div class="ewcbar" role="region" aria-label="EasyWebCraft へのご相談">
+  <div class="in">
+    <p><b>この見本を、本物のホームページに。</b><br><i>初期費用0円・月額5,980円〜（税別）</i> <span>EasyWebCraft</span></p>
+    <div class="bt"><a class="m" href="mailto:info@easywebcraft.jp?subject=%E5%B2%A1%E7%94%B0%E6%8A%80%E7%A0%94%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E6%A7%98%E3%81%AE%E8%A6%8B%E6%9C%AC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">メールで相談</a><a class="l" href="https://line.me/R/ti/p/@508ijijg" target="_blank" rel="noopener">LINEで相談</a></div>
+  </div>
+  <button class="x" type="button" aria-label="閉じる">×</button>
+</div>
+<script>
+(function(){var b=document.querySelector('.ewcbar');if(!b)return;
+function off(){b.remove();document.body.style.paddingBottom='0';}
+try{if(sessionStorage.getItem('ewcbar')==='0')off();}catch(e){}
+b.querySelector('.x').addEventListener('click',function(){off();try{sessionStorage.setItem('ewcbar','0');}catch(e){}});
+})();
+</script>
 <script>
 // スクロールで出てくる動き。隠す指定は <head> の CSS 側（.anim）。ここでは出す時と順番だけを決める
 //   ・IntersectionObserver で、画面の下1割より上に入ったら出す。一度出したら見張らない（戻っても隠さない）

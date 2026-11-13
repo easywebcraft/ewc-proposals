@@ -265,7 +265,8 @@ table.info th{width:7.5em;color:var(--muted);font-weight:500}
   background:var(--accent);margin:0 8px 2px 0;vertical-align:middle}
 footer{background:#242c27;color:rgba(255,255,255,.6);font-size:11.5px;
        padding:26px 20px;text-align:center;line-height:1.9}
-/* ★この見本を本物にするには（2026-09-19）。見本を見たあとの行き先。金額は書かない */
+/* ★この見本を本物にするには（2026-09-19）。見本を見たあとの行き先。
+   金額は 2026-11-13 から LP と同じ表示（EWC_PRICE）を書く（画面下の EWC への相談の帯と同じ） */
 footer .next{max-width:560px;margin:18px auto 0;padding:16px 18px;border:1px solid rgba(255,255,255,.18);
   border-radius:10px;text-align:left;color:rgba(255,255,255,.78)}
 footer .next b{display:block;color:#fff;font-size:12.5px;margin-bottom:6px;letter-spacing:.06em;text-align:center}
@@ -820,6 +821,64 @@ def motion_css(navbp):
 
 def body_js():
     return BODY_JS.replace("SEL", REVEAL_SEL)
+
+
+# ★EWC への相談の帯（2026-11-13 松本さん）。見本を開いても問い合わせに繋がらない一番の理由は、
+#   見本のボタンが相手自身の電話番号にかかり、EWC への連絡先がページ最下部の小さな文字しか無いこと。
+#   画面の下に固定して出す。料金は公開中のLP（service.easywebcraft.jp）と同じ表示に合わせる
+#   （2026-09-19 の「見本に金額は書かない」は、この日に松本さんの判断で改めた）。
+#   電話は載せない（LPの番号が仮のため）。閉じたらそのタブでは出さない。印刷では出さない。
+#   build.py の型（士業・医院など）も同じ帯を使う。
+EWC_PRICE = "初期費用0円・月額5,980円〜（税別）"
+EWC_MAIL = "info@easywebcraft.jp"
+EWC_LINE = "https://line.me/R/ti/p/@508ijijg"
+EWCBAR = """<style>
+.ewcbar{position:fixed;left:0;right:0;bottom:0;z-index:80;background:#10294f;color:#fff;
+  padding:10px 44px calc(10px + env(safe-area-inset-bottom)) 14px;box-shadow:0 -8px 24px rgba(0,0,0,.2);
+  font-family:"Noto Sans JP",system-ui,sans-serif;letter-spacing:.02em}
+.ewcbar .in{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:center;gap:8px 18px}
+.ewcbar p{margin:0;font-size:12.5px;line-height:1.55;text-align:center}
+.ewcbar p b{display:inline-block;font-size:13.5px}
+.ewcbar p i{font-style:normal;display:inline-block;color:#ffc93c;font-weight:700}
+.ewcbar p span{display:inline-block;margin-left:.6em;font-size:11px;color:rgba(255,255,255,.7)}
+.ewcbar .bt{display:flex;gap:8px;width:100%;max-width:340px;margin:0 auto}
+.ewcbar .bt a{flex:1}
+@media(min-width:900px){.ewcbar .bt{width:auto;margin:0}.ewcbar .bt a{flex:none}}
+.ewcbar a{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 18px;
+  border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap}
+.ewcbar .m{background:#fff;color:#10294f}
+.ewcbar .l{background:#06c755;color:#fff}
+.ewcbar .x{position:absolute;right:6px;top:6px;width:32px;height:32px;border:0;border-radius:50%;
+  background:transparent;color:rgba(255,255,255,.7);font-size:18px;line-height:1;cursor:pointer}
+body{padding-bottom:128px}
+.badge{bottom:104px!important}
+@media(min-width:900px){body{padding-bottom:76px}.ewcbar p{text-align:left}}
+@media print{.ewcbar{display:none}body{padding-bottom:0}}
+</style>
+<div class="ewcbar" role="region" aria-label="EasyWebCraft へのご相談">
+  <div class="in">
+    <p><b>この見本を、本物のホームページに。</b><br><i>@@PRICE@@</i> <span>EasyWebCraft</span></p>
+    <div class="bt"><a class="m" href="@@MAILTO@@">メールで相談</a><a class="l" href="@@LINE@@" target="_blank" rel="noopener">LINEで相談</a></div>
+  </div>
+  <button class="x" type="button" aria-label="閉じる">×</button>
+</div>
+<script>
+(function(){var b=document.querySelector('.ewcbar');if(!b)return;
+function off(){b.remove();document.body.style.paddingBottom='0';}
+try{if(sessionStorage.getItem('ewcbar')==='0')off();}catch(e){}
+b.querySelector('.x').addEventListener('click',function(){off();try{sessionStorage.setItem('ewcbar','0');}catch(e){}});
+})();
+</script>"""
+
+
+def ewc_bar(name):
+    """画面の下に固定する EWC への相談の帯。メールは件名に会社名を入れて開く。"""
+    from urllib.parse import quote
+    mailto = "mailto:%s?subject=%s" % (EWC_MAIL, quote(f"{name}様の見本について"))
+    # ★目印は @@…@@ にする。「LINE」のままだとボタンの「LINEで相談」まで置き換わった（2026-11-13）
+    return (EWCBAR.replace("@@PRICE@@", H.escape(EWC_PRICE)).replace("@@MAILTO@@", H.escape(mailto))
+            .replace("@@LINE@@", H.escape(EWC_LINE)))
 
 
 # ★写真があるときのヒーロー（2026-09-19）。参考サイト（達匠・大洋画地）と同じ、
@@ -1612,7 +1671,7 @@ def render(sid, d, ind):
   <h2>{copy_html(ind["cta"], e)}</h2>
   <p>{e(ind["cta_sub"])}</p>
   {ctel}
-  <p class="note">{phrase("メールフォーム・LINEでのお問い合わせ窓口は、実際の制作でお付けします。", e)}</p>
+  <p class="note">{phrase("見本の電話のボタンは、御社の電話番号につながります。", e)}{phrase("メールフォーム・LINEでのお問い合わせ窓口は、実際の制作でお付けします。", e)}</p>
 </div>
 
 <section class="sitemap" id="sitemap">
@@ -1630,12 +1689,13 @@ def render(sid, d, ind):
     <ol>
       <li>{phrase("御社の写真と文章をお預かりします（見本の写真・文章は当社が用意したものです）", e)}</li>
       <li>{phrase("お預かりしたものを入れて、公開まで当社で仕上げます", e)}</li>
-      <li>{phrase("初期制作費はいただきません。制作と公開、スマートフォン対応、公開後の修正、安全性の対応、検索対策、運用サポートは月額に含まれます", e)}</li>
+      <li>{phrase(EWC_PRICE + "。", e)}{phrase("制作と公開、スマートフォン対応、公開後の修正、安全性の対応、検索対策、運用サポートは月額に含まれます", e)}</li>
     </ol>
   </div>
   <p class="by"><span class="ph">EasyWebCraft（担当：田代）</span><span class="ph"><a href="mailto:info@easywebcraft.jp">info@easywebcraft.jp</a></span></p>
 </footer>
 
+{ewc_bar(name)}
 {body_js()}
 {OVL_JS if v3 and hero_ph else ""}
 {NAVFIT_JS if v3 else ""}

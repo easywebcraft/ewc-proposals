@@ -390,6 +390,7 @@ def render(sid, d):
   <h2>{e(ind["cta"])}</h2>
   <p class="lead">{e(ind["cta_sub"])}</p>
   {contact_tel}
+  <p class="lead" style="font-size:12px;opacity:.75">見本の電話のボタンは、御社の電話番号につながります。</p>
 </div>
 
 <footer>
@@ -398,6 +399,7 @@ def render(sid, d):
   <p class="by"><span class="ph">EasyWebCraft（担当：田代）</span><span class="ph"><a href="mailto:info@easywebcraft.jp">info@easywebcraft.jp</a></span></p>
 </footer>
 
+{modern.ewc_bar(name)}
 </body>
 </html>
 """
