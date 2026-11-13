@@ -827,6 +827,7 @@ def body_js():
 #   見本のボタンが相手自身の電話番号にかかり、EWC への連絡先がページ最下部の小さな文字しか無いこと。
 #   画面の下に固定して出す。料金は公開中のLP（service.easywebcraft.jp）と同じ表示に合わせる
 #   （2026-09-19 の「見本に金額は書かない」は、この日に松本さんの判断で改めた）。
+#   最初の画面では出さず、下へスクロールしたら出す（上まで戻ると隠れる）。
 #   電話は載せない（LPの番号が仮のため）。×で説明の文を畳む（料金とボタンは残す。そのタブでは畳んだまま）。印刷では出さない。
 #   build.py の型（士業・医院など）も同じ帯を使う。
 EWC_PRICE = "初期費用0円・月額5,980円〜（税別）"
@@ -835,7 +836,11 @@ EWC_LINE = "https://line.me/R/ti/p/@508ijijg"
 EWCBAR = """<style>
 .ewcbar{position:fixed;left:0;right:0;bottom:0;z-index:80;background:#10294f;color:#fff;
   padding:10px 44px calc(10px + env(safe-area-inset-bottom)) 14px;box-shadow:0 -8px 24px rgba(0,0,0,.2);
-  font-family:"Noto Sans JP",system-ui,sans-serif;letter-spacing:.02em}
+  font-family:"Noto Sans JP",system-ui,sans-serif;letter-spacing:.02em;
+  transform:translateY(110%);visibility:hidden;transition:transform .35s ease,visibility 0s linear .35s}
+/* 最初の画面では出さず、下へスクロールしたら下から出す（2026-11-13 松本さん）。上まで戻ると隠れる */
+.ewcbar.on{transform:none;visibility:visible;transition:transform .35s ease,visibility 0s}
+@media(prefers-reduced-motion:reduce){.ewcbar,.ewcbar.on{transition:none}}
 .ewcbar .in{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;
   justify-content:center;gap:8px 18px}
 .ewcbar p{margin:0;font-size:12.5px;line-height:1.55;text-align:center}
@@ -856,7 +861,7 @@ EWCBAR = """<style>
 .ewcbar .x{position:absolute;right:6px;top:6px;width:32px;height:32px;border:0;border-radius:50%;
   background:transparent;color:rgba(255,255,255,.7);font-size:18px;line-height:1;cursor:pointer}
 body{padding-bottom:190px}
-.badge{bottom:104px!important}
+.badge{transition:bottom .35s ease}body.ewcon .badge{bottom:104px!important}
 @media(min-width:900px){body{padding-bottom:84px}.ewcbar .in{flex-wrap:nowrap}.ewcbar p{text-align:left;flex:1 1 auto}.ewcbar p b{font-size:13.5px}}
 @media print{.ewcbar{display:none}body{padding-bottom:0}}
 </style>
@@ -877,6 +882,10 @@ function set(min){b.classList.toggle('min',min);x.textContent=min?'＋':'×';
   try{sessionStorage.setItem('ewcbar',min?'min':'');}catch(e){}}
 var st='';try{st=sessionStorage.getItem('ewcbar')||'';}catch(e){}
 set(st==='min'||st==='0');window.addEventListener('resize',fit);
+/* 画面の6割ぶん下へ進んだら出す。一番上の近くまで戻ったら隠す */
+function show(){var on=(window.scrollY||window.pageYOffset)>window.innerHeight*.6;
+  b.classList.toggle('on',on);document.body.classList.toggle('ewcon',on);}
+show();window.addEventListener('scroll',show,{passive:true});
 x.addEventListener('click',function(){set(!b.classList.contains('min'));});
 })();
 </script>"""
