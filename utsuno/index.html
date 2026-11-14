@@ -1024,10 +1024,27 @@ function set(min){b.classList.toggle('min',min);x.textContent=min?'＋':'×';
 var st='';try{st=sessionStorage.getItem('ewcbar')||'';}catch(e){}
 set(st==='min'||st==='0');window.addEventListener('resize',fit);
 /* 画面の6割ぶん下へ進んだら出す。一番上の近くまで戻ったら隠す */
+/* 見本の中での動きを EWC の CRM へ知らせる（2026-11-14 松本さん）。メールのリンクから開いたときだけ、
+   CRM が URL に ?t=目印 を付けて渡してくる。目印は address bar から消し、そのタブの中だけ覚えておく
+   （転送やURLの貼り付けで別の人の動きが混ざらないように）。目印が無ければ何も送らない */
+var T='';try{T=new URLSearchParams(location.search).get('t')||sessionStorage.getItem('ewct')||'';}catch(e){}
+if(!/^[a-z0-9]{6,20}$/.test(T))T='';
+if(T){try{sessionStorage.setItem('ewct',T);history.replaceState(null,'',location.pathname+location.hash);}catch(e){}}
+function ev(k){if(!T||!navigator.sendBeacon)return;try{navigator.sendBeacon('https://crm.easywebcraft.jp/p/'+T+'/ev',k);}catch(e){}}
+var seen=0;
 function show(){var on=(window.scrollY||window.pageYOffset)>window.innerHeight*.6;
-  b.classList.toggle('on',on);document.body.classList.toggle('ewcon',on);}
+  b.classList.toggle('on',on);document.body.classList.toggle('ewcon',on);
+  if(on&&!seen){seen=1;ev('bar');}}
 show();window.addEventListener('scroll',show,{passive:true});
 x.addEventListener('click',function(){set(!b.classList.contains('min'));});
+b.querySelector('.m').addEventListener('click',function(){ev('mail');});
+b.querySelector('.l').addEventListener('click',function(){ev('line');});
+/* 見ていた時間。画面に出ていた間だけ足し、閉じる・別の画面へ移るたびにそこまでの秒数を送る（CRM は一番長い値を使う） */
+var shown=0,since=document.visibilityState==='visible'?Date.now():0;
+document.addEventListener('visibilitychange',function(){
+  if(document.visibilityState==='hidden'){if(since){shown+=Date.now()-since;since=0;}
+    var sec=Math.round(shown/1000);if(sec>=3)ev('stay:'+sec);}
+  else since=Date.now();});
 })();
 </script>
 <script>

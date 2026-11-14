@@ -835,6 +835,8 @@ EWC_MAIL = "info@easywebcraft.jp"
 EWC_LINE = "https://line.me/R/ti/p/@508ijijg"
 # 帯に出す担当者名（2026-11-14 松本さんの指定で田代）。営業メールの差出人とそろえて「同じ人から」とわかるようにする（2026-11-14 松本さん）
 EWC_STAFF = "田代"
+# 見本の中での動きを知らせる先（EWC の CRM。営業メールの見本リンクと同じ場所）
+EWC_CRM = "https://crm.easywebcraft.jp"
 EWCBAR = """<style>
 .ewcbar{position:fixed;left:0;right:0;bottom:0;z-index:80;background:#10294f;color:#fff;
   padding:10px 44px calc(10px + env(safe-area-inset-bottom)) 14px;box-shadow:0 -8px 24px rgba(0,0,0,.2);
@@ -885,10 +887,27 @@ function set(min){b.classList.toggle('min',min);x.textContent=min?'＋':'×';
 var st='';try{st=sessionStorage.getItem('ewcbar')||'';}catch(e){}
 set(st==='min'||st==='0');window.addEventListener('resize',fit);
 /* 画面の6割ぶん下へ進んだら出す。一番上の近くまで戻ったら隠す */
+/* 見本の中での動きを EWC の CRM へ知らせる（2026-11-14 松本さん）。メールのリンクから開いたときだけ、
+   CRM が URL に ?t=目印 を付けて渡してくる。目印は address bar から消し、そのタブの中だけ覚えておく
+   （転送やURLの貼り付けで別の人の動きが混ざらないように）。目印が無ければ何も送らない */
+var T='';try{T=new URLSearchParams(location.search).get('t')||sessionStorage.getItem('ewct')||'';}catch(e){}
+if(!/^[a-z0-9]{6,20}$/.test(T))T='';
+if(T){try{sessionStorage.setItem('ewct',T);history.replaceState(null,'',location.pathname+location.hash);}catch(e){}}
+function ev(k){if(!T||!navigator.sendBeacon)return;try{navigator.sendBeacon('@@CRM@@/p/'+T+'/ev',k);}catch(e){}}
+var seen=0;
 function show(){var on=(window.scrollY||window.pageYOffset)>window.innerHeight*.6;
-  b.classList.toggle('on',on);document.body.classList.toggle('ewcon',on);}
+  b.classList.toggle('on',on);document.body.classList.toggle('ewcon',on);
+  if(on&&!seen){seen=1;ev('bar');}}
 show();window.addEventListener('scroll',show,{passive:true});
 x.addEventListener('click',function(){set(!b.classList.contains('min'));});
+b.querySelector('.m').addEventListener('click',function(){ev('mail');});
+b.querySelector('.l').addEventListener('click',function(){ev('line');});
+/* 見ていた時間。画面に出ていた間だけ足し、閉じる・別の画面へ移るたびにそこまでの秒数を送る（CRM は一番長い値を使う） */
+var shown=0,since=document.visibilityState==='visible'?Date.now():0;
+document.addEventListener('visibilitychange',function(){
+  if(document.visibilityState==='hidden'){if(since){shown+=Date.now()-since;since=0;}
+    var sec=Math.round(shown/1000);if(sec>=3)ev('stay:'+sec);}
+  else since=Date.now();});
 })();
 </script>"""
 
@@ -904,7 +923,8 @@ def ewc_bar(name):
     mailto = "mailto:%s?subject=%s&body=%s" % (EWC_MAIL, quote(f"{name}様の見本について"), quote(body))
     # ★目印は @@…@@ にする。「LINE」のままだとボタンの「LINEで相談」まで置き換わった（2026-11-13）
     return (EWCBAR.replace("@@NAME@@", H.escape(name)).replace("@@PRICE@@", H.escape(EWC_PRICE)).replace("@@MAILTO@@", H.escape(mailto))
-            .replace("@@LINE@@", H.escape(EWC_LINE)).replace("@@STAFF@@", H.escape(EWC_STAFF)))
+            .replace("@@LINE@@", H.escape(EWC_LINE)).replace("@@STAFF@@", H.escape(EWC_STAFF))
+            .replace("@@CRM@@", EWC_CRM))
 
 
 # ★写真があるときのヒーロー（2026-09-19）。参考サイト（達匠・大洋画地）と同じ、
