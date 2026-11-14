@@ -833,8 +833,8 @@ def body_js():
 EWC_PRICE = "初期費用0円・月額5,980円〜（税別）"
 EWC_MAIL = "info@easywebcraft.jp"
 EWC_LINE = "https://line.me/R/ti/p/@508ijijg"
-# 帯に出す担当者名。営業メールの差出人とそろえて「同じ人から」とわかるようにする（2026-11-14 松本さん）
-EWC_STAFF = "松本"
+# 帯に出す担当者名（2026-11-14 松本さんの指定で田代）。営業メールの差出人とそろえて「同じ人から」とわかるようにする（2026-11-14 松本さん）
+EWC_STAFF = "田代"
 EWCBAR = """<style>
 .ewcbar{position:fixed;left:0;right:0;bottom:0;z-index:80;background:#10294f;color:#fff;
   padding:10px 44px calc(10px + env(safe-area-inset-bottom)) 14px;box-shadow:0 -8px 24px rgba(0,0,0,.2);
