@@ -833,6 +833,8 @@ def body_js():
 EWC_PRICE = "初期費用0円・月額5,980円〜（税別）"
 EWC_MAIL = "info@easywebcraft.jp"
 EWC_LINE = "https://line.me/R/ti/p/@508ijijg"
+# 帯に出す担当者名。営業メールの差出人とそろえて「同じ人から」とわかるようにする（2026-11-14 松本さん）
+EWC_STAFF = "松本"
 EWCBAR = """<style>
 .ewcbar{position:fixed;left:0;right:0;bottom:0;z-index:80;background:#10294f;color:#fff;
   padding:10px 44px calc(10px + env(safe-area-inset-bottom)) 14px;box-shadow:0 -8px 24px rgba(0,0,0,.2);
@@ -867,7 +869,7 @@ body{padding-bottom:190px}
 </style>
 <div class="ewcbar" role="region" aria-label="EasyWebCraft へのご相談">
   <div class="in">
-    <p><b><span class="g"><span class="w">@@NAME@@様向けに制作した<span class="w">デザイン案です。</span></span><span class="w">文章やデザインは</span><span class="w">ご要望に応じて変更可能です。</span></span><span class="g"><span class="w">少しでもご興味があれば、</span><span class="w">ボタンを押して</span><span class="w">そのまま送るだけで結構です。</span></span></b><br><i>@@PRICE@@</i> <span>EasyWebCraft</span></p>
+    <p><b><span class="g"><span class="w">@@NAME@@様向けに制作した<span class="w">デザイン案です。</span></span><span class="w">文章やデザインは</span><span class="w">ご要望に応じて変更可能です。</span></span><span class="g"><span class="w">少しでもご興味があれば、</span><span class="w">ボタンを押して</span><span class="w">そのまま送るだけで結構です。</span></span></b><br><i>@@PRICE@@</i> <span>EasyWebCraft　担当：@@STAFF@@</span></p>
     <div class="bt"><a class="m" href="@@MAILTO@@">詳しく聞きたい</a><a class="l" href="@@LINE@@" target="_blank" rel="noopener">LINEで相談</a></div>
   </div>
   <button class="x" type="button" aria-label="閉じる">×</button>
@@ -902,7 +904,7 @@ def ewc_bar(name):
     mailto = "mailto:%s?subject=%s&body=%s" % (EWC_MAIL, quote(f"{name}様の見本について"), quote(body))
     # ★目印は @@…@@ にする。「LINE」のままだとボタンの「LINEで相談」まで置き換わった（2026-11-13）
     return (EWCBAR.replace("@@NAME@@", H.escape(name)).replace("@@PRICE@@", H.escape(EWC_PRICE)).replace("@@MAILTO@@", H.escape(mailto))
-            .replace("@@LINE@@", H.escape(EWC_LINE)))
+            .replace("@@LINE@@", H.escape(EWC_LINE)).replace("@@STAFF@@", H.escape(EWC_STAFF)))
 
 
 # ★写真があるときのヒーロー（2026-09-19）。参考サイト（達匠・大洋画地）と同じ、
