@@ -867,8 +867,8 @@ body{padding-bottom:190px}
 </style>
 <div class="ewcbar" role="region" aria-label="EasyWebCraft へのご相談">
   <div class="in">
-    <p><b><span class="g"><span class="w">@@NAME@@様向けに制作した<span class="w">デザイン案です。</span></span><span class="w">文章やデザインは</span><span class="w">ご要望に応じて変更可能です。</span></span><span class="g"><span class="w">少しでもご興味があれば、</span><span class="w">お気軽にお問い合わせください。</span></span></b><br><i>@@PRICE@@</i> <span>EasyWebCraft</span></p>
-    <div class="bt"><a class="m" href="@@MAILTO@@">メールで相談</a><a class="l" href="@@LINE@@" target="_blank" rel="noopener">LINEで相談</a></div>
+    <p><b><span class="g"><span class="w">@@NAME@@様向けに制作した<span class="w">デザイン案です。</span></span><span class="w">文章やデザインは</span><span class="w">ご要望に応じて変更可能です。</span></span><span class="g"><span class="w">少しでもご興味があれば、</span><span class="w">ボタンを押して</span><span class="w">そのまま送るだけで結構です。</span></span></b><br><i>@@PRICE@@</i> <span>EasyWebCraft</span></p>
+    <div class="bt"><a class="m" href="@@MAILTO@@">詳しく聞きたい</a><a class="l" href="@@LINE@@" target="_blank" rel="noopener">LINEで相談</a></div>
   </div>
   <button class="x" type="button" aria-label="閉じる">×</button>
 </div>
@@ -894,7 +894,12 @@ x.addEventListener('click',function(){set(!b.classList.contains('min'));});
 def ewc_bar(name):
     """画面の下に固定する EWC への相談の帯。メールは件名に会社名を入れて開く。"""
     from urllib.parse import quote
-    mailto = "mailto:%s?subject=%s" % (EWC_MAIL, quote(f"{name}様の見本について"))
+    # ★押すだけで送れるように本文まで入れる（2026-11-14 松本さん「押されても問い合わせが来ない」）。
+    #   相談の文を考える手間が、見本を見たあとに連絡しない一番の壁なので。
+    body = (f"{name}様の見本について、詳しく聞きたいです。\n\n"
+            "（このまま送っていただくだけで結構です。お電話でのご説明をご希望でしたら、"
+            "お名前とお電話番号をお書き添えください）\n\nお名前：\nお電話番号：\n")
+    mailto = "mailto:%s?subject=%s&body=%s" % (EWC_MAIL, quote(f"{name}様の見本について"), quote(body))
     # ★目印は @@…@@ にする。「LINE」のままだとボタンの「LINEで相談」まで置き換わった（2026-11-13）
     return (EWCBAR.replace("@@NAME@@", H.escape(name)).replace("@@PRICE@@", H.escape(EWC_PRICE)).replace("@@MAILTO@@", H.escape(mailto))
             .replace("@@LINE@@", H.escape(EWC_LINE)))
