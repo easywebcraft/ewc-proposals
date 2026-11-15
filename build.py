@@ -562,7 +562,45 @@ def trial_pick(sid):
     print(f"  {sid}-pick  {d['name']}  {len(html)} バイト（参考サイトの試作）")
 
 
+
+# 試作（2026-11-15）：冒頭の演出を約2秒に縮める。形はそのまま（輪が満ちる→社名→左上へ吸い込む）で、間合いだけ詰める。
+#   今は文字が出始めるまで約4秒（輪1.6秒＋待ち0.25秒＋社名0.9秒＋吸い込み0.85秒）。試作は約1.75秒、幕が外れるのは約2秒
+FAST_REPL = (
+    ("var C=2*Math.PI*54,D=1600", "var C=2*Math.PI*54,D=900"),
+    ("setTimeout(absorb,900);},250);", "setTimeout(absorb,300);},100);"),
+    ("setTimeout(function(){if(real)real.style.opacity='1';},950);", "setTimeout(function(){if(real)real.style.opacity='1';},600);"),
+    ("setTimeout(function(){r.classList.add('ewl-txt');},850);", "setTimeout(function(){r.classList.add('ewl-txt');},450);"),
+    ("setTimeout(end,1200);", "setTimeout(end,700);"),
+    ("L.remove();},500);", "L.remove();},350);"),
+    ("transition:background-color .9s ease .25s,opacity .5s ease", "transition:background-color .5s ease .1s,opacity .35s ease"),
+    ("transition:opacity .6s ease .1s}", "transition:opacity .35s ease}"),
+    ("transition:transform 1s cubic-bezier(.65,0,.35,1),opacity .45s ease .95s}", "transition:transform .6s cubic-bezier(.65,0,.35,1),opacity .3s ease .55s}"),
+    ("transition:transform 1s cubic-bezier(.65,0,.35,1),opacity .45s ease .95s,color .8s ease}", "transition:transform .6s cubic-bezier(.65,0,.35,1),opacity .3s ease .55s,color .5s ease}"),
+)
+
+
+def trial_fast(sid):
+    """冒頭の演出を約2秒にした試作を <キー>-fast/ に作る。今の見本（<キー>/）は変えない。"""
+    root = pathlib.Path(__file__).resolve().parent
+    d = json.loads((root / "sites.json").read_text(encoding="utf-8"))[sid]
+    html = render(sid, d)
+    if INDUSTRY[d["industry"]].get("layout") == "modern":
+        html = apply_pick(html, d)
+    for a, b in FAST_REPL:
+        if a not in html:
+            raise SystemExit(f"演出の間合いが見つからない: {a}")
+        html = html.replace(a, b)
+    out = root / (sid + "-fast")
+    out.mkdir(exist_ok=True)
+    (out / "index.html").write_text(html, encoding="utf-8")
+    print(f"  {sid}-fast  {d['name']}  {len(html)} バイト（演出を約2秒にした試作）")
+
+
 if __name__ == "__main__":
+    if len(sys.argv) > 2 and sys.argv[1] == "--fast":
+        for k in sys.argv[2:]:
+            trial_fast(k)
+        sys.exit()
     if len(sys.argv) > 2 and sys.argv[1] == "--pick":
         for k in sys.argv[2:]:
             trial_pick(k)
