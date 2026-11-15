@@ -580,6 +580,10 @@ FAST_REPL = (
     ("transition:opacity .6s ease .1s}", "transition:opacity .35s ease}"),
     ("transition:transform 1s cubic-bezier(.65,0,.35,1),opacity .45s ease .95s}", "transition:opacity .4s ease}"),
     ("transition:transform 1s cubic-bezier(.65,0,.35,1),opacity .45s ease .95s,color .8s ease}", "transition:opacity .4s ease}"),
+    # PC の写真の上の型では、社名が白へ色を変えながら消えていた。日本語は一瞬で白くなり、英字だけ遅れて残って見えたので、
+    # 色は変えずに日本語と英字を一緒に薄くする（2026-11-15 松本さん）
+    ("html:has(.hdwrap.ovl) .ewl.is-absorb .logo{color:#fff;", "html:has(.hdwrap.ovl) .ewl.is-absorb .logo{"),
+    ("html:has(.hdwrap.ovl) .ewl.is-absorb .logo small{color:rgba(255,255,255,.85);transition:color .8s ease}", ""),
 )
 
 
