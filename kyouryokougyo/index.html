@@ -991,6 +991,19 @@ section.alt.about{background:#e9e4da}
 .ewcbar .m{background:#ffc93c;color:#10294f}
 .ewcbar .l{background:#06c755;color:#fff}
 @media(max-width:899px){.ewcbar a{padding:0 14px;font-size:14.5px}}
+/* PC は横に余白があるので、帯の文字とボタンを大きく（2026-11-15 松本さん） */
+@media(min-width:900px){
+  .ewcbar{padding-top:16px;padding-bottom:calc(16px + env(safe-area-inset-bottom))}
+  .ewcbar{padding-left:28px;padding-right:56px}
+  .ewcbar .in{max-width:1180px;gap:28px}
+  body.ewcon .badge{bottom:156px!important}
+  .ewcbar p,.ewcbar p b{font-size:16px!important;line-height:1.6}
+  .ewcbar p i{font-size:17px}
+  .ewcbar p > span{font-size:13px}
+  .ewcbar .bt{gap:14px}
+  .ewcbar a{min-height:62px;padding:0 36px;font-size:18px}
+  .ewcbar a svg{width:24px;height:24px}
+}
 @media(prefers-reduced-motion:reduce){.ewcbar a::after{display:none}.ewcbar a{transition:none}}
 .ewcbar.min p b,.ewcbar.min p br{display:none}
 .ewcbar .x{position:absolute;right:6px;top:6px;width:32px;height:32px;border:0;border-radius:50%;
