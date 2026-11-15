@@ -3473,7 +3473,7 @@
   "name": "有限会社マル公",
   "roman": "MARUKOU",
   "industry": "seizo",
-  "photos": {"hero": "ai-marukou"},
+  "photos": {"hero": "ai-marukou", "svc": ["ai-s-marukou-1", "ai-s-marukou-2", null, "ai-s-marukou-4", null, null]},
   "tel": "0561-55-3250",
   "zip": "488-0044",
   "addr": "愛知県尾張旭市南本地ヶ原町2丁目117番地",
@@ -7908,9 +7908,7 @@
    ],
    "accent": "#4a4f57",
    "texture": "kinzoku",
-   "photos": {
-     "hero": "1633299264475-e8796606b870"
-   }
+   "photos": {"hero": "1633299264475-e8796606b870", "svc": [null, null, "ai-s-ishiharasekizai-3", "ai-s-ishiharasekizai-4", null, "ai-s-ishiharasekizai-6", null]}
  },
  "nomura-corporation": {
    "name": "株式会社野村コーポレーション",
@@ -16418,7 +16416,7 @@
   "name": "有限会社ヤマヤス工業",
   "roman": "YAMAYASU KOGYO",
   "industry": "seizo",
-  "photos": {"hero": "ai-yamayasu"},
+  "photos": {"hero": "ai-yamayasu", "svc": ["ai-s-yamayasu-1", null, "ai-s-yamayasu-3", null, "ai-s-yamayasu-5", null]},
   "tel": "0587-32-3587",
   "zip": "492-8267",
   "addr": "愛知県稲沢市船橋町大塚548番地",
@@ -16613,7 +16611,7 @@
   "name": "髙藏工業株式会社",
   "roman": "TAKAKURA KOHGYO",
   "industry": "seizo",
-  "photos": {"hero": "ai-tkknet"},
+  "photos": {"hero": "ai-tkknet", "svc": ["ai-s-tkknet-1", "ai-s-tkknet-2", null, null, null, "ai-s-tkknet-6"]},
   "tel": "0568-51-0111",
   "zip": "487-0024",
   "addr": "愛知県春日井市大留町9丁目2番地1",
@@ -17666,7 +17664,7 @@
   "name": "有限会社クオリティ",
   "roman": "QUALITY",
   "industry": "seizo",
-  "photos": {"hero": "ai-quality-ism"},
+  "photos": {"hero": "ai-quality-ism", "svc": ["ai-s-quality-ism-1", "ai-s-quality-ism-2", null, "ai-s-quality-ism-4", null, null]},
   "tel": "0561-72-5303",
   "zip": "470-0131",
   "addr": "愛知県日進市岩崎町元井ゲ17番地160",
@@ -17730,7 +17728,7 @@
   "name": "松栄工業株式会社",
   "roman": "SHOEI KOGYO",
   "industry": "seizo",
-  "photos": {"hero": "ai-shoei-kogyo"},
+  "photos": {"hero": "ai-shoei-kogyo", "svc": ["ai-s-shoei-kogyo-1", "ai-s-shoei-kogyo-2", "ai-s-shoei-kogyo-3", null, null, null]},
   "tel": "052-400-4181",
   "zip": "452-0914",
   "addr": "愛知県清須市土器野南中野447",
@@ -17858,7 +17856,7 @@
    "お問い合わせ"
   ],
   "accent": "#0059b2",
-  "photos": {"hero": "ai-g-bolt"}
+  "photos": {"hero": "ai-g-bolt", "svc": ["ai-s-tr-c-1", "ai-s-tr-c-2", null, null, null, null]}
  },
  "fukui-tekko": {
   "name": "福井鉄工株式会社",

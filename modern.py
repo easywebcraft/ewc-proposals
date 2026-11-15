@@ -1549,10 +1549,14 @@ def render(sid, d, ind):
             st = photo_style(sph[i] if i < len(sph) else None)
             return (f'<div class="cph ph"{st}></div>' if st else
                     f'<div class="cph ci">{icon_svg(t)}</div>')
+        # 写真のある項目を先に並べる。写真と絵が交互になると、まだらに見えた（2026-11-15）。
+        #   id（svc番号）はメニューのリンク先なので、元の順のまま
+        order = sorted(enumerate(d["services"], 1),
+                       key=lambda x: 0 if (x[0] - 1 < len(sph) and sph[x[0] - 1]) else 1)
         cards = "".join(
             f'<div class="card pc" id="svc{i}">{cph(i - 1, t)}<div class="cb"><h3>{e(t)}</h3>'
             f'<p>{e(p)}</p></div></div>'
-            for i, (t, p) in enumerate(d["services"], 1))
+            for i, (t, p) in order)
     elif v2:
         cards = "".join(
             f'<div class="card" id="svc{i}"><span class="ic">{icon_svg(t)}</span><span class="no" aria-hidden="true">{i:02d}</span>'
