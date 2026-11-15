@@ -7330,7 +7330,7 @@
    ],
    "accent": "#1d5fa8",
    "texture": "kinzoku",
-   "photos": {"hero": "ai-denki-3", "slides": ["ai-denki-2", "ai-denki-1"]}
+   "photos": {"hero": "ai-g-telecom", "slides": ["ai-denki-2", "ai-denki-1"]}
  },
  "ina-soku": {
    "name": "株式会社稲山測量設計",
@@ -8052,7 +8052,7 @@
    ],
    "accent": "#0b63b5",
    "texture": "kinzoku",
-   "photos": {"hero": "ai-denki-3", "slides": ["ai-denki-2", "ai-denki-1"]},
+   "photos": {"hero": "ai-g-telecom", "slides": ["ai-denki-2", "ai-denki-1"]},
   "permits": ["愛知県知事許可（般-29）第67187号"]
  },
  "itonen": {
@@ -12784,13 +12784,7 @@
   ],
   "accent": "#7a1f1f",
   "texture": "mokume",
-  "photos": {
-   "hero": "ai-house-h5",
-   "slides": [
-    "ai-house-h1",
-    "ai-mokko-3"
-   ]
-  }
+  "photos": {"hero": "ai-g-temple", "slides": ["ai-house-h1", "ai-mokko-3"]}
  },
  "noguchi-cons": {
   "name": "野口建設株式会社",
@@ -13210,13 +13204,7 @@
   ],
   "accent": "#5a3a22",
   "texture": "mokume",
-  "photos": {
-   "hero": "ai-house-h5",
-   "slides": [
-    "ai-house-h1",
-    "ai-mokko-3"
-   ]
-  }
+  "photos": {"hero": "ai-g-temple", "slides": ["ai-house-h1", "ai-mokko-3"]}
  },
  "futamuragiken": {
   "name": "株式会社二村技建",
@@ -13841,13 +13829,7 @@
   ],
   "accent": "#6b3a1f",
   "texture": "mokume",
-  "photos": {
-   "hero": "ai-house-h5",
-   "slides": [
-    "ai-mokko-3",
-    "ai-house-h1"
-   ]
-  }
+  "photos": {"hero": "ai-g-temple", "slides": ["ai-mokko-3", "ai-house-h1"]}
  },
  "hidatakumi": {
   "name": "有限会社和仁建具店",
@@ -16819,9 +16801,7 @@
    "お問い合わせ"
   ],
   "accent": "#8a3b12",
-  "photos": {
-   "hero": "ai-seizo-3"
-  }
+  "photos": {"hero": "ai-g-heat"}
  },
  "tyuo-giken": {
   "name": "中央技研株式会社",
@@ -17090,9 +17070,7 @@
    "お問い合わせ"
   ],
   "accent": "#2f5d8a",
-  "photos": {
-   "hero": "ai-seizo-2"
-  }
+  "photos": {"hero": "ai-g-casting"}
  },
  "tatematsu": {
   "name": "立松工業株式会社",
@@ -17880,9 +17858,7 @@
    "お問い合わせ"
   ],
   "accent": "#0059b2",
-  "photos": {
-   "hero": "ai-seizo-2"
-  }
+  "photos": {"hero": "ai-g-bolt"}
  },
  "fukui-tekko": {
   "name": "福井鉄工株式会社",
@@ -22236,9 +22212,7 @@
   ],
   "accent": "#3f51b5",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-3"
-  },
+  "photos": {"hero": "ai-g-heat"},
   "permits": [
    "ISO 14001",
    "ISO 9001"
@@ -25622,9 +25596,7 @@
   ],
   "accent": "#283593",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-2"
-  },
+  "photos": {"hero": "ai-g-bolt"},
   "permits": [
    "ISO 9001（工場）"
   ]
@@ -26935,9 +26907,7 @@
    "アクセスマップ"
   ],
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-3"
-  },
+  "photos": {"hero": "ai-g-casting"},
   "accent": "#0068b7"
  },
  "kasugaikanagata": {
