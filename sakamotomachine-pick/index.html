@@ -882,9 +882,10 @@ h1 .cp,h2 .cp{max-width:100%;white-space:normal;word-break:keep-all;overflow-wra
 .pk-big{position:absolute;left:0;right:0;bottom:4%;z-index:2;margin:0;text-align:center;color:#fff;
   font-family:"Helvetica Neue","Segoe UI",Arial,sans-serif;font-weight:200;line-height:.9;
   letter-spacing:.04em;white-space:nowrap;pointer-events:none;text-shadow:0 2px 20px rgba(0,0,0,.22);
-  animation:pkTrack 2.6s cubic-bezier(.2,.7,.2,1) .5s both}
+  animation:pkTrack 2.6s cubic-bezier(.2,.7,.2,1) .8s both}
 @media(min-width:760px){.hero.full .pk-big{bottom:150px}.hero.full .inner{padding-bottom:calc(var(--pkh,0px) + 40px)}}
 @media(max-width:759px){.pk-big{bottom:62px}}
+html.ewl-on:not(.ewl-txt) .pk-big{animation-play-state:paused}
 @keyframes pkTrack{from{opacity:0;letter-spacing:.18em}to{opacity:1;letter-spacing:.04em}}
 .sechead .en,.abtx .en{font-family:"Helvetica Neue","Segoe UI",Arial,sans-serif;font-weight:200;
   font-size:clamp(38px,5vw,64px);letter-spacing:.04em;line-height:1;color:inherit;text-transform:uppercase;margin-bottom:6px}
