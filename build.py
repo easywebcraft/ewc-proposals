@@ -460,7 +460,7 @@ def trial_3d(sid):
 
 # 試作（2026-11-15）：松本さんが持ってきた参考サイト（sitepick の工務店の見本）の考え方を6つ入れる。
 #   参考は売り物のデザインなので、コードは写さず考え方だけ。今の見本は変えず、出力は <キー>-pick/
-#   （トップの写真の上の説明文と小さな英字の社名は出さない。メインコピーは各行を左から一文字ずつ＝松本さんの指示）
+#   （トップの写真の上の説明文と小さな英字の社名は出さない。メインコピーは大きな英字と同じ出し方＝松本さんの指示）
 #   1 見出しが長すぎても画面からはみ出さない  2 下の写真も画面に入ったらゆっくり元の大きさに
 #   3 トップの写真の下端に英字の社名を細く大きく（出るときに字の間が詰まる）
 #   4 各見出しの英字を細く大きく  5 流れを細い線と大きな番号に  6 欄ごとに地の色を変える
@@ -481,11 +481,11 @@ h1 .cp,h2 .cp{max-width:100%;white-space:normal;word-break:keep-all;overflow-wra
 @media(min-width:760px){.hero.full .pk-big{bottom:150px}.hero.full .inner{padding-bottom:calc(var(--pkh,0px) + 40px)}}
 @media(max-width:759px){.pk-big{bottom:62px}}
 html.ewl-on:not(.ewl-txt) .pk-big{animation-play-state:paused}
-/* メインコピー：各行を左から一文字ずつ（行ごとに順に） */
-.hero h1.pk-ty{animation:none;opacity:1;transform:none}
-.hero h1 .pkc{display:inline-block;opacity:0;animation:pkChar .55s cubic-bezier(.2,.7,.2,1) var(--d) both}
-html.ewl-on:not(.ewl-txt) .hero h1 .pkc{animation-play-state:paused}
-@keyframes pkChar{from{opacity:0;transform:translateX(-.35em)}to{opacity:1;transform:none}}
+/* メインコピー：下の大きな英字と同じ出し方（字の間が広い状態から、薄く出ながら詰まる） */
+.hero h1.pk-tr{animation:pkTrackH 2.6s cubic-bezier(.2,.7,.2,1) .3s both}
+.hero h1.pk-tr:not(.pk-done) .cp{max-width:none}
+html.ewl-on:not(.ewl-txt) .hero h1.pk-tr{animation-play-state:paused}
+@keyframes pkTrackH{from{opacity:0;letter-spacing:calc(var(--pkls) + .14em)}to{opacity:1;letter-spacing:var(--pkls)}}
 @keyframes pkTrack{from{opacity:0;letter-spacing:.18em}to{opacity:1;letter-spacing:.04em}}
 .sechead .en,.abtx .en{font-family:"Helvetica Neue","Segoe UI",Arial,sans-serif;font-weight:200;
   font-size:clamp(38px,5vw,64px);letter-spacing:.04em;line-height:1;color:inherit;text-transform:uppercase;margin-bottom:6px}
@@ -500,7 +500,7 @@ html.ewl-on:not(.ewl-txt) .hero h1 .pkc{animation-play-state:paused}
   font-weight:200;font-size:40px;line-height:1;letter-spacing:.04em;color:#fff;background:none;border:0}
 section.alt{background:#f4f2ee}
 section.alt.about{background:#e9e4da}
-@media(prefers-reduced-motion:reduce){.pk-big,.hero h1 .pkc{animation:none;opacity:1}.pkz{transform:none;transition:none}}
+@media(prefers-reduced-motion:reduce){.pk-big,.hero h1.pk-tr{animation:none;opacity:1}.pkz{transform:none;transition:none}}
 </style>
 """
 
@@ -518,18 +518,9 @@ PICK_JS = """<script>
   var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var h1=document.querySelector('.hero h1');
   if(h1&&!still){
-    var n=0,line=0;
-    (function walk(el){[].slice.call(el.childNodes).forEach(function(c){
-      if(c.nodeType===3){
-        var f=document.createDocumentFragment();
-        Array.from(c.textContent).forEach(function(ch){
-          var s=document.createElement('span');s.className='pkc';s.textContent=ch;
-          s.style.setProperty('--d',(.3+n*.07+line*.15).toFixed(2)+'s');n++;f.appendChild(s);
-        });
-        c.parentNode.replaceChild(f,c);
-      }else if(c.nodeName==='BR'){line++;}else{walk(c);}
-    });})(h1);
-    h1.classList.add('pk-ty');
+    h1.style.setProperty('--pkls',getComputedStyle(h1).letterSpacing);
+    h1.classList.add('pk-tr');
+    h1.addEventListener('animationend',function(e){if(e.target===h1)h1.classList.add('pk-done');});
   }
   var els=[].slice.call(document.querySelectorAll('.cph.ph,.abph.ph,.gframe.ph'));
   els=els.filter(function(el){
