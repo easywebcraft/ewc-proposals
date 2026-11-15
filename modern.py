@@ -871,7 +871,7 @@ body{padding-bottom:190px}
 </style>
 <div class="ewcbar" role="region" aria-label="EasyWebCraft へのご相談">
   <div class="in">
-    <p><b><span class="g"><span class="w">@@NAME@@様向けに制作した<span class="w">デザイン案です。</span></span><span class="w">文章やデザインは</span><span class="w">ご要望に応じて変更可能です。</span></span><span class="g"><span class="w">少しでもご興味があれば、</span><span class="w">ボタンを押して</span><span class="w">そのまま送るだけで結構です。</span></span></b><br><i>@@PRICE@@</i> <span>EasyWebCraft　担当：@@STAFF@@</span></p>
+    <p><b><span class="g"><span class="w">@@NAME@@様向けに制作した<span class="w">トップページの</span><span class="w">デザイン案です。</span></span><span class="w">文章やデザインは</span><span class="w">ご要望に応じて変更可能です。</span></span><span class="g"><span class="w">少しでもご興味があれば、</span><span class="w">ボタンを押して</span><span class="w">そのまま送るだけで結構です。</span></span></b><br><i>@@PRICE@@</i> <span>EasyWebCraft　担当：@@STAFF@@</span></p>
     <div class="bt"><a class="m" href="@@MAILTO@@">詳しく聞きたい</a><a class="l" href="@@LINE@@" target="_blank" rel="noopener">LINEで相談</a></div>
   </div>
   <button class="x" type="button" aria-label="閉じる">×</button>
