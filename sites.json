@@ -17856,7 +17856,7 @@
    "お問い合わせ"
   ],
   "accent": "#0059b2",
-  "photos": {"hero": "ai-g-bolt", "svc": ["ai-s-tr-c-1", "ai-s-tr-c-2", null, null, null, null]}
+  "photos": {"hero": "ai-g-bolt", "svc": ["ai-s-tr-c-1", "ai-s-tr-c-2", null, null, null, "ai-s-tr-c-6"]}
  },
  "fukui-tekko": {
   "name": "福井鉄工株式会社",
@@ -17921,9 +17921,7 @@
    "お問い合わせ"
   ],
   "accent": "#005fbd",
-  "photos": {
-   "hero": "ai-seizo-1"
-  }
+  "photos": {"hero": "ai-seizo-1", "svc": ["ai-s-fukui-tekko-1", "ai-s-fukui-tekko-2", "ai-s-fukui-tekko-3", null, null, null]}
  },
  "utsuno": {
   "name": "株式会社ウツノ",
@@ -21328,9 +21326,7 @@
    "お問い合わせ"
   ],
   "accent": "#135780",
-  "photos": {
-   "hero": "1509635022432-0220ac12960b"
-  }
+  "photos": {"hero": "1509635022432-0220ac12960b", "svc": ["ai-s-inoue-glass-1", null, "ai-s-inoue-glass-3", "ai-s-inoue-glass-4", null, null]}
  },
  "yoshioka-ssk": {
   "name": "有限会社ヨシオカ製作所",
@@ -23704,9 +23700,7 @@
   "hours": "営業時間 10:00–18:00（火・水 定休）",
   "accent": "#7a4b8c",
   "texture": "nuri",
-  "photos": {
-   "hero": "ai-house-h3"
-  }
+  "photos": {"hero": "ai-house-h3", "svc": ["ai-s-e-abe-1", "ai-s-e-abe-2", null, "ai-s-e-abe-4", null, null]}
  },
  "sakai-mfg": {
   "name": "株式会社酒井製作所",
