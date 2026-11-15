@@ -487,7 +487,7 @@ nav a:hover,nav a:focus-visible{color:var(--accent)}
 .ewl{display:none}
 html.ewl-on{overflow:hidden}
 html.ewl-on .ewl{display:grid;place-items:center;position:fixed;inset:0;z-index:1000;background:#fff;
-  transition:background-color 1.3s ease .5s,opacity .6s ease;cursor:pointer}
+  transition:background-color 1.2s ease-in,opacity .5s ease;cursor:pointer}
 html.ewl-on .ewl.is-absorb{background-color:rgba(255,255,255,0)}
 html.ewl-on .ewl.is-out{opacity:0}
 /* ★2026-11-02 輪の中は頭文字ではなく会社名。輪は会社名が収まる大きさ（--ewd、JS で決める） */
@@ -505,7 +505,7 @@ html.ewl-on .ewl.is-out{opacity:0}
 .ewl-p2{position:absolute;inset:0;display:grid;place-content:center;opacity:0;pointer-events:none;transition:opacity .35s ease}
 .ewl.is-in .ewl-p2{opacity:1}
 .ewl .logo{transform:scale(var(--ewk,1.9));transform-origin:50% 50%;white-space:nowrap;
-  transition:opacity .5s ease}
+  transition:opacity .4s ease}
 /* 着いてから本物と入れ替える（途中で消すと、吸い込まれる動きが見えない） */
 .ewl.is-absorb .logo{opacity:0}
 .ewl-skip{position:absolute;bottom:26px;left:0;right:0;text-align:center;font-size:11px;letter-spacing:.1em;
@@ -754,7 +754,7 @@ section.alt #company table.info,section.alt table.info{background:var(--ground)}
   .hdwrap.ovl ~ .hero.full .inner .side{padding-top:125px}
   /* 「イメージ写真です」の札がメニューの電話ボタンに隠れないよう、帯の下へ */
   .hdwrap.ovl ~ .hero.full .shot .lb{top:96px}
-  html:has(.hdwrap.ovl) .ewl.is-absorb .logo{color:#fff;transition:opacity .5s ease}
+  html:has(.hdwrap.ovl) .ewl.is-absorb .logo{color:#fff;transition:opacity .4s ease}
   html:has(.hdwrap.ovl) .ewl.is-absorb .logo small{color:rgba(255,255,255,.85);transition:color .8s ease}
 }
 
@@ -1191,9 +1191,9 @@ window.__animReady=true;                    // <head> の保険に「動いた�
     }
     r.classList.add('ewl-go');          // 幕の下で止めていたトップの動きを、ここから流す
     L.classList.add('is-absorb');
-    setTimeout(function(){if(real)real.style.opacity='1';},500);
-    setTimeout(function(){r.classList.add('ewl-txt');},900);   // 幕がほぼ透けたところで文字を出し始める
-    setTimeout(end,1900);                                       // 幕の白が消えたらすぐ外す（前は 1.8秒待っていた）
+    setTimeout(function(){if(real)real.style.opacity='1';},300);
+    setTimeout(function(){r.classList.add('ewl-txt');},600);   // 幕がほぼ透けたところで文字を出し始める
+    setTimeout(end,1300);                                       // 幕の白が消えたらすぐ外す（前は 1.8秒待っていた）
   };
   // ★2026-11-02「ローディングの演出はそのままで、表示は会社名のみ。会社名は大きく、長めに」。
   //   輪の中に会社名を大きく置く。輪は会社名が収まる大きさにし、画面の短い辺の8割に収める

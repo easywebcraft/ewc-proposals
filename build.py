@@ -565,21 +565,21 @@ def trial_pick(sid):
 
 # 試作（2026-11-15）：冒頭の演出を約2秒に縮める。形はそのまま（輪が満ちる→社名→左上へ吸い込む）で、間合いだけ詰める。
 #   今は文字が出始めるまで約4秒（輪1.6秒＋待ち0.25秒＋社名0.9秒＋吸い込み0.85秒）。試作は約1.8秒（輪0.9＋0.1＋社名0.5＋0.3）
-#   社名を左上へ移す動きは省き、幕と一緒にその場で消す。社名は白い幕の上で先に消し（0.5秒）、そのあと幕を約1.3秒かけて薄くして写真へ切り替える。
-#   社名とページが重なって透けて見えるのが不自然だった（2026-11-15 松本さん「切り替わる際に違和感」）
+#   社名を左上へ移す動きは省き、幕と一緒にその場で消す。社名を消し始めると同時に幕も薄くし始め、白い画面だけが残る間を作らない（松本さん「白い画面が残るのが違和感」）。
+#   社名は0.4秒で先に消え、幕は1.2秒（はじめはゆっくり）なので、社名とページが重なって見えることもない
 FAST_REPL = (
     ("var C=2*Math.PI*54,D=1600", "var C=2*Math.PI*54,D=900"),
     ("setTimeout(absorb,900);},250);", "setTimeout(absorb,500);},100);"),
     # 社名を左上のロゴへ移す動きは省く（2026-11-15 松本さん）。社名は幕と一緒にその場で薄れて消える
     ("    if(real&&copy){\n      // 中央に拡大して置いた社名を", "    if(false){\n      // 中央に拡大して置いた社名を"),
-    ("setTimeout(function(){if(real)real.style.opacity='1';},950);", "setTimeout(function(){if(real)real.style.opacity='1';},500);"),
-    ("setTimeout(function(){r.classList.add('ewl-txt');},850);", "setTimeout(function(){r.classList.add('ewl-txt');},900);"),
-    ("setTimeout(end,1200);", "setTimeout(end,1900);"),
+    ("setTimeout(function(){if(real)real.style.opacity='1';},950);", "setTimeout(function(){if(real)real.style.opacity='1';},300);"),
+    ("setTimeout(function(){r.classList.add('ewl-txt');},850);", "setTimeout(function(){r.classList.add('ewl-txt');},600);"),
+    ("setTimeout(end,1200);", "setTimeout(end,1300);"),
     ("L.remove();},500);", "L.remove();},350);"),
-    ("transition:background-color .9s ease .25s,opacity .5s ease", "transition:background-color 1.3s ease .5s,opacity .6s ease"),
+    ("transition:background-color .9s ease .25s,opacity .5s ease", "transition:background-color 1.2s ease-in,opacity .5s ease"),
     ("transition:opacity .6s ease .1s}", "transition:opacity .35s ease}"),
-    ("transition:transform 1s cubic-bezier(.65,0,.35,1),opacity .45s ease .95s}", "transition:opacity .5s ease}"),
-    ("transition:transform 1s cubic-bezier(.65,0,.35,1),opacity .45s ease .95s,color .8s ease}", "transition:opacity .5s ease}"),
+    ("transition:transform 1s cubic-bezier(.65,0,.35,1),opacity .45s ease .95s}", "transition:opacity .4s ease}"),
+    ("transition:transform 1s cubic-bezier(.65,0,.35,1),opacity .45s ease .95s,color .8s ease}", "transition:opacity .4s ease}"),
 )
 
 
