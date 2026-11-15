@@ -460,7 +460,7 @@ def trial_3d(sid):
 
 # 試作（2026-11-15）：松本さんが持ってきた参考サイト（sitepick の工務店の見本）の考え方を6つ入れる。
 #   参考は売り物のデザインなので、コードは写さず考え方だけ。今の見本は変えず、出力は <キー>-pick/
-#   （トップの写真の上の説明文は出さない＝松本さんの指示）
+#   （トップの写真の上の説明文と小さな英字の社名は出さない＝松本さんの指示）
 #   1 見出しが長すぎても画面からはみ出さない  2 下の写真も画面に入ったらゆっくり元の大きさに
 #   3 トップの写真の下端に英字の社名を細く大きく（出るときに字の間が詰まる）
 #   4 各見出しの英字を細く大きく  5 流れを細い線と大きな番号に  6 欄ごとに地の色を変える
@@ -472,7 +472,7 @@ h1 .cp,h2 .cp{max-width:100%;white-space:normal;word-break:keep-all;overflow-wra
 .pkz-o.is-in .pkz{transform:none}
 .pkz-o>:not(.pkz){position:relative;z-index:1}
 .hero .bigen{display:none}
-.hero .sub{display:none}
+.hero .sub,.hero .meta .en{display:none}
 .shot{position:relative}
 .pk-big{position:absolute;left:0;right:0;bottom:4%;z-index:2;margin:0;text-align:center;color:#fff;
   font-family:"Helvetica Neue","Segoe UI",Arial,sans-serif;font-weight:200;line-height:.9;
