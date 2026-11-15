@@ -4102,7 +4102,7 @@
   "texture": "kinzoku",
   "zip": "462-0007",
   "founded": "1995",
-  "photos": {"hero": "ai-setsubi-2", "slides": ["ai-setsubi-3", "ai-setsubi-1"]},
+  "photos": {"hero": "ai-g-water", "slides": ["ai-setsubi-3", "ai-setsubi-1"]},
   "permits": ["愛知県知事許可（般-30）第106780号"]
  },
  "toueidenki": {
@@ -6756,7 +6756,7 @@
   "accent": "#297ba4",
   "texture": "kinzoku",
   "zip": "509-0147",
-  "photos": {"hero": "ai-seizo-3", "slides": ["ai-seizo-1", "ai-seizo-2"]}
+  "photos": {"hero": "ai-g-welding"}
  },
  "senshou": {
   "name": "千勝建設株式会社",
@@ -9044,7 +9044,7 @@
      "アクセス"
    ],
    "accent": "#0e3f8a",
-   "photos": {"hero": "ai-seizo-1", "slides": ["ai-seizo-2", "ai-seizo-3"]}
+   "photos": {"hero": "ai-g-automation"}
  },
  "kyouryokougyo": {
    "name": "株式会社共亮興業",
@@ -9479,7 +9479,7 @@
      "会社概要"
    ],
    "accent": "#0e3f8a",
-   "photos": {"hero": "ai-seizo-1", "slides": ["ai-seizo-2", "ai-seizo-3"]}
+   "photos": {"hero": "ai-g-automation"}
  },
  "kanemaru-s": {
    "name": "有限会社カネマル精巧",
@@ -10660,7 +10660,7 @@
    "インフォメーション"
   ],
   "accent": "#1d3a8a",
-  "photos": {"hero": "ai-seizo-1", "slides": ["ai-seizo-2", "ai-seizo-3"]}
+  "photos": {"hero": "ai-g-automation"}
  },
  "chuo-eng": {
   "name": "株式会社中央エンジニアリング",
@@ -10725,7 +10725,7 @@
    "採用"
   ],
   "accent": "#6f9a26",
-  "photos": {"hero": "ai-seizo-1", "slides": ["ai-seizo-2", "ai-seizo-3"]},
+  "photos": {"hero": "ai-g-automation"},
   "permits": [
    "三重県知事 般54-6228（管工事業・機械器具設置工事業）"
   ]
@@ -12158,13 +12158,7 @@
    "採用情報"
   ],
   "accent": "#8a1f1a",
-  "photos": {
-   "hero": "ai-seizo-2",
-   "slides": [
-    "ai-c-design",
-    "ai-seizo-1"
-   ]
-  }
+  "photos": {"hero": "ai-g-automation", "slides": ["ai-c-design"]}
  },
  "bluematerial": {
   "name": "株式会社ブルーマテリアル",
@@ -13078,13 +13072,7 @@
   "permits": [
    "岐阜県知事許可（特-7）第10582号"
   ],
-  "photos": {
-   "hero": "ai-seizo-1",
-   "slides": [
-    "ai-seizo-3",
-    "ai-house-h3"
-   ]
-  }
+  "photos": {"hero": "ai-g-welding", "slides": ["ai-house-h3"]}
  },
  "marushin-kaitai": {
   "name": "株式会社丸信",
@@ -13435,13 +13423,7 @@
    "求人情報"
   ],
   "accent": "#2f5a1f",
-  "photos": {
-   "hero": "ai-seizo-2",
-   "slides": [
-    "ai-seizo-3",
-    "ai-seizo-1"
-   ]
-  }
+  "photos": {"hero": "ai-g-welding"}
  },
  "kitani-g": {
   "name": "株式会社キタニ",
@@ -14144,13 +14126,7 @@
   "permits": [
    "愛知県知事許可（般-24）第60011号"
   ],
-  "photos": {
-   "hero": "ai-setsubi-2",
-   "slides": [
-    "ai-setsubi-3",
-    "ai-setsubi-1"
-   ]
-  }
+  "photos": {"hero": "ai-g-water", "slides": ["ai-setsubi-3", "ai-setsubi-1"]}
  },
  "kinoshitaconstruction": {
   "name": "有限会社木下建設",
@@ -14574,13 +14550,7 @@
    "ISO9001",
    "ISO14001"
   ],
-  "photos": {
-   "hero": "ai-setsubi-2",
-   "slides": [
-    "ai-house-g4",
-    "ai-setsubi-3"
-   ]
-  }
+  "photos": {"hero": "ai-g-water", "slides": ["ai-house-g4", "ai-setsubi-3"]}
  },
  "marushin-house": {
   "name": "株式会社丸信住宅産業",
@@ -15000,13 +14970,7 @@
    "お問合せ"
   ],
   "accent": "#2a4a6b",
-  "photos": {
-   "hero": "ai-seizo-2",
-   "slides": [
-    "ai-seizo-1",
-    "ai-seizo-3"
-   ]
-  }
+  "photos": {"hero": "ai-g-press"}
  },
  "chubu-ss": {
   "name": "株式会社中部製作所",
@@ -15142,13 +15106,7 @@
    "主要納入先"
   ],
   "accent": "#1f3fa0",
-  "photos": {
-   "hero": "ai-seizo-1",
-   "slides": [
-    "ai-seizo-2",
-    "ai-seizo-3"
-   ]
-  }
+  "photos": {"hero": "ai-g-dust"}
  },
  "maru8sugihara": {
   "name": "有限会社杉原鉄工所",
@@ -15211,13 +15169,7 @@
    "お問い合わせ"
   ],
   "accent": "#2f4f6f",
-  "photos": {
-   "hero": "ai-seizo-3",
-   "slides": [
-    "ai-seizo-1",
-    "ai-seizo-2"
-   ]
-  }
+  "photos": {"hero": "ai-g-welding"}
  },
  "nagasaki-eng": {
   "name": "有限会社長崎製作所",
@@ -15754,9 +15706,7 @@
    "お問い合わせ"
   ],
   "accent": "#7a2e1e",
-  "photos": {
-   "hero": "ai-seizo-3"
-  }
+  "photos": {"hero": "ai-g-press"}
  },
  "ishigaki-seikou": {
   "name": "有限会社石垣精工",
@@ -15821,9 +15771,7 @@
    "お問い合わせ"
   ],
   "accent": "#a56321",
-  "photos": {
-   "hero": "ai-seizo-3"
-  }
+  "photos": {"hero": "ai-g-press"}
  },
  "shodatekkou": {
   "name": "有限会社庄田鉄工所",
@@ -16359,9 +16307,7 @@
    "お問い合わせ"
   ],
   "accent": "#3657a5",
-  "photos": {
-   "hero": "ai-seizo-3"
-  }
+  "photos": {"hero": "ai-g-welding"}
  },
  "ktk-corp": {
   "name": "株式会社ケー・ティー・ケー",
@@ -16689,9 +16635,7 @@
    "お見積もり依頼"
   ],
   "accent": "#bf4c26",
-  "photos": {
-   "hero": "ai-seizo-3"
-  }
+  "photos": {"hero": "ai-g-press"}
  },
  "tkknet": {
   "name": "髙藏工業株式会社",
@@ -17223,9 +17167,7 @@
    "お問合せ"
   ],
   "accent": "#2e6b4f",
-  "photos": {
-   "hero": "ai-seizo-3"
-  }
+  "photos": {"hero": "ai-g-welding"}
  },
  "sbito": {
   "name": "株式会社エスビー・イトー",
@@ -17353,9 +17295,7 @@
    "お問い合わせ"
   ],
   "accent": "#660000",
-  "photos": {
-   "hero": "ai-seizo-1"
-  }
+  "photos": {"hero": "ai-g-automation"}
  },
  "marusu-glaze": {
   "name": "丸ス釉薬合資会社",
@@ -17752,9 +17692,7 @@
    "お問合わせ"
   ],
   "accent": "#7a2e1e",
-  "photos": {
-   "hero": "ai-seizo-3"
-  }
+  "photos": {"hero": "ai-g-welding"}
  },
  "quality-ism": {
   "name": "有限会社クオリティ",
@@ -18087,9 +18025,7 @@
    "お問い合わせ"
   ],
   "accent": "#2d833c",
-  "photos": {
-   "hero": "ai-seizo-3"
-  }
+  "photos": {"hero": "ai-g-press"}
  },
  "sanritu-seto": {
   "name": "株式会社三立",
@@ -19542,9 +19478,7 @@
   ],
   "accent": "#9e1112",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-2"
-  }
+  "photos": {"hero": "ai-g-automation"}
  },
  "okaban": {
   "name": "株式会社岡田板金",
@@ -22049,9 +21983,7 @@
   ],
   "accent": "#1a237e",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-2"
-  }
+  "photos": {"hero": "ai-g-press"}
  },
  "ovk": {
   "name": "大洋弁栓株式会社",
@@ -22590,9 +22522,7 @@
   ],
   "accent": "#1565c0",
   "texture": "zumen",
-  "photos": {
-   "hero": "ai-setsubi-2"
-  }
+  "photos": {"hero": "ai-g-water"}
  },
  "triyokka": {
   "name": "東海緑化株式会社",
@@ -23349,9 +23279,7 @@
   ],
   "accent": "#8a5a2b",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-3"
-  }
+  "photos": {"hero": "ai-g-welding"}
  },
  "lieben-wax": {
   "name": "サトー産業株式会社",
@@ -24030,9 +23958,7 @@
   ],
   "accent": "#a8325e",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-1"
-  }
+  "photos": {"hero": "ai-g-press"}
  },
  "ryousei": {
   "name": "リョウセイ株式会社",
@@ -24098,9 +24024,7 @@
   ],
   "accent": "#1d4f91",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-3"
-  },
+  "photos": {"hero": "ai-g-dust"},
   "permits": [
    "ISO 14001"
   ]
@@ -24372,9 +24296,7 @@
   ],
   "accent": "#2b6cb0",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-2"
-  }
+  "photos": {"hero": "ai-g-press"}
  },
  "fukujyu": {
   "name": "株式会社福寿金属製作所",
@@ -24439,9 +24361,7 @@
   ],
   "accent": "#1b6fa8",
   "texture": "zumen",
-  "photos": {
-   "hero": "ai-setsubi-2"
-  }
+  "photos": {"hero": "ai-g-water"}
  },
  "maruzen-industry": {
   "name": "丸善工業株式会社",
@@ -24506,9 +24426,7 @@
   ],
   "accent": "#1d3f72",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-3"
-  }
+  "photos": {"hero": "ai-g-dust"}
  },
  "iwata-ss": {
   "name": "株式会社岩田三宝製作所",
@@ -25938,9 +25856,7 @@
   ],
   "accent": "#c4161c",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-1"
-  }
+  "photos": {"hero": "ai-g-automation"}
  },
  "tps-co": {
   "name": "株式会社ティー・ピー・エス",
@@ -27115,9 +27031,7 @@
    "環境方針"
   ],
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-1"
-  },
+  "photos": {"hero": "ai-g-press"},
   "accent": "#3d5a66"
  },
  "marudaimokkou": {
@@ -28025,9 +27939,7 @@
    "お問い合わせ"
   ],
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-3"
-  },
+  "photos": {"hero": "ai-g-dust"},
   "accent": "#006600"
  },
  "waytechnos": {
@@ -28161,12 +28073,7 @@
    "アクセス"
   ],
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-denki-1",
-   "slides": [
-    "ai-seizo-1"
-   ]
-  },
+  "photos": {"hero": "ai-g-automation"},
   "accent": "#4a4e69"
  },
  "sakakien": {
@@ -28306,9 +28213,7 @@
    "お問合せ"
   ],
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-1"
-  },
+  "photos": {"hero": "ai-g-automation"},
   "accent": "#b3121b"
  },
  "nakasetu": {
@@ -28376,12 +28281,7 @@
    "スタッフ紹介"
   ],
   "texture": "zumen",
-  "photos": {
-   "hero": "ai-setsubi-2",
-   "slides": [
-    "ai-house-g4"
-   ]
-  },
+  "photos": {"hero": "ai-g-water", "slides": ["ai-house-g4"]},
   "accent": "#4d0000"
  },
  "daito-inabe": {
@@ -29197,9 +29097,7 @@
    "お問い合わせ"
   ],
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-3"
-  },
+  "photos": {"hero": "ai-g-welding"},
   "accent": "#51776a"
  },
  "okuoka-net": {
@@ -29264,9 +29162,7 @@
    "採用情報"
   ],
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-3"
-  },
+  "photos": {"hero": "ai-g-welding"},
   "accent": "#008458"
  },
  "tms4088": {
@@ -29538,9 +29434,7 @@
    "お問い合わせ"
   ],
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-3"
-  },
+  "photos": {"hero": "ai-g-press"},
   "accent": "#168039"
  },
  "yonobe": {
@@ -30023,9 +29917,7 @@
    "採用情報"
   ],
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-1"
-  },
+  "photos": {"hero": "ai-g-automation"},
   "accent": "#2b4c7e"
  },
  "sakasoku": {
@@ -30428,9 +30320,7 @@
    "アクセス"
   ],
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-1"
-  },
+  "photos": {"hero": "ai-g-press"},
   "accent": "#417789"
  },
  "hiratasouken": {
