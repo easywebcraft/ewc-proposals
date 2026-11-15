@@ -1177,7 +1177,7 @@ window.__animReady=true;                    // <head> の保険に「動いた�
     if(!big)return;
     var w=big.parentElement.clientWidth*.92, a=big.style.animation;
     big.style.animation='none';big.style.fontSize='100px';
-    var s=big.scrollWidth;big.style.fontSize=Math.min(140,100*w/s)+'px';big.style.animation=a;
+    var s=big.scrollWidth;big.style.fontSize=Math.min(140,w*.15,100*w/s)+'px';big.style.animation=a;
     var h=big.closest('.hero');if(h)h.style.setProperty('--pkh',big.offsetHeight+'px');
   }
   fit();addEventListener('resize',fit);

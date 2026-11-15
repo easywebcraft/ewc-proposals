@@ -415,8 +415,12 @@ def main(only=None):
             continue
         out = root / sid
         out.mkdir(exist_ok=True)
-        (out / "index.html").write_text(render(sid, d), encoding="utf-8")
-        print(f"  {sid:<14} {d['name'][:22]:<24} {len(render(sid, d)):>6} バイト")
+        html = render(sid, d)
+        # 写真のある型（建設・製造・自動車）には参考サイトの考え方を入れる（2026-11-15 松本さん「全てに適用」）
+        if INDUSTRY[d["industry"]].get("layout") == "modern":
+            html = apply_pick(html, d)
+        (out / "index.html").write_text(html, encoding="utf-8")
+        print(f"  {sid:<14} {d['name'][:22]:<24} {len(html):>6} バイト")
 
 
 def trial(sid):
@@ -459,7 +463,7 @@ def trial_3d(sid):
 
 
 # 試作（2026-11-15）：松本さんが持ってきた参考サイト（sitepick の工務店の見本）の考え方を6つ入れる。
-#   参考は売り物のデザインなので、コードは写さず考え方だけ。今の見本は変えず、出力は <キー>-pick/
+#   参考は売り物のデザインなので、コードは写さず考え方だけ。試作は <キー>-pick/、2026-11-15 から写真のある型の全見本に入れた
 #   （トップの写真の上の説明文と小さな英字の社名は出さない。メインコピーは大きな英字と同じ出し方＝松本さんの指示）
 #   1 見出しが長すぎても画面からはみ出さない  2 下の写真も画面に入ったらゆっくり元の大きさに
 #   3 トップの写真の下端に英字の社名を細く大きく（出るときに字の間が詰まる）
@@ -511,7 +515,7 @@ PICK_JS = """<script>
     if(!big)return;
     var w=big.parentElement.clientWidth*.92, a=big.style.animation;
     big.style.animation='none';big.style.fontSize='100px';
-    var s=big.scrollWidth;big.style.fontSize=Math.min(140,100*w/s)+'px';big.style.animation=a;
+    var s=big.scrollWidth;big.style.fontSize=Math.min(140,w*.15,100*w/s)+'px';big.style.animation=a;
     var h=big.closest('.hero');if(h)h.style.setProperty('--pkh',big.offsetHeight+'px');
   }
   fit();addEventListener('resize',fit);
@@ -537,17 +541,21 @@ PICK_JS = """<script>
 """
 
 
-def trial_pick(sid):
-    """参考サイトの考え方を入れた試作を <キー>-pick/ に作る。今の見本（<キー>/）は変えない。"""
-    root = pathlib.Path(__file__).resolve().parent
-    d = json.loads((root / "sites.json").read_text(encoding="utf-8"))[sid]
-    html = render(sid, d)
+def apply_pick(html, d):
+    """組み上がった見本に、参考サイトの考え方（PICK_CSS・PICK_JS・トップの大きな英字）を足す。"""
     html = html.replace("</head>", PICK_CSS + "</head>", 1)
     s = html.find('class="shot')
     lb = html.find('<div class="lb">', s)
     if s >= 0 and lb >= 0 and d.get("roman"):
         html = html[:lb] + f'<p class="pk-big" aria-hidden="true">{H.escape(d["roman"])}</p>' + html[lb:]
-    html = html.replace("</body>", PICK_JS + "</body>", 1)
+    return html.replace("</body>", PICK_JS + "</body>", 1)
+
+
+def trial_pick(sid):
+    """参考サイトの考え方を入れた試作を <キー>-pick/ に作る（2026-11-15 から本番の見本にも入っている）。"""
+    root = pathlib.Path(__file__).resolve().parent
+    d = json.loads((root / "sites.json").read_text(encoding="utf-8"))[sid]
+    html = apply_pick(render(sid, d), d)
     out = root / (sid + "-pick")
     out.mkdir(exist_ok=True)
     (out / "index.html").write_text(html, encoding="utf-8")
