@@ -848,7 +848,7 @@
   ],
   "accent": "#0099cc",
   "texture": "kinzoku",
-  "photos": {"hero": "ai-mokko-1", "slides": ["ai-mokko-2", "ai-mokko-3"]}
+  "photos": {"hero": "ai-g-diecut", "slides": ["ai-mokko-3"]}
  },
  "reliable": {
   "industry": "kensetsu",
@@ -2367,7 +2367,7 @@
   ],
   "accent": "#425863",
   "texture": "mokume",
-  "photos": {"hero": "ai-mokko-1", "gallery": ["ai-mokko-3", null, null], "slides": ["ai-mokko-2", "ai-mokko-3"]}
+  "photos": {"hero": "ai-g-shopfit", "gallery": ["ai-mokko-3", null, null], "slides": ["ai-mokko-2", "ai-mokko-3"]}
  },
  "nikoniko-zoen": {
   "name": "有限会社にこにこ造園",
@@ -7633,7 +7633,7 @@
    ],
    "accent": "#b0242a",
    "texture": "mokume",
-   "photos": {"hero": "ai-mokko-1", "gallery": ["ai-mokko-3", null, null], "slides": ["ai-mokko-2", "ai-mokko-3"]}
+   "photos": {"hero": "ai-g-shopfit", "gallery": ["ai-mokko-3", null, null], "slides": ["ai-mokko-3"]}
  },
  "kk-asakura": {
    "name": "株式会社安桜",
@@ -20981,9 +20981,7 @@
    "お問合せ"
   ],
   "accent": "#0169b2",
-  "photos": {
-   "hero": "ai-seizo-1"
-  }
+  "photos": {"hero": "ai-g-rubber"}
  },
  "yamaso-net": {
   "name": "有限会社ヤマソー",
@@ -23365,9 +23363,7 @@
   ],
   "accent": "#7b1f7b",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-1"
-  }
+  "photos": {"hero": "ai-g-diecut"}
  },
  "taimei-hatamaku": {
   "name": "有限会社泰明旗幕工業",
@@ -23499,9 +23495,7 @@
   ],
   "accent": "#0b2f8a",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-3"
-  },
+  "photos": {"hero": "ai-g-rubber"},
   "permits": [
    "ISO 9001"
   ]
@@ -25322,9 +25316,7 @@
   "hours": "営業時間 8:00–17:00（日曜 休）",
   "accent": "#e07b00",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-3"
-  }
+  "photos": {"hero": "ai-g-playground"}
  },
  "nagoya-block": {
   "name": "株式会社菱庄",
@@ -27464,9 +27456,7 @@
    "会社概要"
   ],
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-2"
-  },
+  "photos": {"hero": "ai-g-burner"},
   "accent": "#0056f5"
  },
  "kuroyanagi": {
