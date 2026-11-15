@@ -249,7 +249,7 @@
    "関連企業",
    "会社概要"
   ],
-  "photos": {"hero": "ai-seizo-3", "slides": ["ai-seizo-1", "ai-seizo-2"]},
+  "photos": {"hero": "ai-g-sheetmetal"},
   "permits": ["ISO9001"]
  },
  "katoh-auto": {
@@ -989,7 +989,7 @@
   ],
   "accent": "#2e8a2e",
   "texture": "kinzoku",
-  "photos": {"hero": "ai-seizo-3", "slides": ["ai-seizo-1", "ai-seizo-2"]}
+  "photos": {"hero": "ai-g-sheetmetal"}
  },
  "setta": {
   "industry": "kensetsu",
@@ -4856,7 +4856,7 @@
   "accent": "#bf4f00",
   "texture": "kinzoku",
   "zip": "489-0052",
-  "photos": {"hero": "ai-seizo-2", "slides": ["ai-seizo-1", "ai-seizo-3"]}
+  "photos": {"hero": "ai-g-plating"}
  },
  "kaboku": {
   "name": "協同組合日本ライン花木センター",
@@ -5487,7 +5487,7 @@
   "texture": "kinzoku",
   "zip": "470-1168",
   "founded": "1970",
-  "photos": {"hero": "ai-seizo-1", "slides": ["ai-seizo-2", "ai-seizo-3"]},
+  "photos": {"hero": "ai-g-injection"},
   "permits": ["ISO9001"]
  },
  "designoar": {
@@ -8481,7 +8481,7 @@
      "会社概要"
    ],
    "accent": "#0e3f8a",
-   "photos": {"hero": "ai-seizo-2", "slides": ["ai-seizo-1", "ai-seizo-3"]}
+   "photos": {"hero": "ai-g-injection"}
  },
  "kuwaden": {
    "name": "桑名電気産業株式会社",
@@ -9543,7 +9543,7 @@
      "採用情報"
    ],
    "accent": "#0e3f8a",
-   "photos": {"hero": "ai-seizo-1", "slides": ["ai-seizo-2", "ai-seizo-3"]}
+   "photos": {"hero": "ai-g-mold"}
  },
  "szd": {
    "name": "株式会社末武造園土木",
@@ -14052,13 +14052,7 @@
    "弊社の特長"
   ],
   "accent": "#1d5a75",
-  "photos": {
-   "hero": "ai-seizo-2",
-   "slides": [
-    "ai-seizo-1",
-    "ai-c-design"
-   ]
-  }
+  "photos": {"hero": "ai-g-mold", "slides": ["ai-c-design"]}
  },
  "kanazawa-setsubi": {
   "name": "株式会社金沢設備",
@@ -15571,9 +15565,7 @@
    "お問い合わせ"
   ],
   "accent": "#0f5c63",
-  "photos": {
-   "hero": "ai-seizo-2"
-  }
+  "photos": {"hero": "ai-g-mold"}
  },
  "hayashiseisakusho": {
   "name": "株式会社林製作所",
@@ -16105,9 +16097,7 @@
    "お問合せ・お見積"
   ],
   "accent": "#2d6a4f",
-  "photos": {
-   "hero": "ai-seizo-1"
-  }
+  "photos": {"hero": "ai-g-injection"}
  },
  "ishiikanagata": {
   "name": "株式会社石井金型",
@@ -19279,9 +19269,7 @@
   ],
   "accent": "#003366",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-3"
-  }
+  "photos": {"hero": "ai-g-plating"}
  },
  "yahagi-kk": {
   "name": "ヤハギ株式会社",
@@ -20342,9 +20330,7 @@
   ],
   "accent": "#2c4f7c",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-3"
-  }
+  "photos": {"hero": "ai-g-plating"}
  },
  "miuraks": {
   "name": "株式会社三浦工業所",
@@ -20611,9 +20597,7 @@
    "お問い合わせ"
   ],
   "accent": "#2c76b0",
-  "photos": {
-   "hero": "ai-seizo-1"
-  }
+  "photos": {"hero": "ai-g-injection"}
  },
  "kurodatosou": {
   "name": "黒田塗装株式会社",
@@ -22938,9 +22922,7 @@
   ],
   "accent": "#3f63ad",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-1"
-  }
+  "photos": {"hero": "ai-g-injection"}
  },
  "auto-con": {
   "name": "日本オートコン株式会社",
@@ -24229,9 +24211,7 @@
   ],
   "accent": "#1f4e8c",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-1"
-  }
+  "photos": {"hero": "ai-g-mold"}
  },
  "yuai-seiki": {
   "name": "ユーアイ精機株式会社",
@@ -24765,9 +24745,7 @@
   ],
   "accent": "#2e5d3a",
   "texture": "ashiba",
-  "photos": {
-   "hero": "ai-doboku-1"
-  },
+  "photos": {"hero": "ai-g-pipelaying"},
   "permits": [
    "愛知県知事許可（般-28）第39563号"
   ]
@@ -25304,9 +25282,7 @@
   ],
   "accent": "#1f4f7a",
   "texture": "ashiba",
-  "photos": {
-   "hero": "ai-doboku-1"
-  }
+  "photos": {"hero": "ai-g-pipelaying"}
  },
  "suntechnical": {
   "name": "株式会社サンテクニカル",
@@ -28696,9 +28672,7 @@
    "会社概要"
   ],
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-3"
-  },
+  "photos": {"hero": "ai-g-sheetmetal"},
   "accent": "#2b4c7e"
  },
  "fujiwara-wood": {
@@ -30810,9 +30784,7 @@
   ],
   "accent": "#0168b7",
   "texture": "kinzoku",
-  "photos": {
-   "hero": "ai-seizo-3"
-  }
+  "photos": {"hero": "ai-g-plating"}
  },
  "naganawa-zouen": {
   "name": "有限会社長縄造園",
