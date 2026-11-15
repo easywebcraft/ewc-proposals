@@ -458,7 +458,93 @@ def trial_3d(sid):
     print(f"  {sid}-3d  {d['name']}  {len(html)} バイト（立体版の試作）")
 
 
+# 試作（2026-11-15）：松本さんが持ってきた参考サイト（sitepick の工務店の見本）の考え方を6つ入れる。
+#   参考は売り物のデザインなので、コードは写さず考え方だけ。今の見本は変えず、出力は <キー>-pick/
+#   1 見出しが長すぎても画面からはみ出さない  2 下の写真も画面に入ったらゆっくり元の大きさに
+#   3 トップの写真の下端に英字の社名を細く大きく（出るときに字の間が詰まる）
+#   4 各見出しの英字を細く大きく  5 流れを細い線と大きな番号に  6 欄ごとに地の色を変える
+PICK_CSS = """<style>
+h1 .cp,h2 .cp{max-width:100%;white-space:normal;word-break:keep-all;overflow-wrap:anywhere}
+.pkz-o{position:relative;overflow:hidden}
+.pkz{position:absolute;inset:0;background-size:cover;background-position:center;
+  transform:scale(1.07);transition:transform 3.2s cubic-bezier(.2,.7,.2,1)}
+.pkz-o.is-in .pkz{transform:none}
+.pkz-o>:not(.pkz){position:relative;z-index:1}
+.hero .bigen{display:none}
+.shot{position:relative}
+.pk-big{position:absolute;left:0;right:0;bottom:4%;z-index:2;margin:0;text-align:center;color:#fff;
+  font-family:"Helvetica Neue","Segoe UI",Arial,sans-serif;font-weight:200;line-height:.9;
+  letter-spacing:.04em;white-space:nowrap;pointer-events:none;text-shadow:0 2px 20px rgba(0,0,0,.22);
+  animation:pkTrack 2.6s cubic-bezier(.2,.7,.2,1) .5s both}
+@media(min-width:760px){.hero.full .pk-big{bottom:150px}.hero.full .inner{padding-bottom:calc(var(--pkh,0px) + 40px)}}
+@media(max-width:759px){.pk-big{bottom:62px}}
+@keyframes pkTrack{from{opacity:0;letter-spacing:.18em}to{opacity:1;letter-spacing:.04em}}
+.sechead .en,.abtx .en{font-family:"Helvetica Neue","Segoe UI",Arial,sans-serif;font-weight:200;
+  font-size:clamp(38px,5vw,64px);letter-spacing:.04em;line-height:1;color:inherit;text-transform:uppercase;margin-bottom:6px}
+.sechead h2::after{display:none}
+#flow{background:#1f2522;color:#fff}
+#flow .sechead h2,#flow .step h3{color:#fff}
+#flow .step p{color:rgba(255,255,255,.72)}
+#flow .flow{gap:28px 32px}
+#flow .step{background:none;border:0;border-top:1px solid rgba(255,255,255,.3);border-radius:0;box-shadow:none;padding:20px 0 0}
+#flow .step::before,#flow .step::after,#flow .step .si{display:none}
+#flow .step .sn{display:block;position:static;margin:0 0 12px;font-family:"Helvetica Neue","Segoe UI",Arial,sans-serif;
+  font-weight:200;font-size:40px;line-height:1;letter-spacing:.04em;color:#fff;background:none;border:0}
+section.alt{background:#f4f2ee}
+section.alt.about{background:#e9e4da}
+@media(prefers-reduced-motion:reduce){.pk-big{animation:none}.pkz{transform:none;transition:none}}
+</style>
+"""
+
+PICK_JS = """<script>
+(function(){
+  var big=document.querySelector('.pk-big');
+  function fit(){
+    if(!big)return;
+    var w=big.parentElement.clientWidth*.92, a=big.style.animation;
+    big.style.animation='none';big.style.fontSize='100px';
+    var s=big.scrollWidth;big.style.fontSize=Math.min(140,100*w/s)+'px';big.style.animation=a;
+    var h=big.closest('.hero');if(h)h.style.setProperty('--pkh',big.offsetHeight+'px');
+  }
+  fit();addEventListener('resize',fit);
+  var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=[].slice.call(document.querySelectorAll('.cph.ph,.abph.ph,.gframe.ph'));
+  els=els.filter(function(el){
+    var bg=el.style.backgroundImage;if(!bg)return false;
+    var i=document.createElement('i');i.className='pkz';i.style.backgroundImage=bg;
+    el.style.backgroundImage='none';el.classList.add('pkz-o');el.insertBefore(i,el.firstChild);return true;
+  });
+  if(still||!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('is-in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){
+    if(x.isIntersecting){x.target.classList.add('is-in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(el){io.observe(el)});
+})();
+</script>
+"""
+
+
+def trial_pick(sid):
+    """参考サイトの考え方を入れた試作を <キー>-pick/ に作る。今の見本（<キー>/）は変えない。"""
+    root = pathlib.Path(__file__).resolve().parent
+    d = json.loads((root / "sites.json").read_text(encoding="utf-8"))[sid]
+    html = render(sid, d)
+    html = html.replace("</head>", PICK_CSS + "</head>", 1)
+    s = html.find('class="shot')
+    lb = html.find('<div class="lb">', s)
+    if s >= 0 and lb >= 0 and d.get("roman"):
+        html = html[:lb] + f'<p class="pk-big" aria-hidden="true">{H.escape(d["roman"])}</p>' + html[lb:]
+    html = html.replace("</body>", PICK_JS + "</body>", 1)
+    out = root / (sid + "-pick")
+    out.mkdir(exist_ok=True)
+    (out / "index.html").write_text(html, encoding="utf-8")
+    print(f"  {sid}-pick  {d['name']}  {len(html)} バイト（参考サイトの試作）")
+
+
 if __name__ == "__main__":
+    if len(sys.argv) > 2 and sys.argv[1] == "--pick":
+        for k in sys.argv[2:]:
+            trial_pick(k)
+        sys.exit()
     if len(sys.argv) > 2 and sys.argv[1] == "--trial":
         trial(sys.argv[2])
     elif len(sys.argv) > 2 and sys.argv[1] == "--3d":
