@@ -419,6 +419,7 @@ def main(only=None):
         # 写真のある型（建設・製造・自動車）には参考サイトの考え方を入れる（2026-11-15 松本さん「全てに適用」）
         if INDUSTRY[d["industry"]].get("layout") == "modern":
             html = apply_pick(html, d)
+        html = apply_fast(html)   # 冒頭の演出を約2秒に（2026-11-15 松本さん「全てのサイトに適用」）
         (out / "index.html").write_text(html, encoding="utf-8")
         print(f"  {sid:<14} {d['name'][:22]:<24} {len(html):>6} バイト")
 
@@ -587,6 +588,17 @@ FAST_REPL = (
 )
 
 
+def apply_fast(html):
+    """冒頭の演出の間合いを FAST_REPL に置き換える。演出の無い型（士業・医院・治療院）はそのまま返す。"""
+    if "var C=2*Math.PI*54,D=1600" not in html:
+        return html
+    for a, b in FAST_REPL:
+        if a not in html:
+            raise SystemExit(f"演出の間合いが見つからない: {a}")
+        html = html.replace(a, b)
+    return html
+
+
 def trial_fast(sid):
     """冒頭の演出を約2秒にした試作を <キー>-fast/ に作る。今の見本（<キー>/）は変えない。"""
     root = pathlib.Path(__file__).resolve().parent
@@ -594,10 +606,7 @@ def trial_fast(sid):
     html = render(sid, d)
     if INDUSTRY[d["industry"]].get("layout") == "modern":
         html = apply_pick(html, d)
-    for a, b in FAST_REPL:
-        if a not in html:
-            raise SystemExit(f"演出の間合いが見つからない: {a}")
-        html = html.replace(a, b)
+    html = apply_fast(html)
     out = root / (sid + "-fast")
     out.mkdir(exist_ok=True)
     (out / "index.html").write_text(html, encoding="utf-8")
