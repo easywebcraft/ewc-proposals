@@ -613,7 +613,146 @@ def trial_fast(sid):
     print(f"  {sid}-fast  {d['name']}  {len(html)} バイト（演出を約2秒にした試作）")
 
 
+# 試作（2026-11-17 松本さん）：「提案の説明」と「サイト見本」を分ける。
+#   今は開くといきなり相手のサイトの見本に入り、EWC への相談の案内は下へ進んだ後の帯と末尾にしか無い。
+#   受け手は自社名に引かれて開いても、何を判断すればよいか分からないので、見本の前に短い提案の説明を置き、
+#   末尾に「制作範囲・料金」をまとめる。説明の文は会社ごとに今のサイトを見て書く（sites.json の "intro"）。
+INTRO_CSS = """
+.pintro{position:relative;z-index:5;background:linear-gradient(180deg,#f3f6fa 0%,#e9eef5 100%);color:#10294f;
+  padding:56px 20px 60px;border-bottom:1px solid #d5deea}
+.pintro .pi-in{max-width:760px;margin:0 auto}
+.pintro .pi-from{display:inline-flex;align-items:center;gap:8px;margin:0 0 18px;padding:4px 14px;border-radius:999px;
+  background:#10294f;color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.08em}
+.pintro .pi-to{margin:0;font-size:clamp(22px,4.6vw,32px);font-weight:700;letter-spacing:.04em;line-height:1.45}
+.pintro .pi-lead{margin:14px 0 0;font-size:clamp(15.5px,2.4vw,18px);line-height:1.9;font-weight:700}
+.pintro .pi-box{margin:28px 0 0;padding:22px 24px;background:#fff;border-radius:12px;
+  box-shadow:0 1px 2px rgba(16,41,79,.06),0 10px 28px rgba(16,41,79,.10)}
+.pintro .pi-box p{margin:0 0 12px;font-size:15px;line-height:1.8}
+.pintro ol{margin:0;padding:0;list-style:none;counter-reset:pi}
+.pintro ol li{position:relative;padding:10px 0 10px 44px;border-top:1px solid #e3e9f1;font-size:15.5px;line-height:1.7;font-weight:700}
+.pintro ol li::before{counter-increment:pi;content:counter(pi);position:absolute;left:0;top:9px;width:30px;height:30px;border-radius:50%;
+  background:#ffc93c;color:#10294f;font-size:14px;line-height:30px;text-align:center;font-weight:800}
+.pintro .pi-bt{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.pintro .pi-bt a{flex:1 1 240px;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 22px;
+  border-radius:999px;font-size:16px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.pintro .pi-bt a:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(16,41,79,.18)}
+.pintro .pi-go{background:#10294f;color:#fff}
+.pintro .pi-plan{background:#fff;color:#10294f;border:2px solid #10294f}
+.pintro .pi-note{margin:14px 0 0;font-size:12.5px;color:#4a5b75;line-height:1.7}
+.pdiv{background:#10294f;color:#fff;text-align:center;font-size:13px;font-weight:700;letter-spacing:.12em;padding:9px 16px}
+.pplan{background:#f3f6fa;color:#10294f;padding:56px 20px 64px}
+.pplan .pp-in{max-width:860px;margin:0 auto}
+.pplan h2{margin:0;font-size:clamp(22px,4vw,28px);letter-spacing:.06em;text-align:center}
+.pplan .pp-sub{margin:10px 0 0;text-align:center;font-size:14.5px;color:#4a5b75}
+.pplan .pp-grid{display:grid;gap:16px;margin-top:28px}
+@media(min-width:760px){.pplan .pp-grid{grid-template-columns:1fr 1fr}}
+.pplan .pp-card{background:#fff;border-radius:12px;padding:22px 24px;box-shadow:0 1px 2px rgba(16,41,79,.06),0 8px 22px rgba(16,41,79,.08)}
+.pplan .pp-card h3{margin:0 0 10px;font-size:17px;padding-left:12px;border-left:4px solid #ffc93c}
+.pplan .pp-price{margin:4px 0 0;font-size:clamp(22px,3.6vw,28px);font-weight:800;letter-spacing:.02em;line-height:1.5}
+.pplan .pp-price span{display:block;white-space:nowrap}
+.pplan ul{margin:0;padding-left:1.2em;font-size:15px;line-height:1.9}
+.pplan .pp-pages{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0;padding:0;list-style:none}
+.pplan .pp-pages li{padding:3px 12px;border:1px solid #c9d4e3;border-radius:999px;font-size:13.5px;background:#f8fafc}
+.pplan .pp-wide{grid-column:1/-1}
+.pplan ol{margin:0;padding-left:1.4em;font-size:15px;line-height:1.9}
+.pplan .pp-bt{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px}
+.pplan .pp-bt a{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 30px;border-radius:999px;
+  font-size:16px;font-weight:700;text-decoration:none}
+.pplan .pp-m{background:#ffc93c;color:#10294f}
+.pplan .pp-l{background:#06c755;color:#fff}
+.pplan .pp-top{background:#fff;color:#10294f;border:2px solid #10294f}
+"""
+
+
+def intro_html(d):
+    """見本の前に置く提案の説明（sites.json の "intro"：lead・points）。"""
+    import modern
+    it = d["intro"]
+    pts = "".join(f"<li>{e(p)}</li>" for p in it["points"])
+    return f"""<section class="pintro" id="proposal" aria-labelledby="pi-to">
+  <div class="pi-in">
+    <p class="pi-from">EasyWebCraft からのご提案</p>
+    <h2 class="pi-to" id="pi-to">{e(d["name"])}様へ</h2>
+    <p class="pi-lead">{e(it["lead"])}</p>
+    <div class="pi-box">
+      <p>今回は、次の{len(it["points"])}点を意識して制作しました。</p>
+      <ol>{pts}</ol>
+    </div>
+    <div class="pi-bt"><a class="pi-go" href="#sample">リニューアル案を見る ↓</a><a class="pi-plan" href="#plan">制作範囲・料金を見る</a></div>
+    <p class="pi-note">この下は、{e(modern.short_name(d["name"]))}様のトップページを作り直した場合の見本です。公式サイトではありません。</p>
+  </div>
+</section>
+<div class="pdiv" id="sample">ここからリニューアル案（トップページの見本）</div>
+"""
+
+
+def plan_html(d, pages):
+    """末尾の「制作範囲・料金」。料金と月額に含まれるものは見本の帯・末尾と同じ（modern.EWC_PRICE）。"""
+    import modern
+    from urllib.parse import quote
+    name = d["name"]
+    body = (f"{name}様の見本について、詳しく聞きたいです。\n\n"
+            "（このまま送っていただくだけで結構です。お電話でのご説明をご希望でしたら、"
+            "お名前とお電話番号をお書き添えください）\n\nお名前：\nお電話番号：\n")
+    mailto = "mailto:%s?subject=%s&body=%s" % (modern.EWC_MAIL, quote(f"{name}様の見本について"), quote(body))
+    pg = "".join(f"<li>{e(x)}</li>" for x in ["トップページ"] + pages)
+    return f"""<section class="pplan" id="plan" aria-labelledby="pp-h">
+  <div class="pp-in">
+    <h2 id="pp-h">制作範囲・料金</h2>
+    <p class="pp-sub">EasyWebCraft で{e(modern.short_name(name))}様のホームページを作り直す場合の内容です。</p>
+    <div class="pp-grid">
+      <div class="pp-card"><h3>料金</h3><p class="pp-price">{"".join(f'<span>{e(x)}</span>' for x in modern.EWC_PRICE.split("・"))}</p>
+        <p style="margin:8px 0 0;font-size:14px;color:#4a5b75">まとまった制作費はかかりません。</p></div>
+      <div class="pp-card"><h3>月額に含まれること</h3>
+        <ul><li>制作と公開</li><li>スマートフォン対応</li><li>公開後の文章・写真の修正</li><li>安全性の対応</li><li>検索対策</li><li>運用のサポート</li></ul></div>
+      <div class="pp-card pp-wide"><h3>お作りするページ</h3>
+        <p style="margin:0;font-size:15px">この見本はトップページだけです。実際の制作では、次のページをお作りします。</p>
+        <ul class="pp-pages">{pg}</ul></div>
+      <div class="pp-card pp-wide"><h3>公開までの進め方</h3>
+        <ol><li>御社の写真と文章をお預かりします（見本の写真・文章は当社が用意したものです）</li>
+        <li>お預かりしたものを入れて、公開まで当社で仕上げます</li>
+        <li>公開後の修正やご相談も、月額の中でお受けします</li></ol></div>
+    </div>
+    <div class="pp-bt"><a class="pp-m" href="{e(mailto)}">詳しく聞きたい（メール）</a><a class="pp-l" href="{e(modern.EWC_LINE)}" target="_blank" rel="noopener">LINEで相談</a><a class="pp-top" href="#proposal">ご提案の説明に戻る ↑</a></div>
+  </div>
+</section>
+"""
+
+
+def trial_intro(sid):
+    """提案の説明を見本の前に置いた試作を <キー>-intro/ に作る。今の見本（<キー>/）は変えない（2026-11-17）。"""
+    import re
+    root = pathlib.Path(__file__).resolve().parent
+    d = json.loads((root / "sites.json").read_text(encoding="utf-8"))[sid]
+    if "intro" not in d:
+        raise SystemExit(f"{sid} に intro（提案の説明）がありません")
+    html = render(sid, d)
+    if INDUSTRY[d["industry"]].get("layout") == "modern":
+        html = apply_pick(html, d)
+    html = apply_fast(html)
+    # お作りするページは、見本の「サイトの構成」と同じもの
+    sm = re.search(r'<section class="sitemap" id="sitemap">.*?<ul>(.*?)</ul>', html, re.S)
+    pages = [H.unescape(x) for x in re.findall(r"<a [^>]*>(.*?)</a>", sm.group(1))] if sm else []
+    pages = [x for x in pages if x != "トップページ"]
+    mark = '<div class="hdwrap'
+    if html.count(mark) != 1 or html.count("<footer>") != 1:
+        raise SystemExit("差し込む場所が見つからない")
+    # 見本の「サイトの構成」は、末尾の「お作りするページ」と同じ中身なので外す（二重に見せない）
+    html = re.sub(r'<section class="sitemap" id="sitemap">.*?</section>\s*', "", html, count=1, flags=re.S)
+    html = html.replace("</style>", INTRO_CSS + "</style>", 1)
+    html = html.replace(mark, intro_html(d) + mark, 1)
+    html = html.replace("<footer>", plan_html(d, pages) + "<footer>", 1)
+    out = root / (sid + "-intro")
+    out.mkdir(exist_ok=True)
+    (out / "index.html").write_text(html, encoding="utf-8")
+    print(f"  {sid}-intro  {d['name']}  {len(html)} バイト（提案の説明つきの試作）")
+
+
 if __name__ == "__main__":
+    if len(sys.argv) > 2 and sys.argv[1] == "--intro":
+        for k in sys.argv[2:]:
+            trial_intro(k)
+        sys.exit()
     if len(sys.argv) > 2 and sys.argv[1] == "--fast":
         for k in sys.argv[2:]:
             trial_fast(k)
