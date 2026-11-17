@@ -627,11 +627,19 @@ INTRO_CSS = """
 .pintro .pi-lead{margin:14px 0 0;font-size:clamp(15.5px,2.4vw,18px);line-height:1.9;font-weight:700}
 .pintro .pi-box{margin:28px 0 0;padding:22px 24px;background:#fff;border-radius:12px;
   box-shadow:0 1px 2px rgba(16,41,79,.06),0 10px 28px rgba(16,41,79,.10)}
-.pintro .pi-box p{margin:0 0 12px;font-size:15px;line-height:1.8}
-.pintro ol{margin:0;padding:0;list-style:none;counter-reset:pi}
-.pintro ol li{position:relative;padding:10px 0 10px 44px;border-top:1px solid #e3e9f1;font-size:15.5px;line-height:1.7;font-weight:700}
-.pintro ol li::before{counter-increment:pi;content:counter(pi);position:absolute;left:0;top:9px;width:30px;height:30px;border-radius:50%;
-  background:#ffc93c;color:#10294f;font-size:14px;line-height:30px;text-align:center;font-weight:800}
+.pintro .pi-bh{margin:0 0 6px;font-size:15px;font-weight:700;letter-spacing:.04em}
+.pintro .pi-pairs{margin:0;padding:0;list-style:none}
+.pintro .pi-pairs li{padding:16px 0;border-top:1px solid #e3e9f1}
+.pintro .pi-pairs p{margin:0;font-size:15px;line-height:1.8}
+.pintro .pi-pairs span{display:inline-block;margin-right:10px;padding:1px 10px;border-radius:4px;font-size:12px;font-weight:800;letter-spacing:.06em;vertical-align:1px}
+.pintro .pi-q{color:#4a5b75}
+.pintro .pi-q span{background:#eef1f5;color:#4a5b75}
+.pintro .pi-a{margin-top:8px!important;font-weight:700;color:#10294f}
+.pintro .pi-a span{background:#ffc93c;color:#10294f}
+.pintro .pi-a::before{content:"↓";display:block;margin:0 0 4px 22px;color:#9aa8bb;font-weight:400}
+.pintro .pi-more{padding-top:14px;border-top:1px solid #e3e9f1}
+.pintro .pi-more p{margin:0 0 4px;font-size:13.5px;font-weight:700;color:#4a5b75}
+.pintro .pi-more ul{margin:0;padding-left:1.2em;font-size:14px;line-height:1.8;color:#10294f}
 .pintro .pi-bt{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .pintro .pi-bt a{flex:1 1 240px;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 22px;
   border-radius:999px;font-size:16px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s}
@@ -664,22 +672,56 @@ INTRO_CSS = """
 """
 
 
+# 問題ごとの「この案での改善」。キーと問題の言い方は営業メール（ewc-crm/salesmail.py の PITCHES）と同じものを使い、
+#   メールで伝えた問題と、見本の冒頭の改善案が同じ言葉でつながるようにする（2026-11-17 松本さん）
+FIXES = {
+    "スマホ非対応": "スマートフォンの画面に合わせて、文字や写真を読みやすい大きさで表示します。この案もスマートフォンでそのままご覧いただけます",
+    "https不可": "鍵付きの通信で公開し、「安全ではありません」の表示が出ないようにします",
+    "Flash": "Flash を使わない作りにして、どの端末でもすべての部分が表示されるようにします",
+    "更新が": "お知らせや写真の更新は、公開後も月額の中で当社がお手伝いします",
+    "表組みレイアウト": "今の作り方で作り直し、文章や写真の一部だけを手軽に直せるようにします",
+    "古いタグ": "今の作り方で作り直し、文章や写真の一部だけを手軽に直せるようにします",
+    "レスポンシブ": "スマートフォン・タブレット・パソコンのどれで見ても、見え方が整うようにします",
+}
+
+
+def _salesmail():
+    """営業メールの部品（ewc-crm/salesmail.py）を読む。同じ親フォルダに ewc-crm がある前提。"""
+    root = pathlib.Path(__file__).resolve().parent
+    sys.path.insert(0, str(root.parent / "ewc-crm"))
+    import salesmail
+    return salesmail
+
+
 def intro_html(d):
-    """見本の前に置く提案の説明（sites.json の "intro"：lead・points）。"""
+    """見本の前に置く提案の説明（sites.json の "intro"：lead・findings）。
+    軸は「メールでお伝えした問題 → この案での改善」。メールに出るのは強い順に2つまでなので、
+    同じ2つを大きく、残りは「あわせて改善すること」として小さく出す。"""
     import modern
+    sm = _salesmail()
     it = d["intro"]
-    pts = "".join(f"<li>{e(p)}</li>" for p in it["points"])
+    m = sm.matched_pitches(it["findings"])
+    if not m:
+        raise SystemExit(f"{d['name']} の所見に、メールで使う問題が見つからない: {it['findings']}")
+    main, rest = m[:2], m[2:]
+    pair = "".join(
+        f'<li><p class="pi-q"><span>気になった点</span>{e(ph)}</p>'
+        f'<p class="pi-a"><span>この案では</span>{e(FIXES[k])}</p></li>' for k, ph in main)
+    more = "".join(f"<li>{e(FIXES[k])}</li>" for k, _ph in rest if FIXES[k] not in {FIXES[x] for x, _ in main})
+    more_html = f'<div class="pi-more"><p>あわせて改善すること</p><ul>{more}</ul></div>' if more else ""
+    lead = it.get("lead") or "先日のメールでお伝えした点を、改善したリニューアル案です。"
     return f"""<section class="pintro" id="proposal" aria-labelledby="pi-to">
   <div class="pi-in">
     <p class="pi-from">EasyWebCraft からのご提案</p>
     <h2 class="pi-to" id="pi-to">{e(d["name"])}様へ</h2>
-    <p class="pi-lead">{e(it["lead"])}</p>
+    <p class="pi-lead">{e(lead)}</p>
     <div class="pi-box">
-      <p>今回は、次の{len(it["points"])}点を意識して制作しました。</p>
-      <ol>{pts}</ol>
+      <p class="pi-bh">メールでお伝えした点と、この案での改善</p>
+      <ol class="pi-pairs">{pair}</ol>
+      {more_html}
     </div>
     <div class="pi-bt"><a class="pi-go" href="#sample">リニューアル案を見る ↓</a><a class="pi-plan" href="#plan">制作範囲・料金を見る</a></div>
-    <p class="pi-note">この下は、{e(modern.short_name(d["name"]))}様のトップページを作り直した場合の見本です。公式サイトではありません。</p>
+    <p class="pi-note">この下は、{e(modern.short_name(d["name"]))}様のトップページを作り直した場合の見本です。写真と文章は見本用の仮のもので、公式サイトではありません。</p>
   </div>
 </section>
 <div class="pdiv" id="sample">ここからリニューアル案（トップページの見本）</div>
