@@ -755,10 +755,89 @@ def plan_html(d, pages):
         <li>お預かりしたものを入れて、公開まで当社で仕上げます</li>
         <li>公開後の修正やご相談も、月額の中でお受けします</li></ol></div>
     </div>
-    <div class="pp-bt"><a class="pp-m" href="{e(mailto)}">詳しく聞きたい（メール）</a><a class="pp-l" href="{e(modern.EWC_LINE)}" target="_blank" rel="noopener">LINEで相談</a></div>
+    <div class="pp-bt"><a class="pp-m" href="{e(mailto)}">{ASK_LABEL}</a><a class="pp-l" href="{e(modern.EWC_LINE)}" target="_blank" rel="noopener">LINEで質問する</a></div>
   </div>
 </section>
 """
+
+
+# 試作（2026-11-17 松本さん）：問い合わせ先の混在をなくす。
+#   見本の中の「お見積り・ご相談」「お電話」は相手の電話番号に、画面下の帯は EasyWebCraft につながり、丸い「ご相談ください」もあって、
+#   どのボタンが誰への相談か迷う。ボタンを目立たせるより、押した先が分かることを優先する。
+#   ・見本は枠で囲み「ここからは公開後のサイトイメージ」と書く
+#   ・見本の中の電話は押してもつながらない「デモ表示」にする（押すとその旨を小さく出す）
+#   ・EasyWebCraft へのボタンは「EasyWebCraftに制作内容を質問する」の1つだけを主ボタンにし、LINE は文字のリンクに下げる
+#   ・丸い相談ボタンは外す
+ASK_LABEL = "EasyWebCraftに制作内容を質問する"
+DEMO_CSS = """
+.pframe{position:relative}
+.pframe::after{content:"";position:absolute;inset:0;z-index:70;pointer-events:none;border:4px solid #10294f}
+.pf-lab,.pf-end{position:relative;z-index:71;margin:0;padding:6px 16px;background:#10294f;color:#fff;text-align:center;
+  font-size:12.5px;font-weight:700;letter-spacing:.08em;line-height:1.5}
+.pf-lab small,.pf-end small{display:inline-block;margin-left:8px;font-size:11px;font-weight:400;color:rgba(255,255,255,.75);letter-spacing:.02em}
+a[data-demo]{cursor:not-allowed}
+a.btn[data-demo]::after,.contact a.big[data-demo]::after{content:"デモ表示";display:inline-block;margin-left:10px;padding:1px 8px;border:1px solid currentColor;
+  border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.06em;line-height:1.5;vertical-align:middle;opacity:.85}
+.contact a.big[data-demo]::after{font-size:12px;font-family:system-ui,sans-serif}
+.demo-toast{position:fixed;left:16px;right:16px;top:18px;z-index:200;width:max-content;max-width:calc(100% - 32px);margin:0 auto;transform:translateY(-8px);padding:10px 16px;
+  border-radius:8px;background:rgba(16,41,79,.95);color:#fff;font-size:13.5px;line-height:1.6;opacity:0;pointer-events:none;
+  transition:opacity .2s,transform .2s;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.demo-toast.on{opacity:1;transform:none}
+.ewcbar .bt{align-items:center}
+.ewcbar a.m{font-size:15.5px!important;padding:0 22px!important}
+@media(max-width:899px){.ewcbar .bt{flex-direction:column;gap:2px}.ewcbar .bt a.m{width:100%;font-size:15px!important;padding:0 12px!important}}
+@media(min-width:900px){.ewcbar .in>p{min-width:0;flex:1 1 0!important}.ewcbar .bt{flex:none!important;max-width:none!important;width:auto!important}}
+.ewcbar a.l{flex:none!important;min-height:0;padding:4px 6px;background:none!important;box-shadow:none!important;color:#fff;
+  font-size:13px!important;font-weight:700;text-decoration:underline;text-underline-offset:.2em}
+.ewcbar a.l::after{display:none}
+.ewcbar a.l:hover{transform:none}
+.ewcbar a.l svg{width:16px!important;height:16px!important}
+.pplan .pp-bt{flex-direction:column;align-items:center;gap:10px}
+.pplan .pp-l{min-height:0!important;padding:4px 8px!important;background:none!important;color:#10294f!important;font-size:14px!important;text-decoration:underline!important;text-underline-offset:.2em}
+"""
+DEMO_JS = """<script>
+(function(){var t;document.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a[data-demo]');if(!a)return;
+ev.preventDefault();if(!t){t=document.createElement('div');t.className='demo-toast';t.setAttribute('role','status');document.body.appendChild(t);}
+t.textContent='見本のため、このボタンは押してもつながりません。公開後は御社のお電話につながります。';
+t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('on');},2600);});})();
+</script>"""
+
+
+def apply_demo(html, d):
+    """見本の中の電話をデモ表示に、EasyWebCraft へのボタンを1つにまとめる（trial_intro から呼ぶ）。"""
+    import re
+    import modern
+    short = modern.short_name(d["name"])
+    # 見本の範囲：ヘッダーの直前から、EWC の提案の説明（pintro）の直前まで
+    a = html.find('<div class="hdwrap')
+    b = html.find('<section class="pintro"')
+    if a < 0 or b < 0:
+        raise SystemExit("見本の範囲が見つからない")
+    sample = html[a:b]
+    # 丸い相談ボタン（見本の中の #contact へ飛ぶもの）を外す
+    sample = re.sub(r'\n?<a class="badge".*?</a>', "", sample, count=1, flags=re.S)
+    # 電話のリンク：ボタンはデモ表示に、会社概要の表の番号はただの文字に
+    sample = re.sub(r'<a href="tel:[^"]*">([^<]*)</a>', r"\1", sample)
+    sample = re.sub(r'<a (class="[^"]*") href="tel:[^"]*">', r'<a \1 href="#" data-demo aria-disabled="true">', sample)
+    old_note = ('<span class="ph">見本の電話のボタンは、</span><span class="ph">御社の電話番号につながります。</span>')
+    if old_note not in sample:
+        raise SystemExit("見本の注意書きが見つからない")
+    sample = sample.replace(old_note, '<span class="ph">見本の電話のボタンはデモ表示で、</span><span class="ph">押してもつながりません。</span>'
+                                      '<span class="ph">公開後は御社のお電話につながります。</span>')
+    frame = (f'<div class="pframe">\n<p class="pf-lab">ここからは公開後のサイトイメージ<small>{e(short)}様のトップページの見本</small></p>\n'
+             + sample.rstrip() + '\n<p class="pf-end">サイトイメージはここまで<small>この下は EasyWebCraft からのご案内です</small></p>\n</div>\n')
+    html = html[:a] + frame + html[b:]
+    # 画面下の帯：文は短く、主ボタンは「EasyWebCraftに制作内容を質問する」の1つ。LINE は文字のリンク
+    bar = re.search(r'(<div class="ewcbar".*?<div class="in">\s*)<p>.*?</p>(\s*<div class="bt">)(<a class="m" href="[^"]*">)(<svg.*?</svg>)[^<]*</a>(<a class="l"[^>]*>)(<svg.*?</svg>)[^<]*</a>', html, re.S)
+    if not bar:
+        raise SystemExit("画面下の帯が見つからない")
+    p = (f'<p><b>{e(short)}様向けのリニューアル案です（EasyWebCraft 作成）。</b>'
+         f'<br><i>{e(modern.EWC_PRICE)}</i> <span>EasyWebCraft　担当：{e(modern.EWC_STAFF)}</span></p>')
+    html = (html[:bar.start()] + bar.group(1) + p + bar.group(2) + bar.group(3) + bar.group(4) + ASK_LABEL + "</a>"
+            + bar.group(5) + bar.group(6) + "LINEで質問する</a>" + html[bar.end():])
+    html = html.replace("</style>", DEMO_CSS + "</style>", 1)
+    html = html.replace("</body>", DEMO_JS + "\n</body>", 1)
+    return html
 
 
 def trial_intro(sid):
@@ -786,6 +865,7 @@ def trial_intro(sid):
     html = html.replace("<footer>", intro_html(d) + plan_html(d, pages) + "<footer>", 1)
     to = f'<p class="ewl-to"><span>{e(d["name"])}様への</span><span>ご提案</span></p>'
     html = html.replace('<span class="ewl-skip">', to + '\n  <span class="ewl-skip">', 1)
+    html = apply_demo(html, d)
     out = root / (sid + "-intro")
     out.mkdir(exist_ok=True)
     (out / "index.html").write_text(html, encoding="utf-8")
