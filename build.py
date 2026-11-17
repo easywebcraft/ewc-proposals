@@ -668,12 +668,6 @@ INTRO_CSS = """
 .pplan .pp-pages li{padding:3px 12px;border:1px solid #c9d4e3;border-radius:999px;font-size:13.5px;background:#f8fafc}
 .pplan .pp-wide{grid-column:1/-1}
 .pplan ol{margin:0;padding-left:1.4em;font-size:15px;line-height:1.9}
-.pplan .pp-bt{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px}
-.pplan .pp-bt a{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 30px;border-radius:999px;
-  font-size:16px;font-weight:700;text-decoration:none}
-.pplan .pp-m{background:#ffc93c;color:#10294f}
-.pplan .pp-l{background:#06c755;color:#fff}
-.pplan .pp-top{background:#fff;color:#10294f;border:2px solid #10294f}
 """
 
 
@@ -729,14 +723,9 @@ def intro_html(d):
 
 
 def plan_html(d, pages):
-    """末尾の「制作範囲・料金」。料金と月額に含まれるものは見本の帯・末尾と同じ（modern.EWC_PRICE）。"""
+    """末尾の「制作範囲・料金」。ボタンは置かない（画面下の帯にあるため。2026-11-17）。料金と月額に含まれるものは見本の帯・末尾と同じ（modern.EWC_PRICE）。"""
     import modern
-    from urllib.parse import quote
     name = d["name"]
-    body = (f"{name}様の見本について、詳しく聞きたいです。\n\n"
-            "（このまま送っていただくだけで結構です。お電話でのご説明をご希望でしたら、"
-            "お名前とお電話番号をお書き添えください）\n\nお名前：\nお電話番号：\n")
-    mailto = "mailto:%s?subject=%s&body=%s" % (modern.EWC_MAIL, quote(f"{name}様の見本について"), quote(body))
     pg = "".join(f"<li>{e(x)}</li>" for x in ["トップページ"] + pages)
     return f"""<section class="pplan" id="plan" aria-labelledby="pp-h">
   <div class="pp-in">
@@ -755,7 +744,6 @@ def plan_html(d, pages):
         <li>お預かりしたものを入れて、公開まで当社で仕上げます</li>
         <li>公開後の修正やご相談も、月額の中でお受けします</li></ol></div>
     </div>
-    <div class="pp-bt"><a class="pp-m" href="{e(mailto)}">{ASK_LABEL}</a><a class="pp-l" href="{e(modern.EWC_LINE)}" target="_blank" rel="noopener">{LINE_LABEL}</a></div>
   </div>
 </section>
 """
@@ -790,8 +778,6 @@ a.btn[data-demo]::after,.contact a.big[data-demo]::after{content:"デモ表示";
 @media(min-width:900px){.ewcbar .in>p{min-width:0;flex:1 1 0!important}.ewcbar .bt{flex:none!important;max-width:none!important;width:auto!important}}
 /* LINE はメールと同じ大きさの緑のボタン（2026-11-17 松本さん「前と同じ、同じ大きさの2つのボタンに戻す」） */
 .ewcbar a.l{font-size:15.5px!important;padding:0 22px!important}
-.pplan .pp-bt{flex-direction:column;align-items:center;gap:10px}
-.pplan .pp-bt a{width:min(100%,420px);text-align:center}
 @media(max-width:599px){.via{display:none}}
 .ewcbar a .via{margin-left:-8px}
 """
