@@ -1,5 +1,6 @@
 {
  "yak-k": {
+  "intro": {"findings": "取得できない(URLError)"},
   "name": "吉田建設株式会社",
   "roman": "YOSHIDA KENSETSU",
   "industry": "kensetsu",
@@ -505,6 +506,7 @@
   ]
  },
  "shin-ei": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が14年前まで"},
   "name": "進英産業株式会社",
   "roman": "SHIN-EI SANGYO",
   "industry": "seizo",
@@ -571,6 +573,7 @@
   "texture": "kinzoku"
  },
  "nakakoma": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "中駒産業株式会社",
   "roman": "NAKAKOMA",
   "industry": "kensetsu",
@@ -641,6 +644,7 @@
   "photos": {"hero": "ai-house-h2", "slides": ["ai-house-h1", "ai-house-h4"]}
  },
  "yamanaka-denki": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "有限会社山中電器",
   "roman": "YAMANAKA DENKI",
   "industry": "kensetsu",
@@ -708,6 +712,7 @@
   "v3": {"points": [["pin", "岐阜市早田", "忠節橋の北、地域の暮らしに寄り添う電器屋です。"], ["house", "家電・住まい", "家電から住まいの設備まで、まとめてご相談ください。"], ["hand", "訪問相談", "ご自宅にうかがって、ご相談を承ります。"]], "photos": {"hero": "ai-denkiten-1", "slides": ["ai-denkiten-3"], "svc": ["ai-denkiten-1@62% 55%", "1759772238012-9d5ad59ae637", "ai-denkiten-3@70% 40%", "ai-house-g4", null, null]}, "about": {"photo": "ai-denkiten-2", "cap": "店舗写真イメージ", "h": "暮らしのそばに、山中電器。", "p": ["忠節橋の北、岐阜市早田のお店です。", "家電のことも住まいのことも、気軽にご相談いただける町の電器屋です。お困りごとがあれば、どうぞお電話ください。"], "btn": "お店について"}, "company_h": "お店案内・アクセス"}
  },
  "shimizukako": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(bgcolor) / レスポンシブ指定なし / 更新が15年前まで / Flashの残骸"},
   "photos": {
    "hero": "ai-crack-repair"
   },
@@ -775,6 +780,7 @@
   "texture": "ashiba"
  },
  "ymcomp": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(font) / レスポンシブ指定なし / 更新が3年前まで"},
   "industry": "seizo",
   "name": "有限会社山田木工",
   "roman": "YAMADA MOKKO",
@@ -851,6 +857,7 @@
   "photos": {"hero": "ai-g-diecut", "slides": ["ai-mokko-3"]}
  },
  "reliable": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が11年前まで / jQuery 1.9"},
   "industry": "kensetsu",
   "name": "株式会社リライブル",
   "roman": "RELIABLE",
@@ -926,6 +933,7 @@
   "photos": {"hero": "ai-house-h2", "gallery": ["ai-c-seismic", null, "ai-house-g7"], "slides": ["ai-house-h1", "ai-house-h5"]}
  },
  "ek-kinzoku": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 更新が15年前まで / 文字コード shift_jis"},
   "industry": "seizo",
   "name": "栄幸金属株式会社",
   "roman": "EIKO KINZOKU",
@@ -992,6 +1000,7 @@
   "photos": {"hero": "ai-g-sheetmetal"}
  },
  "setta": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が11年前まで"},
   "industry": "kensetsu",
   "name": "株式会社セッタ",
   "roman": "SETTA",
@@ -1068,6 +1077,7 @@
   "permits": ["岐阜県知事許可（般-2）第201321号"]
  },
  "ogawakagu": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が11年前まで / jQuery 1.10"},
   "industry": "kensetsu",
   "name": "株式会社小川木工家具センター",
   "roman": "OGAWA KAGU",
@@ -1137,6 +1147,7 @@
   "photos": {"hero": "ai-mokko-2", "slides": ["ai-mokko-1", "ai-mokko-3"]}
  },
  "fdo-san": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "industry": "kensetsu",
   "name": "株式会社尾張不動産会館",
   "roman": "OWARI FUDOSAN",
@@ -1201,6 +1212,7 @@
   "photos": {"hero": "ai-fudosan-1", "slides": ["ai-fudosan-3", "ai-fudosan-2"]}
  },
  "igawa-kk": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / jQuery 1.10"},
   "industry": "kensetsu",
   "name": "井川工業株式会社",
   "roman": "IGAWA KOGYO",
@@ -1274,6 +1286,7 @@
   "photos": {"hero": "ai-setsubi-3", "gallery": ["ai-c-mainte", null, null], "slides": ["ai-setsubi-1", "ai-setsubi-2"]}
  },
  "bestroof": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "industry": "kensetsu",
   "name": "有限会社ベストルーフ",
   "roman": "BEST ROOF",
@@ -1330,6 +1343,7 @@
   "photos": {"hero": "ai-roof-3", "slides": ["ai-roof-4", "ai-roof-5"]}
  },
  "itochu-tosou": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "industry": "kensetsu",
   "name": "有限会社伊藤忠塗装",
   "roman": "ITOCHU TOSOU",
@@ -1386,6 +1400,7 @@
   "photos": {"hero": "ai-tosou-1", "slides": ["ai-tosou-3", "ai-tosou-2"]}
  },
  "hoowaa": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が5年前まで / 文字コード shift_jis"},
   "industry": "kensetsu",
   "name": "朋和設備工業株式会社",
   "roman": "HOOWAA",
@@ -1442,6 +1457,7 @@
   "photos": {"hero": "ai-setsubi-2", "slides": ["ai-setsubi-3", "ai-setsubi-1"]}
  },
  "kurachi": {
+  "intro": {"findings": "レスポンシブ指定なし / 更新が7年前まで / jQuery 1.12"},
   "industry": "kensetsu",
   "name": "株式会社倉知製作所",
   "roman": "KURACHI",
@@ -1502,6 +1518,7 @@
   "photos": {"hero": "ai-mokko-2", "slides": ["ai-mokko-1", "ai-mokko-3"]}
  },
  "suzupro": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,cellpadding) / レスポンシブ指定なし"},
   "industry": "seizo",
   "photos": {"hero": "ai-suzupro"},
   "name": "株式会社スズプロ",
@@ -1570,6 +1587,7 @@
   ]
  },
  "yamashita-reiki": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が19年前まで / Flashの残骸 / 文字コード shift_jis"},
   "industry": "kensetsu",
   "name": "株式会社ヤマシタ冷機",
   "roman": "YAMASHITA REIKI",
@@ -1639,6 +1657,7 @@
   "permits": ["愛知県知事許可（般-17）第103734号"]
  },
  "ito-kikinzoku": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "industry": "seizo",
   "name": "株式会社伊藤貴金属製作所",
   "roman": "ITO KIKINZOKU",
@@ -1709,6 +1728,7 @@
   "photos": {"hero": "1674065719169-5ba77e617e60"}
  },
  "kizai-tecto": {
+  "intro": {"findings": "目立った問題なし"},
   "name": "キザイテクト株式会社",
   "roman": "KIZAI TECTO",
   "industry": "kensetsu",
@@ -1787,6 +1807,7 @@
   "permits": ["国土交通大臣許可（般-20）第18057号"]
  },
  "brightsign": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / jQuery 1.8 / 文字コード euc-jp"},
   "name": "株式会社ブライトサイン",
   "roman": "BRIGHT SIGN",
   "photos": {
@@ -1861,6 +1882,7 @@
   "texture": "nuri"
  },
  "jpms": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / jQuery 1.7"},
   "name": "ジェイピーエムズ株式会社",
   "roman": "JPMS",
   "industry": "kensetsu",
@@ -1937,6 +1959,7 @@
   "photos": {"hero": "ai-kanban-1"}
  },
  "kankyo-enesystem": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が8年前まで / jQuery 1.6"},
   "name": "日本環境エネシステム株式会社",
   "roman": "NEES",
   "industry": "kensetsu",
@@ -2009,6 +2032,7 @@
   "photos": {"hero": "ai-solar-1", "slides": ["ai-solar-2", "ai-solar-3"]}
  },
  "sousekkei": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が8年前まで / 文字コード shift_jis"},
   "name": "株式会社想設計",
   "roman": "SOU SEKKEI",
   "industry": "kensetsu",
@@ -2084,6 +2108,7 @@
   "photos": {"hero": "ai-house-h4", "gallery": ["ai-house-g2", "ai-house-g3", null], "slides": ["ai-house-h1", "ai-house-h3"]}
  },
  "hasegawa-koumuten": {
+  "intro": {"findings": "取得できない(URLError)"},
   "name": "株式会社長谷川工務店",
   "roman": "HASEGAWA KOUMUTEN",
   "industry": "kensetsu",
@@ -2160,6 +2185,7 @@
   "permits": ["ISO9001", "ISO14001"]
  },
  "suzuki-bankin": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.11"},
   "name": "有限会社鈴木鈑金",
   "roman": "SUZUKI BANKIN",
   "industry": "kensetsu",
@@ -2227,6 +2253,7 @@
   "photos": {"hero": "ai-roof-3", "slides": ["ai-roof-4", "ai-roof-5"]}
  },
  "aotec": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.11"},
   "name": "アオテック株式会社",
   "roman": "AOTEC",
   "industry": "kensetsu",
@@ -2297,6 +2324,7 @@
   "permits": ["愛知県知事許可（般-2）第74237号"]
  },
  "fujimoto-kogei": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
   "name": "株式会社藤本工芸",
   "roman": "FUJIMOTO KOGEI",
   "industry": "kensetsu",
@@ -2446,6 +2474,7 @@
   "permits": ["愛知県知事許可（般-18）第62884号"]
  },
  "takeuchi-yokuso": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が25年前まで / 文字コード shift_jis"},
   "name": "竹内浴槽株式会社",
   "roman": "TAKEUCHI YOKUSO",
   "industry": "kensetsu",
@@ -2516,6 +2545,7 @@
   "photos": {"hero": "ai-setsubi-1", "slides": ["ai-setsubi-3", "ai-setsubi-2"]}
  },
  "chukyo-sports": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が17年前まで / jQuery 1.7"},
   "name": "株式会社中京スポーツ施設",
   "roman": "CHUKYO SPORTS",
   "industry": "kensetsu",
@@ -2598,6 +2628,7 @@
   "photos": {"hero": "1549896869-ca27eeffe4fb", "gallery": ["1474546652694-a33dd8161d66", null, null]}
  },
  "naito-koumuten": {
+  "intro": {"findings": "取得できない(HTTPError)"},
   "name": "有限会社内藤工務店",
   "roman": "NAITO KOUMUTEN",
   "industry": "kensetsu",
@@ -2673,6 +2704,7 @@
   "photos": {"hero": "ai-house-h1", "slides": ["ai-house-h4", "ai-house-h2"], "gallery": ["ai-house-g2", "ai-house-g3", "ai-house-g4"]}
  },
  "ichikawa-mokko": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が10年前まで / jQuery 1.11"},
   "name": "株式会社市川木工",
   "roman": "ICHIKAWA MOKKO",
   "industry": "kensetsu",
@@ -2748,6 +2780,7 @@
   "permits": ["愛知県知事許可（般-32）第60366号"]
  },
  "amemiya-kensetsu": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "有限会社アメミヤ建設",
   "roman": "AMEMIYA KENSETSU",
   "industry": "kensetsu",
@@ -2822,6 +2855,7 @@
   "permits": ["愛知県知事許可（般-7）第36832号"]
  },
  "asahi-homes": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / jQuery 1.10"},
   "name": "旭ホームズ株式会社",
   "roman": "ASAHI HOMES",
   "industry": "kensetsu",
@@ -2899,6 +2933,7 @@
   "permits": ["愛知県知事許可（般-27）第40648号"]
  },
  "asada-denki": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし"},
   "name": "株式会社浅田電機商会",
   "roman": "ASADA DENKI",
   "industry": "kensetsu",
@@ -2971,6 +3006,7 @@
   "photos": {"hero": "ai-denki-3", "slides": ["ai-denki-2", "ai-denki-1"]}
  },
  "dai6": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし"},
   "name": "株式会社ダイロク",
   "roman": "DAIROKU",
   "industry": "seizo",
@@ -3047,6 +3083,7 @@
   "permits": ["愛知県知事許可（般-17）第62649号"]
  },
  "artic-homes": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.9"},
   "name": "株式会社アーティックホームズ",
   "roman": "ARTIC HOMES",
   "industry": "kensetsu",
@@ -3121,6 +3158,7 @@
   "photos": {"hero": "ai-house-h1", "slides": ["ai-house-h4", "ai-house-h2"], "gallery": ["ai-c-seismic", null, null]}
  },
  "funakata": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が11年前まで"},
   "name": "株式会社フナカタ一ツ山店",
   "roman": "FUNAKATA",
   "industry": "kensetsu",
@@ -3189,6 +3227,7 @@
   "photos": {"hero": "ai-denkiten-2", "slides": ["ai-denkiten-1", "ai-denkiten-3"]}
  },
  "youi-factory": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が6年前まで / jQuery 1.7"},
   "name": "株式会社ユーアイファクトリー",
   "roman": "GALLERY YOUI",
   "industry": "kensetsu",
@@ -3265,6 +3304,7 @@
   "permits": ["愛知県知事許可（般-19）第62366号"]
  },
  "jpaintm": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
   "name": "株式会社日本塗装名人社",
   "roman": "JPM",
   "industry": "kensetsu",
@@ -3331,6 +3371,7 @@
   "photos": {"hero": "ai-tosou-1", "slides": ["ai-tosou-3", "ai-tosou-2"]}
  },
  "rm-company": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.8"},
   "name": "株式会社Ｒｍカンパニー",
   "roman": "RM COMPANY",
   "industry": "kensetsu",
@@ -3400,6 +3441,7 @@
   "photos": {"hero": "ai-setsubi-1", "slides": ["ai-setsubi-3", "ai-setsubi-2"]}
  },
  "chukyo-giken": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が4年前まで"},
   "name": "株式会社中京技研",
   "roman": "CHUKYO GIKEN",
   "industry": "kensetsu",
@@ -3471,6 +3513,7 @@
   "permits": ["愛知県知事許可（特-5）第8466号", "ISO9001", "ISO14001"]
  },
  "marukou": {
+  "intro": {"findings": "取得できない(URLError)"},
   "name": "有限会社マル公",
   "roman": "MARUKOU",
   "industry": "seizo",
@@ -3539,6 +3582,7 @@
   "texture": "kinzoku"
  },
  "c-sanei": {
+  "intro": {"findings": "レスポンシブ指定なし / 更新が10年前まで"},
   "name": "株式会社ＳＡＮＥＩ",
   "roman": "SANEI",
   "photos": {
@@ -3680,6 +3724,7 @@
   "photos": {"hero": "ai-car-2", "slides": ["ai-car-1", "ai-car-3"]}
 },
  "sanki-kohmuten": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし"},
   "name": "株式会社三喜工務店",
   "roman": "SANKI KOUMUTEN",
   "industry": "kensetsu",
@@ -3756,6 +3801,7 @@
   "permits": ["愛知県知事許可（特-4）第27351号"]
  },
  "hinode-j": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし"},
   "name": "株式会社ヒノデ住建",
   "roman": "HINODE JUKEN",
   "industry": "kensetsu",
@@ -3826,6 +3872,7 @@
   "permits": ["愛知県知事許可（般-20）第104861号"]
  },
  "itozen": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
   "name": "イトゼン株式会社",
   "roman": "ITOZEN",
   "industry": "kensetsu",
@@ -3899,6 +3946,7 @@
   "photos": {"hero": "ai-house-h1", "slides": ["ai-house-h4", "ai-house-h2"], "gallery": ["ai-c-seismic", null, null]}
  },
  "ask-kk": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が7年前まで / jQuery 1.11 / 文字コード shift_jis"},
   "name": "アスク環境開発株式会社",
   "roman": "ASK",
   "industry": "kensetsu",
@@ -3969,6 +4017,7 @@
   "permits": ["愛知県知事許可（特-5）第36632号"]
  },
  "shinei-fp": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が5年前まで"},
   "name": "シンエイ工営株式会社",
   "roman": "SHINEI KOEI",
   "industry": "kensetsu",
@@ -4042,6 +4091,7 @@
   "photos": {"hero": "ai-house-h3", "gallery": ["ai-house-g2", "ai-house-g7", "ai-c-seismic"], "slides": ["ai-house-h1", "ai-house-h4"]}
  },
  "tam-cp": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が8年前まで"},
   "name": "有限会社タムカンパニー",
   "roman": "TAM COMPANY",
   "industry": "kensetsu",
@@ -4108,6 +4158,7 @@
   "permits": ["愛知県知事許可（般-30）第106780号"]
  },
  "toueidenki": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "東瑩電機株式会社",
   "roman": "TOUEI DENKI",
   "industry": "kensetsu",
@@ -4178,6 +4229,7 @@
   "photos": {"hero": "ai-denki-3", "slides": ["ai-denki-2", "ai-denki-1"]}
  },
  "e-kaken": {
+  "intro": {"findings": "スマホ非対応"},
   "name": "株式会社カケン",
   "roman": "KAKEN",
   "industry": "kensetsu",
@@ -4247,6 +4299,7 @@
   "photos": {"hero": "ai-setsubi-2", "gallery": ["ai-c-mainte", null, null], "slides": ["ai-setsubi-3", "ai-setsubi-1"]}
  },
  "kaneshiki": {
+  "intro": {"findings": "取得できない(HTTPError)"},
   "name": "カネ敷商事株式会社",
   "roman": "KANESHIKI",
   "industry": "kensetsu",
@@ -4315,6 +4368,7 @@
   "photos": {"hero": "ai-denki-3", "slides": ["ai-denki-2", "ai-denki-1"]}
  },
  "yamaguchi-gyoumuten": {
+  "intro": {"findings": "https不可(つながらない) / jQuery 1.11"},
   "name": "有限会社山口業務店",
   "roman": "YAMAGUCHI",
   "industry": "kensetsu",
@@ -4386,6 +4440,7 @@
   "permits": ["愛知県知事許可（般-3）第49513号"]
  },
  "kyokuryo": {
+  "intro": {"findings": "レスポンシブ指定なし / 更新が10年前まで / jQuery 1.11"},
   "name": "有限会社キョクリョウ",
   "roman": "KYOKURYO",
   "industry": "kensetsu",
@@ -4451,6 +4506,7 @@
   "photos": {"hero": "ai-house-g4"}
  },
  "nankai": {
+  "intro": {"findings": "レスポンシブ指定なし / 更新が8年前まで / 文字コード shift_jis"},
   "name": "ナンカイ株式会社",
   "roman": "NANKAI",
   "industry": "kensetsu",
@@ -4590,6 +4646,7 @@
   "photos": {"hero": "ai-mokko-2", "gallery": ["ai-mokko-3", null, null], "slides": ["ai-mokko-1", "ai-mokko-3"]}
  },
  "sansyodo": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.8"},
   "name": "株式会社三昭堂",
   "roman": "SANSYODO",
   "industry": "kensetsu",
@@ -4659,6 +4716,7 @@
   "photos": {"hero": "ai-house-h1", "gallery": ["ai-house-g2", "ai-house-h2", null], "slides": ["ai-house-h4", "ai-house-h3"]}
  },
  "reform-aiti": {
+  "intro": {"findings": "https不可(つながらない) / 古いタグ(center) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "リフォーム愛知株式会社",
   "roman": "REFORM AICHI",
   "industry": "kensetsu",
@@ -4728,6 +4786,7 @@
   "permits": ["愛知県知事許可（般-18）第62839号"]
  },
  "sanyuhousing": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし"},
   "name": "株式会社サンユーハウジング",
   "roman": "SANYU HOUSING",
   "industry": "kensetsu",
@@ -4796,6 +4855,7 @@
   "permits": ["愛知県知事許可（般-29）第108500号"]
  },
  "kamimura-mekki": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
   "name": "神村真空メッキ工業株式会社",
   "roman": "KAMIMURA MEKKI",
   "industry": "seizo",
@@ -4932,6 +4992,7 @@
   "photos": {"hero": "ai-zoen-2", "slides": ["ai-zoen-1", "ai-zoen-3"]}
  },
  "matsuoka-arch": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が17年前まで / 文字コード shift_jis"},
   "name": "株式会社松岡設計事務所",
   "roman": "MATSUOKA ARCH",
   "industry": "kensetsu",
@@ -5006,6 +5067,7 @@
   "photos": {"hero": "ai-house-h4", "gallery": ["ai-house-g2", null, null], "slides": ["ai-house-h1", "ai-house-h3"]}
  },
  "toei-iak": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が21年前まで / jQuery 1.6 / Flashの残骸 / 文字コード shift_jis"},
   "name": "株式会社トーエイ",
   "roman": "TOEI",
   "industry": "kensetsu",
@@ -5074,6 +5136,7 @@
   "photos": {"hero": "ai-setsubi-3", "gallery": ["ai-c-mainte", null, null], "slides": ["ai-setsubi-1", "ai-setsubi-2"]}
  },
  "miuratoso": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / Flashの残骸 / 文字コード shif-jis"},
   "name": "三浦塗装株式会社",
   "roman": "MIURA TOSO",
   "industry": "kensetsu",
@@ -5142,6 +5205,7 @@
   "photos": {"hero": "ai-tosou-1", "slides": ["ai-tosou-3", "ai-tosou-2"]}
  },
  "to-yo-kensho": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(bgcolor) / レスポンシブ指定なし / jQuery 1.9 / Flashの残骸"},
   "name": "名古屋西株式会社トーヨー建商",
   "roman": "TOYO KENSHO",
   "industry": "kensetsu",
@@ -5291,6 +5355,7 @@
   "photos": {"hero": "ai-house-g4"}
  },
  "nesystem": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / Flashの残骸 / 文字コード shift_jis"},
   "name": "株式会社名古屋電機システム",
   "roman": "NAGOYA DENKI SYSTEM",
   "industry": "seizo",
@@ -5356,6 +5421,7 @@
   "photos": {"hero": "ai-denki-1", "slides": ["ai-denki-2", "ai-denki-3"]}
  },
  "oriental-air": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "オリエンタル空調株式会社",
   "roman": "ORIENTAL AIR",
   "industry": "kensetsu",
@@ -5424,6 +5490,7 @@
   "photos": {"hero": "ai-setsubi-3", "gallery": ["ai-c-mainte", null, null], "slides": ["ai-setsubi-1", "ai-setsubi-2"]}
  },
  "okamoto8": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社岡本製作所",
   "roman": "OKAMOTO SEISAKUSHO",
   "industry": "seizo",
@@ -5493,6 +5560,7 @@
   "permits": ["ISO9001"]
  },
  "designoar": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / jQuery 1.4"},
   "name": "株式会社デジーノアール",
   "roman": "DESIGNOAR",
   "industry": "kensetsu",
@@ -5559,6 +5627,7 @@
   "photos": {"hero": "ai-house-h3", "slides": ["ai-house-h1", "ai-house-h4"]}
  },
  "idhomestudio": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし"},
   "name": "アイディーホームスタジオ有限会社",
   "roman": "ID HOME STUDIO",
   "industry": "kensetsu",
@@ -5638,6 +5707,7 @@
   "photos": {"hero": "ai-house-h1", "gallery": ["ai-house-g2", "ai-house-g3", "ai-house-g6"], "slides": ["ai-house-h4", "ai-house-h2"]}
  },
  "remake-tokai": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が11年前まで"},
   "name": "有限会社リメーク東海",
   "roman": "REMAKE TOKAI",
   "industry": "kensetsu",
@@ -5708,6 +5778,7 @@
   "permits": ["愛知県知事許可（般-25）第65986号"]
  },
  "airgiken": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.7"},
   "name": "株式会社エアー技研社",
   "roman": "AIR GIKEN",
   "industry": "seizo",
@@ -5781,6 +5852,7 @@
   "permits": ["愛知県知事許可（般-13）第55911号"]
  },
  "narita-dengyo": {
+  "intro": {"findings": "古いタグ(cellpadding) / レスポンシブ指定なし / jQuery 1.10"},
   "name": "株式会社ナリタ電業",
   "roman": "NARITA DENGYO",
   "industry": "kensetsu",
@@ -5850,6 +5922,7 @@
   "permits": ["愛知県知事許可（般-28）第67434号"]
  },
  "space-hirano": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし"},
   "name": "有限会社スペースヒラノ",
   "roman": "SPACE HIRANO",
   "industry": "kensetsu",
@@ -5913,6 +5986,7 @@
   "photos": {"hero": "ai-house-h1", "slides": ["ai-house-h4", "ai-house-h2"]}
  },
  "b-factory": {
+  "intro": {"findings": "レスポンシブ指定なし / jQuery 1.9"},
   "name": "株式会社ビィファクトリー",
   "roman": "B FACTORY",
   "industry": "car",
@@ -5981,6 +6055,7 @@
   "photos": {"hero": "ai-car-2", "slides": ["ai-car-1", "ai-car-3"]}
 },
  "furukawa-kensetsu": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が8年前まで"},
   "name": "古川建設株式会社",
   "roman": "FURUKAWA KENSETSU",
   "industry": "kensetsu",
@@ -6052,6 +6127,7 @@
   "photos": {"hero": "ai-doboku-2", "slides": ["ai-doboku-1", "ai-doboku-3"]}
  },
  "kuwahara-mokuzai": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(font) / レスポンシブ指定なし / 更新が13年前まで / Flashの残骸 / 文字コード shift_jis"},
   "name": "桑原木材工業株式会社",
   "roman": "KUWAHARA MOKUZAI",
   "industry": "kensetsu",
@@ -6126,6 +6202,7 @@
   "photos": {"hero": "ai-mokko-1", "gallery": ["ai-mokko-3", null, null], "slides": ["ai-mokko-2", "ai-mokko-3"]}
  },
  "tsuchiya-denki": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社土屋電気商会",
   "roman": "TSUCHIYA DENKI",
   "industry": "kensetsu",
@@ -6199,6 +6276,7 @@
   "photos": {"hero": "ai-denki-3", "slides": ["ai-denki-2", "ai-denki-1"]}
  },
  "living-kondo": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 更新が17年前まで / 文字コード shift_jis"},
   "name": "有限会社リビング近藤",
   "roman": "LIVING KONDO",
   "industry": "kensetsu",
@@ -6267,6 +6345,7 @@
   "permits": ["岐阜県知事許可（般-20）第100992号"]
  },
  "aduma": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(bgcolor) / レスポンシブ指定なし / jQuery 1.4"},
   "name": "株式会社アヅマ",
   "roman": "ADUMA",
   "industry": "kensetsu",
@@ -6343,6 +6422,7 @@
   "permits": ["岐阜県知事許可（般-4）第3311号"]
  },
  "hasegawa-garasu": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が13年前まで / Flashの残骸"},
   "name": "長谷川硝子株式会社",
   "roman": "HASEGAWA GARASU",
   "industry": "kensetsu",
@@ -6414,6 +6494,7 @@
   "photos": {"hero": "1509635022432-0220ac12960b"}
  },
  "maruta-sekitozai": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.9"},
   "name": "丸太石陶材株式会社",
   "roman": "MARUTA SEKITOZAI",
   "industry": "seizo",
@@ -6488,6 +6569,7 @@
   "photos": {"hero": "1633299264475-e8796606b870"}
  },
  "nagao-zoen": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "有限会社長尾造園",
   "roman": "NAGAO ZOEN",
   "industry": "kensetsu",
@@ -6558,6 +6640,7 @@
   "photos": {"hero": "ai-zoen-1", "gallery": ["ai-c-exterior", null, null], "slides": ["ai-zoen-2", "ai-zoen-3"]}
  },
  "hirai-kogyo": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が17年前まで"},
   "name": "平井工業株式会社",
   "roman": "HIRAI KOGYO",
   "industry": "kensetsu",
@@ -6622,6 +6705,7 @@
   "photos": {"hero": "ai-setsubi-2", "slides": ["ai-setsubi-3", "ai-setsubi-1"]}
  },
  "okumura-bp": {
+  "intro": {"findings": "取得できない(HTTPError)"},
   "name": "有限会社奥村鈑金塗装",
   "roman": "OKUMURA BP",
   "industry": "car",
@@ -6695,6 +6779,7 @@
   "photos": {"hero": "ai-car-2", "slides": ["ai-car-1", "ai-car-3"]}
 },
  "iwado": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
   "name": "岩戸工業株式会社",
   "roman": "IWADO KOGYO",
   "industry": "seizo",
@@ -6761,6 +6846,7 @@
   "photos": {"hero": "ai-g-welding"}
  },
  "senshou": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.7"},
   "name": "千勝建設株式会社",
   "roman": "SENSHOU KENSETSU",
   "industry": "kensetsu",
@@ -6834,6 +6920,7 @@
   "permits": ["岐阜県知事許可（般-4）第12923号"]
  },
  "hashiba-denki": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が9年前まで / jQuery 1.7"},
   "name": "羽柴電気工事株式会社",
   "roman": "HASHIBA DENKI",
   "industry": "kensetsu",
@@ -6907,6 +6994,7 @@
   "photos": {"hero": "ai-denki-3", "slides": ["ai-denki-2", "ai-denki-1"]}
  },
  "sacras": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし"},
   "name": "株式会社サクラス",
   "roman": "SACRAS",
   "industry": "kensetsu",
@@ -6978,6 +7066,7 @@
   "permits": ["岐阜県知事許可（般-30）第103436号"]
  },
  "nagai-sekkei": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし"},
   "name": "株式会社永井設計工務",
   "roman": "NAGAI SEKKEI KOMU",
   "industry": "kensetsu",
@@ -7052,6 +7141,7 @@
   "photos": {"hero": "ai-house-h3", "gallery": ["ai-house-g2", "ai-house-g3", "ai-c-seismic"], "slides": ["ai-house-h1", "ai-house-h4"]}
  },
  "itokenzai": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / jQuery 1.10 / Flashの残骸 / 文字コード shift-jis"},
    "name": "有限会社伊藤建材",
    "roman": "ITO KENZAI",
    "industry": "kensetsu",
@@ -7125,6 +7215,7 @@
   "permits": ["愛知県知事許可（般-3）第50434号"]
  },
  "barriersystem": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
    "name": "今盛工業株式会社",
    "roman": "IMAMORI KOGYO",
    "photos": {
@@ -7197,6 +7288,7 @@
    "texture": "kinzoku"
  },
  "aramoto": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし / 更新が12年前まで / Flashの残骸 / 文字コード shift_jis"},
    "name": "有限会社荒元",
    "roman": "ARAMOTO",
    "industry": "kensetsu",
@@ -7263,6 +7355,7 @@
    "photos": {"hero": "ai-mokko-1", "slides": ["ai-mokko-2", "ai-mokko-3"]}
  },
  "dtec-co": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が9年前まで"},
    "name": "ディーテック株式会社",
    "roman": "D-TEC",
    "industry": "kensetsu",
@@ -7335,6 +7428,7 @@
    "photos": {"hero": "ai-g-telecom", "slides": ["ai-denki-2", "ai-denki-1"]}
  },
  "ina-soku": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 文字コード shift_jis"},
    "name": "株式会社稲山測量設計",
    "roman": "INAYAMA SURVEY",
    "photos": {
@@ -7403,6 +7497,7 @@
    "texture": "zumen"
  },
  "sekihouse": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.9"},
    "name": "セキハウス工業株式会社",
    "roman": "SEKI HOUSE",
    "industry": "kensetsu",
@@ -7495,6 +7590,7 @@
    }
  },
  "takakuragumi": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.11"},
    "name": "株式会社高座組",
    "roman": "TAKAKURA GUMI",
    "industry": "kensetsu",
@@ -7567,6 +7663,7 @@
   "permits": ["ISO9001"]
  },
  "display-nikko": {
+  "intro": {"findings": "取得できない(HTTPError)"},
    "name": "株式会社ディスプレイ日工",
    "roman": "DISPLAY NIKKO",
    "industry": "kensetsu",
@@ -7638,6 +7735,7 @@
    "photos": {"hero": "ai-g-shopfit", "gallery": ["ai-mokko-3", null, null], "slides": ["ai-mokko-3"]}
  },
  "kk-asakura": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が8年前まで"},
    "name": "株式会社安桜",
    "roman": "ASAKURA",
    "industry": "seizo",
@@ -7699,6 +7797,7 @@
    "photos": {"hero": "ai-seizo-1", "slides": ["ai-seizo-2", "ai-seizo-3"]}
  },
  "ilink-z": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし / 更新が13年前まで"},
    "name": "アイリンク株式会社",
    "roman": "ILINK",
    "industry": "kensetsu",
@@ -7766,6 +7865,7 @@
    "photos": {"hero": "ai-fudosan-1", "slides": ["ai-fudosan-3", "ai-fudosan-2"]}
  },
  "ozeki-kk": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が5年前まで / jQuery 1.11"},
    "name": "尾関建設株式会社",
    "roman": "OZEKI KENSETSU",
    "industry": "kensetsu",
@@ -7837,6 +7937,7 @@
   "permits": ["愛知県知事許可（特-3）第41399号"]
  },
  "ishiharasekizai": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font)"},
    "name": "石原石材株式会社",
    "roman": "ISHIHARA SEKIZAI",
    "industry": "kensetsu",
@@ -7913,6 +8014,7 @@
    "photos": {"hero": "1633299264475-e8796606b870", "svc": [null, null, "ai-s-ishiharasekizai-3", "ai-s-ishiharasekizai-4", null, "ai-s-ishiharasekizai-6", null]}
  },
  "nomura-corporation": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
    "name": "株式会社野村コーポレーション",
    "roman": "NOMURA CORPORATION",
    "industry": "kensetsu",
@@ -7984,6 +8086,7 @@
   "permits": ["愛知県知事許可（特-6）第65148号"]
  },
  "inter-group": {
+  "intro": {"findings": "古いタグ(font) / レスポンシブ指定なし / 更新が4年前まで / 文字コード shift_jis"},
    "name": "株式会社インターナショナルコミュニケーションズ",
    "roman": "INTERNATIONAL COMMUNICATIONS",
    "industry": "kensetsu",
@@ -8056,6 +8159,7 @@
   "permits": ["愛知県知事許可（般-29）第67187号"]
  },
  "itonen": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,center,cellpadding) / レスポンシブ指定なし / 更新が5年前まで / jQuery 1.7"},
    "name": "有限会社伊藤燃設",
    "roman": "ITONEN",
    "industry": "kensetsu",
@@ -8139,6 +8243,7 @@
    }
  },
  "matsudakougyou": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
    "name": "有限会社松田工業",
    "roman": "MATSUDA KOGYO",
    "industry": "kensetsu",
@@ -8205,6 +8310,7 @@
   "permits": ["三重県知事許可（般-24）第4952号"]
  },
  "m-d-s": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
    "name": "株式会社松田電機設備",
    "roman": "MATSUDA DENKI SETSUBI",
    "industry": "kensetsu",
@@ -8277,6 +8383,7 @@
    "photos": {"hero": "ai-denki-3", "slides": ["ai-denki-2", "ai-denki-1"]}
  },
  "ogiso-ken": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 更新が13年前まで / 文字コード shift_jis"},
    "name": "小木曽建築有限会社",
    "roman": "OGISO KENCHIKU",
    "industry": "kensetsu",
@@ -8348,6 +8455,7 @@
    "photos": {"hero": "ai-house-h5", "gallery": ["ai-house-h1", "ai-house-h4", null], "slides": ["ai-house-h3", "ai-house-h2"]}
  },
  "kotaki": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
    "name": "小瀧窯業株式会社",
    "roman": "KOTAKI YOGYO",
    "industry": "kensetsu",
@@ -8421,6 +8529,7 @@
    "photos": {"hero": "ai-doboku-3", "slides": ["ai-doboku-1", "ai-doboku-2"]}
  },
  "nichiei-spacer": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が23年前まで / 文字コード shift_jis"},
    "name": "株式会社日栄商事",
    "roman": "NICHIEI",
    "industry": "seizo",
@@ -8484,6 +8593,7 @@
    "photos": {"hero": "ai-g-injection"}
  },
  "kuwaden": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が21年前まで / 文字コード shift_jis"},
    "name": "桑名電気産業株式会社",
    "roman": "KUWADEN",
    "industry": "kensetsu",
@@ -8555,6 +8665,7 @@
    "photos": {"hero": "ai-denki-1", "slides": ["ai-denki-2", "ai-denki-3"]}
  },
  "sanei-build": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / Flashの残骸 / 文字コード shift_jis"},
    "name": "有限会社三栄",
    "roman": "SANEI BUILD",
    "industry": "kensetsu",
@@ -8626,6 +8737,7 @@
    "photos": {"hero": "ai-house-h5", "gallery": [null, "ai-house-h1", "ai-house-g3"], "slides": ["ai-house-h4", "ai-house-h2"]}
  },
  "e-matsunaga": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(center,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が8年前まで / 文字コード shift_jis"},
    "name": "松永建設株式会社",
    "roman": "MATSUNAGA KENSETSU",
    "industry": "kensetsu",
@@ -8698,6 +8810,7 @@
   "permits": ["岐阜県知事許可（特-8）第125号"]
  },
  "koderakensetsu": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / jQuery 1.7"},
    "name": "小寺建設株式会社",
    "roman": "KODERA KENSETSU",
    "industry": "kensetsu",
@@ -8769,6 +8882,7 @@
    "photos": {"hero": "ai-house-h1", "gallery": ["ai-c-seismic", "ai-house-h4", null], "slides": ["ai-house-h3", "ai-house-h2"]}
  },
  "kanesan": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード x-sjis"},
    "name": "株式会社カネサン",
    "roman": "KANESAN",
    "industry": "kensetsu",
@@ -8836,6 +8950,7 @@
    "photos": {"hero": "ai-doboku-3", "slides": ["ai-doboku-1", "ai-doboku-2"]}
  },
  "kamei": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
    "name": "有限会社亀井建設工業",
    "roman": "KAMEI KENSETSU KOGYO",
    "industry": "kensetsu",
@@ -8902,6 +9017,7 @@
    "photos": {"hero": "ai-house-h2", "slides": ["ai-house-h1", "ai-house-h4"]}
  },
  "sankikensou": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.9"},
    "name": "有限会社三輝建創",
    "roman": "SANKI KENSOU",
    "industry": "kensetsu",
@@ -8984,6 +9100,7 @@
   "permits": ["岐阜県知事許可（般-27）第200579号"]
  },
  "amdj": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.4"},
    "name": "株式会社エイエムディ自動機",
    "roman": "AMD",
    "industry": "seizo",
@@ -9047,6 +9164,7 @@
    "photos": {"hero": "ai-g-automation"}
  },
  "kyouryokougyo": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が14年前まで"},
    "name": "株式会社共亮興業",
    "roman": "KYORYO KOGYO",
    "industry": "kensetsu",
@@ -9119,6 +9237,7 @@
    "photos": {"hero": "ai-doboku-1", "slides": ["ai-doboku-2", "ai-doboku-3"]}
  },
  "kawashimakenzai": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
    "name": "株式会社川島建材",
    "roman": "KAWASHIMA KENZAI",
    "industry": "kensetsu",
@@ -9192,6 +9311,7 @@
   "permits": ["岐阜県知事許可（般-29）第600705号"]
  },
  "dkltd": {
+  "intro": {"findings": "スマホ非対応 / jQuery 1.10"},
    "name": "大同工業株式会社",
    "roman": "DAIDO KOGYO",
    "industry": "kensetsu",
@@ -9265,6 +9385,7 @@
    "photos": {"hero": "ai-doboku-3", "slides": ["ai-doboku-1", "ai-doboku-2"]}
  },
  "makoto5000": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が4年前まで / jQuery 1.10"},
    "name": "株式会社マコト",
    "roman": "MAKOTO",
    "industry": "kensetsu",
@@ -9346,6 +9467,7 @@
   "permits": ["岐阜県知事許可（般-28）第350297号"]
  },
  "sougou-urakami": {
+  "intro": {"findings": "スマホ非対応"},
    "name": "総合建築浦上株式会社",
    "roman": "URAKAMI",
    "industry": "kensetsu",
@@ -9419,6 +9541,7 @@
    "photos": {"hero": "ai-house-h1", "gallery": ["ai-house-g2", "ai-house-g3", null], "slides": ["ai-house-h4", "ai-house-h2"]}
  },
  "txc": {
+  "intro": {"findings": "古いタグ(font)"},
    "name": "株式会社ティーバイシー",
    "roman": "TXC",
    "industry": "seizo",
@@ -9482,6 +9605,7 @@
    "photos": {"hero": "ai-g-automation"}
  },
  "kanemaru-s": {
+  "intro": {"findings": "古いタグ(cellpadding) / レスポンシブ指定なし / jQuery 1.11"},
    "name": "有限会社カネマル精巧",
    "roman": "KANEMARU SEIKO",
    "industry": "seizo",
@@ -9546,6 +9670,7 @@
    "photos": {"hero": "ai-g-mold"}
  },
  "szd": {
+  "intro": {"findings": "レスポンシブ指定なし / 更新が3年前まで / 文字コード shift_jis"},
    "name": "株式会社末武造園土木",
    "roman": "SUETAKE",
    "industry": "kensetsu",
@@ -9619,6 +9744,7 @@
    "photos": {"hero": "ai-zoen-1", "gallery": ["ai-c-exterior", null, null], "slides": ["ai-zoen-2", "ai-zoen-3"]}
  },
  "daisindaisin": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
    "name": "大辰工業株式会社",
    "roman": "DAISHIN KOGYO",
    "photos": {
@@ -9691,6 +9817,7 @@
   "permits": ["国土交通大臣許可（般-2）第27798号"]
  },
  "sakamotomachine": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 文字コード shift_jis"},
    "name": "坂本機械株式会社",
    "roman": "SAKAMOTO MACHINE",
    "industry": "seizo",
@@ -9753,6 +9880,7 @@
    "photos": {"hero": "ai-seizo-1", "slides": ["ai-seizo-2", "ai-seizo-3"]}
  },
  "chukyoonki": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が10年前まで / 文字コード shift_jis"},
   "name": "中京音機株式会社",
   "roman": "CHUKYO ONKI",
   "industry": "kensetsu",
@@ -9824,6 +9952,7 @@
   ]
  },
  "axteam": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / jQuery 1.7"},
   "name": "エーチーム株式会社",
   "roman": "A-TEAM",
   "industry": "kensetsu",
@@ -9908,6 +10037,7 @@
   "photos": {"hero": "ai-fudosan-1", "slides": ["ai-fudosan-3", "ai-fudosan-2"]}
  },
  "azabu-co": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,cellpadding) / レスポンシブ指定なし / jQuery 1.12"},
   "name": "株式会社麻布",
   "roman": "AZABU",
   "industry": "kensetsu",
@@ -9978,6 +10108,7 @@
   ]
  },
  "seiko213": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が14年前まで / jQuery 1.4"},
   "name": "有限会社星光不動産販売",
   "roman": "SEIKO FUDOSAN",
   "industry": "kensetsu",
@@ -10131,6 +10262,7 @@
   "photos": {"hero": "ai-denki-1", "slides": ["ai-denki-2", "ai-denki-3"]}
  },
  "nikko25": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / Flashの残骸"},
   "name": "日興インテリア有限会社",
   "roman": "NIKKO INTERIOR",
   "industry": "kensetsu",
@@ -10200,6 +10332,7 @@
   ]
  },
  "sanauto": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 更新が18年前まで / Flashの残骸 / 文字コード shift_jis"},
   "name": "有限会社さんおーと",
   "roman": "SUN AUTO",
   "industry": "car",
@@ -10283,6 +10416,7 @@
   "photos": {"hero": "ai-car-1", "slides": ["ai-car-3", "ai-car-2"]}
 },
  "watt-knf": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(font) / レスポンシブ指定なし / 更新が14年前まで / 文字コード shift_jis"},
   "name": "株式会社ワット",
   "roman": "WATT",
   "industry": "seizo",
@@ -10346,6 +10480,7 @@
   "accent": "#3c7a01"
  },
  "kawai-ad": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が23年前まで / 文字コード shift_jis"},
   "name": "有限会社河合建築設計事務所",
   "roman": "KAWAI ARCHITECTS",
   "industry": "kensetsu",
@@ -10435,6 +10570,7 @@
   "photos": {"hero": "ai-house-h4", "gallery": ["ai-house-g2", null, null], "slides": ["ai-house-h1", "ai-house-h3"]}
  },
  "kurumado": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が23年前まで / Flashの残骸 / 文字コード指定なし"},
   "name": "株式会社車戸建築事務所",
   "roman": "KURUMADO ARCHITECT OFFICE",
   "industry": "kensetsu",
@@ -10526,6 +10662,7 @@
   "photos": {"hero": "ai-house-h2", "gallery": ["ai-house-g2", null, null], "slides": ["ai-house-h1", "ai-house-h4"]}
  },
  "taikokensetu": {
+  "intro": {"findings": "スマホ非対応"},
   "name": "大興建設株式会社",
   "roman": "TAIKO KENSETSU",
   "industry": "kensetsu",
@@ -10602,6 +10739,7 @@
   ]
  },
  "autass": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
   "name": "有限会社オータス",
   "roman": "AUTASS",
   "industry": "seizo",
@@ -10663,6 +10801,7 @@
   "photos": {"hero": "ai-g-automation"}
  },
  "chuo-eng": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が15年前まで"},
   "name": "株式会社中央エンジニアリング",
   "roman": "CHUO ENGINEERING",
   "industry": "seizo",
@@ -10731,6 +10870,7 @@
   ]
  },
  "taiyo-industry": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 更新が13年前まで / 文字コード指定なし"},
   "name": "タイヨー工業株式会社",
   "roman": "TAIYO INDUSTRY",
   "industry": "seizo",
@@ -10794,6 +10934,7 @@
   "photos": {"hero": "ai-seizo-3", "slides": ["ai-seizo-1", "ai-seizo-2"]}
  },
  "mokunet": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor) / レスポンシブ指定なし / 更新が5年前まで / 文字コード shift_jis"},
   "name": "有限会社内木木工所",
   "roman": "NAIKI MOKKOUSHO",
   "industry": "seizo",
@@ -10859,6 +11000,7 @@
   "photos": {"hero": "ai-mokko-1", "slides": ["ai-mokko-2", "ai-mokko-3"]}
  },
  "minodoro": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が14年前まで / jQuery 1.8"},
   "name": "三野道路株式会社",
   "roman": "MINO DORO",
   "industry": "kensetsu",
@@ -10930,6 +11072,7 @@
   ]
  },
  "hayaken": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / jQuery 1.6"},
   "name": "早川建築株式会社",
   "roman": "HAYAKAWA KENCHIKU",
   "industry": "kensetsu",
@@ -11012,6 +11155,7 @@
   }
  },
  "hiranoshiki": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし"},
   "name": "株式会社平野紙器",
   "roman": "HIRANO SHIKI",
   "industry": "seizo",
@@ -11077,6 +11221,7 @@
   "texture": "kinzoku"
  },
  "mitsuwa-towa": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし"},
   "name": "三和建設株式会社",
   "roman": "MITSUWA KENSETSU",
   "industry": "kensetsu",
@@ -11238,6 +11383,7 @@
   ]
  },
  "tsuchikawakogyo": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が7年前まで / 文字コード jis"},
   "name": "土川工業株式会社",
   "roman": "TSUCHIKAWA KOGYO",
   "industry": "seizo",
@@ -11380,6 +11526,7 @@
   ]
  },
  "watanabe-kawara": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が13年前まで / jQuery 1.7"},
   "name": "株式会社渡辺瓦店",
   "roman": "WATANABE KAWARATEN",
   "industry": "kensetsu",
@@ -11525,6 +11672,7 @@
   }
  },
  "sakurai-kougyou": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 更新が18年前まで / 文字コード shift_jis"},
   "name": "桜井工業株式会社",
   "roman": "SAKURAI KOUGYOU",
   "industry": "kensetsu",
@@ -11595,6 +11743,7 @@
   }
  },
  "sankyoei": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が17年前まで / 文字コード shift_jis"},
   "name": "三協電子工業株式会社",
   "roman": "SANKYO DENSHI KOGYO",
   "industry": "kensetsu",
@@ -11666,6 +11815,7 @@
   }
  },
  "kamo-kensetsu": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が4年前まで"},
   "name": "加茂建設株式会社",
   "roman": "KAMO KENSETSU",
   "industry": "kensetsu",
@@ -11740,6 +11890,7 @@
   }
  },
  "simono-koumuten": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社下野工務店",
   "roman": "SIMONO KOUMUTEN",
   "industry": "kensetsu",
@@ -11812,6 +11963,7 @@
   }
  },
  "kaizu": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(center,bgcolor) / レスポンシブ指定なし / 更新が21年前まで / フレーム / 文字コード shift_jis"},
   "name": "有限会社海津塗装",
   "roman": "KAIZU TOSOU",
   "industry": "kensetsu",
@@ -11881,6 +12033,7 @@
   }
  },
  "hiroikensetu": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "広井建設株式会社",
   "roman": "HIROI KENSETSU",
   "industry": "kensetsu",
@@ -11955,6 +12108,7 @@
   }
  },
  "daiichi-sekkei": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社第一設計",
   "roman": "DAIICHI SEKKEI",
   "industry": "kensetsu",
@@ -12097,6 +12251,7 @@
   }
  },
  "imec-kk": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(font,bgcolor,cellpadding,marquee) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社アイメック",
   "roman": "IMEC",
   "industry": "seizo",
@@ -12161,6 +12316,7 @@
   "photos": {"hero": "ai-g-automation", "slides": ["ai-c-design"]}
  },
  "bluematerial": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が14年前まで / jQuery 1.5"},
   "name": "株式会社ブルーマテリアル",
   "roman": "BLUE MATERIAL",
   "industry": "kensetsu",
@@ -12231,6 +12387,7 @@
   }
  },
  "kanehisa-kenchiku": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "有限会社カネヒサ建築",
   "roman": "KANEHISA KENCHIKU",
   "industry": "kensetsu",
@@ -12301,6 +12458,7 @@
   }
  },
  "tanaka-mokkou": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が19年前まで / 文字コード shift_jis"},
   "name": "株式会社田中木工",
   "roman": "TANAKA MOKKOU",
   "industry": "seizo",
@@ -12442,6 +12600,7 @@
   }
  },
  "sb-kenzai": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が13年前まで"},
   "name": "エス・ビー建材株式会社",
   "roman": "SB KENZAI",
   "industry": "kensetsu",
@@ -12514,6 +12673,7 @@
   }
  },
  "shinko-kensetsu": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が10年前まで"},
   "name": "真行建設株式会社",
   "roman": "SHINKO KENSETSU",
   "industry": "kensetsu",
@@ -12584,6 +12744,7 @@
   }
  },
  "aoyama-kenzai": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が13年前まで"},
   "name": "合資会社青山建材店",
   "roman": "AOYAMA KENZAITEN",
   "industry": "kensetsu",
@@ -12656,6 +12817,7 @@
   }
  },
  "shinei-jp": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / jQuery 1.11"},
   "name": "株式会社新栄",
   "roman": "SHINEI",
   "industry": "kensetsu",
@@ -12725,6 +12887,7 @@
   }
  },
  "masuoka-kensetsu": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード x-sjis"},
   "name": "桝岡建設有限会社",
   "roman": "MASUOKA KENSETSU",
   "industry": "kensetsu",
@@ -12788,6 +12951,7 @@
   "photos": {"hero": "ai-g-temple", "slides": ["ai-house-h1", "ai-mokko-3"]}
  },
  "noguchi-cons": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "野口建設株式会社",
   "roman": "NOGUCHI KENSETSU",
   "industry": "kensetsu",
@@ -12861,6 +13025,7 @@
   }
  },
  "hotori": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / jQuery 1.11"},
   "name": "株式会社ほとり建築事務所",
   "roman": "HOTORI ARCHITECTS",
   "industry": "kensetsu",
@@ -12929,6 +13094,7 @@
   }
  },
  "kyowaanzen": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社協和安全",
   "roman": "KYOWA ANZEN",
   "industry": "kensetsu",
@@ -13002,6 +13168,7 @@
   }
  },
  "masuda-koumuten": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし"},
   "name": "有限会社増田工務店",
   "roman": "MASUDA KOUMUTEN",
   "industry": "kensetsu",
@@ -13145,6 +13312,7 @@
   }
  },
  "miurakenchiku": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が12年前まで / Flashの残骸 / 文字コード shift_jis"},
   "name": "株式会社三浦建築工業",
   "roman": "MIURA KENCHIKU KOGYO",
   "industry": "kensetsu",
@@ -13208,6 +13376,7 @@
   "photos": {"hero": "ai-g-temple", "slides": ["ai-house-h1", "ai-mokko-3"]}
  },
  "futamuragiken": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が13年前まで"},
   "name": "株式会社二村技建",
   "roman": "FUTAMURA GIKEN",
   "industry": "kensetsu",
@@ -13280,6 +13449,7 @@
   }
  },
  "gifu-soil": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が3年前まで"},
   "name": "株式会社岐阜ソイルコンサルタント",
   "roman": "GIFU SOIL CONSULTANT",
   "industry": "kensetsu",
@@ -13350,6 +13520,7 @@
   }
  },
  "fusogiken": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が5年前まで"},
   "name": "株式会社扶桑技研",
   "roman": "FUSO GIKEN",
   "industry": "seizo",
@@ -13415,6 +13586,7 @@
   "photos": {"hero": "ai-g-welding"}
  },
  "kitani-g": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / jQuery 1.2"},
   "name": "株式会社キタニ",
   "roman": "KITANI",
   "industry": "seizo",
@@ -13485,6 +13657,7 @@
   }
  },
  "mishimakenchiku": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が27年前まで / Flashの残骸"},
   "name": "株式会社三島建築",
   "roman": "MISHIMA KENCHIKU",
   "industry": "kensetsu",
@@ -13556,6 +13729,7 @@
   }
  },
  "daiso-p": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が7年前まで / jQuery 1.8"},
   "name": "株式会社大装",
   "roman": "DAISO",
   "industry": "kensetsu",
@@ -13626,6 +13800,7 @@
   }
  },
  "fujicoh-reform": {
+  "intro": {"findings": "目立った問題なし"},
   "name": "株式会社フジコー",
   "roman": "FUJICOH",
   "industry": "kensetsu",
@@ -13698,6 +13873,7 @@
   }
  },
  "andou-con": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "安藤コンクリート工業株式会社",
   "roman": "ANDOU CONCRETE",
   "industry": "kensetsu",
@@ -13768,6 +13944,7 @@
   }
  },
  "taguchi-kenchiku": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が5年前まで / 文字コード shift_jis"},
   "name": "株式会社田口建築",
   "roman": "TAGUCHI KENCHIKU",
   "industry": "kensetsu",
@@ -13833,6 +14010,7 @@
   "photos": {"hero": "ai-g-temple", "slides": ["ai-mokko-3", "ai-house-h1"]}
  },
  "hidatakumi": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(center,cellpadding) / レスポンシブ指定なし"},
   "name": "有限会社和仁建具店",
   "roman": "WANI TATEGUTEN",
   "industry": "kensetsu",
@@ -13905,6 +14083,7 @@
   }
  },
  "marutakesangyo": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし"},
   "name": "有限会社丸武産業",
   "roman": "MARUTAKE SANGYO",
   "industry": "kensetsu",
@@ -13975,6 +14154,7 @@
   }
  },
  "mold-yamaguchi": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が16年前まで"},
   "name": "有限会社モールド山口",
   "roman": "MOLD YAMAGUCHI",
   "industry": "seizo",
@@ -14038,6 +14218,7 @@
   "photos": {"hero": "ai-g-mold", "slides": ["ai-c-design"]}
  },
  "kanazawa-setsubi": {
+  "intro": {"findings": "https不可(つながらない) / 古いタグ(center) / レスポンシブ指定なし / 更新が7年前まで"},
   "name": "株式会社金沢設備",
   "roman": "KANAZAWA SETSUBI",
   "industry": "kensetsu",
@@ -14106,6 +14287,7 @@
   "photos": {"hero": "ai-g-water", "slides": ["ai-setsubi-3", "ai-setsubi-1"]}
  },
  "kinoshitaconstruction": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が16年前まで"},
   "name": "有限会社木下建設",
   "roman": "KINOSHITA KENSETSU",
   "industry": "kensetsu",
@@ -14179,6 +14361,7 @@
   }
  },
  "yasudakougyou": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が9年前まで"},
   "name": "安田工業株式会社",
   "roman": "YASUDA KOGYO",
   "industry": "seizo",
@@ -14318,6 +14501,7 @@
   }
  },
  "kobayashi-ao": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.6"},
   "name": "有限会社小林建築設計事務所",
   "roman": "KOBAYASHI ARCHITECTS",
   "industry": "kensetsu",
@@ -14388,6 +14572,7 @@
   }
  },
  "nakamichi-kk": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.10"},
   "name": "中道建築開発株式会社",
   "roman": "NAKAMICHI KENCHIKU KAIHATSU",
   "industry": "kensetsu",
@@ -14462,6 +14647,7 @@
   }
  },
  "gts-service": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / Flashの残骸"},
   "name": "後藤水道株式会社",
   "roman": "GOTO SUIDO",
   "industry": "kensetsu",
@@ -14530,6 +14716,7 @@
   "photos": {"hero": "ai-g-water", "slides": ["ai-house-g4", "ai-setsubi-3"]}
  },
  "marushin-house": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.10"},
   "name": "株式会社丸信住宅産業",
   "roman": "MARUSHIN JUTAKU SANGYO",
   "industry": "kensetsu",
@@ -14606,6 +14793,7 @@
   }
  },
  "inaba-denkou": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が7年前まで / jQuery 1.10"},
   "name": "株式会社稲葉電工",
   "roman": "INABA DENKOU",
   "industry": "kensetsu",
@@ -14751,6 +14939,7 @@
   }
  },
  "kyowa-seiki": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が20年前まで / 文字コード shift_jis"},
   "name": "協和精機株式会社",
   "roman": "KYOWA SEIKI",
   "industry": "seizo",
@@ -14818,6 +15007,7 @@
   }
  },
  "o-eng": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社大坪エンジニアリング",
   "roman": "OTSUBO ENGINEERING",
   "industry": "seizo",
@@ -14887,6 +15077,7 @@
   }
  },
  "fleclam": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が18年前まで / Flashの残骸 / 文字コード shift_jis"},
   "name": "株式会社フレックラム",
   "roman": "FLECLAM",
   "industry": "seizo",
@@ -14951,6 +15142,7 @@
   "photos": {"hero": "ai-g-press"}
  },
  "chubu-ss": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(marquee) / レスポンシブ指定なし / 更新が12年前まで / jQuery 1.4"},
   "name": "株式会社中部製作所",
   "roman": "CHUBU SEISAKUSHO",
   "industry": "seizo",
@@ -15023,6 +15215,7 @@
   }
  },
  "japan-separater": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード指定なし"},
   "name": "ジャパンセパレーター株式会社",
   "roman": "JAPAN SEPARATER",
   "industry": "seizo",
@@ -15087,6 +15280,7 @@
   "photos": {"hero": "ai-g-dust"}
  },
  "maru8sugihara": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし"},
   "name": "有限会社杉原鉄工所",
   "roman": "SUGIHARA TEKKOSHO",
   "industry": "seizo",
@@ -15150,6 +15344,7 @@
   "photos": {"hero": "ai-g-welding"}
  },
  "nagasaki-eng": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が14年前まで / jQuery 1.7"},
   "name": "有限会社長崎製作所",
   "roman": "NAGASAKI SEISAKUSHO",
   "industry": "seizo",
@@ -15220,6 +15415,7 @@
   }
  },
  "itami-gifu": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が12年前まで"},
   "name": "有限会社伊丹製作所",
   "roman": "ITAMI SEISAKUSHO",
   "industry": "seizo",
@@ -15289,6 +15485,7 @@
   }
  },
  "okada-giken": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が7年前まで / jQuery 1.11"},
   "name": "岡田技研株式会社",
   "roman": "OKADA GIKEN",
   "industry": "seizo",
@@ -15359,6 +15556,7 @@
   }
  },
  "onibuchi": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(center,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が17年前まで / 文字コード shift_jis"},
   "name": "株式会社オニブチワインダー",
   "roman": "ONIBUCHI WINDER",
   "industry": "seizo",
@@ -15421,6 +15619,7 @@
   "photos": {"hero": "ai-onibuchi-1"}
  },
  "shimada-ss": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(font,bgcolor) / レスポンシブ指定なし / フレーム / 文字コード shift_jis"},
   "name": "株式会社島田製作所",
   "roman": "SHIMADA SEISAKUSHO",
   "industry": "seizo",
@@ -15489,6 +15688,7 @@
   }
  },
  "finemasters-co": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "ファインマスターズ株式会社",
   "roman": "FINE MASTERS",
   "industry": "seizo",
@@ -15552,6 +15752,7 @@
   "photos": {"hero": "ai-g-mold"}
  },
  "hayashiseisakusho": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が14年前まで"},
   "name": "株式会社林製作所",
   "roman": "HAYASHI SEISAKUSHO",
   "industry": "seizo",
@@ -15620,6 +15821,7 @@
   }
  },
  "kanayama-metal": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が17年前まで"},
   "name": "金山金属工業株式会社",
   "roman": "KANAYAMA METAL",
   "industry": "seizo",
@@ -15685,6 +15887,7 @@
   "photos": {"hero": "ai-g-press"}
  },
  "ishigaki-seikou": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "有限会社石垣精工",
   "roman": "ISHIGAKI SEIKOU",
   "industry": "seizo",
@@ -15750,6 +15953,7 @@
   "photos": {"hero": "ai-g-press"}
  },
  "shodatekkou": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "有限会社庄田鉄工所",
   "roman": "SHODA TEKKOSHO",
   "industry": "seizo",
@@ -15816,6 +16020,7 @@
   }
  },
  "ys-giken": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし / 更新が14年前まで / 文字コード shift_jis"},
   "name": "株式会社ワイズ技研",
   "roman": "Y'S GIKEN",
   "industry": "seizo",
@@ -15882,6 +16087,7 @@
   }
  },
  "mizuhoes": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,bgcolor) / レスポンシブ指定なし / 更新が5年前まで"},
   "name": "ミズホエレシス株式会社",
   "roman": "MIZUHO ELESYS",
   "industry": "seizo",
@@ -15954,6 +16160,7 @@
   }
  },
  "shinyo-sg": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が14年前まで / 文字コード shift_jis"},
   "name": "伸陽産業株式会社",
   "roman": "SHINYO SANGYO",
   "industry": "seizo",
@@ -16020,6 +16227,7 @@
   }
  },
  "pro-fit": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が5年前まで / 文字コード shift_jis"},
   "name": "プロフィット株式会社",
   "roman": "PRO-FIT",
   "industry": "seizo",
@@ -16084,6 +16292,7 @@
   "photos": {"hero": "ai-g-injection"}
  },
  "ishiikanagata": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.12"},
   "name": "株式会社石井金型",
   "roman": "ISHII KANAGATA",
   "industry": "seizo",
@@ -16154,6 +16363,7 @@
   }
  },
  "meijyokanki": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "名城管機株式会社",
   "roman": "MEIJYO KANKI",
   "industry": "seizo",
@@ -16220,6 +16430,7 @@
   }
  },
  "ironworks": {
+  "intro": {"findings": "スマホ非対応 / jQuery 1.7"},
   "name": "株式会社アイアン工業",
   "roman": "IRON KOGYO",
   "industry": "seizo",
@@ -16284,6 +16495,7 @@
   "photos": {"hero": "ai-g-welding"}
  },
  "ktk-corp": {
+  "intro": {"findings": "古いタグ(font) / レスポンシブ指定なし / 更新が6年前まで / 文字コード shift_jis"},
   "name": "株式会社ケー・ティー・ケー",
   "roman": "KTK",
   "industry": "seizo",
@@ -16351,6 +16563,7 @@
   }
  },
  "sanwakiko": {
+  "intro": {"findings": "古いタグ(font) / レスポンシブ指定なし / 更新が7年前まで / 文字コード shift_jis"},
   "name": "さんわ機工有限会社",
   "roman": "SANWA KIKO",
   "industry": "seizo",
@@ -16417,6 +16630,7 @@
   }
  },
  "yamayasu": {
+  "intro": {"findings": "古いタグ(font) / レスポンシブ指定なし / 更新が7年前まで / 文字コード shift_jis"},
   "name": "有限会社ヤマヤス工業",
   "roman": "YAMAYASU KOGYO",
   "industry": "seizo",
@@ -16482,6 +16696,7 @@
   "accent": "#1d4d6c"
  },
  "softhands": {
+  "intro": {"findings": "https不可(つながらない) / 更新が9年前まで"},
   "name": "有限会社ソフトハンズ",
   "roman": "SOFT HANDS",
   "industry": "seizo",
@@ -16546,6 +16761,7 @@
   "accent": "#2b6777"
  },
  "iject": {
+  "intro": {"findings": "古いタグ(cellpadding) / 更新が19年前まで / jQuery 1.9 / 文字コード shift_jis"},
   "name": "株式会社アイジェクト",
   "roman": "IJECT",
   "industry": "seizo",
@@ -16676,6 +16892,7 @@
   "accent": "#1f3f6e"
  },
  "kamiiida": {
+  "intro": {"findings": "レスポンシブ指定なし / 更新が11年前まで / jQuery 1.7"},
   "name": "株式会社上飯田製作所",
   "roman": "KAMIIIDA SEISAKUSHO",
   "industry": "seizo",
@@ -16746,6 +16963,7 @@
   }
  },
  "shinhokagaku": {
+  "intro": {"findings": "https不可(つながらない)"},
   "name": "新豊科学器械株式会社",
   "roman": "SHINHO KAGAKU KIKAI",
   "industry": "seizo",
@@ -16806,6 +17024,7 @@
   "photos": {"hero": "ai-g-heat"}
  },
  "tyuo-giken": {
+  "intro": {"findings": "レスポンシブ指定なし"},
   "name": "中央技研株式会社",
   "roman": "CHUO GIKEN",
   "industry": "seizo",
@@ -16873,6 +17092,7 @@
   "photos": {"hero": "ai-tyuo-giken-1"}
  },
  "kasatori": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,center) / レスポンシブ指定なし / フレーム / 文字コード shift_jis"},
   "name": "株式会社笠取",
   "roman": "KASATORI",
   "industry": "seizo",
@@ -16937,6 +17157,7 @@
   }
  },
  "kk-fujitec": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が21年前まで / 文字コード shift_jis"},
   "name": "株式会社フジテック",
   "roman": "FUJITEC",
   "industry": "seizo",
@@ -17008,6 +17229,7 @@
   }
  },
  "jimbo-ltd": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 更新が20年前まで / 文字コード shift_jis"},
   "name": "株式会社神保製作所",
   "roman": "JIMBO SEISAKUSHO",
   "industry": "seizo",
@@ -17075,6 +17297,7 @@
   "photos": {"hero": "ai-g-casting"}
  },
  "tatematsu": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 更新が16年前まで"},
   "name": "立松工業株式会社",
   "roman": "TATEMATSU KOGYO",
   "industry": "seizo",
@@ -17204,6 +17427,7 @@
   "accent": "#5a4632"
  },
  "fullstage": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,bgcolor) / レスポンシブ指定なし / 更新が21年前まで / 文字コード shift_jis"},
   "name": "フルステージ株式会社",
   "roman": "FULL STAGE",
   "industry": "seizo",
@@ -17268,6 +17492,7 @@
   "photos": {"hero": "ai-g-automation"}
  },
  "marusu-glaze": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が12年前まで"},
   "name": "丸ス釉薬合資会社",
   "roman": "MARUSU GLAZE",
   "industry": "seizo",
@@ -17334,6 +17559,7 @@
   "accent": "#3d5a80"
  },
  "sansei-kohboh": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が10年前まで"},
   "name": "株式会社三省工房",
   "roman": "SANSEI KOHBOH",
   "industry": "seizo",
@@ -17400,6 +17626,7 @@
   }
  },
  "kondo-kikai": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が10年前まで"},
   "name": "株式会社近藤機械製作所",
   "roman": "KONDO KIKAI",
   "industry": "seizo",
@@ -17471,6 +17698,7 @@
   }
  },
  "nk-frp": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.8"},
   "name": "株式会社エヌ・ケー",
   "roman": "NK",
   "industry": "seizo",
@@ -17535,6 +17763,7 @@
   "photos": {"hero": "ai-frp-1"}
  },
  "shinko-kogyo": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社伸幸工業",
   "roman": "SHINKO KOGYO",
   "industry": "seizo",
@@ -17602,6 +17831,7 @@
   }
  },
  "naritakogyo": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
   "name": "株式会社成田工業所",
   "roman": "NARITA KOGYOSHO",
   "industry": "seizo",
@@ -17665,6 +17895,7 @@
   "photos": {"hero": "ai-g-welding"}
  },
  "quality-ism": {
+  "intro": {"findings": "表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / jQuery 1.9"},
   "name": "有限会社クオリティ",
   "roman": "QUALITY",
   "industry": "seizo",
@@ -17729,6 +17960,7 @@
   "accent": "#000080"
  },
  "shoei-kogyo": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / jQuery 1.7"},
   "name": "松栄工業株式会社",
   "roman": "SHOEI KOGYO",
   "industry": "seizo",
@@ -17793,6 +18025,7 @@
   "accent": "#3c2f13"
  },
  "tr-c": {
+  "intro": {"findings": "スマホ非対応"},
   "name": "株式会社東海螺子",
   "roman": "TOKAI RASHI",
   "industry": "seizo",
@@ -17863,6 +18096,7 @@
   "photos": {"hero": "ai-g-bolt", "svc": ["ai-s-tr-c-1", "ai-s-tr-c-2", null, null, null, "ai-s-tr-c-6"]}
  },
  "fukui-tekko": {
+  "intro": {"findings": "スマホ非対応"},
   "name": "福井鉄工株式会社",
   "roman": "FUKUI TEKKO",
   "industry": "seizo",
@@ -17928,6 +18162,7 @@
   "photos": {"hero": "ai-seizo-1", "svc": ["ai-s-fukui-tekko-1", "ai-s-fukui-tekko-2", "ai-s-fukui-tekko-3", null, null, null]}
  },
  "utsuno": {
+  "intro": {"findings": "レスポンシブ指定なし / 更新が25年前まで / jQuery 1.11"},
   "name": "株式会社ウツノ",
   "roman": "UTSUNO",
   "industry": "seizo",
@@ -17994,6 +18229,7 @@
   "photos": {"hero": "ai-g-press"}
  },
  "sanritu-seto": {
+  "intro": {"findings": "レスポンシブ指定なし"},
   "name": "株式会社三立",
   "roman": "SANRITU",
   "industry": "kensetsu",
@@ -18065,6 +18301,7 @@
   }
  },
  "hachisuka-yane": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(cellpadding) / レスポンシブ指定なし / jQuery 1.9"},
   "name": "有限会社蜂須賀屋根工事",
   "roman": "HACHISUKA YANE",
   "industry": "kensetsu",
@@ -18138,6 +18375,7 @@
   }
  },
  "sunforest": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社サンフォレスト",
   "roman": "SUNFOREST",
   "industry": "kensetsu",
@@ -18206,6 +18444,7 @@
   }
  },
  "howanet": {
+  "intro": {"findings": "jQuery 1.11"},
   "name": "豊和建設株式会社",
   "roman": "HOWA KENSETSU",
   "industry": "kensetsu",
@@ -18274,6 +18513,7 @@
   }
  },
  "ooshino": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし / 更新が13年前まで / 文字コード shift_jis"},
   "name": "株式会社大篠建設",
   "roman": "OOSHINO KENSETSU",
   "industry": "kensetsu",
@@ -18345,6 +18585,7 @@
   }
  },
  "shimada-gyoumuten": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / jQuery 1.9"},
   "name": "株式会社島田業務店",
   "roman": "SHIMADA GYOMUTEN",
   "industry": "kensetsu",
@@ -18416,6 +18657,7 @@
   }
  },
  "h-aw": {
+  "intro": {"findings": "目立った問題なし"},
   "name": "株式会社ホリウチ",
   "roman": "HORIUCHI",
   "industry": "kensetsu",
@@ -18487,6 +18729,7 @@
   }
  },
  "kurimotochishitsu": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし"},
   "name": "株式会社栗元地質",
   "roman": "KURIMOTO CHISHITSU",
   "industry": "kensetsu",
@@ -18558,6 +18801,7 @@
   }
  },
  "tosho-kiso": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "東昌基礎株式会社",
   "roman": "TOSHO KISO",
   "industry": "kensetsu",
@@ -18630,6 +18874,7 @@
   }
  },
  "h-d": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / jQuery 1.12"},
   "name": "株式会社光電業社",
   "roman": "HIKARI DENGYOSHA",
   "industry": "kensetsu",
@@ -18701,6 +18946,7 @@
   }
  },
  "miuracop": {
+  "intro": {"findings": "古いタグ(cellpadding) / レスポンシブ指定なし / jQuery 1.9"},
   "name": "株式会社三浦工務店",
   "roman": "MIURA KOMUTEN",
   "industry": "kensetsu",
@@ -18769,6 +19015,7 @@
   }
  },
  "haruhidenko": {
+  "intro": {"findings": "レスポンシブ指定なし / 更新が10年前まで / jQuery 1.7"},
   "name": "有限会社ハルヒ電工",
   "roman": "HARUHI DENKO",
   "industry": "kensetsu",
@@ -18835,6 +19082,7 @@
   }
  },
  "hekikai": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,center,bgcolor) / レスポンシブ指定なし / 更新が24年前まで / Flashの残骸 / 文字コード shift_jis"},
   "name": "碧海電気株式会社",
   "roman": "HEKIKAI DENKI",
   "industry": "kensetsu",
@@ -18906,6 +19154,7 @@
   }
  },
  "new-plant": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / Flashの残骸"},
   "name": "有限会社ニュープラント",
   "roman": "NEW PLANT",
   "industry": "seizo",
@@ -18971,6 +19220,7 @@
   }
  },
  "sanmoku": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding,marquee) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "サンモク工業株式会社",
   "roman": "SANMOKU KOGYO",
   "industry": "kensetsu",
@@ -19042,6 +19292,7 @@
   }
  },
  "masaki55": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(center,cellpadding) / レスポンシブ指定なし / 更新が15年前まで / 文字コード shift_jis"},
   "name": "マサキ住建株式会社",
   "roman": "MASAKI JUKEN",
   "industry": "kensetsu",
@@ -19113,6 +19364,7 @@
   }
  },
  "kita-zen": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が11年前まで / 文字コード shift_jis"},
   "name": "株式会社北善産業",
   "roman": "KITAZEN SANGYO",
   "industry": "seizo",
@@ -19181,6 +19433,7 @@
   }
  },
  "taketoyo-kizai": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社竹豐機材",
   "roman": "TAKETOYO KIZAI",
   "industry": "seizo",
@@ -19248,6 +19501,7 @@
   "photos": {"hero": "ai-g-plating"}
  },
  "yahagi-kk": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が14年前まで / 文字コード shift_jis"},
   "name": "ヤハギ株式会社",
   "roman": "YAHAGI",
   "industry": "seizo",
@@ -19314,6 +19568,7 @@
   }
  },
  "kk-saiden": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / jQuery 1.10 / 文字コード shift_jis"},
   "name": "株式会社彩電",
   "roman": "SAIDEN",
   "industry": "kensetsu",
@@ -19381,6 +19636,7 @@
   "photos": {"hero": "ai-kk-saiden-1"}
  },
  "kongo-ss": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / Flashの残骸 / 文字コード shift_jis"},
   "name": "株式会社金剛製作所",
   "roman": "KONGO SEISAKUSHO",
   "industry": "seizo",
@@ -19445,6 +19701,7 @@
   "photos": {"hero": "ai-g-automation"}
  },
  "okaban": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が17年前まで"},
   "name": "株式会社岡田板金",
   "roman": "OKADA BANKIN",
   "industry": "kensetsu",
@@ -19515,6 +19772,7 @@
   }
  },
  "itakura-kogyo": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が15年前まで"},
   "name": "板倉工業株式会社",
   "roman": "ITAKURA KOGYO",
   "industry": "seizo",
@@ -19584,6 +19842,7 @@
   }
  },
  "toho-shokai": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が11年前まで"},
   "name": "株式会社東豊商会",
   "roman": "TOHO SHOKAI",
   "industry": "seizo",
@@ -19648,6 +19907,7 @@
   }
  },
  "kenchiku-studio": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし / 更新が15年前まで / jQuery 1.3 / 文字コード shift_jis"},
   "name": "株式会社豊田設計事務所",
   "roman": "TOYODA SEKKEI",
   "industry": "kensetsu",
@@ -19790,6 +20050,7 @@
   }
  },
  "hamazawa": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "浜沢紙管株式会社",
   "roman": "HAMAZAWA SHIKAN",
   "industry": "seizo",
@@ -19854,6 +20115,7 @@
   "accent": "#b8641a"
  },
  "ishikawa-kaden": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社石川家電商会",
   "roman": "ISHIKAWA KADEN",
   "industry": "kensetsu",
@@ -19919,6 +20181,7 @@
   }
  },
  "asahi-jyuken": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,marquee) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "朝日住建有限会社",
   "roman": "ASAHI JUKEN",
   "industry": "kensetsu",
@@ -19989,6 +20252,7 @@
   }
  },
  "sankenkoki": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(center,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード指定なし"},
   "name": "三建鋼機株式会社",
   "roman": "SANKEN KOKI",
   "industry": "kensetsu",
@@ -20055,6 +20319,7 @@
   }
  },
  "showa-kanagata": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード指定なし"},
   "name": "昭和金型工業株式会社",
   "roman": "SHOWA KANAGATA",
   "industry": "seizo",
@@ -20111,6 +20376,7 @@
   }
  },
  "wis-kira": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "有限会社ワイズ",
   "roman": "WIS",
   "industry": "seizo",
@@ -20176,6 +20442,7 @@
   }
  },
  "tsroad": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "ティー・エス・ロード有限会社",
   "roman": "TS ROAD",
   "industry": "kensetsu",
@@ -20244,6 +20511,7 @@
   }
  },
  "okasugi": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が19年前まで / 文字コード指定なし"},
   "name": "有限会社岡杉巧作所",
   "roman": "OKASUGI KOSAKUSHO",
   "industry": "seizo",
@@ -20309,6 +20577,7 @@
   "photos": {"hero": "ai-g-plating"}
  },
  "miuraks": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし"},
   "name": "株式会社三浦工業所",
   "roman": "MIURA KOGYOSHO",
   "industry": "seizo",
@@ -20376,6 +20645,7 @@
   }
  },
  "putio": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,center) / レスポンシブ指定なし / 更新が3年前まで"},
   "name": "有限会社プティオ",
   "roman": "PUTIO",
   "industry": "seizo",
@@ -20440,6 +20710,7 @@
   "accent": "#1e7a8c"
  },
  "tomoku-wood": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし / 更新が15年前まで"},
   "name": "有限会社トーモク",
   "roman": "TOMOKU",
   "industry": "kensetsu",
@@ -20511,6 +20782,7 @@
   }
  },
  "sankolight": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が12年前まで"},
   "name": "株式会社三光ライト工業所",
   "roman": "SANKO LIGHT",
   "industry": "seizo",
@@ -20576,6 +20848,7 @@
   "photos": {"hero": "ai-g-injection"}
  },
  "kurodatosou": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,center) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "黒田塗装株式会社",
   "roman": "KURODA TOSOU",
   "industry": "kensetsu",
@@ -20649,6 +20922,7 @@
   }
  },
  "techno-hanai": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "有限会社テクノハナイ",
   "roman": "TECHNO HANAI",
   "industry": "seizo",
@@ -20716,6 +20990,7 @@
   }
  },
  "nitto-ko": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "日東高圧株式会社",
   "roman": "NITTO KOATSU",
   "industry": "seizo",
@@ -20786,6 +21061,7 @@
   }
  },
  "onoda-kk": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "小野田工業株式会社",
   "roman": "ONODA KOGYO",
   "industry": "seizo",
@@ -20853,6 +21129,7 @@
   }
  },
  "miyatadenkou": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,center,bgcolor) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "宮田電工株式会社",
   "roman": "MIYATA DENKO",
   "industry": "kensetsu",
@@ -20921,6 +21198,7 @@
   }
  },
  "masaru-sangyo": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.7"},
   "name": "有限会社マサル産業",
   "roman": "MASARU SANGYO",
   "industry": "seizo",
@@ -20984,6 +21262,7 @@
   "photos": {"hero": "ai-g-rubber"}
  },
  "yamaso-net": {
+  "intro": {"findings": "https不可(つながらない) / 古いタグ(center) / レスポンシブ指定なし / jQuery 1.10"},
   "name": "有限会社ヤマソー",
   "roman": "YAMASO",
   "industry": "kensetsu",
@@ -21198,6 +21477,7 @@
   "texture": "ashiba"
  },
  "voxa": {
+  "intro": {"findings": "表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が14年前まで / 文字コード shift_jis"},
   "name": "株式会社クリエイトエンジニアリング",
   "roman": "CREATE ENGINEERING",
   "industry": "seizo",
@@ -21266,6 +21546,7 @@
   }
  },
  "inoue-glass": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社井上硝子店",
   "roman": "INOUE GLASS",
   "industry": "kensetsu",
@@ -21333,6 +21614,7 @@
   "photos": {"hero": "1509635022432-0220ac12960b", "svc": ["ai-s-inoue-glass-1", null, "ai-s-inoue-glass-3", "ai-s-inoue-glass-4", null, null]}
  },
  "yoshioka-ssk": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "有限会社ヨシオカ製作所",
   "roman": "YOSHIOKA SEISAKUSHO",
   "industry": "seizo",
@@ -21401,6 +21683,7 @@
   }
  },
  "houritsu-e": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "豊立電機株式会社",
   "roman": "HOURITSU DENKI",
   "industry": "seizo",
@@ -21469,6 +21752,7 @@
   }
  },
  "anth": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font) / レスポンシブ指定なし / 更新が12年前まで / jQuery 1.5"},
   "name": "株式会社アンスコピエ",
   "roman": "ANTH KOPJE",
   "industry": "kensetsu",
@@ -21538,6 +21822,7 @@
   }
  },
  "okumura-kasei": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,center,bgcolor) / レスポンシブ指定なし / 更新が9年前まで / 文字コード shift_jis"},
   "name": "オクムラ化成株式会社",
   "roman": "OKUMURA KASEI",
   "photos": {
@@ -21605,6 +21890,7 @@
   "texture": "kinzoku"
  },
  "honbaya": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が14年前まで / 文字コード shift_jis"},
   "name": "合資会社本羽屋材木店",
   "roman": "HONBAYA ZAIMOKUTEN",
   "industry": "kensetsu",
@@ -21674,6 +21960,7 @@
   ]
  },
  "meiri": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が21年前まで / 文字コード shift_jis"},
   "name": "株式会社明理工業",
   "roman": "MEIRI KOGYO",
   "industry": "seizo",
@@ -21738,6 +22025,7 @@
   }
  },
  "chomes": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 更新が18年前まで / 文字コード shift_jis"},
   "name": "株式会社クリエーションホームズ",
   "roman": "CREATION HOMES",
   "industry": "kensetsu",
@@ -21809,6 +22097,7 @@
   ]
  },
  "maruishi-k": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 更新が17年前まで / 文字コード shift_jis"},
   "name": "丸石工業株式会社",
   "roman": "MARUISHI KOGYO",
   "industry": "seizo",
@@ -21878,6 +22167,7 @@
   }
  },
  "eifrig": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社アイフリー",
   "roman": "EIFRIG",
   "industry": "seizo",
@@ -21942,6 +22232,7 @@
   "photos": {"hero": "ai-g-press"}
  },
  "ovk": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "大洋弁栓株式会社",
   "roman": "OVK",
   "industry": "seizo",
@@ -22078,6 +22369,7 @@
   }
  },
  "jyuukoubou": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "有限会社じゅう工房",
   "roman": "JYUUKOUBOU",
   "industry": "kensetsu",
@@ -22146,6 +22438,7 @@
   ]
  },
  "chubu-sukegawa": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "中部助川興業株式会社",
   "roman": "CHUBU SUKEGAWA KOGYO",
   "industry": "seizo",
@@ -22215,6 +22508,7 @@
   ]
  },
  "kurodite": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし"},
   "name": "株式会社クロダイト",
   "roman": "KURODITE",
   "industry": "seizo",
@@ -22282,6 +22576,7 @@
   }
  },
  "e-sharing": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が16年前まで / jQuery 1.6"},
   "name": "ライフ空調システム株式会社",
   "roman": "LIFE AIR CONDITIONING SYSTEM",
   "industry": "kensetsu",
@@ -22347,6 +22642,7 @@
   }
  },
  "chuo-kk": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 更新が18年前まで / Flashの残骸"},
   "name": "株式会社中央建設工業",
   "roman": "CHUO KENSETSU KOGYO",
   "industry": "kensetsu",
@@ -22416,6 +22712,7 @@
   ]
  },
  "daian-e-suido": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が22年前まで / 文字コード shift_jis"},
   "name": "株式会社大安設備",
   "roman": "DAIAN SETSUBI",
   "industry": "kensetsu",
@@ -22479,6 +22776,7 @@
   "photos": {"hero": "ai-g-water"}
  },
  "triyokka": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(font) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "東海緑化株式会社",
   "roman": "TOKAI RYOKKA",
   "industry": "kensetsu",
@@ -22551,6 +22849,7 @@
   ]
  },
  "isu-takayama": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が17年前まで / jQuery 1.11"},
   "name": "株式会社高山商店",
   "roman": "TAKAYAMA SHOTEN",
   "photos": {
@@ -22619,6 +22918,7 @@
   "texture": "kinzoku"
  },
  "seicousya": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード指定なし"},
   "name": "合資会社清好社",
   "roman": "SEICOUSYA",
   "photos": {
@@ -22687,6 +22987,7 @@
   "texture": "nuri"
  },
  "chuuken": {
+  "intro": {"findings": "目立った問題なし"},
   "name": "株式会社中央建設",
   "roman": "CHUO KENSETSU",
   "industry": "kensetsu",
@@ -22758,6 +23059,7 @@
   ]
  },
  "funaken": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が11年前まで / jQuery 1.10"},
   "name": "船戸建設株式会社",
   "roman": "FUNATO KENSETSU",
   "industry": "kensetsu",
@@ -22829,6 +23131,7 @@
   ]
  },
  "amanopura": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が11年前まで / 文字コード shift_jis"},
   "name": "天野プラスチック工業株式会社",
   "roman": "AMANO PLASTIC KOGYO",
   "industry": "seizo",
@@ -22895,6 +23198,7 @@
   "photos": {"hero": "ai-g-injection"}
  },
  "auto-con": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 更新が4年前まで / 文字コード shift_jis"},
   "name": "日本オートコン株式会社",
   "roman": "NIHON AUTOCON",
   "industry": "kensetsu",
@@ -22964,6 +23268,7 @@
   ]
  },
  "cyusetu": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 更新が15年前まで / 文字コード shift_jis"},
   "name": "株式会社中部設備",
   "roman": "CHUBU SETSUBI",
   "industry": "kensetsu",
@@ -23035,6 +23340,7 @@
   ]
  },
  "sp-support": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 更新が21年前まで / 文字コード shift_jis"},
   "name": "有限会社スペースサポート",
   "roman": "SPACE SUPPORT",
   "industry": "kensetsu",
@@ -23101,6 +23407,7 @@
   }
  },
  "hatome": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(font,center,bgcolor) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "山田ハトメ株式会社",
   "roman": "YAMADA HATOME",
   "industry": "seizo",
@@ -23169,6 +23476,7 @@
   }
  },
  "oka-ss": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が17年前まで / 文字コード shift_jis"},
   "name": "有限会社岡製作所",
   "roman": "OKA SEISAKUSHO",
   "industry": "seizo",
@@ -23234,6 +23542,7 @@
   "photos": {"hero": "ai-g-welding"}
  },
  "lieben-wax": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が16年前まで / 文字コード shift_jis"},
   "name": "サトー産業株式会社",
   "roman": "SATO SANGYO",
   "photos": {
@@ -23299,6 +23608,7 @@
   "texture": "kinzoku"
  },
  "shibaoka": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / Flashの残骸 / 文字コード shift_jis"},
   "name": "有限会社芝岡製作所",
   "roman": "SHIBAOKA SEISAKUSHO",
   "industry": "seizo",
@@ -23364,6 +23674,7 @@
   "photos": {"hero": "ai-g-diecut"}
  },
  "taimei-hatamaku": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が15年前まで / 文字コード shift_jis"},
   "name": "有限会社泰明旗幕工業",
   "roman": "TAIMEI HATAMAKU KOGYO",
   "industry": "seizo",
@@ -23429,6 +23740,7 @@
   "texture": "nuri"
  },
  "takasu-rubber": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 更新が15年前まで"},
   "name": "株式会社高須ゴム",
   "roman": "TAKASU RUBBER",
   "industry": "seizo",
@@ -23499,6 +23811,7 @@
   ]
  },
  "e-home39": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / Flashの残骸 / 文字コード shift_jis"},
   "name": "丸山建設株式会社",
   "roman": "MARUYAMA KENSETSU",
   "industry": "kensetsu",
@@ -23645,6 +23958,7 @@
   }
  },
  "e-abe": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / フレーム / 文字コード x-sjis"},
   "name": "株式会社アベインテリア",
   "roman": "ABE INTERIOR",
   "industry": "kensetsu",
@@ -23710,6 +24024,7 @@
   "photos": {"hero": "ai-house-h3", "svc": ["ai-s-e-abe-1", "ai-s-e-abe-2", null, "ai-s-e-abe-4", null, null]}
  },
  "sakai-mfg": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社酒井製作所",
   "roman": "SAKAI MANUFACTURING",
   "industry": "seizo",
@@ -23777,6 +24092,7 @@
   }
  },
  "nao-group": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "合同会社本田工業",
   "roman": "HONDA INDUSTRIES",
   "industry": "kensetsu",
@@ -23847,6 +24163,7 @@
   ]
  },
  "kataya": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が18年前まで / 文字コード shift_jis"},
   "name": "有限会社藤田工業",
   "roman": "FUJITA KOGYO",
   "industry": "seizo",
@@ -23910,6 +24227,7 @@
   "photos": {"hero": "ai-g-press"}
  },
  "ryousei": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし / 更新が4年前まで / 文字コード euc-jp"},
   "name": "リョウセイ株式会社",
   "roman": "RYOUSEI",
   "industry": "seizo",
@@ -23979,6 +24297,7 @@
   ]
  },
  "kanbanman": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が14年前まで / 文字コード shift_jis"},
   "name": "有限会社山都屋",
   "roman": "YAMATOYA",
   "industry": "seizo",
@@ -24047,6 +24366,7 @@
   }
  },
  "ishinao": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が20年前まで / 文字コード shift_jis"},
   "name": "有限会社石直",
   "roman": "ISHINAO",
   "industry": "kensetsu",
@@ -24117,6 +24437,7 @@
   ]
  },
  "meisho-g": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし"},
   "name": "有限会社明正技研",
   "roman": "MEISHO GIKEN",
   "industry": "seizo",
@@ -24181,6 +24502,7 @@
   "photos": {"hero": "ai-g-mold"}
  },
  "yuai-seiki": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし"},
   "name": "ユーアイ精機株式会社",
   "roman": "YUAI SEIKI",
   "industry": "seizo",
@@ -24246,6 +24568,7 @@
   "photos": {"hero": "ai-g-press"}
  },
  "fukujyu": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(bgcolor) / レスポンシブ指定なし / Flashの残骸 / 文字コード shift_jis"},
   "name": "株式会社福寿金属製作所",
   "roman": "FUKUJYU KINZOKU",
   "industry": "kensetsu",
@@ -24311,6 +24634,7 @@
   "photos": {"hero": "ai-g-water"}
  },
  "maruzen-industry": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし"},
   "name": "丸善工業株式会社",
   "roman": "MARUZEN KOGYO",
   "industry": "seizo",
@@ -24376,6 +24700,7 @@
   "photos": {"hero": "ai-g-dust"}
  },
  "iwata-ss": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし"},
   "name": "株式会社岩田三宝製作所",
   "roman": "IWATA SANPO SEISAKUSHO",
   "industry": "seizo",
@@ -24443,6 +24768,7 @@
   }
  },
  "transfer-paper": {
+  "intro": {"findings": "https不可(つながらない) / 古いタグ(font) / レスポンシブ指定なし / 更新が10年前まで / jQuery 1.9 / 文字コード shift_jis"},
   "name": "丸繁紙工株式会社",
   "roman": "MARUSHIGE SHIKO",
   "photos": {
@@ -24510,6 +24836,7 @@
   "texture": "kinzoku"
  },
  "nagoya-kyowa": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が17年前まで / Flashの残骸"},
   "name": "株式会社共和",
   "roman": "KYOWA",
   "industry": "kensetsu",
@@ -24580,6 +24907,7 @@
   ]
  },
  "marugomokuzai": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が12年前まで / jQuery 1.4"},
   "name": "丸五木材株式会社",
   "roman": "MARUGO MOKUZAI",
   "industry": "kensetsu",
@@ -24651,6 +24979,7 @@
   ]
  },
  "nagaragiken": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が9年前まで / jQuery 1.8"},
   "name": "有限会社ナガラ技建",
   "roman": "NAGARA GIKEN",
   "industry": "kensetsu",
@@ -24718,6 +25047,7 @@
   ]
  },
  "nagatashatai": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が13年前まで / jQuery 1.10"},
   "name": "有限会社長田車体",
   "roman": "NAGATA SHATAI",
   "industry": "car",
@@ -24786,6 +25116,7 @@
   }
  },
  "shinsaigu": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が17年前まで / jQuery 1.7"},
   "name": "株式会社武蔵",
   "roman": "MUSASHI",
   "industry": "seizo",
@@ -24854,6 +25185,7 @@
   }
  },
  "e-prolink": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が3年前まで / jQuery 1.11"},
   "name": "株式会社プロリンク",
   "roman": "PRO LINK",
   "industry": "car",
@@ -24985,6 +25317,7 @@
   "accent": "#2e5e4e"
  },
  "sandou": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が17年前まで"},
   "name": "有限会社サンドー商会",
   "roman": "SANDO SHOKAI",
   "industry": "seizo",
@@ -25047,6 +25380,7 @@
   "texture": "kinzoku"
  },
  "takahiro": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が11年前まで"},
   "name": "高広工業株式会社",
   "roman": "TAKAHIRO ENGINEERING WORKS",
   "industry": "seizo",
@@ -25115,6 +25449,7 @@
   }
  },
  "arcmeijo": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が16年前まで"},
   "name": "株式会社アーキ名城",
   "roman": "ARCHI MEIJO",
   "industry": "kensetsu",
@@ -25186,6 +25521,7 @@
   ]
  },
  "kurenuma": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が8年前まで"},
   "name": "株式会社クレヌマ",
   "roman": "KURENUMA",
   "industry": "kensetsu",
@@ -25252,6 +25588,7 @@
   "photos": {"hero": "ai-g-pipelaying"}
  },
  "suntechnical": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.11"},
   "name": "株式会社サンテクニカル",
   "roman": "SUN TECHNICAL",
   "industry": "seizo",
@@ -25318,6 +25655,7 @@
   "photos": {"hero": "ai-g-playground"}
  },
  "nagoya-block": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.7"},
   "name": "株式会社菱庄",
   "roman": "RYOSHO",
   "industry": "kensetsu",
@@ -25385,6 +25723,7 @@
   }
  },
  "zeneral": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.9"},
   "name": "ゼネラルヒートポンプ工業株式会社",
   "roman": "ZENERAL HEAT PUMP",
   "industry": "seizo",
@@ -25455,6 +25794,7 @@
   ]
  },
  "kouchi-inc": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が9年前まで / jQuery 1.8"},
   "name": "株式会社皇地",
   "roman": "KOUCHI",
   "industry": "kensetsu",
@@ -25525,6 +25865,7 @@
   ]
  },
  "kandori-kogyo": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が7年前まで / jQuery 1.7"},
   "name": "神鳥工業有限会社",
   "roman": "KANDORI KOGYO",
   "industry": "seizo",
@@ -25593,6 +25934,7 @@
   ]
  },
  "aruaru-chiken": {
+  "intro": {"findings": "https不可(つながらない) / 古いタグ(font) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社中京地建ビル管理",
   "roman": "CHUKYO CHIKEN",
   "industry": "kensetsu",
@@ -25661,6 +26003,7 @@
   }
  },
  "nakamurabankin": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(center) / レスポンシブ指定なし / 更新が14年前まで / 文字コード shift_jis"},
   "name": "株式会社中村鈑金",
   "roman": "NAKAMURA BANKIN",
   "industry": "car",
@@ -25729,6 +26072,7 @@
   }
  },
  "ibkk": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が4年前まで / 文字コード shift_jis"},
   "name": "株式会社イシバシ機工",
   "roman": "ISHIBASHI KIKOU",
   "industry": "seizo",
@@ -25798,6 +26142,7 @@
   "photos": {"hero": "ai-g-automation"}
  },
  "tps-co": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が16年前まで / 文字コード shift_jis"},
   "name": "株式会社ティー・ピー・エス",
   "roman": "T.P.S",
   "industry": "seizo",
@@ -25861,6 +26206,7 @@
   "accent": "#2c5170"
  },
  "daishin-kensetu": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 更新が21年前まで / 文字コード shift_jis"},
   "name": "大晋建設株式会社",
   "roman": "DAISHIN KENSETSU",
   "industry": "kensetsu",
@@ -25934,6 +26280,7 @@
   }
  },
  "hoshinokoumuten": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 更新が19年前まで / 文字コード shift_jis"},
   "name": "株式会社星野工務店",
   "roman": "HOSHINO KOUMUTEN",
   "industry": "kensetsu",
@@ -26003,6 +26350,7 @@
   }
  },
  "oookabankin": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(center,cellpadding) / レスポンシブ指定なし / Flashの残骸"},
   "name": "有限会社大岡板金工業所",
   "roman": "OHOKA BANKIN",
   "industry": "kensetsu",
@@ -26074,6 +26422,7 @@
   }
  },
  "al-advisers": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社アセットリンク",
   "roman": "ASSET LINK",
   "industry": "kensetsu",
@@ -26142,6 +26491,7 @@
   }
  },
  "raschel-net": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(font) / レスポンシブ指定なし / 更新が16年前まで / 文字コード shift_jis"},
   "name": "ラッセル株式会社",
   "roman": "RASCHEL",
   "industry": "seizo",
@@ -26206,6 +26556,7 @@
   "texture": "kinzoku"
  },
  "nava21": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(font) / レスポンシブ指定なし / 更新が22年前まで / 文字コード shift_jis"},
   "name": "株式会社名張測量設計",
   "roman": "NABARI SURVEY AND PLAN",
   "industry": "kensetsu",
@@ -26272,6 +26623,7 @@
   }
  },
  "fuji-k-k": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が15年前まで / Flashの残骸 / 文字コード shift_jis"},
   "name": "ふじ建築工房有限会社",
   "roman": "FUJI KENCHIKU KOBO",
   "industry": "kensetsu",
@@ -26345,6 +26697,7 @@
   }
  },
  "kitaura-marine": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 更新が17年前まで / 文字コード shift_jis"},
   "name": "キタウラマリン有限会社",
   "roman": "KITAURA MARINE",
   "industry": "seizo",
@@ -26410,6 +26763,7 @@
   "texture": "nuri"
  },
  "s-token": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が18年前まで / 文字コード shift_jis"},
   "name": "株式会社ササキ塗研",
   "roman": "SASAKI TOKEN",
   "industry": "kensetsu",
@@ -26480,6 +26834,7 @@
   }
  },
  "yasudadenki": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(font) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "安田電機工業株式会社",
   "roman": "YASUDA DENKI",
   "industry": "seizo",
@@ -26548,6 +26903,7 @@
   }
  },
  "sanei-kogyo": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / jQuery 1.9 / 文字コード shift_jis"},
   "name": "三栄工業株式会社",
   "roman": "SANEI KOGYO",
   "industry": "kensetsu",
@@ -26621,6 +26977,7 @@
   "accent": "#800000"
  },
  "kyomen": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(font,center) / レスポンシブ指定なし"},
   "name": "共同メンテナンス株式会社",
   "roman": "KYODO MAINTENANCE",
   "industry": "kensetsu",
@@ -26695,6 +27052,7 @@
   "accent": "#007aa2"
  },
  "maeda-kogyo": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が10年前まで"},
   "name": "前田工業株式会社",
   "roman": "MAEDA KOGYO",
   "industry": "seizo",
@@ -26762,6 +27120,7 @@
   "accent": "#2b4c7e"
  },
  "kanemonet": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor) / レスポンシブ指定なし / 更新が14年前まで"},
   "name": "カネモ木材株式会社",
   "roman": "KANEMO MOKUZAI",
   "industry": "kensetsu",
@@ -26836,6 +27195,7 @@
   "accent": "#7e7363"
  },
  "toyochutetsu": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が11年前まで"},
   "name": "東洋鋳鉄株式会社",
   "roman": "TOYO CHUTETSU",
   "industry": "seizo",
@@ -26902,6 +27262,7 @@
   "accent": "#0068b7"
  },
  "kasugaikanagata": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(bgcolor) / レスポンシブ指定なし / 更新が15年前まで / Flashの残骸 / 文字コード shift_jis"},
   "name": "株式会社春日井金型",
   "roman": "KASUGAI KANAGATA",
   "industry": "seizo",
@@ -26972,6 +27333,7 @@
   "accent": "#3d5a66"
  },
  "marudaimokkou": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が11年前まで"},
   "name": "株式会社丸大木工所",
   "roman": "MARUDAI MOKKOUSHO",
   "industry": "seizo",
@@ -27040,6 +27402,7 @@
   "accent": "#4179a7"
  },
  "miejushi": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が15年前まで"},
   "name": "三重樹脂株式会社",
   "roman": "MIE JUSHI",
   "industry": "seizo",
@@ -27107,6 +27470,7 @@
   "accent": "#006fdd"
  },
  "toyo-p": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / Flashの残骸"},
   "name": "東洋プラント株式会社",
   "roman": "TOYO PLANT",
   "industry": "kensetsu",
@@ -27178,6 +27542,7 @@
   "accent": "#1b3a9f"
  },
  "sankyo-denkosha": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社三協電工社",
   "roman": "SANKYOU DENKO",
   "industry": "kensetsu",
@@ -27249,6 +27614,7 @@
   "accent": "#2a8324"
  },
  "aichikinzoku": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(center,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "愛知金属工業株式会社",
   "roman": "AICHI KINZOKU",
   "industry": "seizo",
@@ -27319,6 +27685,7 @@
   "accent": "#1e5f74"
  },
  "kanban86": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "有限会社川北カンバン",
   "roman": "KAWAKITA KANBAN",
   "industry": "kensetsu",
@@ -27394,6 +27761,7 @@
   "accent": "#12609e"
  },
  "tokyo-santoku": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "東京サントク株式会社",
   "roman": "TOKYO SANTOKU",
   "industry": "seizo",
@@ -27459,6 +27827,7 @@
   "accent": "#0056f5"
  },
  "kuroyanagi": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社黒柳塗装店",
   "roman": "KUROYANAGI TOSOUTEN",
   "industry": "kensetsu",
@@ -27530,6 +27899,7 @@
   "accent": "#bb5910"
  },
  "hflco": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "有限会社ハフラ",
   "roman": "HAFURA",
   "industry": "kensetsu",
@@ -27601,6 +27971,7 @@
   "accent": "#c0392b"
  },
  "fukuda-sakan": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 更新が16年前まで / 文字コード shift_jis"},
   "name": "株式会社福田左官",
   "roman": "FUKUDA SAKAN",
   "industry": "kensetsu",
@@ -27667,6 +28038,7 @@
   "accent": "#2e5e4e"
  },
  "hamada-kensetsu": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし"},
   "name": "ハマダ建設株式会社",
   "roman": "HAMADA CONSTRUCTION",
   "industry": "kensetsu",
@@ -27742,6 +28114,7 @@
   "accent": "#5b4636"
  },
  "saison-home": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,cellpadding) / レスポンシブ指定なし"},
   "name": "株式会社セゾンホーム",
   "roman": "SAISON HOME",
   "industry": "kensetsu",
@@ -27813,6 +28186,7 @@
   "accent": "#1f4e79"
  },
  "iida-seisakusho": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が11年前まで / 文字コード shift_jis"},
   "name": "株式会社飯田製作所",
   "roman": "IIDA SEISAKUSHO",
   "industry": "seizo",
@@ -27878,6 +28252,7 @@
   "accent": "#006600"
  },
  "waytechnos": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし / 更新が13年前まで / 文字コード shift_jis"},
   "name": "株式会社ウェイテクノス",
   "roman": "WEITECHNOS",
   "industry": "seizo",
@@ -27946,6 +28321,7 @@
   "accent": "#217c88"
  },
  "katodenki": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(center,cellpadding) / レスポンシブ指定なし"},
   "name": "加藤電機株式会社",
   "roman": "KATO DENKI",
   "industry": "seizo",
@@ -28012,6 +28388,7 @@
   "accent": "#4a4e69"
  },
  "sakakien": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし"},
   "name": "有限会社サカキ園芸場",
   "roman": "SAKAKI ENGEIJO",
   "industry": "kensetsu",
@@ -28083,6 +28460,7 @@
   "accent": "#7a3e2b"
  },
  "mk-innova": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし"},
   "name": "株式会社エムケーイノーバー",
   "roman": "MK INNOVA",
   "industry": "seizo",
@@ -28152,6 +28530,7 @@
   "accent": "#b3121b"
  },
  "nakasetu": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし"},
   "name": "株式会社ナカムラ設備工業",
   "roman": "NAKAMURA SETSUBI KOGYO",
   "industry": "kensetsu",
@@ -28220,6 +28599,7 @@
   "accent": "#4d0000"
  },
  "daito-inabe": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が15年前まで / jQuery 1.3 / 文字コード shift_jis"},
   "name": "大藤株式会社",
   "roman": "DAITO",
   "industry": "seizo",
@@ -28290,6 +28670,7 @@
   "accent": "#587289"
  },
  "hishida-k": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が14年前まで"},
   "name": "菱田建材株式会社",
   "roman": "HISHIDA KENZAI",
   "industry": "kensetsu",
@@ -28360,6 +28741,7 @@
   "accent": "#2e5e4e"
  },
  "atsumi": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / レスポンシブ指定なし / Flashの残骸"},
   "name": "渥美建設株式会社",
   "roman": "ATSUMI KENSETSU",
   "industry": "kensetsu",
@@ -28435,6 +28817,7 @@
   "accent": "#b3121b"
  },
  "okudan": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が12年前まで"},
   "name": "有限会社奥村断熱",
   "roman": "OKUMURA DANNETSU",
   "industry": "kensetsu",
@@ -28502,6 +28885,7 @@
   "accent": "#5b4636"
  },
  "harada-die": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 更新が10年前まで"},
   "name": "株式会社原田木型工業",
   "roman": "HARADA KIGATA",
   "industry": "seizo",
@@ -28569,6 +28953,7 @@
   "accent": "#00537d"
  },
  "kanemiy": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / jQuery 1.8"},
   "name": "株式会社カネミヤ",
   "roman": "KANEMIYA",
   "industry": "seizo",
@@ -28635,6 +29020,7 @@
   "accent": "#2b4c7e"
  },
  "fujiwara-wood": {
+  "intro": {"findings": "https不可(つながらない) / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社藤原木材工業所",
   "roman": "FUJIWARA MOKUZAI",
   "industry": "seizo",
@@ -28703,6 +29089,7 @@
   "accent": "#007f41"
  },
  "souritu": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,center) / レスポンシブ指定なし / 文字コード euc-jp"},
   "name": "株式会社桑立工業",
   "roman": "SOURITU KOGYO",
   "industry": "seizo",
@@ -28770,6 +29157,7 @@
   "accent": "#336600"
  },
  "yoshitetu": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,bgcolor) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "有限会社吉原鉄工所",
   "roman": "YOSHIHARA TEKKOSHO",
   "industry": "seizo",
@@ -28836,6 +29224,7 @@
   "accent": "#3d5a66"
  },
  "kudoudenki": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "有限会社工藤電機",
   "roman": "KUDOU DENKI",
   "industry": "seizo",
@@ -28906,6 +29295,7 @@
   "accent": "#1e5f74"
  },
  "fujipump": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,center) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "富士ポンプ株式会社",
   "roman": "FUJI PUMP",
   "industry": "seizo",
@@ -28972,6 +29362,7 @@
   "accent": "#4a4e69"
  },
  "sanpo-kogyo": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社三峰工業",
   "roman": "SANPO KOGYO",
   "industry": "seizo",
@@ -29034,6 +29425,7 @@
   "accent": "#51776a"
  },
  "okuoka-net": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / レスポンシブ指定なし"},
   "name": "株式会社奥岡製作所",
   "roman": "OKUOKA SEISAKUSHO",
   "industry": "seizo",
@@ -29099,6 +29491,7 @@
   "accent": "#008458"
  },
  "tms4088": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が15年前まで / 文字コード shift_jis"},
   "name": "有限会社東海マシンシステム",
   "roman": "TOKAI MACHINE SYSTEM",
   "industry": "seizo",
@@ -29166,6 +29559,7 @@
   "accent": "#0066cc"
  },
  "nishio1966": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が17年前まで / 文字コード shift_jis"},
   "name": "株式会社西尾",
   "roman": "NISHIO",
   "industry": "seizo",
@@ -29232,6 +29626,7 @@
   "accent": "#5d7845"
  },
  "hayashi-denko": {
+  "intro": {"findings": "https不可(つながらない) / 古いタグ(font) / レスポンシブ指定なし / 更新が6年前まで / 文字コード shift_jis"},
   "name": "株式会社林電工",
   "roman": "HAYASHI DENKO",
   "industry": "kensetsu",
@@ -29306,6 +29701,7 @@
   "accent": "#6863d5"
  },
  "nittakogyo": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が17年前まで / 文字コード shift_jis"},
   "name": "新田工業株式会社",
   "roman": "NITTA KOGYO",
   "industry": "seizo",
@@ -29371,6 +29767,7 @@
   "accent": "#168039"
  },
  "yonobe": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.9 / 文字コード shift_jis"},
   "name": "余野部建材株式会社",
   "roman": "YONOBE KENZAI",
   "industry": "kensetsu",
@@ -29446,6 +29843,7 @@
   "accent": "#1f4e79"
  },
  "kowa-architect": {
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし"},
   "name": "有限会社興和建築設計事務所",
   "roman": "KOWA ARCHITECT",
   "industry": "kensetsu",
@@ -29514,6 +29912,7 @@
   "accent": "#493627"
  },
  "maruei": {
+  "intro": {"findings": "https不可(つながらない) / 古いタグ(font) / レスポンシブ指定なし / jQuery 1.11 / 文字コード euc-jp"},
   "name": "株式会社丸栄建設",
   "roman": "MARUEI KENSETSU",
   "industry": "kensetsu",
@@ -29591,6 +29990,7 @@
   "accent": "#2d64a4"
  },
  "tominaga-company": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が6年前まで"},
   "name": "株式会社トミナガ",
   "roman": "TOMINAGA",
   "industry": "seizo",
@@ -29658,6 +30058,7 @@
   "accent": "#4e6ac3"
  },
  "konbun-d": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が7年前まで"},
   "name": "株式会社紺文デザイン",
   "roman": "KONBUN DESIGN",
   "industry": "seizo",
@@ -29723,6 +30124,7 @@
   "accent": "#008184"
  },
  "atec": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が10年前まで"},
   "name": "株式会社エイテック",
   "roman": "ATEC",
   "industry": "seizo",
@@ -29790,6 +30192,7 @@
   "accent": "#0b318f"
  },
  "kyoritsu-jp": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が22年前まで / jQuery 1.7 / 文字コード shift_jis"},
   "name": "株式会社協立製作所",
   "roman": "KYORITSU SEISAKUSHO",
   "industry": "seizo",
@@ -29854,6 +30257,7 @@
   "accent": "#2b4c7e"
  },
  "sakasoku": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が16年前まで"},
   "name": "株式会社榊原測量",
   "roman": "SAKAKIBARA SOKURYO",
   "industry": "kensetsu",
@@ -29922,6 +30326,7 @@
   "accent": "#7a3e2b"
  },
  "kodamaseikou": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が18年前まで"},
   "name": "有限会社コダマ精工",
   "roman": "KODAMA SEIKOU",
   "industry": "seizo",
@@ -29989,6 +30394,7 @@
   "accent": "#3d5a66"
  },
  "goyokogyo": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.9"},
   "name": "有限会社五陽工業",
   "roman": "GOYO KOGYO",
   "industry": "kensetsu",
@@ -30056,6 +30462,7 @@
   "accent": "#2e5e4e"
  },
  "okuno-denko": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が7年前まで / jQuery 1.7"},
   "name": "有限会社奥野電工",
   "roman": "OKUDEN TECHNICAL",
   "industry": "kensetsu",
@@ -30126,6 +30533,7 @@
   "accent": "#3c2f13"
  },
  "osakumareed": {
+  "intro": {"findings": "表組みレイアウト / 古いタグ(font,bgcolor) / レスポンシブ指定なし / 更新が4年前まで / 文字コード shift_jis"},
   "name": "有限会社筬熊リード製作所",
   "roman": "OSAKUMA REED",
   "industry": "seizo",
@@ -30191,6 +30599,7 @@
   "accent": "#3c7a01"
  },
  "sinmei": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "有限会社信明金型",
   "roman": "SINMEI KANAGATA",
   "industry": "seizo",
@@ -30257,6 +30666,7 @@
   "accent": "#417789"
  },
  "hiratasouken": {
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が5年前まで / jQuery 1.10"},
   "name": "株式会社平田創建",
   "roman": "HIRATA SOUKEN",
   "industry": "kensetsu",
@@ -30331,6 +30741,7 @@
   "accent": "#645a38"
  },
  "kawakigumi": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社川木組",
   "roman": "KAWAKIGUMI",
   "industry": "kensetsu",
@@ -30405,6 +30816,7 @@
   "accent": "#5b4636"
  },
  "e-mt": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が11年前まで / 文字コード shift_jis"},
   "name": "イーメタル株式会社",
   "roman": "E-METAL",
   "industry": "seizo",
@@ -30472,6 +30884,7 @@
   }
  },
  "printlabo": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が19年前まで / 文字コード shift_jis"},
   "name": "プリントラボ株式会社",
   "roman": "PRINT LABO",
   "industry": "seizo",
@@ -30536,6 +30949,7 @@
   "texture": "kinzoku"
  },
  "sawadatoso": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社沢田塗装",
   "roman": "SAWADA TOSO",
   "industry": "car",
@@ -30611,6 +31025,7 @@
   }
  },
  "midoritosou": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "有限会社緑塗装",
   "roman": "MIDORI TOSOU",
   "industry": "seizo",
@@ -30746,6 +31161,7 @@
   "photos": {"hero": "ai-g-plating"}
  },
  "naganawa-zouen": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が15年前まで"},
   "name": "有限会社長縄造園",
   "roman": "NAGANAWA ZOUEN",
   "industry": "kensetsu",
@@ -30820,6 +31236,7 @@
   }
  },
  "ts-kouken": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が9年前まで / jQuery 1.4"},
   "name": "株式会社ティーエス工建",
   "roman": "TS KOUKEN",
   "industry": "kensetsu",
@@ -30887,6 +31304,7 @@
   }
  },
  "yka": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 更新が6年前まで"},
   "name": "株式会社加藤吉宏アトリエ",
   "roman": "YOSHIHIRO KATO ATELIER",
   "industry": "kensetsu",
@@ -30957,6 +31375,7 @@
   }
  },
  "tenee": {
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし"},
   "name": "天神山電設株式会社",
   "roman": "TENJINYAMA DENSETSU",
   "industry": "kensetsu",
@@ -31031,6 +31450,7 @@
   }
  },
  "tsuchikawa": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が16年前まで / Flashの残骸"},
   "name": "株式会社土川油店",
   "roman": "TSUCHIKAWA",
   "industry": "car",
@@ -31105,6 +31525,7 @@
   }
  },
  "itosougyou": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が8年前まで / jQuery 1.9"},
   "name": "株式会社イトウ総業",
   "roman": "ITO SOUGYOU",
   "industry": "kensetsu",
@@ -31176,6 +31597,7 @@
   }
  },
  "ito-zouen": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が10年前まで"},
   "name": "伊藤造園株式会社",
   "roman": "ITO ZOUEN",
   "industry": "kensetsu",
@@ -31243,6 +31665,7 @@
   }
  },
  "excell-garden": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / Flashの残骸"},
   "name": "株式会社エクセル",
   "roman": "EXCELL",
   "industry": "kensetsu",
@@ -31315,6 +31738,7 @@
   }
  },
  "house-energy": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.8"},
   "name": "ハウスエナジー株式会社",
   "roman": "HOUSE ENERGY",
   "industry": "kensetsu",
@@ -31386,6 +31810,7 @@
   }
  },
  "rdk": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.11"},
   "name": "六合システム電子工業株式会社",
   "roman": "ROKUGO SYSTEM ELECTRONICS",
   "industry": "seizo",
@@ -31458,6 +31883,7 @@
   }
  },
  "woodtera": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "有限会社寺町木材",
   "roman": "TERAMACHI MOKUZAI",
   "industry": "kensetsu",
@@ -31532,6 +31958,7 @@
   }
  },
  "chubukougei": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.11"},
   "name": "株式会社中部工芸",
   "roman": "CHUBU KOUGEI",
   "industry": "seizo",

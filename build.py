@@ -407,11 +407,17 @@ def render(sid, d):
 """
 
 
+# 全件の作り直しから外す見本（丸信は見本のまま残す。2026-11-11 松本さん）
+KEEP = {"marushin-kaitai"}
+
+
 def main(only=None):
     root = pathlib.Path(__file__).resolve().parent
     sites = json.loads((root / "sites.json").read_text(encoding="utf-8"))
     for sid, d in sites.items():
         if only and sid != only:
+            continue
+        if sid in KEEP and sid != only:
             continue
         out = root / sid
         out.mkdir(exist_ok=True)
@@ -420,6 +426,8 @@ def main(only=None):
         if INDUSTRY[d["industry"]].get("layout") == "modern":
             html = apply_pick(html, d)
         html = apply_fast(html)   # 冒頭の演出を約2秒に（2026-11-15 松本さん「全てのサイトに適用」）
+        if INDUSTRY[d["industry"]].get("layout") == "modern":
+            html = apply_intro(html, d)   # 提案の説明・料金・デモ表示（2026-11-17 松本さん「全てに公開して」）
         (out / "index.html").write_text(html, encoding="utf-8")
         print(f"  {sid:<14} {d['name'][:22]:<24} {len(html):>6} バイト")
 
@@ -696,10 +704,16 @@ def intro_html(d):
     同じ2つを大きく、残りは「あわせて改善すること」として小さく出す。"""
     import modern
     sm = _salesmail()
-    it = d["intro"]
-    m = sm.matched_pitches(it["findings"])
+    # 所見が無い・メールで使う問題が見つからない会社は、宛名だけ出して改善の枠は出さない（2026-11-17 松本さん「そのままでOK」）
+    m = sm.matched_pitches(d.get("intro", {}).get("findings", ""))
     if not m:
-        raise SystemExit(f"{d['name']} の所見に、メールで使う問題が見つからない: {it['findings']}")
+        return f"""<section class="pintro" id="proposal" aria-labelledby="pi-to">
+  <div class="pi-in">
+    <div class="pi-head"><p class="pi-from">EasyWebCraft からのご提案</p>
+    <h2 class="pi-to" id="pi-to">{e(d["name"])}様へ</h2></div>
+  </div>
+</section>
+"""
     main, rest = m[:2], m[2:]
     pair = "".join(
         f'<li><p class="pi-q"><span>気になった点</span>{e(ph)}</p>'
@@ -824,15 +838,22 @@ def apply_demo(html, d):
 
 def trial_intro(sid):
     """提案の説明を見本の前に置いた試作を <キー>-intro/ に作る。今の見本（<キー>/）は変えない（2026-11-17）。"""
-    import re
     root = pathlib.Path(__file__).resolve().parent
     d = json.loads((root / "sites.json").read_text(encoding="utf-8"))[sid]
-    if "intro" not in d:
-        raise SystemExit(f"{sid} に intro（提案の説明）がありません")
     html = render(sid, d)
     if INDUSTRY[d["industry"]].get("layout") == "modern":
         html = apply_pick(html, d)
-    html = apply_fast(html)
+    html = apply_intro(apply_fast(html), d)
+    out = root / (sid + "-intro")
+    out.mkdir(exist_ok=True)
+    (out / "index.html").write_text(html, encoding="utf-8")
+    print(f"  {sid}-intro  {d['name']}  {len(html)} バイト（提案の説明つきの試作）")
+
+
+def apply_intro(html, d):
+    """提案の説明・制作範囲と料金を末尾に、宛名を冒頭の演出に入れ、見本を枠で囲んで電話をデモ表示にする。
+    2026-11-17 に試作から写真のある型の全見本へ（松本さん「全てに公開して」）。冒頭の演出が無い型（士業など）には使えない。"""
+    import re
     # お作りするページは、見本の「サイトの構成」と同じもの
     sm = re.search(r'<section class="sitemap" id="sitemap">.*?<ul>(.*?)</ul>', html, re.S)
     pages = [H.unescape(x) for x in re.findall(r"<a [^>]*>(.*?)</a>", sm.group(1))] if sm else []
@@ -841,17 +862,13 @@ def trial_intro(sid):
     # 置き場所は末尾、「制作範囲・料金」のすぐ上にまとめる（2026-11-17 松本さん。最初の画面の下 → フッターへ）。
     #   一番上だと冒頭の演出とのつながりが合わないので、冒頭の演出には「〇〇様へのご提案」の一言だけを添える
     if html.count("<footer>") != 1 or html.count('<span class="ewl-skip">') != 1:
-        raise SystemExit("差し込む場所が見つからない")
+        raise SystemExit(f"{d['name']}：差し込む場所が見つからない")
     # 見本の「サイトの構成」は、末尾の「お作りするページ」と同じ中身なので外す（二重に見せない）
     html = re.sub(r'<section class="sitemap" id="sitemap">.*?</section>\s*', "", html, count=1, flags=re.S)
     html = html.replace("<footer>", intro_html(d) + plan_html(d, pages) + "<footer>", 1)
     to = f'<p class="ewl-to"><span>{e(d["name"])}様への</span><span>ご提案</span></p>'
     html = html.replace('<span class="ewl-skip">', to + '\n  <span class="ewl-skip">', 1)
-    html = apply_demo(html, d)
-    out = root / (sid + "-intro")
-    out.mkdir(exist_ok=True)
-    (out / "index.html").write_text(html, encoding="utf-8")
-    print(f"  {sid}-intro  {d['name']}  {len(html)} バイト（提案の説明つきの試作）")
+    return apply_demo(html, d)
 
 
 if __name__ == "__main__":

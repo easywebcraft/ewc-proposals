@@ -781,6 +781,77 @@ footer{background:var(--navy-d)}
   .step{box-shadow:0 1px 2px rgba(20,30,45,.05),0 8px 20px rgba(20,30,45,.09)}
 }
 @media(prefers-reduced-motion:reduce){.cards>.card:hover,.step:hover .si,.btn:hover{translate:none}}
+
+.pintro{position:relative;z-index:3;background:linear-gradient(180deg,#f3f6fa 0%,#e9eef5 100%);color:#10294f;
+  padding:22px 16px 20px;border-top:3px solid #10294f;border-bottom:1px solid #d5deea}
+.pintro .pi-in{max-width:680px;margin:0 auto}
+.pintro .pi-head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+.pintro .pi-from{margin:0;padding:2px 10px;border-radius:999px;background:#10294f;color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.06em}
+.pintro .pi-to{margin:0;font-size:clamp(17px,3.4vw,20px);font-weight:700;letter-spacing:.04em;line-height:1.4}
+.pintro .pi-box{margin:12px 0 0;padding:12px 16px;background:#fff;border-radius:10px;box-shadow:0 1px 2px rgba(16,41,79,.06),0 6px 18px rgba(16,41,79,.08)}
+.pintro .pi-bh{margin:0;font-size:13px;font-weight:700;color:#4a5b75}
+.pintro .pi-pairs{margin:0;padding:0;list-style:none}
+.pintro .pi-pairs li{display:grid;gap:2px;padding:8px 0;border-top:1px solid #e3e9f1}
+.pintro .pi-pairs li:first-child{margin-top:6px}
+.pintro .pi-pairs p{margin:0;font-size:13.5px;line-height:1.6}
+.pintro .pi-pairs span{display:inline-block;margin-right:8px;padding:0 7px;border-radius:3px;font-size:11px;font-weight:800;vertical-align:1px}
+.pintro .pi-q{color:#4a5b75}
+.pintro .pi-q span{background:#eef1f5;color:#4a5b75}
+.pintro .pi-a{font-weight:700;color:#10294f}
+.pintro .pi-a span{background:#ffc93c;color:#10294f}
+@media(min-width:760px){.pintro .pi-pairs li{grid-template-columns:1fr 1fr;gap:16px}
+  .pintro .pi-pairs span{display:block;width:max-content;margin:0 0 2px}}
+.pintro .pi-more{padding-top:6px;border-top:1px solid #e3e9f1;font-size:12.5px;line-height:1.6;color:#4a5b75}
+.pintro .pi-more b{margin-right:6px;color:#10294f}
+.pintro .pi-bt{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.pintro .pi-bt a{flex:1 1 200px;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;
+  border-radius:999px;font-size:14.5px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.pintro .pi-bt a:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(16,41,79,.18)}
+.pintro .pi-go{background:#10294f;color:#fff}
+.pintro .pi-plan{background:#fff;color:#10294f;border:2px solid #10294f}
+.pintro .pi-note{margin:6px 0 0;font-size:11.5px;color:#4a5b75}
+/* 輪の上に置く（輪の下は画面の低いPCで下端に詰まるため） */
+.ewl-to{position:absolute;left:16px;right:16px;top:max(14px,calc(50% - var(--ewd,112px)/2 - 64px));margin:0;text-align:center;
+  font-size:15px;font-weight:700;letter-spacing:.08em;line-height:1.6;color:var(--navy,#10294f);opacity:0;transition:opacity .5s ease}
+.ewl-to span{display:inline-block}
+.ewl.is-in .ewl-to{opacity:1}
+.ewl.is-absorb .ewl-to{opacity:0;transition:opacity .3s}
+.pintro{padding-top:40px}
+.pplan{background:#f3f6fa;color:#10294f;padding:56px 20px 64px}
+.pplan .pp-in{max-width:860px;margin:0 auto}
+.pplan h2{margin:0;font-size:clamp(22px,4vw,28px);letter-spacing:.06em;text-align:center}
+.pplan .pp-sub{margin:10px 0 0;text-align:center;font-size:14.5px;color:#4a5b75}
+.pplan .pp-grid{display:grid;gap:16px;margin-top:28px}
+@media(min-width:760px){.pplan .pp-grid{grid-template-columns:1fr 1fr}}
+.pplan .pp-card{background:#fff;border-radius:12px;padding:22px 24px;box-shadow:0 1px 2px rgba(16,41,79,.06),0 8px 22px rgba(16,41,79,.08)}
+.pplan .pp-card h3{margin:0 0 10px;font-size:17px;padding-left:12px;border-left:4px solid #ffc93c}
+.pplan .pp-price{margin:4px 0 0;font-size:clamp(22px,3.6vw,28px);font-weight:800;letter-spacing:.02em;line-height:1.5}
+.pplan .pp-price span{display:block;white-space:nowrap}
+.pplan ul{margin:0;padding-left:1.2em;font-size:15px;line-height:1.9}
+.pplan .pp-wide{grid-column:1/-1}
+.pplan ol{margin:0;padding-left:1.4em;font-size:15px;line-height:1.9}
+
+.pframe{position:relative}
+.pframe::after{content:"";position:absolute;inset:0;z-index:70;pointer-events:none;border:4px solid #10294f}
+.pf-lab,.pf-end{position:relative;z-index:71;margin:0;padding:6px 16px;background:#10294f;color:#fff;text-align:center;
+  font-size:12.5px;font-weight:700;letter-spacing:.08em;line-height:1.5}
+.pf-lab small,.pf-end small{display:inline-block;margin-left:8px;font-size:11px;font-weight:400;color:rgba(255,255,255,.75);letter-spacing:.02em}
+a[data-demo]{cursor:not-allowed}
+a.btn[data-demo]::after,.contact a.big[data-demo]::after{content:"デモ表示";display:inline-block;margin-left:10px;padding:1px 8px;border:1px solid currentColor;
+  border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.06em;line-height:1.5;vertical-align:middle;opacity:.85}
+.contact a.big[data-demo]::after{font-size:12px;font-family:system-ui,sans-serif}
+.demo-toast{position:fixed;left:16px;right:16px;top:18px;z-index:200;width:max-content;max-width:calc(100% - 32px);margin:0 auto;transform:translateY(-8px);padding:10px 16px;
+  border-radius:8px;background:rgba(16,41,79,.95);color:#fff;font-size:13.5px;line-height:1.6;opacity:0;pointer-events:none;
+  transition:opacity .2s,transform .2s;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.demo-toast.on{opacity:1;transform:none}
+.ewcbar .bt{align-items:center}
+.ewcbar a.m{font-size:15.5px!important;padding:0 22px!important}
+@media(max-width:899px){.ewcbar .bt{flex-direction:column;gap:8px}.ewcbar .bt a{width:100%;min-height:46px;font-size:14.5px!important;padding:0 12px!important}}
+@media(min-width:900px){.ewcbar .in>p{min-width:0;flex:1 1 0!important}.ewcbar .bt{flex:none!important;max-width:none!important;width:auto!important}}
+/* LINE はメールと同じ大きさの緑のボタン（2026-11-17 松本さん「前と同じ、同じ大きさの2つのボタンに戻す」） */
+.ewcbar a.l{font-size:15.5px!important;padding:0 22px!important}
+@media(max-width:599px){.via{display:none}}
+.ewcbar a .via{margin-left:-8px}
 </style>
 <script>
 document.documentElement.classList.add('anim','js');
@@ -843,16 +914,19 @@ section.alt.about{background:#e9e4da}
     <span class="ewl-pct">0%</span>
   </div>
   <div class="ewl-p2"><div class="logo">有限会社トーモク<small>TOMOKU</small></div></div>
+  <p class="ewl-to"><span>有限会社トーモク様への</span><span>ご提案</span></p>
   <span class="ewl-skip">タップでスキップ</span>
 </div>
 
 <div class="notice slim"><span class="ph"><i></i><span class="ewc">EasyWebCraft の</span>提案用の見本｜</span><span class="ph">トーモクさまの公式サイトではありません</span></div>
 
+<div class="pframe">
+<p class="pf-lab">ここからは公開後のサイトイメージ<small>トーモク様のトップページの見本</small></p>
 <div class="hdwrap ovl">
   <header><div class="hd">
     <div class="logo"><span class="lw">有限会社</span><span class="lw">トーモク</span><small>TOMOKU</small></div>
     <nav><a>トーモクの家造り</a><a>施工実績</a><a>お知らせ・イベント</a><a>カタログショッピング</a><a>会社概要</a><a>お問い合わせ</a></nav>
-    <a class="call" href="tel:0566213388">お電話<span class="cn"> 0566-21-3388</span></a>
+    <a class="call" href="#" data-demo aria-disabled="true">お電話<span class="cn"> 0566-21-3388</span></a>
   </div></header>
 </div>
 
@@ -871,7 +945,7 @@ section.alt.about{background:#e9e4da}
         <div class="meta">
           <p class="sub"><span class="ph">住宅建築と、</span><span class="ph">木材・製材の加工・販売。</span><span class="ph">木の性質を知る材木屋として、</span><span class="ph">家づくりをお手伝いします。</span></p>
           <p class="en">TOMOKU</p>
-          <div class="acts"><a class="btn p" href="tel:0566213388">お見積り・ご相談</a><a class="btn g" href="#works">できることを見る</a></div>
+          <div class="acts"><a class="btn p" href="#" data-demo aria-disabled="true">お見積り・ご相談</a><a class="btn g" href="#works">できることを見る</a></div>
         </div>
         <p class="htag">刈谷市｜注文住宅／木材の販売</p><h1 class="vt" style="--hn:7"><span class="cp">材木屋だから</span><br><span class="cp">木の家がわかる</span><br><em><span class="cp">刈谷のトーモク</span></em></h1>
       </div>
@@ -911,7 +985,7 @@ section.alt.about{background:#e9e4da}
 <section class="alt" id="company">
   <div class="wrap">
     <div class="sechead"><span class="en">COMPANY</span><h2>会社概要</h2></div>
-    <div class="cgrid"><table class="info"><tr><th>商号</th><td>有限会社トーモク</td></tr><tr><th>所在地</th><td>〒448-0813 愛知県刈谷市小垣江町本郷下3-12</td></tr><tr><th>電話</th><td><a href="tel:0566213388">0566-21-3388</a></td></tr><tr><th>創業</th><td>1965年</td></tr><tr><th>事業内容</th><td>注文住宅／木材の販売／製材・加工／施工実績／お知らせ・イベント</td></tr><tr><th>許可・登録</th><td>愛知県知事許可（般-20）第57756号</td></tr></table>
+    <div class="cgrid"><table class="info"><tr><th>商号</th><td>有限会社トーモク</td></tr><tr><th>所在地</th><td>〒448-0813 愛知県刈谷市小垣江町本郷下3-12</td></tr><tr><th>電話</th><td>0566-21-3388</td></tr><tr><th>創業</th><td>1965年</td></tr><tr><th>事業内容</th><td>注文住宅／木材の販売／製材・加工／施工実績／お知らせ・イベント</td></tr><tr><th>許可・登録</th><td>愛知県知事許可（般-20）第57756号</td></tr></table>
     <div class="mapbox"><b>地図が入ります</b>実際の制作で、お店の場所の地図を入れます</div></div>
   </div>
 </section>
@@ -926,18 +1000,40 @@ section.alt.about{background:#e9e4da}
 </pattern></defs><rect width="100%" height="100%" fill="url(#tx2)"/></svg>
   <h2><span class="cp">まずはお電話ください</span></h2>
   <p>小さなご相談でも構いません。</p>
-  <a class="big" href="tel:0566213388">0566-21-3388</a><small></small><div><a class="btn w" href="tel:0566213388">電話をかける</a></div>
-  <p class="note"><span class="ph">見本の電話のボタンは、</span><span class="ph">御社の電話番号につながります。</span><span class="ph">メールフォーム・LINEでのお問い合わせ窓口は、</span><span class="ph">実際の制作でお付けします。</span></p>
+  <a class="big" href="#" data-demo aria-disabled="true">0566-21-3388</a><small></small><div><a class="btn w" href="#" data-demo aria-disabled="true">電話をかける</a></div>
+  <p class="note"><span class="ph">見本の電話のボタンはデモ表示で、</span><span class="ph">押してもつながりません。</span><span class="ph">公開後は御社のお電話につながります。</span><span class="ph">メールフォーム・LINEでのお問い合わせ窓口は、</span><span class="ph">実際の制作でお付けします。</span></p>
 </div>
-
-<section class="sitemap" id="sitemap">
-  <h2>サイトの構成</h2>
-  <p>この見本はトップページだけです。実際の制作では、次のページをお作りします。</p>
-  <ul><li><a href="#works">トーモクの家造り</a></li><li><a href="#svc4">施工実績</a></li><li><a href="#news">お知らせ・イベント</a></li><li><a href="#svc6">カタログショッピング</a></li><li><a href="#company">会社概要</a></li><li><a href="#contact">お問い合わせ</a></li></ul>
+<p class="pf-end">サイトイメージはここまで<small>この下は EasyWebCraft からのご案内です</small></p>
+</div>
+<section class="pintro" id="proposal" aria-labelledby="pi-to">
+  <div class="pi-in">
+    <div class="pi-head"><p class="pi-from">EasyWebCraft からのご提案</p>
+    <h2 class="pi-to" id="pi-to">有限会社トーモク様へ</h2></div>
+    <div class="pi-box">
+      <p class="pi-bh">メールでお伝えした点と、この案での改善</p>
+      <ol class="pi-pairs"><li><p class="pi-q"><span>気になった点</span>スマートフォンで見た際に、文字が小さく表示される箇所がある点</p><p class="pi-a"><span>この案では</span>スマートフォンの画面に合わせて、文字や写真を読みやすい大きさで表示します。この案もスマートフォンでそのままご覧いただけます</p></li><li><p class="pi-q"><span>気になった点</span>お知らせの最終更新から時間が経っているように見受けられる点</p><p class="pi-a"><span>この案では</span>お知らせや写真の更新は、公開後も月額の中で当社がお手伝いします</p></li></ol>
+      <p class="pi-more"><b>あわせて</b>今の作り方で作り直し、文章や写真の一部だけを手軽に直せるようにします／スマートフォン・タブレット・パソコンのどれで見ても、見え方が整うようにします</p>
+    </div>
+  </div>
 </section>
-
-
-<a class="badge" href="#contact" aria-label="お問い合わせ"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="bc" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text><textPath href="#bc">CONTACT · CONTACT · CONTACT · </textPath></text></svg><span>ご相談<br>ください</span></a>
+<section class="pplan" id="plan" aria-labelledby="pp-h">
+  <div class="pp-in">
+    <h2 id="pp-h">制作範囲・料金</h2>
+    <p class="pp-sub">EasyWebCraft でトーモク様のホームページを作り直す場合の内容です。</p>
+    <div class="pp-grid">
+      <div class="pp-card"><h3>料金</h3><p class="pp-price"><span>初期費用0円</span><span>月額5,980円〜（税別）</span></p>
+        <p style="margin:8px 0 0;font-size:14px;color:#4a5b75">まとまった制作費はかかりません。</p></div>
+      <div class="pp-card"><h3>月額に含まれること</h3>
+        <ul><li>制作と公開</li><li>スマートフォン対応</li><li>公開後の文章・写真の修正</li><li>安全性の対応</li><li>検索対策</li><li>運用のサポート</li></ul></div>
+      <div class="pp-card pp-wide"><h3>お作りするページ</h3>
+        <p style="margin:0;font-size:15px">この見本はトップページのみです。その他のページはご希望に沿った構成でお作りします。</p></div>
+      <div class="pp-card pp-wide"><h3>公開までの進め方</h3>
+        <ol><li>御社の写真と文章をお預かりします（見本の写真・文章は当社が用意したものです）</li>
+        <li>お預かりしたものを入れて、公開まで当社で仕上げます</li>
+        <li>公開後の修正やご相談も、月額の中でお受けします</li></ol></div>
+    </div>
+  </div>
+</section>
 <footer>
   <span class="ph">この見本は EasyWebCraft が作成した提案資料です。</span><span class="ph">有限会社トーモクさまの公式サイトではありません。</span><br>
   <span class="ph">トップページだけを形にした見本で、</span><span class="ph">メニューの各ページは実際の制作でお作りします。</span><br>
@@ -1012,8 +1108,8 @@ body{padding-bottom:190px}
 </style>
 <div class="ewcbar" role="region" aria-label="EasyWebCraft へのご相談">
   <div class="in">
-    <p><b><span class="g"><span class="w">有限会社トーモク様向けに制作した<span class="w">トップページの</span><span class="w">デザイン案です。</span></span><span class="w">文章やデザインは</span><span class="w">ご要望に応じて変更可能です。</span></span><span class="g"><span class="w">少しでもご興味があれば、</span><span class="w">お気軽にお問合せください。</span></span></b><br><i>初期費用0円・月額5,980円〜（税別）</i> <span>EasyWebCraft　担当：田代</span></p>
-    <div class="bt"><a class="m" href="mailto:info@easywebcraft.jp?subject=%E6%9C%89%E9%99%90%E4%BC%9A%E7%A4%BE%E3%83%88%E3%83%BC%E3%83%A2%E3%82%AF%E6%A7%98%E3%81%AE%E8%A6%8B%E6%9C%AC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6&amp;body=%E6%9C%89%E9%99%90%E4%BC%9A%E7%A4%BE%E3%83%88%E3%83%BC%E3%83%A2%E3%82%AF%E6%A7%98%E3%81%AE%E8%A6%8B%E6%9C%AC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%80%81%E8%A9%B3%E3%81%97%E3%81%8F%E8%81%9E%E3%81%8D%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99%E3%80%82%0A%0A%EF%BC%88%E3%81%93%E3%81%AE%E3%81%BE%E3%81%BE%E9%80%81%E3%81%A3%E3%81%A6%E3%81%84%E3%81%9F%E3%81%A0%E3%81%8F%E3%81%A0%E3%81%91%E3%81%A7%E7%B5%90%E6%A7%8B%E3%81%A7%E3%81%99%E3%80%82%E3%81%8A%E9%9B%BB%E8%A9%B1%E3%81%A7%E3%81%AE%E3%81%94%E8%AA%AC%E6%98%8E%E3%82%92%E3%81%94%E5%B8%8C%E6%9C%9B%E3%81%A7%E3%81%97%E3%81%9F%E3%82%89%E3%80%81%E3%81%8A%E5%90%8D%E5%89%8D%E3%81%A8%E3%81%8A%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7%E3%82%92%E3%81%8A%E6%9B%B8%E3%81%8D%E6%B7%BB%E3%81%88%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%EF%BC%89%0A%0A%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0A%E3%81%8A%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7%EF%BC%9A%0A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>詳しく聞きたい</a><a class="l" href="https://line.me/R/ti/p/@508ijijg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5c-5 0-9 3.2-9 7.2 0 3.6 3.2 6.6 7.5 7.1.3.1.7.2.8.5.1.2.1.6 0 .9l-.1.8c0 .2-.2.9.8.5s5.4-3.2 7.4-5.5c1.4-1.5 2-3 2-4.3 0-4-4-7.2-9-7.2Z"/></svg>LINEで相談</a></div>
+    <p><b>トーモク様向けのリニューアル案です（EasyWebCraft 作成）。</b><br><i>初期費用0円・月額5,980円〜（税別）</i> <span>EasyWebCraft　担当：田代</span></p>
+    <div class="bt"><a class="m" href="mailto:info@easywebcraft.jp?subject=%E6%9C%89%E9%99%90%E4%BC%9A%E7%A4%BE%E3%83%88%E3%83%BC%E3%83%A2%E3%82%AF%E6%A7%98%E3%81%AE%E8%A6%8B%E6%9C%AC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6&amp;body=%E6%9C%89%E9%99%90%E4%BC%9A%E7%A4%BE%E3%83%88%E3%83%BC%E3%83%A2%E3%82%AF%E6%A7%98%E3%81%AE%E8%A6%8B%E6%9C%AC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%80%81%E8%A9%B3%E3%81%97%E3%81%8F%E8%81%9E%E3%81%8D%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99%E3%80%82%0A%0A%EF%BC%88%E3%81%93%E3%81%AE%E3%81%BE%E3%81%BE%E9%80%81%E3%81%A3%E3%81%A6%E3%81%84%E3%81%9F%E3%81%A0%E3%81%8F%E3%81%A0%E3%81%91%E3%81%A7%E7%B5%90%E6%A7%8B%E3%81%A7%E3%81%99%E3%80%82%E3%81%8A%E9%9B%BB%E8%A9%B1%E3%81%A7%E3%81%AE%E3%81%94%E8%AA%AC%E6%98%8E%E3%82%92%E3%81%94%E5%B8%8C%E6%9C%9B%E3%81%A7%E3%81%97%E3%81%9F%E3%82%89%E3%80%81%E3%81%8A%E5%90%8D%E5%89%8D%E3%81%A8%E3%81%8A%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7%E3%82%92%E3%81%8A%E6%9B%B8%E3%81%8D%E6%B7%BB%E3%81%88%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%EF%BC%89%0A%0A%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0A%E3%81%8A%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7%EF%BC%9A%0A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>EasyWebCraftに制作内容を質問する<span class="via">（メール）</span></a><a class="l" href="https://line.me/R/ti/p/@508ijijg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5c-5 0-9 3.2-9 7.2 0 3.6 3.2 6.6 7.5 7.1.3.1.7.2.8.5.1.2.1.6 0 .9l-.1.8c0 .2-.2.9.8.5s5.4-3.2 7.4-5.5c1.4-1.5 2-3 2-4.3 0-4-4-7.2-9-7.2Z"/></svg>LINEでEasyWebCraftに質問する</a></div>
   </div>
   <button class="x" type="button" aria-label="閉じる">×</button>
 </div>
@@ -1215,6 +1311,12 @@ window.__animReady=true;                    // <head> の保険に「動いた�
     if(x.isIntersecting){x.target.classList.add('is-in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -8% 0px'});
   els.forEach(function(el){io.observe(el)});
 })();
+</script>
+<script>
+(function(){var t;document.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a[data-demo]');if(!a)return;
+ev.preventDefault();if(!t){t=document.createElement('div');t.className='demo-toast';t.setAttribute('role','status');document.body.appendChild(t);}
+t.textContent='見本のため、このボタンは押してもつながりません。公開後は御社のお電話につながります。';
+t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('on');},2600);});})();
 </script>
 </body>
 </html>
