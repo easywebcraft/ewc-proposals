@@ -2370,6 +2370,7 @@
   "photos": {"hero": "ai-g-shopfit", "gallery": ["ai-mokko-3", null, null], "slides": ["ai-mokko-2", "ai-mokko-3"]}
  },
  "nikoniko-zoen": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が5年前まで / 文字コード shift_jis"},
   "name": "有限会社にこにこ造園",
   "roman": "NIKONIKO ZOEN",
   "industry": "kensetsu",
@@ -3608,6 +3609,7 @@
   "texture": "ashiba"
  },
  "tsuboi-bankin": {
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
   "name": "坪井自動車鈑金有限会社",
   "roman": "TSUBOI BANKIN",
   "industry": "car",
@@ -12368,6 +12370,7 @@
   }
  },
  "tanaka-kk": {
+  "intro": {"findings": "更新が7年前まで"},
   "name": "田中工業株式会社",
   "roman": "TANAKA KOGYO",
   "industry": "seizo",
@@ -14676,6 +14679,7 @@
   }
  },
  "yorodenki": {
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が20年前まで / Flashの残骸 / 文字コード shift_jis"},
   "name": "養老電機株式会社",
   "roman": "YORO DENKI",
   "industry": "seizo",
