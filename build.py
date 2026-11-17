@@ -618,8 +618,8 @@ def trial_fast(sid):
 #   受け手は自社名に引かれて開いても、何を判断すればよいか分からないので、見本の前に短い提案の説明を置き、
 #   末尾に「制作範囲・料金」をまとめる。説明の文は会社ごとに今のサイトを見て書く（sites.json の "intro"）。
 INTRO_CSS = """
-.pintro{position:relative;z-index:5;background:linear-gradient(180deg,#f3f6fa 0%,#e9eef5 100%);color:#10294f;
-  padding:22px 16px 20px;border-bottom:1px solid #d5deea}
+.pintro{position:relative;z-index:3;background:linear-gradient(180deg,#f3f6fa 0%,#e9eef5 100%);color:#10294f;
+  padding:22px 16px 20px;border-top:3px solid #10294f;border-bottom:1px solid #d5deea}
 .pintro .pi-in{max-width:680px;margin:0 auto}
 .pintro .pi-head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
 .pintro .pi-from{margin:0;padding:2px 10px;border-radius:999px;background:#10294f;color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.06em}
@@ -646,7 +646,6 @@ INTRO_CSS = """
 .pintro .pi-go{background:#10294f;color:#fff}
 .pintro .pi-plan{background:#fff;color:#10294f;border:2px solid #10294f}
 .pintro .pi-note{margin:6px 0 0;font-size:11.5px;color:#4a5b75}
-.pdiv{background:#10294f;color:#fff;text-align:center;font-size:12px;font-weight:700;letter-spacing:.12em;padding:5px 16px}
 .pplan{background:#f3f6fa;color:#10294f;padding:56px 20px 64px}
 .pplan .pp-in{max-width:860px;margin:0 auto}
 .pplan h2{margin:0;font-size:clamp(22px,4vw,28px);letter-spacing:.06em;text-align:center}
@@ -717,11 +716,10 @@ def intro_html(d):
       <ol class="pi-pairs">{pair}</ol>
       {more_html}
     </div>
-    <div class="pi-bt"><a class="pi-go" href="#sample">リニューアル案を見る ↓</a><a class="pi-plan" href="#plan">制作範囲・料金を見る</a></div>
+    <div class="pi-bt"><a class="pi-go" href="#works">リニューアル案の続きを見る ↓</a><a class="pi-plan" href="#plan">制作範囲・料金を見る</a></div>
     <p class="pi-note">写真と文章は見本用の仮のものです。</p>
   </div>
 </section>
-<div class="pdiv" id="sample">ここからリニューアル案</div>
 """
 
 
@@ -773,13 +771,16 @@ def trial_intro(sid):
     sm = re.search(r'<section class="sitemap" id="sitemap">.*?<ul>(.*?)</ul>', html, re.S)
     pages = [H.unescape(x) for x in re.findall(r"<a [^>]*>(.*?)</a>", sm.group(1))] if sm else []
     pages = [x for x in pages if x != "トップページ"]
-    mark = '<div class="hdwrap'
-    if html.count(mark) != 1 or html.count("<footer>") != 1:
+    html = html.replace("</style>", INTRO_CSS + "</style>", 1)   # 先に入れる（あとで入れると差し込み位置がずれる）
+    # 置き場所は最初の画面（写真の部分）のすぐ下（2026-11-17 松本さん）。一番上に置くと、冒頭の演出
+    #   （社名が見本のヘッダーに収まる）のあとに見本でない説明が出て、つながりが合わない。末尾だと読まれない
+    h = html.find('\n<div class="hero')
+    mark = html.find("\n<section", h)
+    if h < 0 or mark < 0 or html.count("<footer>") != 1:
         raise SystemExit("差し込む場所が見つからない")
     # 見本の「サイトの構成」は、末尾の「お作りするページ」と同じ中身なので外す（二重に見せない）
     html = re.sub(r'<section class="sitemap" id="sitemap">.*?</section>\s*', "", html, count=1, flags=re.S)
-    html = html.replace("</style>", INTRO_CSS + "</style>", 1)
-    html = html.replace(mark, intro_html(d) + mark, 1)
+    html = html[:mark] + "\n" + intro_html(d) + html[mark:]
     html = html.replace("<footer>", plan_html(d, pages) + "<footer>", 1)
     out = root / (sid + "-intro")
     out.mkdir(exist_ok=True)
