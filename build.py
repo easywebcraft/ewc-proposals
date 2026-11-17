@@ -664,8 +664,6 @@ INTRO_CSS = """
 .pplan .pp-price{margin:4px 0 0;font-size:clamp(22px,3.6vw,28px);font-weight:800;letter-spacing:.02em;line-height:1.5}
 .pplan .pp-price span{display:block;white-space:nowrap}
 .pplan ul{margin:0;padding-left:1.2em;font-size:15px;line-height:1.9}
-.pplan .pp-pages{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0;padding:0;list-style:none}
-.pplan .pp-pages li{padding:3px 12px;border:1px solid #c9d4e3;border-radius:999px;font-size:13.5px;background:#f8fafc}
 .pplan .pp-wide{grid-column:1/-1}
 .pplan ol{margin:0;padding-left:1.4em;font-size:15px;line-height:1.9}
 """
@@ -726,7 +724,6 @@ def plan_html(d, pages):
     """末尾の「制作範囲・料金」。ボタンは置かない（画面下の帯にあるため。2026-11-17）。料金と月額に含まれるものは見本の帯・末尾と同じ（modern.EWC_PRICE）。"""
     import modern
     name = d["name"]
-    pg = "".join(f"<li>{e(x)}</li>" for x in ["トップページ"] + pages)
     return f"""<section class="pplan" id="plan" aria-labelledby="pp-h">
   <div class="pp-in">
     <h2 id="pp-h">制作範囲・料金</h2>
@@ -737,8 +734,7 @@ def plan_html(d, pages):
       <div class="pp-card"><h3>月額に含まれること</h3>
         <ul><li>制作と公開</li><li>スマートフォン対応</li><li>公開後の文章・写真の修正</li><li>安全性の対応</li><li>検索対策</li><li>運用のサポート</li></ul></div>
       <div class="pp-card pp-wide"><h3>お作りするページ</h3>
-        <p style="margin:0;font-size:15px">この見本はトップページのみです。その他のページはご希望に沿った構成でお作りします。</p>
-        <ul class="pp-pages">{pg}</ul></div>
+        <p style="margin:0;font-size:15px">この見本はトップページのみです。その他のページはご希望に沿った構成でお作りします。</p></div>
       <div class="pp-card pp-wide"><h3>公開までの進め方</h3>
         <ol><li>御社の写真と文章をお預かりします（見本の写真・文章は当社が用意したものです）</li>
         <li>お預かりしたものを入れて、公開まで当社で仕上げます</li>
