@@ -755,7 +755,7 @@ def plan_html(d, pages):
         <li>お預かりしたものを入れて、公開まで当社で仕上げます</li>
         <li>公開後の修正やご相談も、月額の中でお受けします</li></ol></div>
     </div>
-    <div class="pp-bt"><a class="pp-m" href="{e(mailto)}">{ASK_LABEL}</a><a class="pp-l" href="{e(modern.EWC_LINE)}" target="_blank" rel="noopener">LINEで質問する</a></div>
+    <div class="pp-bt"><a class="pp-m" href="{e(mailto)}">{ASK_LABEL}</a><a class="pp-l" href="{e(modern.EWC_LINE)}" target="_blank" rel="noopener">{LINE_LABEL}</a></div>
   </div>
 </section>
 """
@@ -768,7 +768,8 @@ def plan_html(d, pages):
 #   ・見本の中の電話は押してもつながらない「デモ表示」にする（押すとその旨を小さく出す）
 #   ・EasyWebCraft へのボタンは「EasyWebCraftに制作内容を質問する」の1つだけを主ボタンにし、LINE は文字のリンクに下げる
 #   ・丸い相談ボタンは外す
-ASK_LABEL = "EasyWebCraftに制作内容を質問する"
+ASK_LABEL = 'EasyWebCraftに制作内容を質問する<span class="via">（メール）</span>'   # スマホでは（メール）を省く（封筒の絵で分かる）
+LINE_LABEL = "LINEでEasyWebCraftに質問する"
 DEMO_CSS = """
 .pframe{position:relative}
 .pframe::after{content:"";position:absolute;inset:0;z-index:70;pointer-events:none;border:4px solid #10294f}
@@ -785,15 +786,17 @@ a.btn[data-demo]::after,.contact a.big[data-demo]::after{content:"デモ表示";
 .demo-toast.on{opacity:1;transform:none}
 .ewcbar .bt{align-items:center}
 .ewcbar a.m{font-size:15.5px!important;padding:0 22px!important}
-@media(max-width:899px){.ewcbar .bt{flex-direction:column;gap:2px}.ewcbar .bt a.m{width:100%;font-size:15px!important;padding:0 12px!important}}
+@media(max-width:899px){.ewcbar .bt{flex-direction:column;gap:8px}.ewcbar .bt a{width:100%;min-height:46px;font-size:14.5px!important;padding:0 12px!important}}
 @media(min-width:900px){.ewcbar .in>p{min-width:0;flex:1 1 0!important}.ewcbar .bt{flex:none!important;max-width:none!important;width:auto!important}}
-.ewcbar a.l{flex:none!important;min-height:0;padding:4px 6px;background:none!important;box-shadow:none!important;color:#fff;
-  font-size:13px!important;font-weight:700;text-decoration:underline;text-underline-offset:.2em}
+/* LINE はボタンのまま、主ボタン（メール）との差だけ付ける：塗りなし・白い枠線（2026-11-17 松本さん「おすすめで」） */
+.ewcbar a.l{background:transparent!important;color:#fff!important;box-shadow:inset 0 0 0 2px rgba(255,255,255,.85)!important;font-size:15px!important;padding:0 20px!important}
 .ewcbar a.l::after{display:none}
-.ewcbar a.l:hover{transform:none}
-.ewcbar a.l svg{width:16px!important;height:16px!important}
+.ewcbar a.l:hover{background:rgba(255,255,255,.12)!important}
+.ewcbar a.l svg{color:#06c755}
 .pplan .pp-bt{flex-direction:column;align-items:center;gap:10px}
-.pplan .pp-l{min-height:0!important;padding:4px 8px!important;background:none!important;color:#10294f!important;font-size:14px!important;text-decoration:underline!important;text-underline-offset:.2em}
+.pplan .pp-l{background:#fff!important;color:#10294f!important;border:2px solid #10294f}
+.pplan .pp-bt a{width:min(100%,420px);text-align:center}
+@media(max-width:599px){.via{display:none}}
 """
 DEMO_JS = """<script>
 (function(){var t;document.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a[data-demo]');if(!a)return;
@@ -834,7 +837,7 @@ def apply_demo(html, d):
     p = (f'<p><b>{e(short)}様向けのリニューアル案です（EasyWebCraft 作成）。</b>'
          f'<br><i>{e(modern.EWC_PRICE)}</i> <span>EasyWebCraft　担当：{e(modern.EWC_STAFF)}</span></p>')
     html = (html[:bar.start()] + bar.group(1) + p + bar.group(2) + bar.group(3) + bar.group(4) + ASK_LABEL + "</a>"
-            + bar.group(5) + bar.group(6) + "LINEで質問する</a>" + html[bar.end():])
+            + bar.group(5) + bar.group(6) + LINE_LABEL + "</a>" + html[bar.end():])
     html = html.replace("</style>", DEMO_CSS + "</style>", 1)
     html = html.replace("</body>", DEMO_JS + "\n</body>", 1)
     return html
