@@ -788,15 +788,12 @@ a.btn[data-demo]::after,.contact a.big[data-demo]::after{content:"デモ表示";
 .ewcbar a.m{font-size:15.5px!important;padding:0 22px!important}
 @media(max-width:899px){.ewcbar .bt{flex-direction:column;gap:8px}.ewcbar .bt a{width:100%;min-height:46px;font-size:14.5px!important;padding:0 12px!important}}
 @media(min-width:900px){.ewcbar .in>p{min-width:0;flex:1 1 0!important}.ewcbar .bt{flex:none!important;max-width:none!important;width:auto!important}}
-/* LINE はボタンのまま、主ボタン（メール）との差だけ付ける：塗りなし・白い枠線（2026-11-17 松本さん「おすすめで」） */
-.ewcbar a.l{background:transparent!important;color:#fff!important;box-shadow:inset 0 0 0 2px rgba(255,255,255,.85)!important;font-size:15px!important;padding:0 20px!important}
-.ewcbar a.l::after{display:none}
-.ewcbar a.l:hover{background:rgba(255,255,255,.12)!important}
-.ewcbar a.l svg{color:#06c755}
+/* LINE はメールと同じ大きさの緑のボタン（2026-11-17 松本さん「前と同じ、同じ大きさの2つのボタンに戻す」） */
+.ewcbar a.l{font-size:15.5px!important;padding:0 22px!important}
 .pplan .pp-bt{flex-direction:column;align-items:center;gap:10px}
-.pplan .pp-l{background:#fff!important;color:#10294f!important;border:2px solid #10294f}
 .pplan .pp-bt a{width:min(100%,420px);text-align:center}
 @media(max-width:599px){.via{display:none}}
+.ewcbar a .via{margin-left:-8px}
 """
 DEMO_JS = """<script>
 (function(){var t;document.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a[data-demo]');if(!a)return;
