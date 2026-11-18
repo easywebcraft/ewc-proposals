@@ -10,6 +10,7 @@
 
 本番の先は、見本のURL（prospects.proposal_url）で見分ける。次の先は飛ばす:
   - 本番に見本のURLが入った先が無い（未登録）
+  - 状態が「見送り」（営業しないと決めた先）
   - 所見にもう「許可表記が古い」がある（二重に足さない）
   - 表示したときと書き込むときで所見が変わっている（その間に人が画面で直した）
 
@@ -86,6 +87,9 @@ def main():
             print("  同じ見本の先が%d件（飛ばす）%-12s %s" % (len(rows), key, name))
             continue
         pid, pname, status, before = rows[0]
+        if status == "見送り":   # 営業しないと決めた先には足さない（2026-11-19 松本さん）
+            print("  見送り（飛ばす）      %-18s %s" % (key, pname))
+            continue
         if "許可表記が古い" in before:
             print("  もう入っている        %-18s %s" % (key, pname))
             continue

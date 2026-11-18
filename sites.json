@@ -1001,7 +1001,7 @@
   "photos": {"hero": "ai-g-sheetmetal"}
  },
  "setta": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が11年前まで"},
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が11年前まで / 許可表記が古い(般-2→般-7・令和7年更新)"},
   "industry": "kensetsu",
   "name": "株式会社セッタ",
   "roman": "SETTA",
@@ -1075,7 +1075,7 @@
     "slides": ["ai-roof-2", "ai-roof-3"],
     "gallery": ["ai-roof-4", null, "ai-roof-5"]
   },
-  "permits": ["岐阜県知事許可（般-2）第201321号"]
+  "permits": ["岐阜県知事許可（般-7）第201321号"]
  },
  "ogawakagu": {
   "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が11年前まで / jQuery 1.10"},
@@ -2255,7 +2255,7 @@
   "photos": {"hero": "ai-roof-3", "slides": ["ai-roof-4", "ai-roof-5"]}
  },
  "aotec": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.11"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.11 / 許可表記が古い(般-2→般-7・令和7年更新)"},
   "name": "アオテック株式会社",
   "roman": "AOTEC",
   "industry": "kensetsu",
@@ -2323,7 +2323,7 @@
   "accent": "#2e669c",
   "texture": "kinzoku",
   "photos": {"hero": "ai-solar-1", "slides": ["ai-solar-2", "ai-solar-3"]},
-  "permits": ["愛知県知事許可（般-2）第74237号"]
+  "permits": ["愛知県知事許可（般-7）第74237号"]
  },
  "fujimoto-kogei": {
   "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
@@ -4372,7 +4372,7 @@
   "photos": {"hero": "ai-denki-3", "slides": ["ai-denki-2", "ai-denki-1"]}
  },
  "yamaguchi-gyoumuten": {
-  "intro": {"findings": "https不可(つながらない) / jQuery 1.11"},
+  "intro": {"findings": "https不可(つながらない) / jQuery 1.11 / 許可表記が古い(般-3→般-8・令和8年更新)"},
   "name": "有限会社山口業務店",
   "roman": "YAMAGUCHI",
   "industry": "kensetsu",
@@ -4441,7 +4441,7 @@
   "gallery_h": "施工事例",
   "hours": "営業時間 8:00–17:00（日曜定休）",
   "photos": {"hero": "ai-tosou-1", "slides": ["ai-tosou-3", "ai-tosou-2"]},
-  "permits": ["愛知県知事許可（般-3）第49513号"]
+  "permits": ["愛知県知事許可（般-8）第49513号"]
  },
  "kyokuryo": {
   "intro": {"findings": "レスポンシブ指定なし / 更新が10年前まで / jQuery 1.11"},
@@ -4720,7 +4720,7 @@
   "photos": {"hero": "ai-house-h1", "gallery": ["ai-house-g2", "ai-house-h2", null], "slides": ["ai-house-h4", "ai-house-h3"]}
  },
  "reform-aiti": {
-  "intro": {"findings": "https不可(つながらない) / 古いタグ(center) / レスポンシブ指定なし / 文字コード shift_jis"},
+  "intro": {"findings": "https不可(つながらない) / 古いタグ(center) / レスポンシブ指定なし / 文字コード shift_jis / 許可表記が古い(般-28→般-8・令和8年更新)"},
   "name": "リフォーム愛知株式会社",
   "roman": "REFORM AICHI",
   "industry": "kensetsu",
@@ -4787,10 +4787,10 @@
   "texture": "mokume",
   "founded": "1989",
   "photos": {"hero": "ai-house-h1", "slides": ["ai-house-h4", "ai-house-h2"]},
-  "permits": ["愛知県知事許可（般-18）第62839号"]
+  "permits": ["愛知県知事許可（般-8）第62839号"]
  },
  "sanyuhousing": {
-  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし"},
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし / 許可表記が古い(般-29→般-4・令和4年更新)"},
   "name": "株式会社サンユーハウジング",
   "roman": "SANYU HOUSING",
   "industry": "kensetsu",
@@ -4856,7 +4856,7 @@
   "texture": "zumen",
   "zip": "464-0074",
   "photos": {"hero": "ai-house-h1", "slides": ["ai-house-h4", "ai-house-h2"]},
-  "permits": ["愛知県知事許可（般-29）第108500号"]
+  "permits": ["愛知県知事許可（般-4）第108500号"]
  },
  "kamimura-mekki": {
   "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
@@ -5071,7 +5071,8 @@
   "photos": {"hero": "ai-house-h4", "gallery": ["ai-house-g2", null, null], "slides": ["ai-house-h1", "ai-house-h3"]}
  },
  "toei-iak": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が21年前まで / jQuery 1.6 / Flashの残骸 / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が21年前まで / jQuery 1.6 / Flashの残骸 / 文字コード shift_jis / 許可表記が古い(般-27→般-7・令和7年更新)"},
+  "permits": ["愛知県知事許可（般-7）第49996号"],
   "name": "株式会社トーエイ",
   "roman": "TOEI",
   "industry": "kensetsu",
@@ -5209,7 +5210,8 @@
   "photos": {"hero": "ai-tosou-1", "slides": ["ai-tosou-3", "ai-tosou-2"]}
  },
  "to-yo-kensho": {
-  "intro": {"findings": "スマホ非対応 / 古いタグ(bgcolor) / レスポンシブ指定なし / jQuery 1.9 / Flashの残骸"},
+  "intro": {"findings": "スマホ非対応 / 古いタグ(bgcolor) / レスポンシブ指定なし / jQuery 1.9 / Flashの残骸 / 許可表記が古い(般-21→般-6・令和6年更新)"},
+  "permits": ["愛知県知事許可（般-6）第56617号"],
   "name": "名古屋西株式会社トーヨー建商",
   "roman": "TOYO KENSHO",
   "industry": "kensetsu",
@@ -5782,7 +5784,7 @@
   "permits": ["愛知県知事許可（般-25）第65986号"]
  },
  "airgiken": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.7"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.7 / 許可表記が古い(般-13→般-8・令和8年更新)"},
   "name": "株式会社エアー技研社",
   "roman": "AIR GIKEN",
   "industry": "seizo",
@@ -5853,10 +5855,10 @@
   ],
   "gallery_h": "施工事例",
   "photos": {"hero": "ai-setsubi-2", "gallery": ["ai-c-mainte", null, null], "slides": ["ai-setsubi-3", "ai-setsubi-1"]},
-  "permits": ["愛知県知事許可（般-13）第55911号"]
+  "permits": ["愛知県知事許可（般-8）第55911号"]
  },
  "narita-dengyo": {
-  "intro": {"findings": "古いタグ(cellpadding) / レスポンシブ指定なし / jQuery 1.10"},
+  "intro": {"findings": "古いタグ(cellpadding) / レスポンシブ指定なし / jQuery 1.10 / 許可表記が古い(般-28→般-4・令和4年更新)"},
   "name": "株式会社ナリタ電業",
   "roman": "NARITA DENGYO",
   "industry": "kensetsu",
@@ -5923,7 +5925,7 @@
   ],
   "gallery_h": "施工実績",
   "photos": {"hero": "ai-denki-3", "slides": ["ai-denki-2", "ai-denki-1"]},
-  "permits": ["愛知県知事許可（般-28）第67434号"]
+  "permits": ["愛知県知事許可（般-4）第67434号"]
  },
  "space-hirano": {
   "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし"},
@@ -7359,7 +7361,8 @@
    "photos": {"hero": "ai-mokko-1", "slides": ["ai-mokko-2", "ai-mokko-3"]}
  },
  "dtec-co": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が9年前まで"},
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が9年前まで / 許可表記が古い(般-22→般-7・令和7年更新)"},
+  "permits": ["愛知県知事許可（般-7）第65509号"],
    "name": "ディーテック株式会社",
    "roman": "D-TEC",
    "industry": "kensetsu",
@@ -8163,7 +8166,8 @@
   "permits": ["愛知県知事許可（般-29）第67187号"]
  },
  "itonen": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,center,cellpadding) / レスポンシブ指定なし / 更新が5年前まで / jQuery 1.7"},
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,center,cellpadding) / レスポンシブ指定なし / 更新が5年前まで / jQuery 1.7 / 許可表記が古い(般-23→般-8・令和8年更新)"},
+  "permits": ["三重県知事許可（般-8）第18572号"],
    "name": "有限会社伊藤燃設",
    "roman": "ITONEN",
    "industry": "kensetsu",
@@ -8247,7 +8251,7 @@
    }
  },
  "matsudakougyou": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 文字コード shift_jis / 許可表記が古い(般-24→般-4・令和4年更新)"},
    "name": "有限会社松田工業",
    "roman": "MATSUDA KOGYO",
    "industry": "kensetsu",
@@ -8311,10 +8315,11 @@
    "accent": "#c98a12",
    "texture": "ashiba",
    "photos": {"hero": "ai-doboku-2", "slides": ["ai-doboku-1", "ai-doboku-3"]},
-  "permits": ["三重県知事許可（般-24）第4952号"]
+  "permits": ["三重県知事許可（般-4）第4952号"]
  },
  "m-d-s": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis / 許可表記が古い(般-19→般-4・令和4年更新)"},
+  "permits": ["三重県知事許可（般-4）第12492号"],
    "name": "株式会社松田電機設備",
    "roman": "MATSUDA DENKI SETSUBI",
    "industry": "kensetsu",
@@ -9021,7 +9026,7 @@
    "photos": {"hero": "ai-house-h2", "slides": ["ai-house-h1", "ai-house-h4"]}
  },
  "sankikensou": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.9"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.9 / 許可表記が古い(般-27→般-7・令和7年更新)"},
    "name": "有限会社三輝建創",
    "roman": "SANKI KENSOU",
    "industry": "kensetsu",
@@ -9101,7 +9106,7 @@
        null
      ]
    },
-  "permits": ["岐阜県知事許可（般-27）第200579号"]
+  "permits": ["岐阜県知事許可（般-7）第200579号"]
  },
  "amdj": {
   "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.4"},
@@ -9241,7 +9246,7 @@
    "photos": {"hero": "ai-doboku-1", "slides": ["ai-doboku-2", "ai-doboku-3"]}
  },
  "kawashimakenzai": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 許可表記が古い(般-29→般-4・令和4年更新)"},
    "name": "株式会社川島建材",
    "roman": "KAWASHIMA KENZAI",
    "industry": "kensetsu",
@@ -9312,10 +9317,11 @@
    "accent": "#5d4523",
    "texture": "ashiba",
    "photos": {"hero": "ai-doboku-2", "slides": ["ai-doboku-1", "ai-doboku-3"]},
-  "permits": ["岐阜県知事許可（般-29）第600705号"]
+  "permits": ["岐阜県知事許可（般-4）第600705号"]
  },
  "dkltd": {
-  "intro": {"findings": "スマホ非対応 / jQuery 1.10"},
+  "intro": {"findings": "スマホ非対応 / jQuery 1.10 / 許可表記が古い(般-1→般-7・令和7年更新)"},
+  "permits": ["岐阜県知事許可（般-7）第102260号"],
    "name": "大同工業株式会社",
    "roman": "DAIDO KOGYO",
    "industry": "kensetsu",
@@ -9471,7 +9477,8 @@
   "permits": ["岐阜県知事許可（般-28）第350297号"]
  },
  "sougou-urakami": {
-  "intro": {"findings": "スマホ非対応"},
+  "intro": {"findings": "スマホ非対応 / 許可表記が古い(般-29→般-8・令和8年更新)"},
+  "permits": ["三重県知事許可（般-8）第18780号"],
    "name": "総合建築浦上株式会社",
    "roman": "URAKAMI",
    "industry": "kensetsu",
@@ -9748,7 +9755,7 @@
    "photos": {"hero": "ai-zoen-1", "gallery": ["ai-c-exterior", null, null], "slides": ["ai-zoen-2", "ai-zoen-3"]}
  },
  "daisindaisin": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 許可表記が古い(般-2→般-7・令和7年更新)"},
    "name": "大辰工業株式会社",
    "roman": "DAISHIN KOGYO",
    "photos": {
@@ -9818,7 +9825,7 @@
    ],
    "accent": "#1f5f9a",
    "texture": "nuri",
-  "permits": ["国土交通大臣許可（般-2）第27798号"]
+  "permits": ["国土交通大臣許可（般-7）第27798号"]
  },
  "sakamotomachine": {
   "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 文字コード shift_jis"},
@@ -9884,7 +9891,7 @@
    "photos": {"hero": "ai-seizo-1", "slides": ["ai-seizo-2", "ai-seizo-3"]}
  },
  "chukyoonki": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が10年前まで / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が10年前まで / 文字コード shift_jis / 許可表記が古い(般-28→般-8・令和8年更新)"},
   "name": "中京音機株式会社",
   "roman": "CHUKYO ONKI",
   "industry": "kensetsu",
@@ -9951,9 +9958,7 @@
   "accent": "#1d3f7a",
   "texture": "kinzoku",
   "photos": {"hero": "ai-denki-1", "slides": ["ai-denki-2", "ai-denki-3"]},
-  "permits": [
-   "国土交通大臣許可（般-28）第15373号"
-  ]
+  "permits": ["国土交通大臣許可（般-8）第15373号"]
  },
  "axteam": {
   "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / jQuery 1.7"},
@@ -12037,7 +12042,7 @@
   }
  },
  "hiroikensetu": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis / 許可表記が古い(特-16→特-7・令和7年更新)"},
   "name": "広井建設株式会社",
   "roman": "HIROI KENSETSU",
   "industry": "kensetsu",
@@ -12100,9 +12105,7 @@
   ],
   "accent": "#1f4d4d",
   "texture": "ashiba",
-  "permits": [
-   "愛知県知事許可（特-16）第60013号"
-  ],
+  "permits": ["愛知県知事許可（特-7）第60013号"],
   "photos": {
    "hero": "ai-doboku-3",
    "slides": [
@@ -13098,7 +13101,7 @@
   }
  },
  "kyowaanzen": {
-  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis / 許可表記が古い(般-19→般-4・令和4年更新)"},
   "name": "株式会社協和安全",
   "roman": "KYOWA ANZEN",
   "industry": "kensetsu",
@@ -13160,9 +13163,7 @@
   ],
   "accent": "#2e7ea0",
   "texture": "ashiba",
-  "permits": [
-   "岐阜県知事許可（般-19）第300246号"
-  ],
+  "permits": ["岐阜県知事許可（般-4）第300246号"],
   "photos": {
    "hero": "ai-doboku-1",
    "slides": [
@@ -13380,7 +13381,8 @@
   "photos": {"hero": "ai-g-temple", "slides": ["ai-house-h1", "ai-mokko-3"]}
  },
  "futamuragiken": {
-  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が13年前まで"},
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が13年前まで / 許可表記が古い(般-9→般-4・令和4年更新)"},
+  "permits": ["岐阜県知事許可（般-4）第800026号"],
   "name": "株式会社二村技建",
   "roman": "FUTAMURA GIKEN",
   "industry": "kensetsu",
@@ -13661,7 +13663,8 @@
   }
  },
  "mishimakenchiku": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が27年前まで / Flashの残骸"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が27年前まで / Flashの残骸 / 許可表記が古い(特-1→特-6・令和6年更新)"},
+  "permits": ["岐阜県知事許可（般-6）第9345号", "岐阜県知事許可（特-6）第9345号"],
   "name": "株式会社三島建築",
   "roman": "MISHIMA KENCHIKU",
   "industry": "kensetsu",
@@ -14291,7 +14294,7 @@
   "photos": {"hero": "ai-g-water", "slides": ["ai-setsubi-3", "ai-setsubi-1"]}
  },
  "kinoshitaconstruction": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が16年前まで"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が16年前まで / 許可表記が古い(般-19→般-4・令和4年更新)"},
   "name": "有限会社木下建設",
   "roman": "KINOSHITA KENSETSU",
   "industry": "kensetsu",
@@ -14353,9 +14356,7 @@
   ],
   "accent": "#1f779d",
   "texture": "ashiba",
-  "permits": [
-   "岐阜県知事許可（般-19）第12809号"
-  ],
+  "permits": ["岐阜県知事許可（般-4）第12809号"],
   "photos": {
    "hero": "ai-doboku-2",
    "slides": [
@@ -14365,7 +14366,8 @@
   }
  },
  "yasudakougyou": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が9年前まで"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が9年前まで / 許可表記が古い(般-29→般-5・令和5年更新)"},
+  "permits": ["岐阜県知事許可（般-5）第300166号"],
   "name": "安田工業株式会社",
   "roman": "YASUDA KOGYO",
   "industry": "seizo",
@@ -14797,7 +14799,7 @@
   }
  },
  "inaba-denkou": {
-  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が7年前まで / jQuery 1.10"},
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が7年前まで / jQuery 1.10 / 許可表記が古い(般-27→般-7・令和7年更新)"},
   "name": "株式会社稲葉電工",
   "roman": "INABA DENKOU",
   "industry": "kensetsu",
@@ -14859,9 +14861,7 @@
   ],
   "accent": "#c46a00",
   "texture": "zumen",
-  "permits": [
-   "岐阜県知事許可（般-27）第450253号"
-  ],
+  "permits": ["岐阜県知事許可（般-7）第450253号"],
   "photos": {
    "hero": "ai-denki-3",
    "slides": [
@@ -17028,16 +17028,14 @@
   "photos": {"hero": "ai-g-heat"}
  },
  "tyuo-giken": {
-  "intro": {"findings": "レスポンシブ指定なし"},
+  "intro": {"findings": "レスポンシブ指定なし / 許可表記が古い(般-26→般-6・令和6年更新)"},
   "name": "中央技研株式会社",
   "roman": "CHUO GIKEN",
   "industry": "seizo",
   "tel": "0567-31-2012",
   "zip": "496-0915",
   "addr": "愛知県愛西市本部田町狭場54-1",
-  "permits": [
-   "愛知県知事許可（般-26）第56614号"
-  ],
+  "permits": ["愛知県知事許可（般-6）第56614号"],
   "catch": "炎をつくる仕事、ひとすじに。",
   "catch_em": "工業用バーナーの、中央技研。",
   "sub": "工業用オイルバーナーの製造を柱に、ガスバーナー・廃油バーナー・熱風発生炉・ダクトバーナーまで。製造から据付・試運転まで、社員が受け持ちます。",
@@ -18517,7 +18515,7 @@
   }
  },
  "ooshino": {
-  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし / 更新が13年前まで / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし / 更新が13年前まで / 文字コード shift_jis / 許可表記が古い(特-29→特-4・令和4年更新)"},
   "name": "株式会社大篠建設",
   "roman": "OOSHINO KENSETSU",
   "industry": "kensetsu",
@@ -18525,9 +18523,7 @@
   "zip": "490-1211",
   "addr": "愛知県あま市篠田三田畑46番地",
   "founded": "1949",
-  "permits": [
-   "愛知県知事許可（特-29）第23702号"
-  ],
+  "permits": ["愛知県知事許可（般-4）第23702号", "愛知県知事許可（特-4）第23702号"],
   "catch": "まちの土台を、地元の手で。",
   "catch_em": "あま市の土木、大篠建設。",
   "sub": "土木・とび土工・舗装・しゅんせつ・水道施設・解体の各工事。愛知県の海部建設事務所や、あま市・大治町の工事を手がけています。",
@@ -18589,16 +18585,14 @@
   }
  },
  "shimada-gyoumuten": {
-  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / jQuery 1.9"},
+  "intro": {"findings": "スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / jQuery 1.9 / 許可表記が古い(般-18→般-3・令和3年更新)"},
   "name": "株式会社島田業務店",
   "roman": "SHIMADA GYOMUTEN",
   "industry": "kensetsu",
   "tel": "052-501-2073",
   "zip": "452-0001",
   "addr": "愛知県清須市西枇杷島町古城2丁目23-7",
-  "permits": [
-   "愛知県知事許可（般-18）第35344号"
-  ],
+  "permits": ["愛知県知事許可（般-3）第35344号"],
   "catch": "住まいの下を、きれいにつくる。",
   "catch_em": "住宅基礎の専門、島田業務店。",
   "sub": "一般住宅・集合住宅の基礎工事を専門に。ベタ基礎・布基礎を中心に、多くの住宅メーカーの工事を東海一円で承っています。",
@@ -18661,16 +18655,13 @@
   }
  },
  "h-aw": {
-  "intro": {"findings": "目立った問題なし"},
+  "intro": {"findings": "目立った問題なし / 許可表記が古い(般-22→特-5・令和5年更新)"},
   "name": "株式会社ホリウチ",
   "roman": "HORIUCHI",
   "industry": "kensetsu",
   "tel": "052-441-0833",
   "addr": "愛知県海部郡大治町大字西條字七反田23番1",
-  "permits": [
-   "愛知県知事許可（般-22）第27049号",
-   "一級建築士事務所登録（い-20）第9303号"
-  ],
+  "permits": ["愛知県知事許可（特-5）第27049号", "一級建築士事務所登録（い-20）第9303号"],
   "catch": "金属工事から、建物まるごとまで。",
   "catch_em": "大治町の総合建設、ホリウチ。",
   "sub": "金属工事を基盤に、大手ゼネコンの一次業者として歩んできました。いまは建築一式・内外装リフォーム・塗装・太陽光の設置・不動産管理まで手がけています。",
@@ -18805,7 +18796,7 @@
   }
  },
  "tosho-kiso": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 文字コード shift_jis / 許可表記が古い(般-24→般-4・令和4年更新)"},
   "name": "東昌基礎株式会社",
   "roman": "TOSHO KISO",
   "industry": "kensetsu",
@@ -18813,9 +18804,7 @@
   "zip": "488-0826",
   "addr": "愛知県尾張旭市大塚町2-7-6",
   "founded": "1970",
-  "permits": [
-   "愛知県知事許可（般-24）第6615号"
-  ],
+  "permits": ["愛知県知事許可（般-4）第6615号"],
   "catch": "地盤に合わせて、工法をえらぶ。",
   "catch_em": "尾張旭の地盤改良と杭、東昌基礎。",
   "sub": "柱状改良・鋼管杭・PHCパイル・土留工事・地質調査・平板載荷試験。地盤によって工法を1つに決めず、合ったものをご提案します。大型店舗から個人のお客様まで。",
@@ -19982,6 +19971,7 @@
   }
  },
  "nokura": {
+  "intro": {"findings": "許可表記が古い(般-31→般-7・令和7年更新)"},
   "name": "株式会社NOKURA",
   "roman": "NOKURA",
   "industry": "kensetsu",
@@ -19989,10 +19979,7 @@
   "zip": "446-0025",
   "addr": "愛知県安城市古井町新道39-5",
   "hours": "受付時間 9:00〜17:00",
-  "permits": [
-   "愛知県知事許可（般-31）第69429号",
-   "愛知県知事許可（般-4）第69429号"
-  ],
+  "permits": ["愛知県知事許可（般-7）第69429号"],
   "catch": "電気の工事と、水まわりのリフォーム。",
   "catch_em": "安城のNOKURA。",
   "sub": "エコキュート、IHクッキングヒーター、オール電化、太陽光。浴室・トイレ・キッチンのリフォームも、自社で施工します。",
@@ -20446,7 +20433,8 @@
   }
  },
  "tsroad": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 文字コード shift_jis / 許可表記が古い(般-25→般-5・令和5年更新)"},
+  "permits": ["愛知県知事許可（般-5）第64536号"],
   "name": "ティー・エス・ロード有限会社",
   "roman": "TS ROAD",
   "industry": "kensetsu",
@@ -21266,7 +21254,7 @@
   "photos": {"hero": "ai-g-rubber"}
  },
  "yamaso-net": {
-  "intro": {"findings": "https不可(つながらない) / 古いタグ(center) / レスポンシブ指定なし / jQuery 1.10"},
+  "intro": {"findings": "https不可(つながらない) / 古いタグ(center) / レスポンシブ指定なし / jQuery 1.10 / 許可表記が古い(般-18→般-4・令和4年更新)"},
   "name": "有限会社ヤマソー",
   "roman": "YAMASO",
   "industry": "kensetsu",
@@ -21274,9 +21262,7 @@
   "zip": "444-0113",
   "addr": "愛知県額田郡幸田町大字菱池字奉行54-2",
   "founded": "1978",
-  "permits": [
-   "愛知県知事許可（般-18）第44781号"
-  ],
+  "permits": ["愛知県知事許可（般-4）第44781号"],
   "catch": "塗装店から始まった、住まいの手入れ。",
   "catch_em": "幸田町のヤマソー。",
   "sub": "建築塗装・防水・塗床などの塗装工事と、住宅・店舗のリフォーム、オーダー家具。1級塗装技能士、2級建築士がご相談をお受けします。",
@@ -21405,6 +21391,7 @@
   }
  },
  "takigumi": {
+  "intro": {"findings": "許可表記が古い(般-31→般-7・令和7年更新)"},
   "name": "株式会社TAKIGUMI.",
   "roman": "TAKIGUMI",
   "photos": {
@@ -21419,9 +21406,7 @@
   "addr": "愛知県岡崎市保母町字栗下59-21",
   "founded": "2012",
   "hours": "受付時間 8:00〜17:00",
-  "permits": [
-   "愛知県知事許可（般-31）第75387号"
-  ],
+  "permits": ["愛知県知事許可（般-7）第75387号"],
   "catch": "安全な足場から、いい仕事が始まる。",
   "catch_em": "岡崎の足場工事、TAKIGUMI.",
   "sub": "戸建て、マンション、店舗、施設、工場。クサビ式・枠組・単管・吊り足場から土木用まで。岡崎を拠点に東海3県へ。",
@@ -21894,7 +21879,7 @@
   "texture": "kinzoku"
  },
  "honbaya": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が14年前まで / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が14年前まで / 文字コード shift_jis / 許可表記が古い(般-14→般-4・令和4年更新)"},
   "name": "合資会社本羽屋材木店",
   "roman": "HONBAYA ZAIMOKUTEN",
   "industry": "kensetsu",
@@ -21959,9 +21944,7 @@
   "photos": {
    "hero": "ai-mokko-1"
   },
-  "permits": [
-   "愛知県知事許可（般-14）第5649号"
-  ]
+  "permits": ["愛知県知事許可（般-4）第5649号"]
  },
  "meiri": {
   "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が21年前まで / 文字コード shift_jis"},
@@ -22646,7 +22629,7 @@
   }
  },
  "chuo-kk": {
-  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 更新が18年前まで / Flashの残骸"},
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 更新が18年前まで / Flashの残骸 / 許可表記が古い(般-19→般-4・令和4年更新)"},
   "name": "株式会社中央建設工業",
   "roman": "CHUO KENSETSU KOGYO",
   "industry": "kensetsu",
@@ -22711,9 +22694,7 @@
   "photos": {
    "hero": "1762813384339-c526d5533976"
   },
-  "permits": [
-   "愛知県知事許可（般-19）31734号"
-  ]
+  "permits": ["愛知県知事許可（般-4）第31734号"]
  },
  "daian-e-suido": {
   "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が22年前まで / 文字コード shift_jis"},
@@ -22991,7 +22972,7 @@
   "texture": "nuri"
  },
  "chuuken": {
-  "intro": {"findings": "目立った問題なし"},
+  "intro": {"findings": "目立った問題なし / 許可表記が古い(般-5→般-4・令和4年更新)"},
   "name": "株式会社中央建設",
   "roman": "CHUO KENSETSU",
   "industry": "kensetsu",
@@ -23058,9 +23039,7 @@
   "photos": {
    "hero": "ai-house-h5"
   },
-  "permits": [
-   "愛知県知事（般-5）第3530号"
-  ]
+  "permits": ["愛知県知事許可（般-4）第3530号"]
  },
  "funaken": {
   "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が11年前まで / jQuery 1.10"},
@@ -24911,7 +24890,7 @@
   ]
  },
  "marugomokuzai": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が12年前まで / jQuery 1.4"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が12年前まで / jQuery 1.4 / 許可表記が古い(般-28→般-8・令和8年更新)"},
   "name": "丸五木材株式会社",
   "roman": "MARUGO MOKUZAI",
   "industry": "kensetsu",
@@ -24977,13 +24956,10 @@
   "photos": {
    "hero": "ai-mokko-1"
   },
-  "permits": [
-   "愛知県知事許可（般-28）第103900号",
-   "一級建築士事務所 愛知県知事登録（い28）第10052号"
-  ]
+  "permits": ["愛知県知事許可（般-8）第103900号", "一級建築士事務所 愛知県知事登録（い28）第10052号"]
  },
  "nagaragiken": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が9年前まで / jQuery 1.8"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が9年前まで / jQuery 1.8 / 許可表記が古い(般-28→般-8・令和8年更新)"},
   "name": "有限会社ナガラ技建",
   "roman": "NAGARA GIKEN",
   "industry": "kensetsu",
@@ -25046,9 +25022,7 @@
   "accent": "#2e5d3a",
   "texture": "ashiba",
   "photos": {"hero": "ai-g-pipelaying"},
-  "permits": [
-   "愛知県知事許可（般-28）第39563号"
-  ]
+  "permits": ["愛知県知事許可（般-8）第39563号"]
  },
  "nagatashatai": {
   "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が13年前まで / jQuery 1.10"},
@@ -25453,7 +25427,7 @@
   }
  },
  "arcmeijo": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が16年前まで"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が16年前まで / 許可表記が古い(般-23→般-8・令和8年更新)"},
   "name": "株式会社アーキ名城",
   "roman": "ARCHI MEIJO",
   "industry": "kensetsu",
@@ -25519,10 +25493,7 @@
   "photos": {
    "hero": "ai-house-h4"
   },
-  "permits": [
-   "愛知県知事許可（般-23）第37206号",
-   "一級建築士事務所 愛知県知事登録（い）第7844号"
-  ]
+  "permits": ["愛知県知事許可（般-8）第37206号", "一級建築士事務所 愛知県知事登録（い）第7844号"]
  },
  "kurenuma": {
   "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が8年前まで"},
@@ -26210,16 +26181,14 @@
   "accent": "#2c5170"
  },
  "daishin-kensetu": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 更新が21年前まで / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 更新が21年前まで / 文字コード shift_jis / 許可表記が古い(特-21→特-7・令和7年更新)"},
   "name": "大晋建設株式会社",
   "roman": "DAISHIN KENSETSU",
   "industry": "kensetsu",
   "tel": "0533-76-2874",
   "zip": "441-0312",
   "addr": "愛知県豊川市御津町西方日暮14番地の12 2F",
-  "permits": [
-   "愛知県知事許可（特-21）第21428号"
-  ],
+  "permits": ["愛知県知事許可（般-7）第21428号", "愛知県知事許可（特-7）第21428号"],
   "catch": "家を建てるところから、",
   "catch_em": "水まわりの交換まで。",
   "sub": "新築の注文住宅、店舗、リフォーム・増改築、外構、不動産。1971年の設立から、豊川市を中心に東三河で。",
@@ -26627,16 +26596,14 @@
   }
  },
  "fuji-k-k": {
-  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が15年前まで / Flashの残骸 / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が15年前まで / Flashの残骸 / 文字コード shift_jis / 許可表記が古い(般-22→般-8・令和8年更新)"},
   "name": "ふじ建築工房有限会社",
   "roman": "FUJI KENCHIKU KOBO",
   "industry": "kensetsu",
   "tel": "059-363-2675",
   "zip": "510-8112",
   "addr": "三重県三重郡川越町大字亀須新田438番地",
-  "permits": [
-   "三重県知事許可（般-22）第21275号"
-  ],
+  "permits": ["三重県知事許可（般-8）第21275号"],
   "catch": "店舗も住まいも、",
   "catch_em": "企画から施工まで。",
   "sub": "店舗・注文住宅の内装と外装の企画、設計、施工。新築、増築、リフォーム、耐震工事。三重県北部を中心に、愛知・岐阜の一部まで。",
@@ -27689,7 +27656,7 @@
   "accent": "#1e5f74"
  },
  "kanban86": {
-  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis / 許可表記が古い(般-12→般-7・令和7年更新)"},
   "name": "有限会社川北カンバン",
   "roman": "KAWAKITA KANBAN",
   "industry": "kensetsu",
@@ -27697,10 +27664,7 @@
   "zip": "514-0805",
   "addr": "三重県津市下弁財町東3134-4",
   "hours": "8:00～17:00（日曜・第1土曜定休）",
-  "permits": [
-   "三重県知事許可（般-12）第15270号",
-   "三重県屋外広告業登録 第(06)00101号"
-  ],
+  "permits": ["三重県知事許可（般-7）第15270号", "三重県屋外広告業登録 第(06)00101号"],
   "catch": "看板から、建物の塗装まで。",
   "catch_em": "津の川北カンバン。",
   "sub": "屋内・屋外の看板工事、LED看板、箱文字、ネオン、横断幕。新築・塗り替えの塗装、防水、コーキング。企画から設計、施工、メンテナンスまで。",
@@ -27831,7 +27795,8 @@
   "accent": "#0056f5"
  },
  "kuroyanagi": {
-  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis / 許可表記が古い(般-61→般-7・令和7年更新)"},
+  "permits": ["愛知県知事許可（般-7）第10592号"],
   "name": "株式会社黒柳塗装店",
   "roman": "KUROYANAGI TOSOUTEN",
   "industry": "kensetsu",
@@ -28534,16 +28499,14 @@
   "accent": "#b3121b"
  },
  "nakasetu": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし"},
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 許可表記が古い(般-23→般-8・令和8年更新)"},
   "name": "株式会社ナカムラ設備工業",
   "roman": "NAKAMURA SETSUBI KOGYO",
   "industry": "kensetsu",
   "tel": "0596-65-6506",
   "addr": "三重県多気郡明和町大字明星591-5",
   "hours": "8:00～17:00（日曜定休）",
-  "permits": [
-   "三重県知事許可（般-23）第13782号"
-  ],
+  "permits": ["三重県知事許可（般-8）第13782号"],
   "catch": "水まわりの困りごとを、",
   "catch_em": "明和町から。",
   "sub": "水まわりの修理・点検、給排水衛生設備、給湯設備、浄化槽、上下水道、空調、リフォーム全般。伊勢・松阪をはじめ三重県内で。",
@@ -28745,18 +28708,14 @@
   "accent": "#2e5e4e"
  },
  "atsumi": {
-  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / レスポンシブ指定なし / Flashの残骸"},
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / レスポンシブ指定なし / Flashの残骸 / 許可表記が古い(特-20→特-4・令和4年更新)"},
   "name": "渥美建設株式会社",
   "roman": "ATSUMI KENSETSU",
   "industry": "kensetsu",
   "tel": "0531-33-1001",
   "addr": "愛知県田原市小中山町万灯松292番地",
   "hours": "8:00～17:00",
-  "permits": [
-   "愛知県知事許可（特-20）第20728号",
-   "ISO9001",
-   "ISO14001"
-  ],
+  "permits": ["愛知県知事許可（般-4）第20728号", "愛知県知事許可（特-4）第20728号", "ISO9001", "ISO14001"],
   "catch": "渥美半島の、",
   "catch_em": "土木と建築を。",
   "sub": "土木・建築の企画と施工。とび・土工、舗装、浚渫、水道施設、造園から、屋根、板金、内装、建具まで。田原市小中山町から。",
@@ -29630,7 +29589,7 @@
   "accent": "#5d7845"
  },
  "hayashi-denko": {
-  "intro": {"findings": "https不可(つながらない) / 古いタグ(font) / レスポンシブ指定なし / 更新が6年前まで / 文字コード shift_jis"},
+  "intro": {"findings": "https不可(つながらない) / 古いタグ(font) / レスポンシブ指定なし / 更新が6年前まで / 文字コード shift_jis / 許可表記が古い(特-2→特-7・令和7年更新)"},
   "name": "株式会社林電工",
   "roman": "HAYASHI DENKO",
   "industry": "kensetsu",
@@ -29638,9 +29597,7 @@
   "zip": "442-0021",
   "addr": "愛知県豊川市小桜町87番地1",
   "founded": "1963",
-  "permits": [
-   "愛知県知事許可（特-2）第23688号"
-  ],
+  "permits": ["愛知県知事許可（般-7）第23688号", "愛知県知事許可（特-7）第23688号"],
   "catch": "電気、通信、消防、空調。",
   "catch_em": "豊川の林電工。",
   "sub": "電気・通信・消防・空調工事の設計、施工、保守。一般のご家庭から、オフィス、店舗、工場まで。省エネのご提案も。",
@@ -30466,7 +30423,8 @@
   "accent": "#2e5e4e"
  },
  "okuno-denko": {
-  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が7年前まで / jQuery 1.7"},
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が7年前まで / jQuery 1.7 / 許可表記が古い(般-28→般-4・令和4年更新)"},
+  "permits": ["三重県知事許可（般-4）第8731号"],
   "name": "有限会社奥野電工",
   "roman": "OKUDEN TECHNICAL",
   "industry": "kensetsu",
@@ -30670,7 +30628,7 @@
   "accent": "#417789"
  },
  "hiratasouken": {
-  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が5年前まで / jQuery 1.10"},
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が5年前まで / jQuery 1.10 / 許可表記が古い(般-29→般-4・令和4年更新)"},
   "name": "株式会社平田創建",
   "roman": "HIRATA SOUKEN",
   "industry": "kensetsu",
@@ -30678,9 +30636,7 @@
   "zip": "470-2366",
   "addr": "愛知県知多郡武豊町字ヲヲガケ28-1",
   "hours": "10:00～18:00（日曜・水曜定休）",
-  "permits": [
-   "愛知県知事許可（般-29）第63595号"
-  ],
+  "permits": ["愛知県知事許可（般-4）第63595号"],
   "catch": "好きなものに、",
   "catch_em": "囲まれて暮らす家。",
   "sub": "知多半島で、北欧の雰囲気の注文住宅と、マンション・戸建てのリノベーション。少人数の会社だからこそ、ひとつの家に本気で向き合います。",
@@ -31887,7 +31843,7 @@
   }
  },
  "woodtera": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 文字コード shift_jis / 許可表記が古い(般-19→般-5・令和5年更新)"},
   "name": "有限会社寺町木材",
   "roman": "TERAMACHI MOKUZAI",
   "industry": "kensetsu",
@@ -31895,10 +31851,7 @@
   "zip": "502-0814",
   "addr": "岐阜県岐阜市福光西3丁目5番10号",
   "founded": "1963",
-  "permits": [
-   "一級建築士事務所登録（知事）第10655号",
-   "建設業許可（知事般-19）第100378号"
-  ],
+  "permits": ["岐阜県知事許可（般-5）第100378号", "一級建築士事務所登録（知事）第10655号"],
   "catch": "木を知る会社が、",
   "catch_em": "設計から建てる。",
   "sub": "岐阜市で、住宅・店舗の新築、増築、リフォームの設計と施工。木造の耐震診断、木材・建材の販売も。",
