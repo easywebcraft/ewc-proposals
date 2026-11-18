@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
-"""建設業許可の表記が国の記録より古い先について、本番のCRMの所見（prospects.findings）の末尾に許可の所見を足す。
+"""見本で照合した所見（建設業許可の表記・証明書の警告）を、本番のCRMの所見（prospects.findings）の末尾に足す。
 
     python3 permit_register.py               # 足す予定を表示するだけ（何も変えない）
     python3 permit_register.py --apply       # 本番に書き込む（★松本さんの了解を取ってから）
 
-足す文字は sites.json の所見（intro.findings）にある「許可表記が古い(般-19→般-4・令和4年更新)」。
-国土交通省の建設業者検索で照合した先にだけ入れてある（2026-11-19、10社）。
-営業メールは所見の「許可表記が古い」を見て、挙げる2つの一番上に許可の話を出す（ewc-crm/salesmail.py）。
+足す文字は sites.json の所見（intro.findings）にある次のもの（TOKENS）。
+  - 「許可表記が古い(般-19→般-4・令和4年更新)」：国土交通省の建設業者検索で照合した先（2026-11-19）
+  - 「証明書エラー(別の名前)」など：実際の Chrome で開いて「プライバシー エラー」になった先（2026-11-19）
+営業メールは所見のこれらの言葉を見て、挙げる2つの上のほうに出す（ewc-crm/salesmail.py）。
 
 本番の先は、見本のURL（prospects.proposal_url）で見分ける。次の先は飛ばす:
   - 本番に見本のURLが入った先が無い（未登録）
   - 状態が「見送り」（営業しないと決めた先）
-  - 所見にもう「許可表記が古い」がある（二重に足さない）
+  - 足す言葉がもう全部ある（二重に足さない）
   - 表示したときと書き込むときで所見が変わっている（その間に人が画面で直した）
 
 ★本番のDBは CRM の利用者（ewc）として書く（register.py と同じ。root で書くと CRM がDBに書けなくなる）。
@@ -27,7 +28,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 REMOTE = "xserver-crm"
 BASE = "https://easywebcraft.github.io/ewc-proposals/%s/"
-TOKEN = re.compile(r"許可表記が古い\([^)]*\)")
+TOKENS = [re.compile(r"証明書エラー\([^)]*\)"), re.compile(r"許可表記が古い\([^)]*\)")]
 
 # 本番で、見本のURLから先の id・社名・状態・今の所見を読む（読むだけ。DBは読み取り専用で開く）
 READ = r'''
@@ -71,14 +72,15 @@ def main():
     sites = json.load(open(os.path.join(HERE, "sites.json"), encoding="utf-8"))
     want = {}
     for key, d in sites.items():
-        m = TOKEN.search((d.get("intro") or {}).get("findings", ""))
-        if m:
-            want[BASE % key] = (key, d["name"], m.group(0))
+        f = (d.get("intro") or {}).get("findings", "")
+        toks = [m.group(0) for t in TOKENS for m in [t.search(f)] if m]
+        if toks:
+            want[BASE % key] = (key, d["name"], toks)
     if not want:
-        sys.exit("sites.json に許可の所見の入った先が無い")
+        sys.exit("sites.json に足す所見の入った先が無い")
     found = remote_py(READ, list(want))
     plan = []
-    for url, (key, name, tok) in want.items():
+    for url, (key, name, toks) in want.items():
         rows = found.get(url) or []
         if not rows:
             print("  未登録（飛ばす）      %-18s %s" % (key, name))
@@ -90,11 +92,12 @@ def main():
         if status == "見送り":   # 営業しないと決めた先には足さない（2026-11-19 松本さん）
             print("  見送り（飛ばす）      %-18s %s" % (key, pname))
             continue
-        if "許可表記が古い" in before:
+        add = [t for t in toks if t.split("(")[0] not in before]
+        if not add:
             print("  もう入っている        %-18s %s" % (key, pname))
             continue
-        after = (before.rstrip() + " / " + tok) if before.strip() else tok
-        print("  足す                  %-18s %s（%s）\n      足す文字：%s" % (key, pname, status, tok))
+        after = " / ".join([before.rstrip()] + add) if before.strip() else " / ".join(add)
+        print("  足す                  %-18s %s（%s）\n      足す文字：%s" % (key, pname, status, " / ".join(add)))
         plan.append((pid, before, after))
     print("— 足す予定 %d件" % len(plan))
     if not plan or not apply:
