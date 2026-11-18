@@ -573,7 +573,8 @@
   "texture": "kinzoku"
  },
  "nakakoma": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis / 許可表記が古い(般-19→般-4・令和4年更新)"},
+  "permits": ["愛知県知事許可（般-4）第50083号"],
   "name": "中駒産業株式会社",
   "roman": "NAKAKOMA",
   "industry": "kensetsu",
@@ -2185,7 +2186,8 @@
   "permits": ["ISO9001", "ISO14001"]
  },
  "suzuki-bankin": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.11"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.11 / 許可表記が古い(般-17→般-8・令和8年更新)"},
+  "permits": ["愛知県知事許可（般-8）第34716号"],
   "name": "有限会社鈴木鈑金",
   "roman": "SUZUKI BANKIN",
   "industry": "kensetsu",
@@ -2398,7 +2400,7 @@
   "photos": {"hero": "ai-g-shopfit", "gallery": ["ai-mokko-3", null, null], "slides": ["ai-mokko-2", "ai-mokko-3"]}
  },
  "nikoniko-zoen": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が5年前まで / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が5年前まで / 文字コード shift_jis / 許可表記が古い(般-18→般-8・令和8年更新)"},
   "name": "有限会社にこにこ造園",
   "roman": "NIKONIKO ZOEN",
   "industry": "kensetsu",
@@ -2471,7 +2473,7 @@
   "accent": "#2f7a2f",
   "texture": "mokume",
   "photos": {"hero": "ai-zoen-1", "gallery": ["ai-c-exterior", null, null], "slides": ["ai-zoen-2", "ai-zoen-3"]},
-  "permits": ["愛知県知事許可（般-18）第62884号"]
+  "permits": ["愛知県知事許可（般-8）第62884号"]
  },
  "takeuchi-yokuso": {
   "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が25年前まで / 文字コード shift_jis"},
@@ -2704,7 +2706,7 @@
   "photos": {"hero": "ai-house-h1", "slides": ["ai-house-h4", "ai-house-h2"], "gallery": ["ai-house-g2", "ai-house-g3", "ai-house-g4"]}
  },
  "ichikawa-mokko": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が10年前まで / jQuery 1.11"},
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が10年前まで / jQuery 1.11 / 許可表記が古い(般-32→般-7・令和7年更新)"},
   "name": "株式会社市川木工",
   "roman": "ICHIKAWA MOKKO",
   "industry": "kensetsu",
@@ -2777,10 +2779,10 @@
   "accent": "#7a4b23",
   "texture": "mokume",
   "photos": {"hero": "ai-mokko-2", "gallery": ["ai-mokko-3", null, null], "slides": ["ai-mokko-1", "ai-mokko-3"]},
-  "permits": ["愛知県知事許可（般-32）第60366号"]
+  "permits": ["愛知県知事許可（般-7）第60366号"]
  },
  "amemiya-kensetsu": {
-  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis / 許可表記が古い(般-7→般-8・令和8年更新)"},
   "name": "有限会社アメミヤ建設",
   "roman": "AMEMIYA KENSETSU",
   "industry": "kensetsu",
@@ -2852,10 +2854,10 @@
   "accent": "#1e6b2e",
   "texture": "zumen",
   "photos": {"hero": "ai-house-h5", "gallery": ["ai-house-g2", null, "ai-house-g3"], "slides": ["ai-house-h1", "ai-house-h4"]},
-  "permits": ["愛知県知事許可（般-7）第36832号"]
+  "permits": ["愛知県知事許可（般-8）第36832号"]
  },
  "asahi-homes": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / jQuery 1.10"},
+  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / jQuery 1.10 / 許可表記が古い(般-27→般-7・令和7年更新)"},
   "name": "旭ホームズ株式会社",
   "roman": "ASAHI HOMES",
   "industry": "kensetsu",
@@ -2930,7 +2932,7 @@
   "accent": "#0e824d",
   "texture": "mokume",
   "photos": {"hero": "ai-house-h3", "gallery": ["ai-house-h1", "ai-house-h4", null], "slides": ["ai-house-h2", "ai-house-h5"]},
-  "permits": ["愛知県知事許可（般-27）第40648号"]
+  "permits": ["愛知県知事許可（般-7）第40648号"]
  },
  "asada-denki": {
   "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし"},
@@ -3227,7 +3229,7 @@
   "photos": {"hero": "ai-denkiten-2", "slides": ["ai-denkiten-1", "ai-denkiten-3"]}
  },
  "youi-factory": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が6年前まで / jQuery 1.7"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が6年前まで / jQuery 1.7 / 許可表記が古い(般-19→般-5・令和5年更新)"},
   "name": "株式会社ユーアイファクトリー",
   "roman": "GALLERY YOUI",
   "industry": "kensetsu",
@@ -3301,7 +3303,7 @@
   "accent": "#122550",
   "texture": "mokume",
   "photos": {"hero": "ai-house-h3", "gallery": ["ai-house-g2", "ai-house-g3", null], "slides": ["ai-house-h1", "ai-house-h4"]},
-  "permits": ["愛知県知事許可（般-19）第62366号"]
+  "permits": ["愛知県知事許可（般-5）第62366号"]
  },
  "jpaintm": {
   "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
@@ -3371,7 +3373,8 @@
   "photos": {"hero": "ai-tosou-1", "slides": ["ai-tosou-3", "ai-tosou-2"]}
  },
  "rm-company": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.8"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.8 / 許可表記が古い(般-27→般-7・令和7年更新)"},
+  "permits": ["愛知県知事許可（般-7）第107587号"],
   "name": "株式会社Ｒｍカンパニー",
   "roman": "RM COMPANY",
   "industry": "kensetsu",
@@ -3582,7 +3585,8 @@
   "texture": "kinzoku"
  },
  "c-sanei": {
-  "intro": {"findings": "レスポンシブ指定なし / 更新が10年前まで"},
+  "intro": {"findings": "レスポンシブ指定なし / 更新が10年前まで / 許可表記が古い(般-27→般-7・令和7年更新)"},
+  "permits": ["愛知県知事許可（般-7）第25337号"],
   "name": "株式会社ＳＡＮＥＩ",
   "roman": "SANEI",
   "photos": {
@@ -4091,7 +4095,7 @@
   "photos": {"hero": "ai-house-h3", "gallery": ["ai-house-g2", "ai-house-g7", "ai-c-seismic"], "slides": ["ai-house-h1", "ai-house-h4"]}
  },
  "tam-cp": {
-  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が8年前まで"},
+  "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 更新が8年前まで / 許可表記が古い(般-30→般-8・令和8年更新)"},
   "name": "有限会社タムカンパニー",
   "roman": "TAM COMPANY",
   "industry": "kensetsu",
@@ -4155,7 +4159,7 @@
   "zip": "462-0007",
   "founded": "1995",
   "photos": {"hero": "ai-g-water", "slides": ["ai-setsubi-3", "ai-setsubi-1"]},
-  "permits": ["愛知県知事許可（般-30）第106780号"]
+  "permits": ["愛知県知事許可（般-8）第106780号"]
  },
  "toueidenki": {
   "intro": {"findings": "https不可(つながらない) / レスポンシブ指定なし / 文字コード shift_jis"},

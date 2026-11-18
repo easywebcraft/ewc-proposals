@@ -15,6 +15,7 @@
 import html as H
 import json
 import pathlib
+import re
 import sys
 
 # 業種ごとの色と言い回し。型はここだけ変えれば増やせる。
@@ -680,6 +681,7 @@ INTRO_CSS = """
 # 問題ごとの「この案での改善」。キーと問題の言い方は営業メール（ewc-crm/salesmail.py の PITCHES）と同じものを使い、
 #   メールで伝えた問題と、見本の冒頭の改善案が同じ言葉でつながるようにする（2026-11-17 松本さん）
 FIXES = {
+    "許可表記が古い": "建設業許可は国土交通省の記録どおりの最新の表記で載せ、許可の更新などの書き換えも公開後は月額の中で当社が行います",
     "スマホ非対応": "スマートフォンの画面に合わせて、文字や写真を読みやすい大きさで表示します。この案もスマートフォンでそのままご覧いただけます",
     "https不可": "鍵付きの通信で公開し、「安全ではありません」の表示が出ないようにします",
     "Flash": "Flash を使わない作りにして、どの端末でもすべての部分が表示されるようにします",
@@ -688,6 +690,17 @@ FIXES = {
     "古いタグ": "今の作り方で作り直し、文章や写真の一部だけを手軽に直せるようにします",
     "レスポンシブ": "スマートフォン・タブレット・パソコンのどれで見ても、見え方が整うようにします",
 }
+
+
+def fix_for(key, d):
+    """「この案では」の文。許可の表記だけは、所見に入れた更新年と新しい表記で会社ごとに書く（2026-11-19）。
+    所見の書き方：「許可表記が古い(般-19→般-4・令和4年更新)」。国の建設業者検索で照合した先だけに入る。"""
+    if key == "許可表記が古い":
+        m = re.search(r"許可表記が古い\((.+?)→(.+?)・(.+?)更新\)", d.get("intro", {}).get("findings", ""))
+        if m:
+            return (f"国土交通省の記録では{m.group(3)}に更新されています。この案では最新の表記（{m.group(2)}）で載せ、"
+                    "許可の更新などの書き換えも公開後は月額の中で当社が行います")
+    return FIXES[key]
 
 
 def _salesmail():
@@ -717,7 +730,7 @@ def intro_html(d):
     main, rest = m[:2], m[2:]
     pair = "".join(
         f'<li><p class="pi-q"><span>気になった点</span>{e(ph)}</p>'
-        f'<p class="pi-a"><span>この案では</span>{e(FIXES[k])}</p></li>' for k, ph in main)
+        f'<p class="pi-a"><span>この案では</span>{e(fix_for(k, d))}</p></li>' for k, ph in main)
     more = [FIXES[k] for k, _ph in rest if FIXES[k] not in {FIXES[x] for x, _ in main}]
     more_html = f'<p class="pi-more"><b>あわせて</b>{"／".join(e(x) for x in more)}</p>' if more else ""
     return f"""<section class="pintro" id="proposal" aria-labelledby="pi-to">
