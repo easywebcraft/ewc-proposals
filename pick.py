@@ -32,7 +32,7 @@ import json, sqlite3
 c = sqlite3.connect("file:/opt/ewc-crm/crm.db?mode=ro", uri=True)
 c.row_factory = sqlite3.Row
 rows = c.execute("""
-  SELECT p.id, p.name, p.url, p.category, p.area, p.score, p.email, IFNULL(p.memo,'') memo,
+  SELECT p.id, p.name, p.url, p.category, p.area, p.score, p.email, IFNULL(p.memo,'') memo, IFNULL(p.findings,'') findings,
          IFNULL(p.list_kind,'営業') list_kind
   FROM prospects p
   WHERE p.status='未着手' AND p.reach='メール可' AND IFNULL(p.email,'')<>''

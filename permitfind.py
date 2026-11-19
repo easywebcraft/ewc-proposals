@@ -99,7 +99,7 @@ def site_permits(url):
             return None
     pages = []
     for href, label in re.findall(r"(?is)<a[^>]+href=[\"']([^\"'#]+)[\"'][^>]*>(.*?)</a>", raw):
-        if re.search(r"(?i)会社概要|会社案内|企業情報|会社情報|概要|company|about|profile|gaiyo|outline|corporate",
+        if re.search(r"(?i)会社概要|会社案内|企業情報|会社情報|概要|company|about|profile|gaiyo|outline|corporate|kaisya|kaisha",
                      text(label) + " " + href):
             u = urllib.parse.urljoin(url, href)
             if urllib.parse.urlparse(u).netloc == urllib.parse.urlparse(url).netloc and u not in pages and u != url:
