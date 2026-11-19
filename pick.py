@@ -87,7 +87,12 @@ def main():
 
     sites = json.load(open(os.path.join(HERE, "sites.json"), encoding="utf-8"))
     used = set(sites)
-    rows = [r for r in fetch() if (r["score"] or 0) >= a.min and (not a.cat or r["category"] == a.cat)]
+    # 見本を作らないと決めた先（型が無い・本社が地域外・お断りなど。skip.tsv の CRM の番号）は出さない（2026-11-19）
+    skip_path = os.path.join(HERE, "skip.tsv")
+    skip = {int(l.split("\t")[0]) for l in open(skip_path, encoding="utf-8").read().splitlines()[1:]
+            if l.split("\t")[0].isdigit()} if os.path.exists(skip_path) else set()
+    rows = [r for r in fetch() if (r["score"] or 0) >= a.min and (not a.cat or r["category"] == a.cat)
+            and r["id"] not in skip]
     # ★同じ会社が住所違いで2行あることがある（2026-11-05）。同じアドレスは1行だけ、
     #   見本のある社名と同じ先は外す（アドレスが違っても同じ会社のことが多い）
     made = {norm_name(v.get("name", "")) for v in sites.values()} - {""}
