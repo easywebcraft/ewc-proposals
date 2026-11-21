@@ -836,7 +836,9 @@ EWC_LINE = "https://line.me/R/ti/p/@508ijijg"
 # 帯に出す担当者名（2026-11-14 松本さんの指定で田代）。営業メールの差出人とそろえて「同じ人から」とわかるようにする（2026-11-14 松本さん）
 EWC_STAFF = "田代"
 # 見本の中での動きを知らせる先（EWC の CRM。営業メールの見本リンクと同じ場所）
-EWC_CRM = "https://crm.easywebcraft.jp"
+# 見本の中の動きの知らせ先。2026-11-22 松本さん「CRMは顧客管理のURLだからあまり見られたくない」で、メールのリンクと同じ
+# plan.easywebcraft.jp に（サーバーは /p/<token>/ev だけを CRM へ通す。ewc-crm の deploy/plan.conf）
+EWC_CRM = "https://plan.easywebcraft.jp"
 EWCBAR = """<style>
 .ewcbar{position:fixed;left:0;right:0;bottom:0;z-index:80;background:#10294f;color:#fff;
   padding:10px 44px calc(10px + env(safe-area-inset-bottom)) 14px;box-shadow:0 -8px 24px rgba(0,0,0,.2);

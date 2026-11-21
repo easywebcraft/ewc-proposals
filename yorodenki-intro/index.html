@@ -1191,7 +1191,7 @@ set(st==='min'||st==='0');window.addEventListener('resize',fit);
 var T='';try{T=new URLSearchParams(location.search).get('t')||sessionStorage.getItem('ewct')||'';}catch(e){}
 if(!/^[a-z0-9]{6,20}$/.test(T))T='';
 if(T){try{sessionStorage.setItem('ewct',T);history.replaceState(null,'',location.pathname+location.hash);}catch(e){}}
-function ev(k){if(!T||!navigator.sendBeacon)return;try{navigator.sendBeacon('https://crm.easywebcraft.jp/p/'+T+'/ev',k);}catch(e){}}
+function ev(k){if(!T||!navigator.sendBeacon)return;try{navigator.sendBeacon('https://plan.easywebcraft.jp/p/'+T+'/ev',k);}catch(e){}}
 var seen=0;
 function show(){var on=(window.scrollY||window.pageYOffset)>window.innerHeight*.6;
   b.classList.toggle('on',on);document.body.classList.toggle('ewcon',on);
