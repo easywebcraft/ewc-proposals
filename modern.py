@@ -105,7 +105,7 @@ nav a:hover{color:var(--accent)}
 .hero .sub{margin:16px 0 0;color:var(--muted);font-size:14.5px;max-width:30em}
 .ph{display:inline-block}
 .cp{display:inline-block}.cp+.cp{margin-inline-start:.55em}
-.sechead h2.nm .cp+.cp{margin-inline-start:0}
+.sechead h2.nm .cp+.cp,.abtx h2 .cp+.cp{margin-inline-start:0}
 .notice .ph,footer .ph{display:inline-block;margin-right:.15em}
 footer .by{margin:14px 0 0;font-size:11.5px}
 footer .by .ph{margin:0 .5em}

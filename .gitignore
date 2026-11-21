@@ -3,3 +3,6 @@
 __pycache__/
 pick.tsv
 facts.tsv
+_src/
+_out/
+_urls.tsv
