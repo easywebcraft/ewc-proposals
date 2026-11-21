@@ -675,6 +675,12 @@ INTRO_CSS = """
 .pplan ul{margin:0;padding-left:1.2em;font-size:15px;line-height:1.9}
 .pplan .pp-wide{grid-column:1/-1}
 .pplan ol{margin:0;padding-left:1.4em;font-size:15px;line-height:1.9}
+.pplan .pp-bt{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px}
+.pplan .pp-bt a{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 30px;border-radius:999px;
+  font-size:16px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.14),inset 0 -3px 0 rgba(0,0,0,.1)}
+.pplan .pp-m{background:#ffc93c;color:#10294f}
+.pplan .pp-l{background:#06c755;color:#fff}
+@media(max-width:759px){.pplan .pp-bt{flex-direction:column;align-items:center;gap:10px}.pplan .pp-bt a{width:min(100%,420px);text-align:center}}
 """
 
 
@@ -749,9 +755,16 @@ def intro_html(d):
 
 
 def plan_html(d, pages):
-    """末尾の「制作範囲・料金」。ボタンは置かない（画面下の帯にあるため。2026-11-17）。料金と月額に含まれるものは見本の帯・末尾と同じ（modern.EWC_PRICE）。"""
+    """末尾の「制作範囲・料金」。料金と月額に含まれるものは見本の帯・末尾と同じ（modern.EWC_PRICE）。
+    2026-11-17 にボタンを外したが、2026-11-22 松本さん「料金の下にもボタンを戻す」：料金と進め方を読み終えたところが一番押しやすいため。
+    押したときの動き（確かめの画面から送る）は帯のボタンと同じ（modern.EWCBAR の script が .pp-m にも付ける）"""
     import modern
+    from urllib.parse import quote
     name = d["name"]
+    body = (f"{name}様の見本について、詳しく聞きたいです。\n\n"
+            "（このまま送っていただくだけで結構です。お電話でのご説明をご希望でしたら、"
+            "お名前とお電話番号をお書き添えください）\n\nお名前：\nお電話番号：\n")
+    mailto = "mailto:%s?subject=%s&body=%s" % (modern.EWC_MAIL, quote(f"{name}様の見本について"), quote(body))
     return f"""<section class="pplan" id="plan" aria-labelledby="pp-h">
   <div class="pp-in">
     <h2 id="pp-h">制作範囲・料金</h2>
@@ -768,6 +781,7 @@ def plan_html(d, pages):
         <li>お預かりしたものを入れて、公開まで当社で仕上げます</li>
         <li>公開後の修正やご相談も、月額の中でお受けします</li></ol></div>
     </div>
+    <div class="pp-bt"><a class="pp-m" href="{e(mailto)}">{ASK_LABEL}</a><a class="pp-l" href="{e(modern.EWC_LINE)}" target="_blank" rel="noopener">{LINE_LABEL}</a></div>
   </div>
 </section>
 """
