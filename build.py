@@ -681,6 +681,8 @@ INTRO_CSS = """
 .pplan .pp-m{background:#ffc93c;color:#10294f}
 .pplan .pp-l{background:#06c755;color:#fff}
 @media(max-width:759px){.pplan .pp-bt{flex-direction:column;align-items:center;gap:10px}.pplan .pp-bt a{width:min(100%,420px);text-align:center}}
+/* 「詳しく聞きたい」は短いので、PC では2つのボタンを同じ幅にそろえる（黄色が小さく見えないように。2026-11-22） */
+@media(min-width:760px){.pplan .pp-bt{display:grid;grid-template-columns:1fr 1fr;width:min(100%,700px);margin-left:auto;margin-right:auto}}
 """
 
 
@@ -794,7 +796,9 @@ def plan_html(d, pages):
 #   ・見本の中の電話は押してもつながらない「デモ表示」にする（押すとその旨を小さく出す）
 #   ・EasyWebCraft へのボタンは「EasyWebCraftに制作内容を質問する」の1つだけを主ボタンにし、LINE は文字のリンクに下げる
 #   ・丸い相談ボタンは外す
-ASK_LABEL = 'EasyWebCraftに制作内容を質問する<span class="via">（メール）</span>'   # スマホでは（メール）を省く（封筒の絵で分かる）
+# 2026-11-22 松本さん「詳しく聞きたいにして」：メールの本文（「詳しく聞きたい」とご返信ください）とそろえる。
+#   メールのリンクから開いた人には確かめの画面が出るので、前の「（メール）」も外した（前は「EasyWebCraftに制作内容を質問する（メール）」）
+ASK_LABEL = '詳しく聞きたい'
 LINE_LABEL = "LINEでEasyWebCraftに質問する"
 DEMO_CSS = """
 .pframe{position:relative}
@@ -816,6 +820,7 @@ a.btn[data-demo]::after,.contact a.big[data-demo]::after{content:"デモ表示";
 @media(min-width:900px){.ewcbar .in>p{min-width:0;flex:1 1 0!important}.ewcbar .bt{flex:none!important;max-width:none!important;width:auto!important}}
 /* LINE はメールと同じ大きさの緑のボタン（2026-11-17 松本さん「前と同じ、同じ大きさの2つのボタンに戻す」） */
 .ewcbar a.l{font-size:15.5px!important;padding:0 22px!important}
+@media(min-width:900px){.ewcbar .bt{display:grid!important;grid-template-columns:1fr 1fr}}   /* 2つのボタンを同じ幅に（2026-11-22） */
 @media(max-width:599px){.via{display:none}}
 .ewcbar a .via{margin-left:-8px}
 """
