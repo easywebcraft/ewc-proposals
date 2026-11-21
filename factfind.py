@@ -4,7 +4,7 @@
     python3 factfind.py nav_todo.tsv          # キー / サイトURL / 社名 のTSV（navfind.py と同じ形）
     python3 factfind.py nav_todo.tsv > facts.tsv
 
-出力（TSV）: key / name / tel / zip / addr / founded / founded_kind / permits / hours / pages / note
+出力（TSV）: key / name / tel / zip / addr / founded / founded_kind / permits / hours / pages / note / topics
   founded_kind は「創業」か「設立」。sites.json の "founded" は見本の上部に「創業 1948年」と出る。
   設立しか見つからない先は "founded" に入れず、数字の帯（stats）に ["1990","年","設立"] と書く
   （アメミヤ建設の形）。上部に「創業」と出て事実と違ってしまうのを避けるため。
@@ -26,6 +26,10 @@
   - 和暦（昭和48年）→ 西暦に直して出す。元の表記も note に残す
   - https に対応していない古いサイト → http で読み直す（営業リストの作り方.md の教訓。
     これを飛ばすと一番の当たりを落とす）
+
+★topics（2026-11-22）：ページの見出し（h1〜h4）の短いものを15件まで。扱う物・事業の種類・製品名の手がかり。
+  sites.json の「できること」と「会社紹介（about）」を事実から厚く書くための材料で、写すためのものではない。
+  見出しの言葉から、何を作る・どんな工事をする会社かを読み取り、説明は自分の言葉で書く。
 
 1件ごとに1.2秒あける（相手のサーバーに負担をかけない）。標準ライブラリだけで動く。
 """
@@ -198,15 +202,30 @@ def merge(a, b):
     return a
 
 
+TOPIC_SKIP = re.compile(r"会社概要|会社案内|会社情報|企業情報|お問い?合わ?せ|アクセス|採用|求人|お知らせ|ニュース|新着|"
+                        r"ブログ|プライバシ|個人情報|サイトマップ|メニュー|MENU|ページ|トップ|ホーム|copyright", re.I)
+
+
+def topics(h, out):
+    """見出しの短い文言を拾う（事業・製品の手がかり）。"""
+    for m in re.finditer(r"(?is)<h[1-4][^>]*>(.*?)</h[1-4]>", h):
+        t = re.sub(r"\s+", " ", H.unescape(re.sub(r"<[^>]+>", " ", m.group(1)))).strip()
+        if 2 <= len(t) <= 24 and not TOPIC_SKIP.search(t) and t not in out:
+            out.append(t)
+    return out
+
+
 def one(url):
     h, final = get_with_fallback(url)
     pages = [final]
     f = facts(text_of(h))
+    f["topics"] = topics(h, [])
     for u in company_pages(h, final):
         time.sleep(WAIT)
         try:
             h2, f2 = get(u)
             f = merge(f, facts(text_of(h2)))
+            topics(h2, f["topics"])
             pages.append(f2)
         except Exception:
             pass
@@ -235,10 +254,11 @@ def row(key, name, f, pages):
         "／".join(f["permits"]),
         f["hours"],
         " ".join(pages),
-        "；".join(note)])
+        "；".join(note),
+        "／".join(f.get("topics", [])[:15])])
 
 
-HEAD = "key\tname\ttel\tzip\taddr\tfounded\tfounded_kind\tpermits\thours\tpages\tnote"
+HEAD = "key\tname\ttel\tzip\taddr\tfounded\tfounded_kind\tpermits\thours\tpages\tnote\ttopics"
 
 
 def main(path):

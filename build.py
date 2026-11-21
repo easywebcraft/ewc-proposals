@@ -2,7 +2,8 @@
 """sites.json から提案用トップページを生成する。
 
     python3 build.py            # 全部
-    python3 build.py yak-k      # 1つだけ
+    python3 build.py yak-k      # 1つだけ（文の薄さの点検に通らなければ書き出さない。下の thin_check）
+    python3 build.py yak-k aduma --thin-ok   # 前からある見本を作り直すとき
 
 ★1件ずつ手書きしない理由
   相手の会社を名乗るページを公開するので、noindex と「見本です」の帯は
@@ -412,13 +413,53 @@ def render(sid, d):
 KEEP = {"marushin-kaitai"}
 
 
-def main(only=None):
+# ★文の薄さの点検（2026-11-22 松本さん「御社向けに専用で作りました感を出したい、今は内容が薄い」）。
+#   それまでの見本は、会社ごとの文が平均190字で、できることの説明は5〜14字の一言、会社紹介は事実を並べた自動の文だった。
+#   新しく作る見本は次を満たすまで書き出さない（キーを指定して作るとき。全部を作り直すときは数だけ出す）。
+#   ・できること：本当の事業だけ（会社概要・沿革・リンク・お問い合わせなどのメニュー項目を入れない）。3か6項目。説明は2文・30字以上
+#   ・会社紹介（about）：h（見出し）と p（段落の並び）を会社ごとに書く。合わせて60字以上
+#   中身は相手のサイトにある事実を自分の言葉で書く。相手の文章は写さない・作り話は書かない（README の「守ること」）
+SVC_MIN, ABOUT_MIN = 30, 60
+
+
+def thin_check(d):
+    """足りない点を文で返す。空なら合格。"""
+    import modern
+    out = []
+    junk = [t for t, _ in d["services"] if modern.NOT_SVC.search(t)]
+    if junk:
+        out.append("できることにメニューの項目が入っている：" + "・".join(junk))
+    if len(d["services"]) not in (3, 6):
+        out.append(f"できることが{len(d['services'])}項目（PCは3列なので3か6にそろえる。余ると1つだけ下に残る）")
+    short = [t for t, p in d["services"] if len(p) < SVC_MIN]
+    if short:
+        out.append(f"できることの説明が{SVC_MIN}字未満：" + "・".join(short))
+    ab = d.get("about") or {}
+    if not ab.get("h") or sum(len(x) for x in ab.get("p", [])) < ABOUT_MIN:
+        out.append(f"会社紹介（about の h と p）が無いか{ABOUT_MIN}字未満")
+    return out
+
+
+def main(only=None, thin_ok=False):
     root = pathlib.Path(__file__).resolve().parent
     sites = json.loads((root / "sites.json").read_text(encoding="utf-8"))
+    if only:
+        missing = [k for k in only if k not in sites]
+        if missing:
+            raise SystemExit("sites.json に無いキー：" + " ".join(missing))
+        bad = {k: thin_check(sites[k]) for k in only}
+        bad = {k: v for k, v in bad.items() if v}
+        if bad and not thin_ok:
+            for k, v in bad.items():
+                print(f"✗ {k}：" + " ／ ".join(v))
+            raise SystemExit("文が薄いので書き出しません。sites.json を書き足すか、前からある見本の作り直しなら --thin-ok を付けてください")
+    else:
+        n = sum(1 for d in sites.values() if thin_check(d))
+        print(f"（文の薄さの点検に通らない見本：{n} / {len(sites)} 件。前からある見本はこのまま書き出す）")
     for sid, d in sites.items():
-        if only and sid != only:
+        if only and sid not in only:
             continue
-        if sid in KEEP and sid != only:
+        if sid in KEEP and not only:
             continue
         out = root / sid
         out.mkdir(exist_ok=True)
@@ -924,4 +965,6 @@ if __name__ == "__main__":
     elif len(sys.argv) > 2 and sys.argv[1] == "--v3":
         trial_v3(sys.argv[2])
     else:
-        main(sys.argv[1] if len(sys.argv) > 1 else None)
+        args = sys.argv[1:]
+        keys = [x for x in args if not x.startswith("--")]
+        main(keys or None, thin_ok="--thin-ok" in args)

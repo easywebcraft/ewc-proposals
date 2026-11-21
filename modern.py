@@ -105,6 +105,7 @@ nav a:hover{color:var(--accent)}
 .hero .sub{margin:16px 0 0;color:var(--muted);font-size:14.5px;max-width:30em}
 .ph{display:inline-block}
 .cp{display:inline-block}.cp+.cp{margin-inline-start:.55em}
+.sechead h2.nm .cp+.cp{margin-inline-start:0}
 .notice .ph,footer .ph{display:inline-block;margin-right:.15em}
 footer .by{margin:14px 0 0;font-size:11.5px}
 footer .by .ph{margin:0 .5em}
@@ -1624,9 +1625,14 @@ def render(sid, d, ind):
     steps = "".join(f'<div class="step"><h3>{e(t)}</h3><p>{e(p)}</p></div>'
                     for t, p in ind["flow"])
     if v3:
+        # 最初の段に、その会社の事業名を入れる（「建築工事・リフォームなど、ご要望をうかがいます。」）
+        flow = list(ind["flow"])
+        nm = [x for x in svc_names(d, 2) if len(x) <= 12]
+        if nm:
+            flow[0] = (flow[0][0], f'{"・".join(nm)}など、{flow[0][1]}')
         steps = "".join(f'<div class="step"><span class="si">{icon_svg(t, FLOW_ICONS[min(i, 3)])}</span>'
                         f'<span class="sn">{i + 1:02d}</span><h3>{e(t)}</h3><p>{e(p)}</p></div>'
-                        for i, (t, p) in enumerate(ind["flow"]))
+                        for i, (t, p) in enumerate(flow))
 
     # メニューに「実績」「事例」がある先には、その受け皿を作る。
     # 無いと項目を押しても「できること」に着地して、中身が無いのが分かる。
@@ -1658,6 +1664,11 @@ def render(sid, d, ind):
 </section>"""
 
     ab = (d.get("about") or auto_about(d, photos)) if v3 else None
+    if ab and d.get("about") and not ab.get("photo"):
+        # 会社ごとに書いた紹介文（sites.json の about：h と p）。写真は自動の選び方に任せ、写真が無ければ段ごと出さない
+        ab = dict(ab, photo=(auto_about(d, photos) or {}).get("photo"))
+        if not ab["photo"]:
+            ab = None
     if ab:
         # v3：写真と紹介文を左右に（画像の「暮らしのそばに」の段）。写真は外観のイメージ
         st = photo_style(ab.get("photo"))
@@ -1694,7 +1705,7 @@ def render(sid, d, ind):
         info.append(("電話", f'<a href="tel:{e(tl)}">{e(tel)}</a>'))
     if d.get("founded"):
         info.append(("創業", f'{e(d["founded"])}年'))
-    info.append(("事業内容", "／".join(t for t, _ in d["services"][:5])))
+    info.append(("事業内容", "／".join(svc_names(d, 5))))
     # ★信用の材料（2026-09-21）。建設業許可番号・ISO は相手のサイトに公開されている事実。
     #   ~/kmtools/permitfind.py で拾う。1行あるだけで「ちゃんとした会社」に見える
     if d.get("permits"):
@@ -1724,6 +1735,14 @@ def render(sid, d, ind):
             f'<div><a class="btn w" href="tel:{e(tl)}">電話をかける</a></div>'
             if tel else f'<small>{e(ind["hours"])}</small>')
 
+    # ★見出しに社名を入れる（2026-11-22 松本さん：御社向けに作った感を出す）。
+    #   「できること」→「アメミヤ建設にできること」。社名と後ろの間でだけ折り返す
+    short = short_name(name)
+    joint = {"できること": "に", "承っていること": "で"}.get(ind["svc"], "の")
+    #   社名が長い先（13字以上）は、スマホで社名の途中で折れるので付けない（インターナショナルコミュニケーションズ）
+    svc_h = (f'<span class="cp">{e(short + joint)}</span><span class="cp">{e(ind["svc"])}</span>'
+             if v3 and len(short + joint) <= 13 else e(ind["svc"]))
+    svc_lead = d.get("svc_lead") if v3 and d.get("svc_lead") else ind["svc_lead"]
     loader = LOADER_HTML % {"mark": e(loader_mark(name)), "name": e(name), "roman": e(roman)}
     return f"""<!DOCTYPE html>
 <html lang="ja">
@@ -1776,7 +1795,7 @@ def render(sid, d, ind):
 <section id="works">
   <div class="wrap">
     <div class="sechead"><span class="en">SERVICE</span>
-      <h2>{e(ind["svc"])}</h2><p>{copy_html(ind["svc_lead"], e)}</p></div>
+      <h2 class="nm">{svc_h}</h2><p>{copy_html(svc_lead, e)}</p></div>
     <div class="cards">{cards}</div>
   </div>
 </section>
@@ -1997,6 +2016,23 @@ def short_name(name):
     return re.sub(r"(株式会社|有限会社|合同会社|合資会社|協同組合|医療法人|一般社団法人|社会福祉法人)", "", name).strip() or name
 
 
+# できること（services）に紛れたメニューの項目。事業内容・会社紹介に出すときは外す（2026-11-22）。
+#   85社で「会社沿革」「関連リンク」「会社概要」などがサービスとして入っていた
+NOT_SVC = re.compile(r"会社概要|会社案内|会社情報|企業情報|お問い?合わ?せ|お見積り・ご相談|沿革|リンク|アクセス|採用|求人|"
+                     r"お知らせ|ニュース|ブログ|プライバシ|サイトマップ|あいさつ|挨拶|代表|事例|実績|お客様の声|よくある質問|料金|流れ")
+
+
+def svc_names(d, n=None):
+    """できることの項目名のうち、本当の事業だけ（メニューの項目を外す）。"""
+    names = [t for t, _ in d["services"] if not NOT_SVC.search(t)] or [t for t, _ in d["services"]]
+    return names[:n] if n else names
+
+
+def city_of(d):
+    m = re.search(r"(?:都|道|府|県)?([^都道府県]{1,6}?(?:市|郡[^町村]{1,4}?[町村]|区))", d.get("addr", ""))
+    return m.group(1) if m else ""
+
+
 def auto_about(d, photos):
     """会社紹介の段を事実だけで組む（about を書いていない先）。写真は業種に合う外観のイメージ。
     町の電器店などはトップの2枚目→1枚目の順で使い回し、写真が1枚も無ければ出さない。"""
@@ -2005,10 +2041,9 @@ def auto_about(d, photos):
     if not pid:
         return None
     short = re.sub(r"(株式会社|有限会社|合同会社|合資会社|協同組合|医療法人|一般社団法人|社会福祉法人)", "", d["name"]).strip()
-    m = re.search(r"(?:都|道|府|県)?([^都道府県]{1,6}?(?:市|郡[^町村]{1,4}?[町村]|区))", d.get("addr", ""))
-    city = m.group(1) if m else ""
+    city = city_of(d)
     p1 = (f'{d["founded"]}年の創業。' if d.get("founded") else "") + (f'{d["addr"]}にあります。' if d.get("addr") else "")
-    names = [t for t, _ in d["services"][:3]]
+    names = svc_names(d, 3)
     p2 = "「" + "」「".join(names) + "」などを承っています。"
     return {"photo": pid, "cap": "イメージ写真", "h": (f"{city}の、{short}。" if city else f"{short}について"),
             "p": [x for x in (p1, p2) if x], "btn": "会社概要"}
