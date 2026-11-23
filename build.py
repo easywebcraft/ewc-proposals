@@ -918,10 +918,9 @@ def apply_demo(html, d):
 #   ②「気になった点」の下に、採点で確かめた事実を「確かめた内容」として足す（気になった点の文はメールと同じまま）
 #   ③冒頭の演出と末尾のご提案の頭を、提案書の表紙の形（御中・日付・担当）にする
 TEIAN_CSS = """
-.ewl-to.cv{display:grid;gap:2px;font-size:13px;letter-spacing:.06em}
-.ewl-to.cv .t{font-size:11px;letter-spacing:.3em;color:#6b7a90}
-.ewl-to.cv .n{font-size:17px}
-.ewl-to.cv .m{font-size:11.5px;font-weight:400;color:#4a5b75}
+.ewl-to.cv{font-size:12.5px;font-weight:400;letter-spacing:.06em;color:#4a5b75}
+.ewl-to.cv .t{font-weight:700;letter-spacing:.2em;color:var(--navy,#10294f)}
+.ewl-to.cv .s{margin:0 .6em;color:#b5c0cf}
 .pintro .pi-cover{padding:4px 0 14px;border-bottom:1px solid #c9d4e3;text-align:center}
 .pintro .pi-doc{margin:0;font-size:12px;font-weight:700;letter-spacing:.3em;color:#4a5b75}
 .pintro .pi-cover .pi-to{margin:8px 0 0;font-size:clamp(20px,4.4vw,26px)}
@@ -1044,8 +1043,9 @@ def apply_teian(html, d, out):
     html = html[:a] + teian_intro_html(d, out) + html[b:]
     _y, ds = teian_date(d)
     old = f'<p class="ewl-to"><span>{e(d["name"])}様への</span><span>ご提案</span></p>'
-    new = (f'<p class="ewl-to cv"><span class="t">ご提案書</span><span class="n">{e(d["name"])} 御中</span>'
-           f'<span class="m">{ds}　EasyWebCraft</span></p>')
+    # 社名は円の中のロゴで出るので、ここには入れない（2026-11-23 松本さん「社名が2つあってごちゃごちゃ」）。御中は末尾の表紙だけ
+    new = (f'<p class="ewl-to cv"><span class="t">ご提案書</span><span class="s">｜</span>'
+           f'<span>{ds}</span><span class="s">｜</span><span>EasyWebCraft</span></p>')
     if old not in html:
         raise SystemExit(f"{d['name']}：冒頭の宛名が見つからない")
     return html.replace(old, new, 1).replace("</style>", TEIAN_CSS + "</style>", 1)
