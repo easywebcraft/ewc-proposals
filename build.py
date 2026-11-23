@@ -456,6 +456,7 @@ def main(only=None, thin_ok=False):
     else:
         n = sum(1 for d in sites.values() if thin_check(d))
         print(f"（文の薄さの点検に通らない見本：{n} / {len(sites)} 件。前からある見本はこのまま書き出す）")
+    teian = teian_keys()
     for sid, d in sites.items():
         if only and sid not in only:
             continue
@@ -470,6 +471,8 @@ def main(only=None, thin_ok=False):
         html = apply_fast(html)   # 冒頭の演出を約2秒に（2026-11-15 松本さん「全てのサイトに適用」）
         if INDUSTRY[d["industry"]].get("layout") == "modern":
             html = apply_intro(html, d)   # 提案の説明・料金・デモ表示（2026-11-17 松本さん「全てに公開して」）
+            if sid in teian:   # 提案書の形（2026-11-23 松本さん「御社専用の提案書という感じを」）
+                html = apply_teian(html, dict(d, teian_date=teian[sid]), out)
         (out / "index.html").write_text(html, encoding="utf-8")
         print(f"  {sid:<14} {d['name'][:22]:<24} {len(html):>6} バイト")
 
@@ -1023,32 +1026,29 @@ def teian_intro_html(d, folder):
 """
 
 
-def trial_teian(sid):
-    """提案書の形にした試作を <キー>-teian/ に作る。今の見本（<キー>/）は変えない（2026-11-23）。
-    並べる画像は先に nowshot.py で <キー>-teian/ に撮っておく（無ければ並べる枠を出さない）。"""
-    import modern
-    root = pathlib.Path(__file__).resolve().parent
-    d = json.loads((root / "sites.json").read_text(encoding="utf-8"))[sid]
-    out = root / (sid + "-teian")
-    out.mkdir(exist_ok=True)
-    html = render(sid, d)
-    if INDUSTRY[d["industry"]].get("layout") == "modern":
-        html = apply_pick(html, d)
-    html = apply_intro(apply_fast(html), d)
-    # 末尾のご提案の説明を提案書版に差し替える
+def teian_keys():
+    """提案書の形にする見本（teian.tsv：キー・表紙の日付）。2026-11-23 にまだ送っていない在庫から入れ始めた。
+    ★表紙の日付は、ここに書いた日で固定する（作り直すたびに日付が変わらないように）。"""
+    p = pathlib.Path(__file__).resolve().parent / "teian.tsv"
+    if not p.is_file():
+        return {}
+    rows = [x.split("\t") for x in p.read_text(encoding="utf-8").splitlines()[1:] if x.strip()]
+    return {r[0]: r[1] for r in rows}
+
+
+def apply_teian(html, d, out):
+    """apply_intro のあとに呼ぶ。末尾のご提案を提案書版（表紙・今のサイトとの比較・確かめた内容）に、
+    冒頭の演出の宛名を表紙の形にする。比較の画像は nowshot.py が <キー>/ に撮る（無ければ比較の枠を出さない）。"""
     a = html.find('<section class="pintro"')
     b = html.find("</section>", a) + len("</section>\n")
     html = html[:a] + teian_intro_html(d, out) + html[b:]
-    # 冒頭の演出の宛名を表紙の形に
     _y, ds = teian_date(d)
     old = f'<p class="ewl-to"><span>{e(d["name"])}様への</span><span>ご提案</span></p>'
     new = (f'<p class="ewl-to cv"><span class="t">ご提案書</span><span class="n">{e(d["name"])} 御中</span>'
            f'<span class="m">{ds}　EasyWebCraft</span></p>')
     if old not in html:
-        raise SystemExit("冒頭の宛名が見つからない")
-    html = html.replace(old, new, 1).replace("</style>", TEIAN_CSS + "</style>", 1)
-    (out / "index.html").write_text(html, encoding="utf-8")
-    print(f"  {sid}-teian  {d['name']}  {len(html)} バイト（提案書の形の試作）")
+        raise SystemExit(f"{d['name']}：冒頭の宛名が見つからない")
+    return html.replace(old, new, 1).replace("</style>", TEIAN_CSS + "</style>", 1)
 
 
 def trial_intro(sid):
@@ -1087,10 +1087,6 @@ def apply_intro(html, d):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 2 and sys.argv[1] == "--teian":
-        for k in sys.argv[2:]:
-            trial_teian(k)
-        sys.exit()
     if len(sys.argv) > 2 and sys.argv[1] == "--intro":
         for k in sys.argv[2:]:
             trial_intro(k)

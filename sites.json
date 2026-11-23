@@ -1224,7 +1224,7 @@
   "photos": {"hero": "ai-kanban-1"}
  },
  "kankyo-enesystem": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が8年前まで / jQuery 1.6"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が6年前まで / jQuery 1.6"},
   "name": "日本環境エネシステム株式会社",
   "roman": "NEES",
   "industry": "kensetsu",
@@ -2305,7 +2305,7 @@
   "texture": "kinzoku"
  },
  "c-sanei": {
-  "intro": {"findings": "レスポンシブ指定なし / 更新が10年前まで / 許可表記が古い(般-27→般-7・令和7年更新)"},
+  "intro": {"findings": "レスポンシブ指定なし / 更新が6年前まで / 許可表記が古い(般-27→般-7・令和7年更新)"},
   "permits": ["愛知県知事許可（般-7）第25337号"],
   "name": "株式会社ＳＡＮＥＩ",
   "roman": "SANEI",
@@ -5342,7 +5342,7 @@
   "permits": ["愛知県知事許可（特-6）第65148号"]
  },
  "inter-group": {
-  "intro": {"findings": "古いタグ(font) / レスポンシブ指定なし / 更新が4年前まで / 文字コード shift_jis"},
+  "intro": {"findings": "古いタグ(font) / レスポンシブ指定なし / 文字コード shift_jis"},
    "name": "株式会社インターナショナルコミュニケーションズ",
    "roman": "INTERNATIONAL COMMUNICATIONS",
    "industry": "kensetsu",
@@ -10165,7 +10165,7 @@
   "photos": {"hero": "ai-g-welding"}
  },
  "nagasaki-eng": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が14年前まで / jQuery 1.7"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が7年前まで / jQuery 1.7"},
   "name": "有限会社長崎製作所",
   "roman": "NAGASAKI SEISAKUSHO",
   "industry": "seizo",
@@ -11037,7 +11037,7 @@
   "accent": "#1d4d6c"
  },
  "softhands": {
-  "intro": {"findings": "https不可(つながらない) / 更新が9年前まで"},
+  "intro": {"findings": "https不可(つながらない)"},
   "name": "有限会社ソフトハンズ",
   "roman": "SOFT HANDS",
   "industry": "seizo",
@@ -13590,7 +13590,7 @@
   }
  },
  "putio": {
-  "intro": {"findings": "スマホ非対応 / 古いタグ(font,center) / レスポンシブ指定なし / 更新が3年前まで"},
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,center) / レスポンシブ指定なし"},
   "name": "有限会社プティオ",
   "roman": "PUTIO",
   "industry": "seizo",
@@ -13631,7 +13631,7 @@
   "accent": "#1e7a8c"
  },
  "tomoku-wood": {
-  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし / 更新が15年前まで"},
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし"},
   "name": "有限会社トーモク",
   "roman": "TOMOKU",
   "industry": "kensetsu",
@@ -14131,7 +14131,7 @@
   "texture": "ashiba"
  },
  "voxa": {
-  "intro": {"findings": "表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が14年前まで / 文字コード shift_jis"},
+  "intro": {"findings": "表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社クリエイトエンジニアリング",
   "roman": "CREATE ENGINEERING",
   "industry": "seizo",
@@ -16655,7 +16655,7 @@
   "texture": "kinzoku"
  },
  "takahiro": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が11年前まで"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
   "name": "高広工業株式会社",
   "roman": "TAKAHIRO ENGINEERING WORKS",
   "industry": "seizo",
@@ -17788,7 +17788,7 @@
   "accent": "#2b4c7e"
  },
  "kanemonet": {
-  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor) / レスポンシブ指定なし / 更新が14年前まで"},
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,bgcolor) / レスポンシブ指定なし"},
   "name": "カネモ木材株式会社",
   "roman": "KANEMO MOKUZAI",
   "industry": "kensetsu",
@@ -19335,7 +19335,7 @@
   "accent": "#008458"
  },
  "tms4088": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が15年前まで / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が5年前まで / 文字コード shift_jis"},
   "name": "有限会社東海マシンシステム",
   "roman": "TOKAI MACHINE SYSTEM",
   "industry": "seizo",
@@ -19471,7 +19471,7 @@
   "accent": "#6863d5"
  },
  "nittakogyo": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が17年前まで / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が3年前まで / 文字コード shift_jis"},
   "name": "新田工業株式会社",
   "roman": "NITTA KOGYO",
   "industry": "seizo",
@@ -21183,7 +21183,7 @@
   "photos": {"hero": "ai-s-ishiharasekizai-6"}
  },
  "vravo": {
-  "intro": {"findings": "スマホ非対応 / 古いタグ(font,bgcolor) / レスポンシブ指定なし / 更新が7年前まで / 文字コード shift_jis"},
+  "intro": {"findings": "スマホ非対応 / 古いタグ(font,bgcolor) / レスポンシブ指定なし / 文字コード shift_jis"},
   "name": "株式会社コーワ",
   "roman": "KOWA",
   "industry": "seizo",
@@ -21597,7 +21597,7 @@
   "photos": {"hero": "ai-g-welding"}
  },
  "senga-dc": {
-  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(center,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が25年前まで"},
+  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(center,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が6年前まで"},
   "name": "センガ株式会社",
   "roman": "SENGA",
   "industry": "seizo",
