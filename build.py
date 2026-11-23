@@ -910,6 +910,147 @@ def apply_demo(html, d):
     return html
 
 
+# 試作（2026-11-23 松本さん「御社専用の提案書という感じをもっと出したい」）：
+#   ①今のサイトと見本をスマホの最初の画面で並べる（画像は nowshot.py）
+#   ②「気になった点」の下に、採点で確かめた事実を「確かめた内容」として足す（気になった点の文はメールと同じまま）
+#   ③冒頭の演出と末尾のご提案の頭を、提案書の表紙の形（御中・日付・担当）にする
+TEIAN_CSS = """
+.ewl-to.cv{display:grid;gap:2px;font-size:13px;letter-spacing:.06em}
+.ewl-to.cv .t{font-size:11px;letter-spacing:.3em;color:#6b7a90}
+.ewl-to.cv .n{font-size:17px}
+.ewl-to.cv .m{font-size:11.5px;font-weight:400;color:#4a5b75}
+.pintro .pi-cover{padding:4px 0 14px;border-bottom:1px solid #c9d4e3;text-align:center}
+.pintro .pi-doc{margin:0;font-size:12px;font-weight:700;letter-spacing:.3em;color:#4a5b75}
+.pintro .pi-cover .pi-to{margin:8px 0 0;font-size:clamp(20px,4.4vw,26px)}
+.pintro .pi-meta{margin:8px 0 0;font-size:12.5px;color:#4a5b75}
+.pintro .pi-meta span{display:inline-block;margin:0 6px}
+.pintro .pi-cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 0}
+.pintro .pi-cmp figure{margin:0;text-align:center}
+.pintro .pi-cmp img{display:block;width:100%;height:auto;border:1px solid #c9d4e3;border-radius:10px;box-shadow:0 6px 18px rgba(16,41,79,.12)}
+.pintro .pi-cmp figcaption{margin-top:6px;font-size:12.5px;font-weight:700;color:#4a5b75}
+.pintro .pi-cmp .new figcaption{color:#10294f}
+.pintro .pi-cmp-note{margin:6px 0 0;font-size:11.5px;color:#4a5b75;text-align:center}
+.pintro .pi-ev{margin:0;font-size:12.5px;line-height:1.6;color:#4a5b75}
+.pintro .pi-ev span{background:#fff;border:1px solid #c9d4e3;color:#4a5b75}
+@media(min-width:760px){.pintro .pi-ev{grid-column:1/-1}.pintro .pi-cmp{max-width:520px;margin-left:auto;margin-right:auto}}
+"""
+
+
+def evidence_for(key, d, year):
+    """「確かめた内容」の文。採点の所見（sitecheck.py の findings）から、相手のサイトの事実だけを書く。書けない所見は空。"""
+    # ★年は採点の記録から書かない。記録の年は「since 2010」のような創業の表記も拾うため、
+    #   今のサイトで人が確かめた文を sites.json の intro.evidence に書いた先だけに出す（2026-11-23 アーキ名城で発覚）
+    hand = d.get("intro", {}).get("evidence", {}).get(key)
+    if hand:
+        return hand
+    fs = [x.strip() for x in d.get("intro", {}).get("findings", "").split(" / ")]
+    f = next((x for x in fs if x.startswith(key)), "")
+    if not f:
+        return ""
+    if key == "スマホ非対応":
+        return "スマートフォン用の表示の設定が入っておらず、パソコン用の画面がそのまま縮んで表示されます"
+    if key == "レスポンシブ":
+        return "画面の幅に合わせて、文字や写真の並びを変える指定がありません"
+    if key == "古いタグ":
+        tags = re.search(r"\((.+)\)", f)
+        return f"文字の大きさや色、配置を、古い書き方（{tags.group(1).replace(',', '・')} などの指定）で決めています" if tags else ""
+    if key == "表組みレイアウト":
+        return "ページ全体の配置を、表（テーブル）で組んでいます"
+    if key == "https不可":
+        return "https:// のアドレスで開けず、ブラウザに「保護されていない通信」と表示されます"
+    if key == "証明書エラー":
+        return ("鍵付きの通信の証明書の期限が切れていて、開くと警告が出ます" if "期限切れ" in f
+                else "鍵付きの通信の証明書が別のアドレス用のもので、開くと警告が出ます")
+    if key == "Flash":
+        return "今のブラウザでは表示されない Flash の部品が残っています"
+    # 許可表記が古い：「この案では」の文が国の記録の年と表記まで書いているので、重ねて出さない
+    return ""
+
+
+def teian_date(d):
+    """表紙の日付。sites.json の teian_date（YYYY-MM-DD）があればそれ、無ければ作った日。"""
+    import datetime
+    s = d.get("teian_date") or datetime.date.today().isoformat()
+    y, m, dd = (int(x) for x in s.split("-"))
+    return y, f"{y}年{m}月{dd}日"
+
+
+def cover_html(d):
+    import modern
+    _y, ds = teian_date(d)
+    return (f'<div class="pi-cover"><p class="pi-doc">ホームページ リニューアルのご提案</p>'
+            f'<h2 class="pi-to" id="pi-to">{e(d["name"])} 御中</h2>'
+            f'<p class="pi-meta"><span>{ds}</span><span>EasyWebCraft　担当：{e(modern.EWC_STAFF)}</span></p></div>')
+
+
+def compare_html(d, folder):
+    """今のサイトと見本の、スマホの最初の画面を並べる。画像が2つそろっていなければ出さない。"""
+    if not ((folder / "now-sp.jpg").is_file() and (folder / "fv-sp.jpg").is_file()):
+        return ""
+    import modern
+    _y, ds = teian_date(d)
+    short = e(modern.short_name(d["name"]))
+    return (f'<div class="pi-cmp"><figure><img src="now-sp.jpg" alt="{short}様の今のサイトをスマートフォンで開いた画面" loading="lazy">'
+            f'<figcaption>今のサイト</figcaption></figure>'
+            f'<figure class="new"><img src="fv-sp.jpg" alt="この案をスマートフォンで開いた画面" loading="lazy">'
+            f'<figcaption>この案</figcaption></figure></div>'
+            f'<p class="pi-cmp-note">どちらもスマートフォンで開いた最初の画面です（{ds}に撮影）</p>')
+
+
+def teian_intro_html(d, folder):
+    """intro_html の提案書版。並べた画像・確かめた内容・表紙の頭を入れる。"""
+    sm = _salesmail()
+    year, _ds = teian_date(d)
+    m = sm.matched_pitches(d.get("intro", {}).get("findings", ""))
+    main, rest = m[:2], m[2:]
+
+    def ev(k):
+        t = evidence_for(k, d, year)
+        return f'<p class="pi-ev"><span>確かめた内容</span>{e(t)}</p>' if t else ""
+    pair = "".join(
+        f'<li><p class="pi-q"><span>気になった点</span>{e(ph)}</p>'
+        f'<p class="pi-a"><span>この案では</span>{e(fix_for(k, d))}</p>{ev(k)}</li>' for k, ph in main)
+    more = [FIXES[k] for k, _ph in rest if FIXES[k] not in {FIXES[x] for x, _ in main}]
+    more_html = f'<p class="pi-more"><b>あわせて</b>{"／".join(e(x) for x in more)}</p>' if more else ""
+    box = (f'<div class="pi-box"><p class="pi-bh">メールでお伝えした点と、この案での改善</p>'
+           f'{compare_html(d, folder)}<ol class="pi-pairs">{pair}</ol>{more_html}</div>') if m else ""
+    return f"""<section class="pintro" id="proposal" aria-labelledby="pi-to">
+  <div class="pi-in">
+    {cover_html(d)}
+    {box}
+  </div>
+</section>
+"""
+
+
+def trial_teian(sid):
+    """提案書の形にした試作を <キー>-teian/ に作る。今の見本（<キー>/）は変えない（2026-11-23）。
+    並べる画像は先に nowshot.py で <キー>-teian/ に撮っておく（無ければ並べる枠を出さない）。"""
+    import modern
+    root = pathlib.Path(__file__).resolve().parent
+    d = json.loads((root / "sites.json").read_text(encoding="utf-8"))[sid]
+    out = root / (sid + "-teian")
+    out.mkdir(exist_ok=True)
+    html = render(sid, d)
+    if INDUSTRY[d["industry"]].get("layout") == "modern":
+        html = apply_pick(html, d)
+    html = apply_intro(apply_fast(html), d)
+    # 末尾のご提案の説明を提案書版に差し替える
+    a = html.find('<section class="pintro"')
+    b = html.find("</section>", a) + len("</section>\n")
+    html = html[:a] + teian_intro_html(d, out) + html[b:]
+    # 冒頭の演出の宛名を表紙の形に
+    _y, ds = teian_date(d)
+    old = f'<p class="ewl-to"><span>{e(d["name"])}様への</span><span>ご提案</span></p>'
+    new = (f'<p class="ewl-to cv"><span class="t">ご提案書</span><span class="n">{e(d["name"])} 御中</span>'
+           f'<span class="m">{ds}　EasyWebCraft</span></p>')
+    if old not in html:
+        raise SystemExit("冒頭の宛名が見つからない")
+    html = html.replace(old, new, 1).replace("</style>", TEIAN_CSS + "</style>", 1)
+    (out / "index.html").write_text(html, encoding="utf-8")
+    print(f"  {sid}-teian  {d['name']}  {len(html)} バイト（提案書の形の試作）")
+
+
 def trial_intro(sid):
     """提案の説明を見本の前に置いた試作を <キー>-intro/ に作る。今の見本（<キー>/）は変えない（2026-11-17）。"""
     root = pathlib.Path(__file__).resolve().parent
@@ -946,6 +1087,10 @@ def apply_intro(html, d):
 
 
 if __name__ == "__main__":
+    if len(sys.argv) > 2 and sys.argv[1] == "--teian":
+        for k in sys.argv[2:]:
+            trial_teian(k)
+        sys.exit()
     if len(sys.argv) > 2 and sys.argv[1] == "--intro":
         for k in sys.argv[2:]:
             trial_intro(k)
