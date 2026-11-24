@@ -1,38 +1,25 @@
-"""今のサイトをスマホとして開き、横幅と警告の画面かを測る。python3 measure.py <キー>  → キー\t横幅\tURL\t題名"""
-import json, os, random, subprocess, sys, tempfile, time, urllib.request, shutil
-sys.path.insert(0, os.path.expanduser("~/ewc-proposals")); sys.path.insert(0, os.path.expanduser("~/.claude/skills/hp-sample/scripts"))
-import nowshot as N, shoot as sh
+#!/usr/bin/env python3
+"""見本の相手の今のサイトをスマホとして開き、横幅と警告の画面かを測る（2026-11-24）。
 
-def run(keys):
-    for k in keys:
-        q = subprocess.Popen([sys.executable, os.path.abspath(__file__), "--one", k], stdout=subprocess.PIPE,
-                             stderr=subprocess.DEVNULL, text=True, start_new_session=True)
-        try:
-            o = q.communicate(timeout=45)[0].strip()
-        except subprocess.TimeoutExpired:
-            os.killpg(q.pid, 9); q.wait(); o = ""
-        print(o or f"{k}	?", flush=True)
+    python3 fitcheck.py <キー>...      → キー<TAB>横幅<TAB>開いたURL<TAB>題名（URL は teian.tsv の3列目）
 
+★比較画像を撮ったあとに流す。次の先は nowshot.py の3つの画像を消す：
+  ・横幅が420以下（スマホ用のページが出て、普通に読める。所見の「スマホ非対応」も誤りなので外す）
+  ・開いたURLが chrome-error://（警告の画面）で、所見に「証明書エラー」が無い
+  ・題名が 404・500 など
+★測る中身は ~/kmtools/mobilefit.py（採点の道具と同じ物差し）。
+"""
+import os
+import sys
 
-if sys.argv[1:2] != ["--one"]:
-    run(sys.argv[1:]); sys.exit()
-sys.argv.pop(1)
-k = sys.argv[1]; url = N.load_teian()[k]
-port = random.randint(20000, 40000); prof = tempfile.mkdtemp(prefix="chrome-")
-p = subprocess.Popen([sh.CHROME, "--headless=new", "--hide-scrollbars", f"--remote-debugging-port={port}",
-    "--disable-features=HttpsUpgrades,HttpsFirstBalancedModeAutoEnable,HttpsFirstModeV2ForTypicallySecureUsers",
-    f"--user-data-dir={prof}", "about:blank"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-try:
-    for _ in range(100):
-        try:
-            page = next(t for t in json.load(urllib.request.urlopen(f"http://127.0.0.1:{port}/json")) if t.get("type") == "page"); break
-        except Exception: time.sleep(0.1)
-    ws = sh.WS(page["webSocketDebuggerUrl"]); ws.call("Page.enable"); ws.call("Network.enable")
-    ws.call("Network.setUserAgentOverride", userAgent=N.UA)
-    ws.call("Emulation.setDeviceMetricsOverride", width=390, height=844, deviceScaleFactor=2, mobile=True)
-    ws.call("Page.navigate", url=url); ws.wait_event("Page.loadEventFired", 30); time.sleep(3)
-    r = ws.call("Runtime.evaluate", returnByValue=True, expression="JSON.stringify([Math.max(document.documentElement.scrollWidth, document.body?document.body.scrollWidth:0), window.innerWidth, location.href, document.title])")
-    w, iw, href, title = json.loads(r["result"]["value"])
-    print(f"{k}\t{w}\t{iw}\t{href}\t{title}")
-finally:
-    p.kill(); shutil.rmtree(prof, ignore_errors=True)
+sys.path.insert(0, os.path.expanduser("~/kmtools"))
+import mobilefit   # noqa: E402
+import nowshot as N   # noqa: E402
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        sys.exit(__doc__)
+    urls = N.load_teian()
+    for k in sys.argv[1:]:
+        w, final, t = mobilefit.measure(urls[k])
+        print(f"{k}\t{'?' if w is None else w}\t{final}\t{t}", flush=True)
