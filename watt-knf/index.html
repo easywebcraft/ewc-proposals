@@ -935,6 +935,24 @@ a.btn[data-demo]::after,.contact a.big[data-demo]::after{content:"デモ表示";
 @media(min-width:900px){.ewcbar .bt{display:grid!important;grid-template-columns:1fr 1fr}}   /* 2つのボタンを同じ幅に（2026-11-22） */
 @media(max-width:599px){.via{display:none}}
 .ewcbar a .via{margin-left:-8px}
+
+.ewl-to.cv{font-size:12.5px;font-weight:400;letter-spacing:.06em;color:#4a5b75}
+.ewl-to.cv .t{font-weight:700;letter-spacing:.2em;color:var(--navy,#10294f)}
+.ewl-to.cv .s{margin:0 .6em;color:#b5c0cf}
+.pintro .pi-cover{padding:4px 0 14px;border-bottom:1px solid #c9d4e3;text-align:center}
+.pintro .pi-doc{margin:0;font-size:12px;font-weight:700;letter-spacing:.3em;color:#4a5b75}
+.pintro .pi-cover .pi-to{margin:8px 0 0;font-size:clamp(20px,4.4vw,26px)}
+.pintro .pi-meta{margin:8px 0 0;font-size:12.5px;color:#4a5b75}
+.pintro .pi-meta span{display:inline-block;margin:0 6px}
+.pintro .pi-cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 0}
+.pintro .pi-cmp figure{margin:0;text-align:center}
+.pintro .pi-cmp img{display:block;width:100%;height:auto;border:1px solid #c9d4e3;border-radius:10px;box-shadow:0 6px 18px rgba(16,41,79,.12)}
+.pintro .pi-cmp figcaption{margin-top:6px;font-size:12.5px;font-weight:700;color:#4a5b75}
+.pintro .pi-cmp .new figcaption{color:#10294f}
+.pintro .pi-cmp-note{margin:6px 0 0;font-size:11.5px;color:#4a5b75;text-align:center}
+.pintro .pi-ev{margin:0;font-size:12.5px;line-height:1.6;color:#4a5b75}
+.pintro .pi-ev span{background:#fff;border:1px solid #c9d4e3;color:#4a5b75}
+@media(min-width:760px){.pintro .pi-ev{grid-column:1/-1}.pintro .pi-cmp{max-width:520px;margin-left:auto;margin-right:auto}}
 </style>
 <script>
 document.documentElement.classList.add('anim','js');
@@ -997,7 +1015,7 @@ section.alt.about{background:#e9e4da}
     <span class="ewl-pct">0%</span>
   </div>
   <div class="ewl-p2"><div class="logo">株式会社ワット<small>WATT</small></div></div>
-  <p class="ewl-to"><span>株式会社ワット様への</span><span>ご提案</span></p>
+  <p class="ewl-to cv"><span class="t">ご提案書</span><span class="s">｜</span><span>EasyWebCraft</span></p>
   <span class="ewl-skip">タップでスキップ</span>
 </div>
 
@@ -1078,13 +1096,8 @@ section.alt.about{background:#e9e4da}
 </div>
 <section class="pintro" id="proposal" aria-labelledby="pi-to">
   <div class="pi-in">
-    <div class="pi-head"><p class="pi-from">EasyWebCraft からのご提案</p>
-    <h2 class="pi-to" id="pi-to">株式会社ワット様へ</h2></div>
-    <div class="pi-box">
-      <p class="pi-bh">メールでお伝えした点と、この案での改善</p>
-      <ol class="pi-pairs"><li><p class="pi-q"><span>気になった点</span>「このサイトは安全ではありません」と表示される場合がある点</p><p class="pi-a"><span>この案では</span>鍵付きの通信で公開し、「安全ではありません」の表示が出ないようにします</p></li><li><p class="pi-q"><span>気になった点</span>スマートフォンで見た際に、文字が小さく表示される箇所がある点</p><p class="pi-a"><span>この案では</span>スマートフォンの画面に合わせて、文字や写真を読みやすい大きさで表示します。この案もスマートフォンでそのままご覧いただけます</p></li></ol>
-      <p class="pi-more"><b>あわせて</b>お知らせや写真の更新は、公開後も月額の中で当社がお手伝いします／今の作り方で作り直し、文章や写真の一部だけを手軽に直せるようにします／スマートフォン・タブレット・パソコンのどれで見ても、見え方が整うようにします</p>
-    </div>
+    <div class="pi-cover"><p class="pi-doc">ホームページ リニューアルのご提案</p><h2 class="pi-to" id="pi-to">株式会社ワット 御中</h2><p class="pi-meta"><span>EasyWebCraft　担当：田代</span></p></div>
+    <div class="pi-box"><p class="pi-bh">メールでお伝えした点と、この案での改善</p><div class="pi-cmp"><figure><img src="now-sp.jpg" alt="ワット様の今のサイトをスマートフォンで開いた画面" loading="lazy"><figcaption>今のサイト</figcaption></figure><figure class="new"><img src="fv-sp.jpg" alt="この案をスマートフォンで開いた画面" loading="lazy"><figcaption>この案</figcaption></figure></div><p class="pi-cmp-note">どちらもスマートフォンで開いた最初の画面です</p><ol class="pi-pairs"><li><p class="pi-q"><span>気になった点</span>「このサイトは安全ではありません」と表示される場合がある点</p><p class="pi-a"><span>この案では</span>鍵付きの通信で公開し、「安全ではありません」の表示が出ないようにします</p><p class="pi-ev"><span>確かめた内容</span>https:// のアドレスで開けず、ブラウザに「保護されていない通信」と表示されます</p></li><li><p class="pi-q"><span>気になった点</span>スマートフォンで見た際に、文字が小さく表示される箇所がある点</p><p class="pi-a"><span>この案では</span>スマートフォンの画面に合わせて、文字や写真を読みやすい大きさで表示します。この案もスマートフォンでそのままご覧いただけます</p><p class="pi-ev"><span>確かめた内容</span>スマートフォン用の表示の設定が入っておらず、パソコン用の画面がそのまま縮んで表示されます</p></li></ol><p class="pi-more"><b>あわせて</b>お知らせや写真の更新は、公開後も月額の中で当社がお手伝いします／今の作り方で作り直し、文章や写真の一部だけを手軽に直せるようにします／スマートフォン・タブレット・パソコンのどれで見ても、見え方が整うようにします</p></div>
   </div>
 </section>
 <section class="pplan" id="plan" aria-labelledby="pp-h">
