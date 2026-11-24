@@ -2305,7 +2305,7 @@
   "texture": "kinzoku"
  },
  "c-sanei": {
-  "intro": {"findings": "レスポンシブ指定なし / 更新が6年前まで / 許可表記が古い(般-27→般-7・令和7年更新)"},
+  "intro": {"findings": "更新が6年前まで / 許可表記が古い(般-27→般-7・令和7年更新)"},
   "permits": ["愛知県知事許可（般-7）第25337号"],
   "name": "株式会社ＳＡＮＥＩ",
   "roman": "SANEI",
@@ -19924,7 +19924,7 @@
   "accent": "#3d5a66"
  },
  "goyokogyo": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.9 / 証明書エラー(期限切れ)"},
+  "intro": {"findings": "jQuery 1.9 / 証明書エラー(期限切れ)"},
   "name": "有限会社五陽工業",
   "roman": "GOYO KOGYO",
   "industry": "kensetsu",
@@ -21738,7 +21738,7 @@
   "photos": {"hero": "ai-car-1", "slides": ["ai-car-2", "ai-car-3"]}
  },
  "tepro-co": {
-  "intro": {"findings": "証明書エラー(別の名前) / スマホ非対応 / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が10年前まで"},
+  "intro": {"findings": "証明書エラー(別の名前) / 古いタグ(cellpadding) / 更新が10年前まで"},
   "name": "株式会社中部テプロ",
   "roman": "CHUBU TEPRO",
   "industry": "seizo",
