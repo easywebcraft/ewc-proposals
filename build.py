@@ -979,10 +979,10 @@ def teian_date(d):
 
 def cover_html(d):
     import modern
-    _y, ds = teian_date(d)
+    # 日付は出さない（2026-11-24 松本さん。送るのが数週間先の会社もあり、古い日付は使い回しに見える）
     return (f'<div class="pi-cover"><p class="pi-doc">ホームページ リニューアルのご提案</p>'
             f'<h2 class="pi-to" id="pi-to">{e(d["name"])} 御中</h2>'
-            f'<p class="pi-meta"><span>{ds}</span><span>EasyWebCraft　担当：{e(modern.EWC_STAFF)}</span></p></div>')
+            f'<p class="pi-meta"><span>EasyWebCraft　担当：{e(modern.EWC_STAFF)}</span></p></div>')
 
 
 def compare_html(d, folder):
@@ -990,13 +990,12 @@ def compare_html(d, folder):
     if not ((folder / "now-sp.jpg").is_file() and (folder / "fv-sp.jpg").is_file()):
         return ""
     import modern
-    _y, ds = teian_date(d)
     short = e(modern.short_name(d["name"]))
     return (f'<div class="pi-cmp"><figure><img src="now-sp.jpg" alt="{short}様の今のサイトをスマートフォンで開いた画面" loading="lazy">'
             f'<figcaption>今のサイト</figcaption></figure>'
             f'<figure class="new"><img src="fv-sp.jpg" alt="この案をスマートフォンで開いた画面" loading="lazy">'
             f'<figcaption>この案</figcaption></figure></div>'
-            f'<p class="pi-cmp-note">どちらもスマートフォンで開いた最初の画面です（{ds}に撮影）</p>')
+            f'<p class="pi-cmp-note">どちらもスマートフォンで開いた最初の画面です</p>')
 
 
 def teian_intro_html(d, folder):
@@ -1041,11 +1040,10 @@ def apply_teian(html, d, out):
     a = html.find('<section class="pintro"')
     b = html.find("</section>", a) + len("</section>\n")
     html = html[:a] + teian_intro_html(d, out) + html[b:]
-    _y, ds = teian_date(d)
     old = f'<p class="ewl-to"><span>{e(d["name"])}様への</span><span>ご提案</span></p>'
     # 社名は円の中のロゴで出るので、ここには入れない（2026-11-23 松本さん「社名が2つあってごちゃごちゃ」）。御中は末尾の表紙だけ
     new = (f'<p class="ewl-to cv"><span class="t">ご提案書</span><span class="s">｜</span>'
-           f'<span>{ds}</span><span class="s">｜</span><span>EasyWebCraft</span></p>')
+           f'<span>EasyWebCraft</span></p>')
     if old not in html:
         raise SystemExit(f"{d['name']}：冒頭の宛名が見つからない")
     return html.replace(old, new, 1).replace("</style>", TEIAN_CSS + "</style>", 1)
