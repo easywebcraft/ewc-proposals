@@ -1378,7 +1378,7 @@
   "permits": ["ISO9001", "ISO14001"]
  },
  "suzuki-bankin": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.11 / 許可表記が古い(般-17→般-8・令和8年更新)"},
+  "intro": {"findings": "jQuery 1.11 / 許可表記が古い(般-17→般-8・令和8年更新)"},
   "permits": ["愛知県知事許可（般-8）第34716号"],
   "name": "有限会社鈴木鈑金",
   "roman": "SUZUKI BANKIN",
@@ -1423,7 +1423,7 @@
   "photos": {"hero": "ai-roof-3", "slides": ["ai-roof-4", "ai-roof-5"]}
  },
  "aotec": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.11 / 許可表記が古い(般-2→般-7・令和7年更新)"},
+  "intro": {"findings": "jQuery 1.11 / 許可表記が古い(般-2→般-7・令和7年更新)"},
   "name": "アオテック株式会社",
   "roman": "AOTEC",
   "industry": "kensetsu",
@@ -1920,7 +1920,7 @@
   "photos": {"hero": "ai-denki-3", "slides": ["ai-denki-2", "ai-denki-1"]}
  },
  "dai6": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし"},
+  "intro": {"findings": "https不可(つながらない)"},
   "name": "株式会社ダイロク",
   "roman": "DAIROKU",
   "industry": "seizo",
@@ -2069,7 +2069,7 @@
   "photos": {"hero": "ai-denkiten-2", "slides": ["ai-denkiten-1", "ai-denkiten-3"]}
  },
  "youi-factory": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が6年前まで / jQuery 1.7 / 許可表記が古い(般-19→般-5・令和5年更新)"},
+  "intro": {"findings": "更新が6年前まで / jQuery 1.7 / 許可表記が古い(般-19→般-5・令和5年更新)"},
   "name": "株式会社ユーアイファクトリー",
   "roman": "GALLERY YOUI",
   "industry": "kensetsu",
@@ -2122,7 +2122,7 @@
   "permits": ["愛知県知事許可（般-5）第62366号"]
  },
  "jpaintm": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
+  "intro": {"findings": ""},
   "name": "株式会社日本塗装名人社",
   "roman": "JPM",
   "industry": "kensetsu",
@@ -2745,7 +2745,7 @@
   "photos": {"hero": "ai-denki-3", "slides": ["ai-denki-2", "ai-denki-1"]}
  },
  "e-kaken": {
-  "intro": {"findings": "スマホ非対応"},
+  "intro": {"findings": ""},
   "name": "株式会社カケン",
   "roman": "KAKEN",
   "industry": "kensetsu",
@@ -3131,7 +3131,7 @@
   "permits": ["愛知県知事許可（般-8）第62839号"]
  },
  "sanyuhousing": {
-  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし / 許可表記が古い(般-29→般-4・令和4年更新)"},
+  "intro": {"findings": "古いタグ(font) / 許可表記が古い(般-29→般-4・令和4年更新)"},
   "name": "株式会社サンユーハウジング",
   "roman": "SANYU HOUSING",
   "industry": "kensetsu",
@@ -3176,7 +3176,7 @@
   "permits": ["愛知県知事許可（般-4）第108500号"]
  },
  "kamimura-mekki": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
+  "intro": {"findings": ""},
   "name": "神村真空メッキ工業株式会社",
   "roman": "KAMIMURA MEKKI",
   "industry": "seizo",
@@ -4478,7 +4478,7 @@
   "photos": {"hero": "ai-car-2", "slides": ["ai-car-1", "ai-car-3"]}
 },
  "iwado": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
+  "intro": {"findings": ""},
   "name": "岩戸工業株式会社",
   "roman": "IWADO KOGYO",
   "industry": "seizo",
@@ -4916,7 +4916,7 @@
    "photos": {"hero": "ai-g-telecom", "slides": ["ai-denki-2", "ai-denki-1"]}
  },
  "ina-soku": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 文字コード shift_jis"},
+  "intro": {"findings": "https不可(つながらない) / 文字コード shift_jis"},
    "name": "株式会社稲山測量設計",
    "roman": "INAYAMA SURVEY",
    "photos": {
@@ -5018,7 +5018,7 @@
    }
  },
  "takakuragumi": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.11"},
+  "intro": {"findings": "jQuery 1.11"},
    "name": "株式会社高座組",
    "roman": "TAKAKURA GUMI",
    "industry": "kensetsu",
@@ -5153,7 +5153,7 @@
    "photos": {"hero": "ai-seizo-1", "slides": ["ai-seizo-2", "ai-seizo-3"]}
  },
  "ilink-z": {
-  "intro": {"findings": "スマホ非対応 / 古いタグ(font) / レスポンシブ指定なし / 更新が13年前まで"},
+  "intro": {"findings": "古いタグ(font) / 更新が13年前まで"},
    "name": "アイリンク株式会社",
    "roman": "ILINK",
    "industry": "kensetsu",
@@ -5245,7 +5245,7 @@
   "permits": ["愛知県知事許可（特-3）第41399号"]
  },
  "ishiharasekizai": {
-  "intro": {"findings": "スマホ非対応 / 古いタグ(font)"},
+  "intro": {"findings": "古いタグ(font)"},
    "name": "石原石材株式会社",
    "roman": "ISHIHARA SEKIZAI",
    "industry": "kensetsu",
@@ -6107,7 +6107,7 @@
    "photos": {"hero": "ai-doboku-1", "slides": ["ai-doboku-2", "ai-doboku-3"]}
  },
  "kawashimakenzai": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 許可表記が古い(般-29→般-4・令和4年更新)"},
+  "intro": {"findings": "許可表記が古い(般-29→般-4・令和4年更新)"},
    "name": "株式会社川島建材",
    "roman": "KAWASHIMA KENZAI",
    "industry": "kensetsu",
@@ -6266,7 +6266,7 @@
   "permits": ["岐阜県知事許可（般-28）第350297号"]
  },
  "sougou-urakami": {
-  "intro": {"findings": "スマホ非対応 / 許可表記が古い(般-29→般-8・令和8年更新)"},
+  "intro": {"findings": "許可表記が古い(般-29→般-8・令和8年更新)"},
   "permits": ["三重県知事許可（般-8）第18780号"],
    "name": "総合建築浦上株式会社",
    "roman": "URAKAMI",
@@ -7652,7 +7652,7 @@
   ]
  },
  "watanabe-kawara": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / レスポンシブ指定なし / 更新が13年前まで / jQuery 1.7"},
+  "intro": {"findings": "https不可(つながらない) / 表組みレイアウト / 古いタグ(cellpadding) / 更新が13年前まで / jQuery 1.7"},
   "name": "株式会社渡辺瓦店",
   "roman": "WATANABE KAWARATEN",
   "industry": "kensetsu",
@@ -7845,7 +7845,7 @@
   }
  },
  "kamo-kensetsu": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / レスポンシブ指定なし / 更新が4年前まで"},
+  "intro": {"findings": "https不可(つながらない) / 表組みレイアウト / 古いタグ(font,bgcolor,cellpadding) / 更新が4年前まで"},
   "name": "加茂建設株式会社",
   "roman": "KAMO KENSETSU",
   "industry": "kensetsu",
@@ -8413,7 +8413,7 @@
   }
  },
  "shinko-kensetsu": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が10年前まで"},
+  "intro": {"findings": "https不可(つながらない) / 更新が10年前まで"},
   "name": "真行建設株式会社",
   "roman": "SHINKO KENSETSU",
   "industry": "kensetsu",
@@ -9056,7 +9056,7 @@
   }
  },
  "mishimakenchiku": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が27年前まで / Flashの残骸 / 許可表記が古い(特-1→特-6・令和6年更新)"},
+  "intro": {"findings": "更新が27年前まで / Flashの残骸 / 許可表記が古い(特-1→特-6・令和6年更新)"},
   "permits": ["岐阜県知事許可（般-6）第9345号", "岐阜県知事許可（特-6）第9345号"],
   "name": "株式会社三島建築",
   "roman": "MISHIMA KENCHIKU",
@@ -9755,7 +9755,7 @@
   "photos": {"hero": "ai-g-water", "slides": ["ai-house-g4", "ai-setsubi-3"]}
  },
  "marushin-house": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.10"},
+  "intro": {"findings": "jQuery 1.10"},
   "name": "株式会社丸信住宅産業",
   "roman": "MARUSHIN JUTAKU SANGYO",
   "industry": "kensetsu",
@@ -10777,7 +10777,7 @@
   "photos": {"hero": "ai-g-injection"}
  },
  "ishiikanagata": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.12"},
+  "intro": {"findings": "jQuery 1.12"},
   "name": "株式会社石井金型",
   "roman": "ISHII KANAGATA",
   "industry": "seizo",
@@ -11762,7 +11762,7 @@
   }
  },
  "naritakogyo": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし"},
+  "intro": {"findings": ""},
   "name": "株式会社成田工業所",
   "roman": "NARITA KOGYOSHO",
   "industry": "seizo",
@@ -11884,7 +11884,7 @@
   "accent": "#3c2f13"
  },
  "tr-c": {
-  "intro": {"findings": "スマホ非対応"},
+  "intro": {"findings": ""},
   "name": "株式会社東海螺子",
   "roman": "TOKAI RASHI",
   "industry": "seizo",
@@ -11931,7 +11931,7 @@
   "photos": {"hero": "ai-g-bolt", "svc": ["ai-s-tr-c-1", "ai-s-tr-c-2", null, null, null, "ai-s-tr-c-6"]}
  },
  "fukui-tekko": {
-  "intro": {"findings": "スマホ非対応"},
+  "intro": {"findings": ""},
   "name": "福井鉄工株式会社",
   "roman": "FUKUI TEKKO",
   "industry": "seizo",
@@ -13458,7 +13458,7 @@
   }
  },
  "tsroad": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 文字コード shift_jis / 許可表記が古い(般-25→般-5・令和5年更新)"},
+  "intro": {"findings": "https不可(つながらない) / 文字コード shift_jis / 許可表記が古い(般-25→般-5・令和5年更新)"},
   "permits": ["愛知県知事許可（般-5）第64536号"],
   "name": "ティー・エス・ロード有限会社",
   "roman": "TS ROAD",
@@ -14800,7 +14800,7 @@
   ]
  },
  "kurodite": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / 表組みレイアウト / 古いタグ(bgcolor,cellpadding) / レスポンシブ指定なし"},
+  "intro": {"findings": "https不可(つながらない) / 表組みレイアウト / 古いタグ(bgcolor,cellpadding)"},
   "name": "株式会社クロダイト",
   "roman": "KURODITE",
   "industry": "seizo",
@@ -16532,7 +16532,7 @@
   }
  },
  "e-prolink": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が3年前まで / jQuery 1.11"},
+  "intro": {"findings": "更新が3年前まで / jQuery 1.11"},
   "name": "株式会社プロリンク",
   "roman": "PRO LINK",
   "industry": "car",
@@ -16875,7 +16875,7 @@
   }
  },
  "zeneral": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.9"},
+  "intro": {"findings": "jQuery 1.9"},
   "name": "ゼネラルヒートポンプ工業株式会社",
   "roman": "ZENERAL HEAT PUMP",
   "industry": "seizo",
@@ -18252,7 +18252,7 @@
   "accent": "#0056f5"
  },
  "kuroyanagi": {
-  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / レスポンシブ指定なし / 文字コード shift_jis / 許可表記が古い(般-61→般-7・令和7年更新)"},
+  "intro": {"findings": "表組みレイアウト / 古いタグ(font,center,bgcolor,cellpadding) / 文字コード shift_jis / 許可表記が古い(般-61→般-7・令和7年更新)"},
   "permits": ["愛知県知事許可（般-7）第10592号"],
   "name": "株式会社黒柳塗装店",
   "roman": "KUROYANAGI TOSOUTEN",
@@ -20670,7 +20670,7 @@
   }
  },
  "itosougyou": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が8年前まで / jQuery 1.9"},
+  "intro": {"findings": "更新が8年前まで / jQuery 1.9"},
   "name": "株式会社イトウ総業",
   "roman": "ITO SOUGYOU",
   "industry": "kensetsu",
@@ -20762,7 +20762,7 @@
   }
  },
  "excell-garden": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / Flashの残骸"},
+  "intro": {"findings": "Flashの残骸"},
   "name": "株式会社エクセル",
   "roman": "EXCELL",
   "industry": "kensetsu",
@@ -21122,7 +21122,7 @@
   "photos": {"hero": "ai-setsubi-2"}
  },
  "nikkoo": {
-  "intro": {"findings": "スマホ非対応 / https不可(つながらない) / レスポンシブ指定なし / 更新が11年前まで / jQuery 1.11 / 許可表記が古い(般-29→般-4・令和4年更新)"},
+  "intro": {"findings": "https不可(つながらない) / 更新が11年前まで / jQuery 1.11 / 許可表記が古い(般-29→般-4・令和4年更新)"},
   "name": "日興建設株式会社",
   "roman": "NIKKO KENSETSU",
   "industry": "kensetsu",
@@ -21261,7 +21261,7 @@
   "texture": "mokume"
  },
  "nishimura-net": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / 更新が6年前まで / jQuery 1.11"},
+  "intro": {"findings": "更新が6年前まで / jQuery 1.11"},
   "name": "株式会社ニシムラ",
   "roman": "NISHIMURA",
   "industry": "seizo",
@@ -21678,7 +21678,7 @@
   "photos": {"hero": "ai-car-3", "slides": ["ai-car-1", "ai-car-2"]}
  },
  "daimaru-tekko": {
-  "intro": {"findings": "スマホ非対応 / 表組みレイアウト / 古いタグ(font,cellpadding) / レスポンシブ指定なし"},
+  "intro": {"findings": "表組みレイアウト / 古いタグ(font,cellpadding)"},
   "name": "有限会社大丸鉄工所",
   "roman": "DAIMARU TEKKOSHO",
   "industry": "seizo",
@@ -22060,7 +22060,7 @@
   "photos": {"hero": "ai-seizo-2"}
  },
  "hirose-alloy": {
-  "intro": {"findings": "スマホ非対応 / レスポンシブ指定なし / jQuery 1.9"},
+  "intro": {"findings": "jQuery 1.9"},
   "name": "ヒロセ合金株式会社",
   "roman": "HIROSE ALLOY",
   "industry": "seizo",
