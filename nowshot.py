@@ -110,6 +110,28 @@ def main():
         if skip:
             print("所見にスマホ非対応・証明書エラーが無いので撮らない：" + " ".join(skip))
         keys = [k for k in keys if worth(k)]
+    if "--all" in args:
+        # ★応答の無いサイトで Chrome との接続ごと止まった（2026-11-23 夜、117件目のあとで朝まで）。
+        #   1件ずつ別に動かし、120秒で Chrome ごと打ち切る
+        ng = []
+        for i, k in enumerate(keys, 1):
+            q = subprocess.Popen([sys.executable, os.path.abspath(__file__), k], stdout=subprocess.PIPE,
+                                 stderr=subprocess.STDOUT, text=True, start_new_session=True)
+            try:
+                out = q.communicate(timeout=120)[0]
+            except subprocess.TimeoutExpired:
+                os.killpg(q.pid, 9)
+                q.wait()
+                out = "撮れなかった（時間切れ）"
+                for f in ("now-sp.jpg", "fv-sp.jpg", "cmp.jpg"):
+                    if os.path.isfile(os.path.join(HERE, k, f)):
+                        os.remove(os.path.join(HERE, k, f))
+            ok = os.path.isfile(os.path.join(HERE, k, "cmp.jpg"))
+            ng += [] if ok else [k]
+            print(f"{i}/{len(keys)} {k}" + ("" if ok else " " + out.strip().splitlines()[-1]), flush=True)
+        if ng:
+            print("撮れなかった:", " ".join(ng))
+        return
     port = random.randint(20000, 40000)
     prof = tempfile.mkdtemp(prefix="chrome-")
     tmp = tempfile.mkdtemp(prefix="nowshot-")
